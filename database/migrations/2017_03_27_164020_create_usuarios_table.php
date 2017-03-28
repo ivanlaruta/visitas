@@ -19,7 +19,7 @@ class CreateUsuariosTable extends Migration
             $table->string('usuario',30);
             $table->string('password',30);
             $table->string('estado',1);
-            $table->integer('id_rol')->unsigned();
+            $table->string('id_rol')->unsigned();
             $table->timestamps();
 
             $table->foreign('ci_empleado')->references('ci')->on('empleados');

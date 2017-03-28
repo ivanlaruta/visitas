@@ -19,12 +19,12 @@ class CreateVisitasTable extends Migration
             $table->string('tipo_doc',10);
             $table->date('fecha');
             $table->time('hora_entrada');
-            $table->time('hora_salida');
+            $table->time('hora_salida');->nullable();
             $table->string('id_motivo',10);
             $table->string('ci_empleado',15)->unsigned();
             $table->string('id_tarjeta',15)->unsigned();
-            $table->string('observaciones');
-            $table->string('estado_visita',1);
+            $table->string('observaciones');->nullable();
+            $table->string('estado_visita',1);->nullable();
             $table->timestamps();
 
            
