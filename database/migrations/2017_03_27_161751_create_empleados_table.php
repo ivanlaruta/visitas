@@ -23,10 +23,16 @@ class CreateEmpleadosTable extends Migration
             $table->integer('id_cargo')->unsigned();
             $table->string('id_ubicacion',10)->unsigned();
             $table->string('telefono',15)->nullable();
-            $table->string('estado',1);
+            
+            $table->enum('estado',['1','0'])->default('1');
+            $table->integer('creado_por')->nullable()->unsigned();
+            $table->integer('modificado_por')->nullable()->unsigned();
             $table->timestamps();
 
             $table->primary('ci');
+
+            $table->foreign('creado_por')->references('id_usuario')->on('usuarios');
+            $table->foreign('modificado_por')->references('id_usuario')->on('usuarios');         
 
             $table->foreign('id_cargo')->references('id_cargo')->on('cargos');
             $table->foreign('id_ubicacion')->references('id_ubicacion')->on('ubicaciones');

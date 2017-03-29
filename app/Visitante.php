@@ -9,10 +9,18 @@ class Visitante extends Model
     protected $table = "visitantes";
     public $incrementing=false;
     protected $primaryKey ='ci';
-    protected $fillable =['ci','ex','nombre','paterno','materno','telefono','estado'];
+    protected $fillable =['ci','ex','nombre','paterno','materno','telefono','estado','creado_por','modificado_por'];
 
     public function visitas()
     {
-        return $this->hasMany('App\Visita');
+        return $this->hasMany('App\Visita','ci');
+    }
+     public function creado()
+    {
+        return $this->belongsTo('App\Usuario','creado_por');
+    }
+    public function modificado()
+    {
+        return $this->belongsTo('App\Usuario','modificado_por');
     }
 }

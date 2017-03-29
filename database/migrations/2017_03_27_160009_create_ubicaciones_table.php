@@ -17,10 +17,17 @@ class CreateUbicacionesTable extends Migration
             $table->string('id_ubicacion',10);
             $table->string('nombre',100);
             $table->string('ciudad',50);
-            $table->string('estado',1);
+            
+            $table->enum('estado',['1','0'])->default('1');
+            $table->integer('creado_por')->nullable()->unsigned();
+            $table->integer('modificado_por')->nullable()->unsigned();
             $table->timestamps();
 
             $table->primary('id_ubicacion');
+            
+            $table->foreign('creado_por')->references('id_usuario')->on('usuarios');
+            $table->foreign('modificado_por')->references('id_usuario')->on('usuarios');
+            
         });
     }
 

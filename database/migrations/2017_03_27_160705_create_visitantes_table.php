@@ -20,10 +20,19 @@ class CreateVisitantesTable extends Migration
             $table->string('paterno',30);
             $table->string('materno',30)->nullable();
             $table->string('telefono',15);
-            $table->string('estado',1);
+           
+            
+            $table->enum('estado',['1','0'])->default('1');
+            $table->integer('creado_por')->nullable()->unsigned();
+            $table->integer('modificado_por')->nullable()->unsigned();
             $table->timestamps();
 
             $table->primary('ci');
+
+            $table->foreign('creado_por')->references('id_usuario')->on('usuarios');
+            $table->foreign('modificado_por')->references('id_usuario')->on('usuarios');
+
+            
         });
     }
 
