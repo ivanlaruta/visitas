@@ -21,9 +21,9 @@ class Visita extends Model
     }
     public function motivo()
     {
-        return $this->belongsTo('App\Empleado','id_motivo');
+        return $this->belongsTo('App\Motivo','id_motivo');
     }
-    public function targeta()
+    public function tarjeta()
     {
     	return $this->belongsTo('App\Tarjeta','id_tarjeta');
     }

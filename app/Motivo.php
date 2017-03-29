@@ -8,7 +8,7 @@ class Motivo extends Model
 {
     protected $table = "motivos";
    
-    protected $primaryKey ='id_motivos';
+    protected $primaryKey ='id_motivo';
     protected $fillable =['descripcion','estado','creado_por','modificado_por'];
 
     public function visitas()
