@@ -10,4 +10,9 @@ class Ubicacion extends Model
     public $incrementing=false;
     protected $primaryKey ='id_ubicacion';
     protected $fillable =['id_ubicacion','nombre','ciudad','estado'];
+
+    public function empleados()
+    {
+    	return $this->hasMany('App\Empleado');
+    }
 }

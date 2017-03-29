@@ -9,4 +9,13 @@ class Usuario extends Model
     protected $table = "usuarios";
     protected $primaryKey ='id_usuario';
     protected $fillable =['ci_empleado','usuario','password','estado','id_rol'];
+
+    public function empleado()
+    {
+    	return $this->belongsTo('App\Empleado');
+    }
+    public function visitas()
+    {
+        return $this->hasMany('App\Visita');
+    }
 }

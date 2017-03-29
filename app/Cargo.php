@@ -10,4 +10,9 @@ class Cargo extends Model
    
     protected $primaryKey ='id_cargo';
     protected $fillable =['descripcion','estado'];
+
+    public function empleados()
+    {
+    	return $this->hasMany('App\Empleado');
+    }
 }

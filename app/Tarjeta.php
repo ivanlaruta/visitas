@@ -11,4 +11,9 @@ class Tarjeta extends Model
     protected $primaryKey ='id_tarjeta';
     protected $fillable =['id_tarjeta','descripcion','estado'];
 
+    public function visitas()
+    {
+        return $this->hasMany('App\Visita');
+    }
+
 }

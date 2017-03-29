@@ -10,4 +10,9 @@ class Visitante extends Model
     public $incrementing=false;
     protected $primaryKey ='ci';
     protected $fillable =['ci','ex','nombre','paterno','materno','telefono','estado'];
+
+    public function visitas()
+    {
+        return $this->hasMany('App\Visita');
+    }
 }
