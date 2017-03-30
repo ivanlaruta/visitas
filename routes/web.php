@@ -11,11 +11,16 @@
 |
 */
 
+// Route::get('visitas/{id}',[
+// 	'uses' 	=> 'TestController@view',
+// 	'as'	=> 'visitasView'
+// ]);
+
 Route::get('/', function () {
     return view('welcome');
 });
 
-Route::get('visitas/{id}',[
-	'uses' 	=> 'TestController@view',
-	'as'	=> 'visitasView'
-]);
+Route::group(['prefix'=>'admin'],function(){
+
+	route::resource('usuarios','UsuariosController');
+});
