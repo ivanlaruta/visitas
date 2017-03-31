@@ -3,6 +3,8 @@
 namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
+use App\Usuario;
+//use Laracasts\Flash\flash;
 
 class UsuariosController extends Controller
 {
@@ -13,7 +15,9 @@ class UsuariosController extends Controller
      */
     public function index()
     {
-        //
+        //$us= Usuario::orderBy('id_usuario','ASC')->paginate(10);
+        $us= Usuario::all();
+        return view('admin.usuarios.index')->with('us',$us);
     }
 
     /**
@@ -34,7 +38,15 @@ class UsuariosController extends Controller
      */
     public function store(Request $request)
     {
-        dd('exito');
+        //dd($request->all());
+        $us = new Usuario($request->all());
+        $us->password = bcrypt($request->password);
+        //dd($us);
+        $us->save();
+
+        dd('Usuario creado');
+
+        return redirect()->route('usuarios.index');
     }
 
     /**

@@ -31,7 +31,7 @@
          <li class="dropdown">
           <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">Administracion <span class="caret"></span></a>
           <ul class="dropdown-menu">
-            <li><a href="#">Usuarios</a></li>
+            <li><a href="{{ route('usuarios.index')}}">Usuarios</a></li>
             <li><a href="#">Motivos</a></li>
             <li><a href="#">Tarjetas</a></li>
             <li><a href="#">Ubicaciones</a></li>
