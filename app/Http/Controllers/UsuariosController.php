@@ -46,7 +46,7 @@ class UsuariosController extends Controller
 
         dd('Usuario creado');
 
-        return redirect()->route('usuarios.index');
+        //return redirect()->route('usuarios.index');
     }
 
     /**
