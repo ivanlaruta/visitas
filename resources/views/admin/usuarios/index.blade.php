@@ -25,19 +25,23 @@
 								<td>{{ $us -> usuario }}</td>
 								<td>
 									@if($us->id_rol=="1")
-											<span class="larabel label-danger"> {{ 'Administrador' }}</span>
+											<span class="larabel label-info"> {{ 'Administrador' }}</span>
 									@else
-											<span class="larabel label-primary"> {{ 'Operador' }}</span>
+											<span class="larabel label-success"> {{ 'Operador' }}</span>
 									@endif
 								</td>
-								<td><a href="" class="btn btn-warning">modificar</a> <a href="" class="btn btn-danger">Eliminar</a> </td>
+								<td>
+									<a href="{{ route('usuarios.edit',$us -> id_usuario )}}" class="btn btn-warning">modificar</a> 
+									<a href="{{ route('usuarios.destroy',$us -> id_usuario )}}" onclick ="return confirm('¿Desea Eliminar?')" class="btn btn-danger">Eliminar</a> 
+								</td>
 
 							</tr>
 						@endforeach
 					</tbody>
 				</table>
 				{{-- {!! $us -> render() !!} --}}
-			{{-- {{$us->links()}} --}}
+			 
+			{{--  {{ $us->links() }} --}}
  			</div>	
 		</div>
 	
