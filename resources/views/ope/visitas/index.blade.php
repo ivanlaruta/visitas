@@ -1,10 +1,10 @@
-@extends('admin.template.main')
-@section('title','Lista de Usuarios')
+@extends('ope.template.main')
+@section('title','Lista de visitas')
 
 @section('content')
     	<div class="row">
   			<div class="col-md-6 col-md-offset-3">
-				<a href="{{ route('usuarios.create')}}" class="btn btn-info">Registrar nuevo Usuario</a><hr>
+				<a href="{{ route('visitas.create')}}" class="btn btn-info">Registrar nueva Entrada</a><hr>
 				<p class="text-center">Lista de Usuarios.</p>
 				<table class="table table-hover">
 					<thead>
@@ -14,7 +14,7 @@
 						<th>Accion</th>
 					</thead>
 					<tbody>
-						@foreach($us as $usu)
+						@foreach($vi as $vis)
 							<tr>								
 								<td>{{ $usu-> ci_empleado }}</td>
 								<td>{{ $usu -> usuario }}</td>

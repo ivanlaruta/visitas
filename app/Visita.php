@@ -8,7 +8,7 @@ class Visita extends Model
 {
     protected $table = "visitas";
     protected $primaryKey ='id_visita';
-    protected $fillable =['id_visita','ci_visitante','tipo_doc','fecha','hora_entrada','hora_salida','id_motivo','ci_empleado','id_tarjeta','observaciones','estado_visita','creado_por','modificado_por'];
+    protected $fillable =['id_visita','ci_visitante','tipo_doc','fecha','hora_entrada','hora_salida','id_motivo','ci_empleado','id_tarjeta','id_ubicacion','observaciones','estado_visita','creado_por','modificado_por'];
 
 
     public function visitante()
@@ -35,4 +35,9 @@ class Visita extends Model
     {
         return $this->belongsTo('App\Usuario','modificado_por');
     }
+    public function ubicacion()
+    {
+        return $this->belongsTo('App\Ubicacion','id_ubicacion');
+    }
+   
 }

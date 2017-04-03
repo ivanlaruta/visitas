@@ -38,4 +38,8 @@ class Empleado extends Model
     {
         return $this->hasMany('App\Visita','ci');
     }
+    public function tarjetas()
+    {
+        return $this->hasMany('App\Tarjeta','ci');
+    }
 }

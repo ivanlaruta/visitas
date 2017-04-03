@@ -18,12 +18,12 @@ class CreateMotivosTable extends Migration
             $table->string('descripcion',50);
             
             $table->enum('estado',['1','0'])->default('1');
-            $table->integer('creado_por')->nullable()->unsigned();
-            $table->integer('modificado_por')->nullable()->unsigned();
+            $table->string('creado_por')->nullable()->unsigned();
+            $table->string('modificado_por')->nullable()->unsigned();
             $table->timestamps();
 
-            $table->foreign('creado_por')->references('id_usuario')->on('usuarios');
-            $table->foreign('modificado_por')->references('id_usuario')->on('usuarios');
+            $table->foreign('creado_por')->references('usuario')->on('usuarios');
+            $table->foreign('modificado_por')->references('usuario')->on('usuarios');
         });
     }
 

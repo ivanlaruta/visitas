@@ -3,11 +3,8 @@
 namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
-use App\Usuario;
 
-//use Laracasts\Flash\flash;
-
-class UsuariosController extends Controller
+class VisitasController extends Controller
 {
     /**
      * Display a listing of the resource.
@@ -16,12 +13,8 @@ class UsuariosController extends Controller
      */
     public function index()
     {
-        $us = Usuario::paginate(3);
-       // $us= Usuario::all()->paginate(2);
-        //$us= Usuario::all()->Paginate(3);
-
-
-        return view('admin.usuarios.index')->with('us',$us);
+        $vi = Visita::paginate(10);
+        return view('ope.visitas.index')->with('vi',$vi);
     }
 
     /**
@@ -31,7 +24,7 @@ class UsuariosController extends Controller
      */
     public function create()
     {
-        return view('admin.usuarios.create');
+         return view('ope.visitas.create');
     }
 
     /**
@@ -42,17 +35,7 @@ class UsuariosController extends Controller
      */
     public function store(Request $request)
     {
-        //dd($request->all());
-        $us = new Usuario($request->all());
-        $us->password = bcrypt($request->password);
-        //dd($us);
-        $us->save();
-
-        //dd('Usuario creado');
-
-        //return redirect()->route('usuarios.index');
-
-         return redirect()->route('usuarios.index')->with('mensaje',"Usuario creado exitosamente!");
+        dd($request->all());
     }
 
     /**
@@ -74,9 +57,7 @@ class UsuariosController extends Controller
      */
     public function edit($id)
     {
-       $us =Usuario::find($id);
-       return view('admin.usuarios.edit')->with('us',$us);
-
+        //
     }
 
     /**
@@ -88,12 +69,7 @@ class UsuariosController extends Controller
      */
     public function update(Request $request, $id)
     {
-        $us =Usuario::find($id);
-        // $us->usuario = $request->usuario;
-        // $us->id_rol = $request->id_rol;
-        $us->fill($request->all());
-        $us -> save();
-        return redirect()->route('usuarios.index')->with('mensaje',"Usuario modificado exitosamente!");
+        //
     }
 
     /**
@@ -104,8 +80,11 @@ class UsuariosController extends Controller
      */
     public function destroy($id)
     {
-       $us =Usuario::find($id);
-       $us->delete();
-       return redirect()->route('usuarios.index')->with('mensaje',"Usuario eliminado exitosamente!");
+        //
+    }
+
+    public function listar()
+    {
+        //
     }
 }

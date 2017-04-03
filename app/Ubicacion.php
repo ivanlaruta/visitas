@@ -15,6 +15,11 @@ class Ubicacion extends Model
     {
     	return $this->hasMany('App\Empleado','id_ubicacion');
     }
+    public function visitas()
+    {
+        return $this->hasMany('App\Visita','id_ubicacion');
+    }
+
     public function creado()
     {
         return $this->belongsTo('App\Usuario','creado_por');

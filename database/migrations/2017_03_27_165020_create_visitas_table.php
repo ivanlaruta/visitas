@@ -23,20 +23,22 @@ class CreateVisitasTable extends Migration
             $table->integer('id_motivo');
             $table->string('ci_empleado',15)->unsigned();
             $table->string('id_tarjeta',15)->unsigned();
+            $table->string('id_ubicacion',10)->nullable()->unsigned();
             $table->string('observaciones')->nullable();
 
             $table->enum('estado_visita',['1','0'])->default('1');
-            $table->integer('creado_por')->nullable()->unsigned();
-            $table->integer('modificado_por')->nullable()->unsigned();
+            $table->string('creado_por')->nullable()->unsigned();
+            $table->string('modificado_por')->nullable()->unsigned();
             $table->timestamps();
 
-            $table->foreign('creado_por')->references('id_usuario')->on('usuarios');
-            $table->foreign('modificado_por')->references('id_usuario')->on('usuarios');
+            $table->foreign('creado_por')->references('usuario')->on('usuarios');
+            $table->foreign('modificado_por')->references('usuario')->on('usuarios');
 
             $table->foreign('ci_visitante')->references('ci')->on('visitantes');
             $table->foreign('ci_empleado')->references('ci')->on('empleados');
             $table->foreign('id_motivo')->references('id_motivo')->on('motivos');
             $table->foreign('id_tarjeta')->references('id_tarjeta')->on('tarjetas');
+            $table->foreign('id_ubicacion')->references('id_ubicacion')->on('ubicaciones');
 
         });
     }
