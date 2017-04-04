@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
+use App\Visita;
 
 class VisitasController extends Controller
 {
@@ -13,8 +14,9 @@ class VisitasController extends Controller
      */
     public function index()
     {
-        $vi = Visita::paginate(10);
+        $vi = Visita::where('estado_visita', '=', 1)->paginate(10);
         return view('ope.visitas.index')->with('vi',$vi);
+        //dd($vi->all());
     }
 
     /**
@@ -83,8 +85,16 @@ class VisitasController extends Controller
         //
     }
 
-    public function listar()
+    public function salida( $id)
     {
-        //
+        date_default_timezone_set('America/La_Paz');
+        $time = time();
+        $vi =Visita::find($id);
+        $vi->estado_visita = '0';
+        $vi->hora_salida = date("H:i:s", $time);
+        // echo ("Según el servidor la hora actual es: ". date("H:i:s", $time));
+        $vi -> save();
+        return redirect()->route('visitas.index')->with('mensaje',"visita se marco como terminada a hrs:".date("H:i:s", $time));
     }
 }
+

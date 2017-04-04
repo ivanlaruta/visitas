@@ -27,7 +27,7 @@
 								</td>
 								<td>
 									<a href="{{ route('usuarios.edit',$usu -> usuario )}}" class="btn btn-warning">Modificar Rol</a> 
-									<a href="{{ route('usuarios.destroy',$usu -> usuario )}}" onclick ="return confirm('¿Desea Eliminar?')" class="btn btn-danger">Eliminar</a> 
+									<a href="{{ route('usuarios.baja',$usu -> usuario )}}" onclick ="return confirm('¿Desea Dar de baja?')" class="btn btn-danger">Eliminar</a> 
 								</td>
 							</tr>
 						@endforeach

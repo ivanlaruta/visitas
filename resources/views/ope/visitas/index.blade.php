@@ -1,39 +1,57 @@
 @extends('ope.template.main')
 @section('title','Lista de visitas')
-
 @section('content')
     	<div class="row">
-  			<div class="col-md-6 col-md-offset-3">
+  			
+
 				<a href="{{ route('visitas.create')}}" class="btn btn-info">Registrar nueva Entrada</a><hr>
-				<p class="text-center">Lista de Usuarios.</p>
+				<h3><p class="text-center">Lista de Visitas en curso: 
+					<?php
+						$time = time();
+						echo date("d-m-Y ", $time);
+					?>
+				</p></h3>
 				<table class="table table-hover">
 					<thead>
-						<th>Empleado</th>
-						<th>Usuario</th>
-						<th>Rol</th>
-						<th>Accion</th>
+						<th>ID</th>
+						<th>Documento</th>
+						<th>Ex</th>
+						<th>Tipo documento</th>
+						<th>Visitante</th>
+						{{-- <th>Fecha</th> --}}
+						<th>Entrada</th>
+						<th>Motivo</th>
+						<th>Vistado</th>
+						{{-- <th>Cargo</th> --}}
+						<th>Tarjeta</th>
+						<th>Tipo tarjeta</th>
+						{{-- <th>Ubicacion</th> --}}
+						<th>Observacion</th>
 					</thead>
 					<tbody>
 						@foreach($vi as $vis)
 							<tr>								
-								<td>{{ $usu-> ci_empleado }}</td>
-								<td>{{ $usu -> usuario }}</td>
-								<td>
-									@if($usu->id_rol=="1")
-											<span class="larabel label-info"> {{ 'Administrador' }}</span>
-									@else
-											<span class="larabel label-success"> {{ 'Operador' }}</span>
-									@endif
-								</td>
-								<td>
-									<a href="{{ route('usuarios.edit',$usu -> usuario )}}" class="btn btn-warning">Modificar Rol</a> 
-									<a href="{{ route('usuarios.destroy',$usu -> usuario )}}" onclick ="return confirm('¿Desea Eliminar?')" class="btn btn-danger">Eliminar</a> 
+								<td>{{ $vis-> id_visita }}</td>
+								<td>{{ $vis -> ci_visitante }}</td>
+								<td>{{ $vis -> visitante -> ex}}</td>
+								<td>{{ $vis -> tipo_doc }}</td>
+								<td>{{ $vis -> visitante -> nombre }}  {{ $vis -> visitante -> paterno }}  {{ $vis -> visitante -> materno }}</td>
+								{{-- <td>{{ $vis -> fecha }}</td> --}}
+								<td>{{ $vis -> hora_entrada }}</td>
+								<td>{{ $vis -> motivo -> descripcion}}</td>
+								<td>{{ $vis -> empleado -> nombre }}  {{ $vis -> empleado -> paterno }}  {{ $vis -> empleado -> materno }}</td>
+								{{-- <td>{{ $vis -> empleado -> cargo -> descripcion }} </td> --}}
+								<td>{{ $vis -> id_tarjeta }}</td>
+								<td>{{ $vis -> tarjeta -> tipo_tarjeta }} </td>
+								{{-- <td>{{ $vis -> ubicacion -> nombre}}</td> --}}
+								<td>{{ $vis -> observaciones }}</td>
+								<td>	
+									<a href="{{ route('visitas.salida',$vis -> id_visita )}}" onclick ="return confirm('¿Desea Marcar la Salida de este visitante ?')" class="btn btn-warning">Salida</a> 
 								</td>
 							</tr>
 						@endforeach
 					</tbody>
 				</table>
-				{{ $us->Links() }} 
- 			</div>	
+				{{ $vi->links() }} 
 		</div>
 @endsection

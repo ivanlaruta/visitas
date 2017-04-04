@@ -8,13 +8,22 @@
         <span class="icon-bar"></span>
         <span class="icon-bar"></span>
       </button>
-      <a class="navbar-brand" href="#">Inicio</a>
+      {{-- <a class="navbar-brand" href="#">Inicio</a> --}}
     </div>
 
     <!-- Collect the nav links, forms, and other content for toggling -->
     <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
       <ul class="nav navbar-nav">
         
+          <li class="dropdown">
+          <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">Inicio <span class="caret"></span></a>
+          <ul class="dropdown-menu">
+            <li><a href="{{ route('visitas.index')}}">Visitas en curso</a></li>
+            <li><a href="{{ route('visitas.create')}}">Registrar nueva visita</a></li>
+                    
+           
+          </ul>
+        </li>
        
         <li class="dropdown">
           <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">Reportes <span class="caret"></span></a>
@@ -33,6 +42,7 @@
           <ul class="dropdown-menu">
             <li><a href="{{ route('usuarios.index')}}">Usuarios</a></li>
             <li><a href="#">Motivos</a></li>
+            <li><a href="{{ route('cargos.index')}}">Cargos</a></li>
             <li><a href="#">Tarjetas</a></li>
             <li><a href="#">Ubicaciones</a></li>
             <li><a href="#">Empleados</a></li>
@@ -46,10 +56,10 @@
       </ul>
       <form class="navbar-form navbar-left">
         <div class="form-group">
-          <input type="text" class="form-control" placeholder="Search">
-        </div>
-        <button type="submit" class="btn btn-default">Buscar</button>
-      </form>
+{{--           <input type="text" class="form-control" placeholder="Search">
+ --}}        </div>
+{{--         <button type="submit" class="btn btn-default">Buscar</button>
+ --}}      </form>
       <ul class="nav navbar-nav navbar-right">
         
         <li class="dropdown">

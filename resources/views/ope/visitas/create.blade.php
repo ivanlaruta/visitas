@@ -7,31 +7,50 @@
 	<div class="row">
 		{!! Form::open(['route'=>'visitas.store','method'=>'POST'])!!}
 		
-		<div class="col-md-4">
+		<div class="col-md-6">
 
 			<div class="row">
 		      	<div class="col-md-5">
 					<div class="form-group">
-						<h6>Nro. Documento</h4>
+						<h6>Nro. Documento</h6>
 						{!! Form::text('ci_visitante',null,['class'=> 'form-control','placeholder'=>'Nro doc','required'])!!}
 					</div>
 		      	</div>
 		      	<div class="col-md-3">
 					<div class="form-group">
-						<h6>Expendido</h4>
+						<h6>Expendido</h6>
 						{!! Form::select('id_rol',['LP','OR','PT','CH','CH','TJ','BN','PA','SC'],null,['class'=>'form-control'])!!}
 					</div>
 		      	</div>
 		      	<div class="col-md-4">
 					<div class="form-group">
-					<h6>Tipo Documento</h4>
+					<h6>Tipo Documento</h6>
 						{!! Form::select('tipo_doc',['ci'=>'Cedula de identidad','lic'=>'Licencia de conducir'],null,['class'=>'form-control'])!!}
 					</div>
 		      	</div>
 	   		</div>
+			<div class="row">
+					<table class="table table-hover">
+					<thead>
+						<th><h6>CI</h6></th>
+						<th><h6>Nombre </h6></th>
+					</thead>
+					{{-- <tbody>
+						@foreach($vi as $vis)
+							<tr>								
+								<td>{{ $vis-> id_visita }}</td>
+								<td>{{ $vis -> ci_visitante }}</td>
+								
+							</tr>
+						@endforeach
+					</tbody> --}}
+				</table>
+			</div>
+
+
 		</div>
 
-		<div class="col-md-4">
+		<div class="col-md-3">
 			
 			<div class="form-group">
 				<h6>Nombre:</h4>
@@ -51,7 +70,7 @@
 			</div>
 		</div>
 		
-		<div class="col-md-4">
+		<div class="col-md-3">
 			<div class="form-group">
 				<h6>Motivo:</h4>
 				{!! Form::select('id_motivo',['1'=>'Entrevista','2'=>'Visita'],null,['class'=>'form-control'])!!}
@@ -87,7 +106,10 @@
 		<div class="col-md-4 col-md-offset-4">
 			<div class="form-group">
 				{!! Form::submit('Marcar Ingreso visita',['class'=>'btn btn-primary'])!!}
+			
+				<a href="{{ route('visitas.index')}}" onclick ="return confirm('Los datos no guardados se perderan al salir de esta pagina. ¿Desea continuar?')" class="btn btn-warning">Ver visitas en Curso</a> 
 			</div>
+
 			{!! Form::close()!!}
 		</div>	
 	</div>

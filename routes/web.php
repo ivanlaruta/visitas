@@ -21,14 +21,29 @@ Route::get('/', function () {
 });
 
 Route::group(['prefix'=>'admin'],function(){
+
+	
 	route::resource('usuarios','UsuariosController');
 	route::get('usuarios/{id}/destroy',[
 		'uses' => 'UsuariosController@destroy', 
-		'as'	=>	'usuarios.destroy'
+		'as'   =>	'usuarios.destroy'
+	]);
+	route::get('usuarios/{id}/update',[
+		'uses' => 'UsuariosController@baja', 
+		'as'   =>	'usuarios.baja'
+	]);
+
+	route::resource('cargos','CargosController');
+	route::get('cargos/{id}/update',[
+		'uses' => 'CargosController@baja', 
+		'as'   =>	'cargos.baja'
 	]);
 });
 
 Route::group(['prefix'=>'ope'],function(){
 	route::resource('visitas','VisitasController');
-
+	route::get('visitas/{id}/update',[
+		'uses' => 'VisitasController@salida', 
+		'as'   =>	'visitas.salida'
+	]);
 });

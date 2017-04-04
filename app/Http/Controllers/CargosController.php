@@ -3,11 +3,8 @@
 namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
-use App\Usuario;
-
-//use Laracasts\Flash\flash;
-
-class UsuariosController extends Controller
+use App\Cargo;
+class CargosController extends Controller
 {
     /**
      * Display a listing of the resource.
@@ -16,8 +13,8 @@ class UsuariosController extends Controller
      */
     public function index()
     {
-        $us = Usuario::where('estado', '=', 1)->paginate(10);
-        return view('admin.usuarios.index')->with('us',$us);
+        $ca = Cargo::where('estado', '=', 1)->paginate(10);
+        return view('admin.cargos.index')->with('ca',$ca);
     }
 
     /**
@@ -27,7 +24,7 @@ class UsuariosController extends Controller
      */
     public function create()
     {
-        return view('admin.usuarios.create');
+        return view('admin.cargos.create');
     }
 
     /**
@@ -38,17 +35,10 @@ class UsuariosController extends Controller
      */
     public function store(Request $request)
     {
-        //dd($request->all());
-        $us = new Usuario($request->all());
-        $us->password = bcrypt($request->password);
-        //dd($us);
-        $us->save();
+        $ca = new Cargo($request->all());
+        $ca->save();
 
-        //dd('Usuario creado');
-
-        //return redirect()->route('usuarios.index');
-
-         return redirect()->route('usuarios.index')->with('mensaje',"Usuario creado exitosamente!");
+         return redirect()->route('cargos.index')->with('mensaje',"Usuario creado exitosamente!");
     }
 
     /**
@@ -70,9 +60,8 @@ class UsuariosController extends Controller
      */
     public function edit($id)
     {
-       $us =Usuario::find($id);
-       return view('admin.usuarios.edit')->with('us',$us);
-
+       $ca =Cargo::find($id);
+       return view('admin.cargos.edit')->with('ca',$ca);
     }
 
     /**
@@ -84,19 +73,17 @@ class UsuariosController extends Controller
      */
     public function update(Request $request, $id)
     {
-        $us =Usuario::find($id);
-        // $us->usuario = $request->usuario;
-        // $us->id_rol = $request->id_rol;
-        $us->fill($request->all());
-        $us -> save();
-        return redirect()->route('usuarios.index')->with('mensaje',"Usuario modificado exitosamente!");
+        $ca =Cargo::find($id);
+        $ca->fill($request->all());
+        $ca -> save();
+        return redirect()->route('cargos.index')->with('mensaje',"cargo modificado exitosamente!");
     }
-    public function baja( $id)
+    public function baja($id)
     {
-        $us =Usuario::find($id);
-        $us->estado = '0';
-        $us -> save();
-        return redirect()->route('usuarios.index')->with('mensaje',"Usuario dado de baja exitosamente!");
+       $ca =Cargo::find($id);
+       $ca->estado = '0';
+       $ca -> save();
+       return redirect()->route('cargos.index')->with('mensaje',"Cargo dado de baja exitosamente!");
     }
 
     /**
@@ -107,8 +94,6 @@ class UsuariosController extends Controller
      */
     public function destroy($id)
     {
-       $us =Usuario::find($id);
-       $us->delete();
-       return redirect()->route('usuarios.index')->with('mensaje',"Usuario eliminado exitosamente!");
+        //
     }
 }
