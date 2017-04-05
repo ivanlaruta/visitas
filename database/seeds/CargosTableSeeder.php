@@ -17,29 +17,29 @@ class CargosTableSeeder extends Seeder
         DB::table('cargos')->insert([
 
             'descripcion' => 'Desarrollador',       
-            'creado_por'=> 'superusuario',
-            'modificado_por'=>'superusuario',
+            'creado_por'=> 'admin',
+            'modificado_por'=>'admin',
        ]);
 
         DB::table('cargos')->insert([
 
             'descripcion' => 'Secretaria',       
-            'creado_por'=> 'superusuario',
-            'modificado_por'=>'superusuario',
+            'creado_por'=> 'admin',
+            'modificado_por'=>'admin',
        ]);
 
         DB::table('cargos')->insert([
 
             'descripcion' => 'Oficial de turno',       
-            'creado_por'=> 'superusuario',
-            'modificado_por'=>'superusuario',
+            'creado_por'=> 'admin',
+            'modificado_por'=>'admin',
        ]);
 
         DB::table('cargos')->insert([
 
             'descripcion' => 'Vendedor',       
-            'creado_por'=> 'superusuario',
-            'modificado_por'=>'superusuario',
+            'creado_por'=> 'admin',
+            'modificado_por'=>'admin',
        ]);
     }
 }

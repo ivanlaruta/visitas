@@ -15,7 +15,8 @@ class AddRelationUsersTable extends Migration
     {
         Schema::table('users', function (Blueprint $table) {
             
-            $table->foreign('name')->references('ci')->on('empleados');
+            $table->foreign('ci_empleado')->references('ci')->on('empleados');
+            // $table->foreign('name')->references('ci')->on('empleados');
             
         });
     }

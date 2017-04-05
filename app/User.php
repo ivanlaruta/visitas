@@ -18,7 +18,7 @@ class User extends Authenticatable
     protected $table = "users";
     public $incrementing=false;
     protected $primaryKey ='usuario';
-    protected $fillable = ['usuario','name', 'password','estado','id_rol'];
+    protected $fillable = ['usuario','ci_empleado', 'password','estado','id_rol'];
 
     /**
      * The attributes that should be hidden for arrays.
@@ -28,7 +28,7 @@ class User extends Authenticatable
 
      public function empleado()
     {
-        return $this->belongsTo('App\Empleado','name');
+        return $this->belongsTo('App\Empleado','ci_empleado');
     }
 
     public function empleados()

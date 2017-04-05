@@ -11,10 +11,11 @@ class SuperUsuarioTableSeeder extends Seeder
      */
     public function run()
     {		
-    	    DB::table('usuarios')->insert([
-            'usuario' => 'superusuario',
+    	    DB::table('users')->insert([
+           
+            'usuario' => 'admin',
             'password' => bcrypt('12345'),
-            //'ci_empleado' => '',
+            //'ci_empleado' => '8264209',
             'id_rol'=> '1',
         ]);
     }

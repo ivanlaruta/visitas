@@ -16,7 +16,7 @@
 					<tbody>
 						@foreach($us as $usu)
 							<tr>								
-								<td>{{ $usu-> name }}</td>
+								<td>{{ $usu-> ci_empleado }}</td>
 								<td>{{ $usu -> usuario }}</td>
 								<td>
 									@if($usu->id_rol=="1")

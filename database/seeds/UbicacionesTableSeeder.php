@@ -18,8 +18,8 @@ class UbicacionesTableSeeder extends Seeder
             'id_ubicacion' => '131C',
             'nombre' => 'OFICINA CENTRAL ',
             'ciudad' => 'La Paz',
-            'creado_por'=> 'superusuario',
-            'modificado_por'=>'superusuario',
+            'creado_por'=> 'admin',
+            'modificado_por'=>'admin',
        ]);
     }
 }

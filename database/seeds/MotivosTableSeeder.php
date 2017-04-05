@@ -13,24 +13,24 @@ class MotivosTableSeeder extends Seeder
     {
         DB::table('motivos')->insert([
             'descripcion' => 'visita',
-            'creado_por'=> 'superusuario',
-            'modificado_por'=>'superusuario',
+            'creado_por'=> 'admin',
+            'modificado_por'=>'admin',
             
         ]);
         DB::table('motivos')->insert([
             'descripcion' => 'entrevista',
-            'creado_por'=> 'superusuario',
-            'modificado_por'=>'superusuario',
+            'creado_por'=> 'admin',
+            'modificado_por'=>'admin',
         ]);
         DB::table('motivos')->insert([
             'descripcion' => 'reunion',
-            'creado_por'=> 'superusuario',
-            'modificado_por'=>'superusuario',
+            'creado_por'=> 'admin',
+            'modificado_por'=>'admin',
         ]);
         DB::table('motivos')->insert([
             'descripcion' => 'entrega de carta',
-            'creado_por'=> 'superusuario',
-            'modificado_por'=>'superusuario',
+            'creado_por'=> 'admin',
+            'modificado_por'=>'admin',
         ]);
     }
 }

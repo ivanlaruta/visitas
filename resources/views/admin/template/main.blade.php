@@ -8,9 +8,8 @@
 </head>
 <body>
 	<div class="container">
-
+	
 		@include('admin.template.partials.nav')
-		
 		@if(!session('mensaje')==null)
 		 	<div class="alert alert-success">
 			  	 <button type="button" class="close" data-dismiss="alert" aria-hidden="true">&times;</button> {!! session('flash_notification.message') !!}

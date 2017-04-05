@@ -40,10 +40,10 @@ Route::get('/', function () {
 // 	]);
 // });
 
-Route::group(['prefix'=>'admin'],function(){
-
+Route::group(['prefix'=>'admin','middleware'=>'auth'],function(){
 	
 	route::resource('users','UsersController');
+	
 	route::get('users/{id}/destroy',[
 		'uses' => 'UsersController@destroy', 
 		'as'   =>	'users.destroy'
@@ -70,4 +70,4 @@ Route::group(['prefix'=>'ope'],function(){
 
 Auth::routes();
 
-Route::get('/home', 'HomeController@index');
+Route::get('/home', 'HomeController@index')->middleware('auth');

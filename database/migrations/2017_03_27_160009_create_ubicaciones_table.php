@@ -25,8 +25,8 @@ class CreateUbicacionesTable extends Migration
 
             $table->primary('id_ubicacion');
             
-            $table->foreign('creado_por')->references('usuario')->on('usuarios');
-            $table->foreign('modificado_por')->references('usuario')->on('usuarios');
+            $table->foreign('creado_por')->references('usuario')->on('users');
+            $table->foreign('modificado_por')->references('usuario')->on('users');
             
         });
     }

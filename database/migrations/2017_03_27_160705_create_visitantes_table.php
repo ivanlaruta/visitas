@@ -29,8 +29,8 @@ class CreateVisitantesTable extends Migration
 
             $table->primary('ci');
 
-            $table->foreign('creado_por')->references('usuario')->on('usuarios');
-            $table->foreign('modificado_por')->references('usuario')->on('usuarios');
+            $table->foreign('creado_por')->references('usuario')->on('users');
+            $table->foreign('modificado_por')->references('usuario')->on('users');
 
             
         });

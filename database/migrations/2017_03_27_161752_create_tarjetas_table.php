@@ -27,8 +27,8 @@ class CreateTarjetasTable extends Migration
 
             $table->primary('id_tarjeta');
 
-            $table->foreign('creado_por')->references('usuario')->on('usuarios');
-            $table->foreign('modificado_por')->references('usuario')->on('usuarios');
+            $table->foreign('creado_por')->references('usuario')->on('users');
+            $table->foreign('modificado_por')->references('usuario')->on('users');
             $table->foreign('ci_empleado')->references('ci')->on('empleados');            
         });
     }

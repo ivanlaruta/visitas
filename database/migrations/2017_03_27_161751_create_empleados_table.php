@@ -31,8 +31,8 @@ class CreateEmpleadosTable extends Migration
 
             $table->primary('ci');
 
-            $table->foreign('creado_por')->references('usuario')->on('usuarios');
-            $table->foreign('modificado_por')->references('usuario')->on('usuarios');         
+            $table->foreign('creado_por')->references('usuario')->on('users');
+            $table->foreign('modificado_por')->references('usuario')->on('users');         
 
             $table->foreign('id_cargo')->references('id_cargo')->on('cargos');
             $table->foreign('id_ubicacion')->references('id_ubicacion')->on('ubicaciones');

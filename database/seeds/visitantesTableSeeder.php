@@ -21,8 +21,8 @@ class visitantesTableSeeder extends Seeder
             'paterno'=> 'Marquez',            
             'materno' => 'Lom',
             'telefono'=> '77756103',
-            'creado_por'=> 'superusuario',
-            'modificado_por'=>'superusuario',
+            'creado_por'=> 'admin',
+            'modificado_por'=>'admin',
        ]);
        	DB::table('visitantes')->insert([
 
@@ -32,8 +32,8 @@ class visitantesTableSeeder extends Seeder
             'paterno'=> 'Alveiro',            
             'materno' => 'Roca',
             'telefono'=> '77756103',
-            'creado_por'=> 'superusuario',
-            'modificado_por'=>'superusuario',
+            'creado_por'=> 'admin',
+            'modificado_por'=>'admin',
        ]);
        	DB::table('visitantes')->insert([
 
@@ -43,8 +43,8 @@ class visitantesTableSeeder extends Seeder
             'paterno'=> 'Perez',            
             'materno' => 'CAstro',
             'telefono'=> '77756103',
-            'creado_por'=> 'superusuario',
-            'modificado_por'=>'superusuario',
+            'creado_por'=> 'admin',
+            'modificado_por'=>'admin',
        ]);
        	DB::table('visitantes')->insert([
 
@@ -54,8 +54,8 @@ class visitantesTableSeeder extends Seeder
             'paterno'=> 'Cortez',            
             'materno' => 'Rojas',
             'telefono'=> '77756103',
-            'creado_por'=> 'superusuario',
-            'modificado_por'=>'superusuario',
+            'creado_por'=> 'admin',
+            'modificado_por'=>'admin',
        ]);
 
 

@@ -16,24 +16,24 @@ class TarjetasTableSeeder extends Seeder
             'id_tarjeta' => '1',
             'tipo_tarjeta' => 'VISITA',
             'psw' => '2256',
-            'creado_por'=> 'superusuario',
-            'modificado_por'=>'superusuario',
+            'creado_por'=> 'admin',
+            'modificado_por'=>'admin',
        ]);
         DB::table('tarjetas')->insert([
 
             'id_tarjeta' => '2',
             'tipo_tarjeta' => 'PERSONAL AUTORIZADO',
             'psw' => '2256',
-            'creado_por'=> 'superusuario',
-            'modificado_por'=>'superusuario',
+            'creado_por'=> 'admin',
+            'modificado_por'=>'admin',
        ]);
         DB::table('tarjetas')->insert([
 
             'id_tarjeta' => '3',
             'tipo_tarjeta' => 'PASANTE',
             'psw' => '2256',
-            'creado_por'=> 'superusuario',
-            'modificado_por'=>'superusuario',
+            'creado_por'=> 'admin',
+            'modificado_por'=>'admin',
        ]);
     }
 }

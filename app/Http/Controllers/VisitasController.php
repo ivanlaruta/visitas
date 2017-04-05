@@ -14,7 +14,7 @@ class VisitasController extends Controller
      */
     public function index()
     {
-        $vi = Visita::where('estado_visita', '=', 1)->paginate(10);
+        $vi = Visita::where('estado_visita', '=', 1)->orderBy('id_visita')->paginate(10);
         return view('ope.visitas.index')->with('vi',$vi);
         //dd($vi->all());
     }

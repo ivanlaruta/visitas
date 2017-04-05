@@ -24,8 +24,8 @@ class EmpleadosTableSeeder extends Seeder
             'id_cargo' => '1',
             'id_ubicacion'=> '131C',
             'telefono'=> '77756103',
-            'creado_por'=> 'superusuario',
-            'modificado_por'=>'superusuario',
+            'creado_por'=> 'admin',
+            'modificado_por'=>'admin',
        ]);
 
        	DB::table('empleados')->insert([
@@ -39,8 +39,8 @@ class EmpleadosTableSeeder extends Seeder
             'id_cargo' => '2',
             'id_ubicacion'=> '131C',
             'telefono'=> '123546',
-            'creado_por'=> 'superusuario',
-            'modificado_por'=>'superusuario',
+            'creado_por'=> 'admin',
+            'modificado_por'=>'admin',
        ]);
 
        	DB::table('empleados')->insert([
@@ -54,8 +54,8 @@ class EmpleadosTableSeeder extends Seeder
             'id_cargo' => '4',
             'id_ubicacion'=> '131C',
             'telefono'=> '75698412',
-            'creado_por'=> 'superusuario',
-            'modificado_por'=>'superusuario',
+            'creado_por'=> 'admin',
+            'modificado_por'=>'admin',
        ]);
 
        	DB::table('empleados')->insert([
@@ -69,8 +69,8 @@ class EmpleadosTableSeeder extends Seeder
             'id_cargo' => '3',
             'id_ubicacion'=> '131C',
             'telefono'=> '65575672',
-            'creado_por'=> 'superusuario',
-            'modificado_por'=>'superusuario',
+            'creado_por'=> 'admin',
+            'modificado_por'=>'admin',
        ]);
        	DB::table('empleados')->insert([
 
@@ -83,8 +83,8 @@ class EmpleadosTableSeeder extends Seeder
             'id_cargo' => '4',
             'id_ubicacion'=> '131C',
             'telefono'=> '879456',
-            'creado_por'=> 'superusuario',
-            'modificado_por'=>'superusuario',
+            'creado_por'=> 'admin',
+            'modificado_por'=>'admin',
        ]);
     }
 }

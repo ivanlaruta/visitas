@@ -15,29 +15,29 @@ class ParametricasTableSeeder extends Seeder
             'nombre_tabla' => 'rol',
             'id' => '1',
             'descripcion' => 'administrador',
-            'creado_por'=> 'superusuario',
-            'modificado_por'=>'superusuario',
+            'creado_por'=> 'admin',
+            'modificado_por'=>'admin',
         ]);
          DB::table('parametricas')->insert([
             'nombre_tabla' => 'rol',
             'id' => '0',
             'descripcion' => 'operador',
-            'creado_por'=> 'superusuario',
-            'modificado_por'=>'superusuario',
+            'creado_por'=> 'admin',
+            'modificado_por'=>'admin',
         ]);
          DB::table('parametricas')->insert([
             'nombre_tabla' => 'estado',
             'id' => '0',
             'descripcion' => 'desactivado',
-            'creado_por'=> 'superusuario',
-            'modificado_por'=>'superusuario',
+            'creado_por'=> 'admin',
+            'modificado_por'=>'admin',
         ]);
          DB::table('parametricas')->insert([
             'nombre_tabla' => 'estado',
             'id' => '0',
             'descripcion' => 'activo',
-            'creado_por'=> 'superusuario',
-            'modificado_por'=>'superusuario',
+            'creado_por'=> 'admin',
+            'modificado_por'=>'admin',
         ]);
 
     }

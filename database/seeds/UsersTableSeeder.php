@@ -10,23 +10,21 @@ class UsersTableSeeder extends Seeder
     public function run()
     {
 
-        DB::table('users')->delete();
-
         DB::table('users')->insert([
            
-            'usuario' => 'ivan.laruta',
+            'usuario' => 'ivan',
             'password' => bcrypt('12345'),
-            'name' => '8264209',
+            'ci_empleado' => '8264209',
             'id_rol'=> '1',
         ]);
 
          DB::table('users')->insert([
             
-            'usuario' => 'maria.tarifa',
-            'name' => '8264209',
+            'usuario' => 'tarifa',
             'password' => bcrypt('12345'),
-            'name' => '12345678',
+            'ci_empleado' => '12345678',
             'id_rol'=> '1',
         ]);
+
     }
 }

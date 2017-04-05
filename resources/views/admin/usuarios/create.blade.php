@@ -11,7 +11,7 @@
 
 				<div class="form-group">
 					{!! Form::label('ci_empleado','Empleado')!!}
-					{!! Form::text('name',null,['class'=> 'form-control','placeholder'=>'CI empleado','required'])!!}
+					{!! Form::text('ci_empleado',null,['class'=> 'form-control','placeholder'=>'CI empleado','required'])!!}
 				</div>
 				<div class="form-group">
 					{!! Form::label('usuario','Usuario')!!}
