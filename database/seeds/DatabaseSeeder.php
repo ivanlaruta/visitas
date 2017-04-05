@@ -22,5 +22,6 @@ class DatabaseSeeder extends Seeder
         $this->call(TarjetasTableSeeder::class);
         $this->call(ParametricasTableSeeder::class);
         $this->call(VisitasTableSeeder::class);
+        $this->call(UsersTableSeeder::class);
     }
 }

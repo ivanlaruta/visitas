@@ -40,7 +40,7 @@
          <li class="dropdown">
           <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">Administracion <span class="caret"></span></a>
           <ul class="dropdown-menu">
-            <li><a href="{{ route('usuarios.index')}}">Usuarios</a></li>
+            <li><a href="{{ route('users.index')}}">Usuarios</a></li>
             <li><a href="#">Motivos</a></li>
             <li><a href="{{ route('cargos.index')}}">Cargos</a></li>
             <li><a href="#">Tarjetas</a></li>

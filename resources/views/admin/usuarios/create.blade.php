@@ -7,11 +7,11 @@
 
     	<div class="row">
   			<div class="col-md-6 col-md-offset-3">
-				{!! Form::open(['route'=>'usuarios.store','method'=>'POST'])!!}
+				{!! Form::open(['route'=>'users.store','method'=>'POST'])!!}
 
 				<div class="form-group">
 					{!! Form::label('ci_empleado','Empleado')!!}
-					{!! Form::text('ci_empleado',null,['class'=> 'form-control','placeholder'=>'CI empleado','required'])!!}
+					{!! Form::text('name',null,['class'=> 'form-control','placeholder'=>'CI empleado','required'])!!}
 				</div>
 				<div class="form-group">
 					{!! Form::label('usuario','Usuario')!!}

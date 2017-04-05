@@ -20,17 +20,37 @@ Route::get('/', function () {
     return view('welcome');
 });
 
+// Route::group(['prefix'=>'admin'],function(){
+
+	
+// 	route::resource('usuarios','UsuariosController');
+// 	route::get('usuarios/{id}/destroy',[
+// 		'uses' => 'UsuariosController@destroy', 
+// 		'as'   =>	'usuarios.destroy'
+// 	]);
+// 	route::get('usuarios/{id}/update',[
+// 		'uses' => 'UsuariosController@baja', 
+// 		'as'   =>	'usuarios.baja'
+// 	]);
+
+// 	route::resource('cargos','CargosController');
+// 	route::get('cargos/{id}/update',[
+// 		'uses' => 'CargosController@baja', 
+// 		'as'   =>	'cargos.baja'
+// 	]);
+// });
+
 Route::group(['prefix'=>'admin'],function(){
 
 	
-	route::resource('usuarios','UsuariosController');
-	route::get('usuarios/{id}/destroy',[
-		'uses' => 'UsuariosController@destroy', 
-		'as'   =>	'usuarios.destroy'
+	route::resource('users','UsersController');
+	route::get('users/{id}/destroy',[
+		'uses' => 'UsersController@destroy', 
+		'as'   =>	'users.destroy'
 	]);
-	route::get('usuarios/{id}/update',[
-		'uses' => 'UsuariosController@baja', 
-		'as'   =>	'usuarios.baja'
+	route::get('users/{id}/update',[
+		'uses' => 'UsersController@baja', 
+		'as'   =>	'users.baja'
 	]);
 
 	route::resource('cargos','CargosController');
@@ -47,3 +67,7 @@ Route::group(['prefix'=>'ope'],function(){
 		'as'   =>	'visitas.salida'
 	]);
 });
+
+Auth::routes();
+
+Route::get('/home', 'HomeController@index');

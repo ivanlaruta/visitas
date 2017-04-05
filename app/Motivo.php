@@ -18,10 +18,10 @@ class Motivo extends Model
 
     public function creado()
     {
-        return $this->belongsTo('App\Usuario','creado_por');
+        return $this->belongsTo('App\User','creado_por');
     }
     public function modificado()
     {
-        return $this->belongsTo('App\Usuario','modificado_por');
+        return $this->belongsTo('App\User','modificado_por');
     }
 }

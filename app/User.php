@@ -14,16 +14,57 @@ class User extends Authenticatable
      *
      * @var array
      */
-    protected $fillable = [
-        'name', 'email', 'password',
-    ];
+
+    protected $table = "users";
+    public $incrementing=false;
+    protected $primaryKey ='usuario';
+    protected $fillable = ['usuario','name', 'password','estado','id_rol'];
 
     /**
      * The attributes that should be hidden for arrays.
      *
      * @var array
      */
+
+     public function empleado()
+    {
+        return $this->belongsTo('App\Empleado','name');
+    }
+
+    public function empleados()
+    {
+        return $this->hasMany('App\Empleado','usuario');
+    }
+     public function cargos()
+    {
+        return $this->hasMany('App\Cargo','usuario');
+    }
+     public function motivos()
+    {
+        return $this->hasMany('App\Motivo','usuario');
+    }
+     public function parametricas()
+    {
+        return $this->hasMany('App\Parametrica','usuario');
+    }
+     public function tarjetas()
+    {
+        return $this->hasMany('App\Tarjeta','usuario');
+    }
+     public function ubicaciones()
+    {
+        return $this->hasMany('App\Ubicacion','usuario');
+    }
+     public function visitas()
+    {
+        return $this->hasMany('App\Visita','usuario');
+    }
+     public function visitantes()
+    {
+        return $this->hasMany('App\Visitante','usuario');
+    } 
+
     protected $hidden = [
-        'password', 'remember_token',
+        'password'
     ];
 }

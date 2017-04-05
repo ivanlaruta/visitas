@@ -22,17 +22,11 @@ class Empleado extends Model
    
     public function creado()
     {
-        return $this->belongsTo('App\Usuario','creado_por');
+        return $this->belongsTo('App\User','creado_por');
     }
     public function modificado()
     {
-        return $this->belongsTo('App\Usuario','modificado_por');
-    }
-
-
-    public function usuarios()
-    {
-        return $this->hasMany('App\Usuario','ci');
+        return $this->belongsTo('App\User','modificado_por');
     }
     public function visitas()
     {
@@ -41,5 +35,13 @@ class Empleado extends Model
     public function tarjetas()
     {
         return $this->hasMany('App\Tarjeta','ci');
+    }
+     // public function usuarios()
+    // {
+    //     return $this->hasMany('App\Usuario','ci');
+    // }
+    public function users()
+    {
+        return $this->hasMany('App\User','ci');
     }
 }
