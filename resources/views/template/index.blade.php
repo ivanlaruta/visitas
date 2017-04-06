@@ -15,10 +15,9 @@
                          	@include('admin.template.partials.nav')
                          	Bienvenido  {{ Auth::user()->empleado->nombre }}
                          	Usted se encuentra en: {{ Auth::user()->empleado->ubicacion->nombre }}
-                        @endif
-                        @if(Auth::user()->id_rol==0 )
-                        	
-                        	 @include('ope.template.partials.nav')
+                        
+                        @else                      	
+                        	@include('ope.template.partials.nav')
                         	Bienvenido  {{ Auth::user()->empleado->nombre }}
                          	Usted se encuentra en: {{ Auth::user()->empleado->ubicacion->nombre }}
                         @endif		
