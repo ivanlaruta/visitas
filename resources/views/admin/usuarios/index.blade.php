@@ -2,6 +2,7 @@
 @section('title','Lista de Usuarios')
 
 @section('content')
+
     	<div class="row">
   			<div class="col-md-6 col-md-offset-3">
 				<a href="{{ route('users.create')}}" class="btn btn-info">Registrar nuevo Usuario</a><hr>
@@ -36,4 +37,5 @@
 				{{ $us->Links() }} 
  			</div>	
 		</div>
+
 @endsection

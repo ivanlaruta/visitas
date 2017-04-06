@@ -3,7 +3,6 @@
 @section('title','Editar cargo')
 
 @section('content')
-	
 
     	<div class="row">
   			<div class="col-md-6 col-md-offset-3">
@@ -23,7 +22,7 @@
 				{!! Form::close()!!}
 			</div>	
 		</div>
-	
+
 @endsection
 
 

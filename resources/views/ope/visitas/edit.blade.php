@@ -1,4 +1,4 @@
-@extends('admin.template.main')
+@extends('ope.template.main')
 
 @section('title','Editar usuario')
 

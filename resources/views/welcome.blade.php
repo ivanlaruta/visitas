@@ -1,10 +1,2 @@
-@extends('admin.template.main')
+@extends('template.index')
 
-@section('title')
-	Inicio de pagina
-@endsection
-
-@section('content')
-<h1> Funciona </h1>
-
-@endsection

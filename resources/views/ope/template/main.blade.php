@@ -7,10 +7,10 @@
 	
 </head>
 <body>
-	<div class="container">
 
-		@include('admin.template.partials.nav')
-		
+	<div class="container">
+		@if(Auth::user()->id_rol==0 || Auth::user()->id_rol==2 )
+		@include('ope.template.partials.nav')
 		@if(!session('mensaje')==null)
 		 	<div class="alert alert-success">
 			  	 <button type="button" class="close" data-dismiss="alert" aria-hidden="true">&times;</button> {!! session('flash_notification.message') !!}
@@ -22,7 +22,10 @@
 		<section>
 			@yield('content')
 		</section>
-		
+		@else
+			@include('admin.template.partials.nav')
+			Si desea ver las operaciones porfavor dirijase a los reportes de administracion.
+		@endif	
 	</div>
 
 	<script src="{{asset('plugins/jquery/js/jquery-3.2.0.js')}}"></script>

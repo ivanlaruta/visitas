@@ -2,6 +2,7 @@
 @section('title','Lista de Usuarios')
 
 @section('content')
+
     	<div class="row">
   			<div class="col-md-6 col-md-offset-3">
 				<a href="{{ route('cargos.create')}}" class="btn btn-info">Registrar nuevo Cargo</a><hr>
@@ -28,4 +29,6 @@
 				{{ $ca->Links() }} 
  			</div>	
 		</div>
+
+
 @endsection

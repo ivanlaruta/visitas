@@ -8,20 +8,26 @@
 </head>
 <body>
 	<div class="container">
-	
-		@include('admin.template.partials.nav')
-		@if(!session('mensaje')==null)
-		 	<div class="alert alert-success">
-			  	 <button type="button" class="close" data-dismiss="alert" aria-hidden="true">&times;</button> {!! session('flash_notification.message') !!}
-			 	{{session('mensaje')}}
-		 	</div>
-		@endif﻿
-
-
-		<section>
-			@yield('content')
-		</section>
 		
+		@if(Auth::user()->id_rol==1 || Auth::user()->id_rol==2 )
+			@include('admin.template.partials.nav')
+
+
+			@if(!session('mensaje')==null)
+			 	<div class="alert alert-success">
+				  	 <button type="button" class="close" data-dismiss="alert" aria-hidden="true">&times;</button> {!! session('flash_notification.message') !!}
+				 	{{session('mensaje')}}
+			 	</div>
+			@endif﻿
+
+
+			<section>
+				@yield('content')
+			</section>
+		@else
+			@include('ope.template.partials.nav')
+			No cuenta con los permisos suficientes para ver esto.
+		@endif
 	</div>
 
 	<script src="{{asset('plugins/jquery/js/jquery-3.2.0.js')}}"></script>

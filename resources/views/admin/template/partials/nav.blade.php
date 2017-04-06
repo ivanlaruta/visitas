@@ -15,16 +15,7 @@
     <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
       <ul class="nav navbar-nav">
         
-          <li class="dropdown">
-          <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">Inicio <span class="caret"></span></a>
-          <ul class="dropdown-menu">
-            <li><a href="{{ route('visitas.index')}}">Visitas en curso</a></li>
-            <li><a href="{{ route('visitas.create')}}">Registrar nueva visita</a></li>
-                    
-           
-          </ul>
-        </li>
-       
+              
         <li class="dropdown">
           <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">Reportes <span class="caret"></span></a>
           <ul class="dropdown-menu">
@@ -36,6 +27,12 @@
             <li><a href="#">reportes Administracion</a></li>
           </ul>
         </li>
+      </ul>
+
+
+      <ul class="nav navbar-nav">
+        
+          
         
          <li class="dropdown">
           <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">Administracion <span class="caret"></span></a>
