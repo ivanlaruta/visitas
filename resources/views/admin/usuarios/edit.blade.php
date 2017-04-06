@@ -11,8 +11,11 @@
 				
 				<div class="form-group">
 					{!! Form::label('id_rol','Rol')!!}
-					{!! Form::select('id_rol',['2'=>'Operador','1'=>'Administrador'],null,['class'=>'form-control'])!!}
+					{!! Form::select('id_rol',['0'=>'Operador','1'=>'Administrador'], $us -> id_rol ,['class'=>'form-control'])!!}
 				</div>
+
+				
+
 				<div class="form-group">
 					{!! Form::submit('Modificar',['class'=>'btn btn-primary'])!!}
 				</div>

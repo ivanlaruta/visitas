@@ -54,10 +54,19 @@ Route::group(['prefix'=>'admin','middleware'=>'auth'],function(){
 	]);
 
 	route::resource('cargos','CargosController');
+
 	route::get('cargos/{id}/update',[
 		'uses' => 'CargosController@baja', 
 		'as'   =>	'cargos.baja'
 	]);
+
+	route::resource('ubicaciones','UbicacionesController');
+	
+	route::get('ubicaciones/{id}/update',[
+		'uses' => 'UbicacionesController@baja', 
+		'as'   =>	'ubicaciones.baja'
+	]);
+
 });
 
 Route::group(['prefix'=>'ope'],function(){

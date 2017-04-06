@@ -39,5 +39,8 @@ class Visita extends Model
     {
         return $this->belongsTo('App\Ubicacion','id_ubicacion');
     }
-   
+    public function scopeSearch($query,$ci)
+    {
+        return $query->where('ci_visitante','LIKE','%'.$ci.'%');
+    }
 }

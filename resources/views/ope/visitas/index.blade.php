@@ -11,6 +11,17 @@
 						echo date("d-m-Y ", $time);
 					?>
 				</p></h3>
+				{!! Form::open (['route' => 'visitas.index','method' => 'GET','class' => 'navbar-form pull-left'])!!}
+					<div class ="input-group">	
+						{!! Form::text('ci',null,['class'=> 'form-control','placeholder'=>'Ingrese Nro de documento','aria-describedby'=>'seacrch'])!!}
+						<span class="input-group-addon" id="seach">
+
+						<span class="glyphicon glyphicon-search" aria-hidden="true">
+				       		 
+				      </span>
+				      </span>
+					</div>
+				{!! Form::close()!!}
 				<table class="table table-hover">
 					<thead>
 						<th>ID</th>

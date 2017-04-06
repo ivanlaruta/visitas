@@ -12,9 +12,10 @@ class VisitasController extends Controller
      *
      * @return \Illuminate\Http\Response
      */
-    public function index()
+    public function index(Request $request)
     {
-        $vi = Visita::where('estado_visita', '=', 1)->orderBy('id_visita')->paginate(10);
+
+        $vi = Visita::where('estado_visita', '=', 1)->Search($request->ci)->orderBy('id_visita')->paginate(8);
         return view('ope.visitas.index')->with('vi',$vi);
         //dd($vi->all());
     }

@@ -17,7 +17,7 @@ class UbicacionesTableSeeder extends Seeder
 
             'id_ubicacion' => '131C',
             'nombre' => 'OFICINA CENTRAL ',
-            'ciudad' => 'La Paz',
+            'ciudad' => 'LP',
             'creado_por'=> 'admin',
             'modificado_por'=>'admin',
        ]);

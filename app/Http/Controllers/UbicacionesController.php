@@ -3,8 +3,8 @@
 namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
-use App\Cargo;
-class CargosController extends Controller
+use App\Ubicacion;
+class UbicacionesController extends Controller
 {
     /**
      * Display a listing of the resource.
@@ -13,8 +13,8 @@ class CargosController extends Controller
      */
     public function index()
     {
-        $ca = Cargo::where('estado', '=', 1)->paginate(10);
-        return view('admin.cargos.index')->with('ca',$ca);
+        $ub = Ubicacion::where('estado', '=', 1)->paginate(10);
+        return view('admin.ubicaciones.index')->with('ub',$ub);
     }
 
     /**
@@ -24,7 +24,7 @@ class CargosController extends Controller
      */
     public function create()
     {
-        return view('admin.cargos.create');
+        return view('admin.ubicaciones.create');
     }
 
     /**
@@ -35,10 +35,10 @@ class CargosController extends Controller
      */
     public function store(Request $request)
     {
-        $ca = new Cargo($request->all());
-        $ca->save();
+        $ub = new Ubicacion($request->all());
+        $ub->save();
 
-         return redirect()->route('cargos.index')->with('mensaje',"Cargo creado exitosamente!");
+         return redirect()->route('ubicaciones.index')->with('mensaje',"Ubicacion creada exitosamente!");
     }
 
     /**
@@ -60,8 +60,8 @@ class CargosController extends Controller
      */
     public function edit($id)
     {
-       $ca =Cargo::find($id);
-       return view('admin.cargos.edit')->with('ca',$ca);
+       $ub =Ubicacion::find($id);
+       return view('admin.ubicaciones.edit')->with('ub',$ub);
     }
 
     /**
@@ -73,17 +73,17 @@ class CargosController extends Controller
      */
     public function update(Request $request, $id)
     {
-        $ca =Cargo::find($id);
-        $ca->fill($request->all());
-        $ca -> save();
-        return redirect()->route('cargos.index')->with('mensaje',"cargo modificado exitosamente!");
+        $ub =Ubicacion::find($id);
+        $ub->fill($request->all());
+        $ub -> save();
+        return redirect()->route('ubicaciones.index')->with('mensaje',"Ubicacion modificada exitosamente!");
     }
     public function baja($id)
     {
-       $ca =Cargo::find($id);
-       $ca->estado = '0';
-       $ca -> save();
-       return redirect()->route('cargos.index')->with('mensaje',"Cargo dado de baja exitosamente!");
+       $ub =Ubicacion::find($id);
+       $ub->estado = '0';
+       $ub -> save();
+       return redirect()->route('ubicaciones.index')->with('mensaje',"Ubicacion dada de baja exitosamente!");
     }
 
     /**
