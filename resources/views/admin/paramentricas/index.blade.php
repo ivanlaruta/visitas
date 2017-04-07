@@ -9,7 +9,7 @@
 				<p class="text-center">Lista de Cargos.</p>
 				<table class="table table-hover">
 					<thead>
-						<th></th>
+						<th>ID</th>
 						<th>Descripcion</th>
 						<th>Accion</th>
 					</thead>

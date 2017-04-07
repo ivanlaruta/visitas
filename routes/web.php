@@ -20,25 +20,7 @@ Route::get('/', function () {
     return view('welcome');
 });
 
-// Route::group(['prefix'=>'admin'],function(){
-
-	
-// 	route::resource('usuarios','UsuariosController');
-// 	route::get('usuarios/{id}/destroy',[
-// 		'uses' => 'UsuariosController@destroy', 
-// 		'as'   =>	'usuarios.destroy'
-// 	]);
-// 	route::get('usuarios/{id}/update',[
-// 		'uses' => 'UsuariosController@baja', 
-// 		'as'   =>	'usuarios.baja'
-// 	]);
-
-// 	route::resource('cargos','CargosController');
-// 	route::get('cargos/{id}/update',[
-// 		'uses' => 'CargosController@baja', 
-// 		'as'   =>	'cargos.baja'
-// 	]);
-// });
+// Rpara dministradores
 
 Route::group(['prefix'=>'admin','middleware'=>'auth'],function(){
 	
@@ -67,7 +49,47 @@ Route::group(['prefix'=>'admin','middleware'=>'auth'],function(){
 		'as'   =>	'ubicaciones.baja'
 	]);
 
+	route::resource('tarjetas','TarjetasController');
+	
+	route::get('tarjetas/{id}/update',[
+		'uses' => 'TarjetasController@baja', 
+		'as'   =>	'tarjetas.baja'
+	]);
+
+	route::resource('motivos','MotivosController');
+	
+	route::get('motivos/{id}/update',[
+		'uses' => 'MotivosController@baja', 
+		'as'   =>	'motivos.baja'
+	]);
+
+	route::resource('visitantes','VisitantesController');
+	
+	route::get('visitantes/{id}/update',[
+		'uses' => 'VisitantesController@baja', 
+		'as'   =>	'visitantes.baja'
+	]);
+
+
+	route::resource('empleados','EmpleadosController');
+	
+	route::get('empleados/{id}/update',[
+		'uses' => 'EmpleadosController@baja', 
+		'as'   =>	'empleados.baja'
+	]);
+
+
+	route::resource('parametricas','ParametricasController');
+	
+	route::get('parametricas/{id}/update',[
+		'uses' => 'ParametricasController@baja', 
+		'as'   =>	'parametricas.baja'
+	]);
+
+
 });
+
+// * para operadores
 
 Route::group(['prefix'=>'ope'],function(){
 	route::resource('visitas','VisitasController');

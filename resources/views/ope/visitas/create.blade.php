@@ -19,7 +19,7 @@
 		      	<div class="col-md-3">
 					<div class="form-group">
 						<h6>Expendido</h6>
-						{!! Form::select('id_rol',['LP','OR','PT','CH','CH','TJ','BN','PA','SC'],null,['class'=>'form-control'])!!}
+						{!! Form::select('ex',['LP'=>'LP','OR'=>'OR','PT'=>'PT','CH'=>'CH','CB'=>'CB','TJ'=>'TJ','BN'=>'BN','PA'=>'PA','SC'=>'SC'],null,['class'=>'form-control'])!!}
 					</div>
 		      	</div>
 		      	<div class="col-md-4">

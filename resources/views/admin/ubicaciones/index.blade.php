@@ -4,7 +4,7 @@
 @section('content')
 
     	<div class="row">
-  			<div class="col-md-6 col-md-offset-3">
+  			<div class="col-md-11 col-md-offset-1">
 				<a href="{{ route('ubicaciones.create')}}" class="btn btn-info">Registrar nueva Ubicacion</a><hr>
 				<p class="text-center">Lista de Ubicaciones.</p>
 				<table class="table table-hover">

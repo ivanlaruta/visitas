@@ -38,14 +38,34 @@
           <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">Administracion <span class="caret"></span></a>
           <ul class="dropdown-menu">
             <li><a href="{{ route('users.index')}}">Usuarios</a></li>
-            <li><a href="#">Motivos</a></li>
-            <li><a href="{{ route('cargos.index')}}">Cargos</a></li>
-            <li><a href="#">Tarjetas</a></li>
-            <li><a href="#">Ubicaciones</a></li>
-            <li><a href="#">Empleados</a></li>
-            
+            <li><a href="{{ route('empleados.index')}}">Empleados</a></li>
+            <li><a href="{{ route('visitantes.index')}}">Visitantes</a></li>
             <li role="separator" class="divider"></li>
-            <li><a href="#">reportes Administracion</a></li>
+            <li><a href="{{ route('cargos.index')}}">Cargos</a></li>
+            <li><a href="{{ route('tarjetas.index')}}">Tarjetas</a></li>
+            <li><a href="{{ route('ubicaciones.index')}}">Ubicaciones</a></li>
+            
+           
+          </ul>
+        </li>
+
+
+      </ul>
+
+       <ul class="nav navbar-nav">
+        
+          
+        
+         <li class="dropdown">
+          <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">Parametrizaciones <span class="caret"></span></a>
+          <ul class="dropdown-menu">
+            
+            <li><a href="{{ route('motivos.index')}}">Motivos</a></li>
+            <li><a href="">Expendidos</a></li>
+            <li><a href="">Estados</a></li>
+            <li><a href="">Tipos de documentos</a></li>
+            <li><a href="#">Ciudades</a></li>
+            <li><a href="#">Roles</a></li>
           </ul>
         </li>
 

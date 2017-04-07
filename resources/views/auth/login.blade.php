@@ -43,12 +43,10 @@
                         <div class="form-group">
                             <div class="col-md-8 col-md-offset-4">
                                 <button type="submit" class="btn btn-primary">
-                                    Login
+                                    Ingresar
                                 </button>
 
-                                <a class="btn btn-link" href="{{ route('password.request') }}">
-                                    ¿Olvido su contraseña?
-                                </a>
+                               
                             </div>
                         </div>
                     </form>
