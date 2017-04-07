@@ -70,12 +70,6 @@
 					{!! Form::text('telefono',null,['class'=> 'form-control','placeholder'=>'77712345','required'])!!}
 					</div>
 
-					
-
-
-
-
-
 				</div>
 
 				<div class="form-group">

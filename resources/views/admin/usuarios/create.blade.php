@@ -11,10 +11,15 @@
   			<hr>
 				{!! Form::open(['route'=>'users.store','method'=>'POST'])!!}
 
+
+
 				<div class="form-group">
 					{!! Form::label('ci_empleado','Empleado')!!}
-					{!! Form::text('ci_empleado',null,['class'=> 'form-control','placeholder'=>'CI empleado','required'])!!}
-				</div>
+
+						{!! Form::select('ci_empleado',$emp,null,['class'=>'form-control','placeholder'=>'seleccione un empleado','required'])!!}
+					</div>
+
+
 				<div class="form-group">
 					{!! Form::label('usuario','Usuario')!!}
 					{!! Form::text('usuario',null,['class'=> 'form-control','placeholder'=>'Ingrese nombre de Usuario','required'])!!}

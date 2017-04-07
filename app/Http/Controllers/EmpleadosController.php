@@ -29,7 +29,8 @@ class EmpleadosController extends Controller
     {   
         $cargos = Cargo::orderBy('id_cargo','ASC')->pluck('descripcion','id_cargo');
        
-        $ubica =Ubicacion::all()->pluck('nombre','id_ubicacion');;
+        $ubica =Ubicacion::all()->pluck('nombre','id_ubicacion');
+
         return view('admin.empleados.create')
             ->with('cargos',$cargos)
             ->with('ubica',$ubica)   
@@ -72,8 +73,17 @@ class EmpleadosController extends Controller
      */
     public function edit($id)
     {
+
+        $cargos = Cargo::orderBy('id_cargo','ASC')->pluck('descripcion','id_cargo');
+       
+        $ubica =Ubicacion::all()->pluck('nombre','id_ubicacion');
+
         $us =Empleado::find($id);
-       return view('admin.empleados.edit')->with('us',$us);
+       return view('admin.empleados.edit')
+       ->with('us',$us)
+        ->with('cargos',$cargos)
+        ->with('ubica',$ubica) 
+       ;
     }
 
     /**

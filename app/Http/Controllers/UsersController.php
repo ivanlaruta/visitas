@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
 use App\User;
+use App\Empleado;
 class UsersController extends Controller
 {
     /**
@@ -24,7 +25,10 @@ class UsersController extends Controller
      */
     public function create()
     {
-        return view('admin.usuarios.create');
+        $emp = Empleado::all()->pluck('paterno','ci');
+        return view('admin.usuarios.create')
+            ->with('emp',$emp)
+        ;
     }
 
     /**
