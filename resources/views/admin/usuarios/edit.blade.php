@@ -6,7 +6,8 @@
 
     	<div class="row">
   			<div class="col-md-6 col-md-offset-3">
-				
+				  			<p class="text-center">Edicion de usuarios.</p>
+  			<hr>
 				{!! Form::open(array('route' => ['users.update',$us->usuario], 'method' => 'put')) !!}﻿
 				
 				<div class="form-group">

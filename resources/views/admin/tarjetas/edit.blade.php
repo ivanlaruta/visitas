@@ -6,7 +6,8 @@
 
     	<div class="row">
   			<div class="col-md-6 col-md-offset-3">
-				
+				  			<p class="text-center">Editando de tarjeta.</p>
+  			<hr>
 				{!! Form::open(array('route' => ['ubicaciones.update',$ub->id_ubicacion], 'method' => 'put')) !!}﻿
 				
 				<div class="form-group">

@@ -7,6 +7,7 @@
   			<div class="col-md-11 col-md-offset-1">
 				<a href="{{ route('cargos.create')}}" class="btn btn-info">Registrar nuevo Cargo</a><hr>
 				<p class="text-center">Lista de Cargos.</p>
+				 <hr>
 				<table class="table table-hover">
 					<thead>
 						<th></th>

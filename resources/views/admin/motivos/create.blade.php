@@ -7,6 +7,8 @@
 
     	<div class="row">
   			<div class="col-md-6 col-md-offset-3">
+  			  			<p class="text-center">Creacion de motivos.</p>
+  			<hr>
 				{!! Form::open(['route'=>'motivos.store','method'=>'POST'])!!}
 
 				<div class="form-group">

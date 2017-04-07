@@ -6,7 +6,8 @@
 
     	<div class="row">
   			<div class="col-md-6 col-md-offset-3">
-				
+				  			<p class="text-center">Edicion de motivos.</p>
+  			<hr>
 				{!! Form::open(array('route' => ['motivos.update',$mo->id_motivo], 'method' => 'put')) !!}﻿
 				
 				<div class="form-group">

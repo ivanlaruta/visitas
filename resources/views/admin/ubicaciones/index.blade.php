@@ -7,6 +7,7 @@
   			<div class="col-md-11 col-md-offset-1">
 				<a href="{{ route('ubicaciones.create')}}" class="btn btn-info">Registrar nueva Ubicacion</a><hr>
 				<p class="text-center">Lista de Ubicaciones.</p>
+  			<hr>
 				<table class="table table-hover">
 					<thead>
 						<th>ID</th>

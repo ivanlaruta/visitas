@@ -7,6 +7,8 @@
 
     	<div class="row">
   			<div class="col-md-6 col-md-offset-3">
+  			  			<p class="text-center">Creacion de Empleados.</p>
+  			<hr>
 				{!! Form::open(['route'=>'empleados.store','method'=>'POST'])!!}
 
 				

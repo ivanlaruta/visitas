@@ -7,8 +7,9 @@
     	<div class="row">
 
   			<div class="col-md-6 col-md-offset-3">
-				Editando Visitante
-				{!! Form::open(array('route' => ['visitantes.update',$us->ci], 'method' => 'put')) !!}﻿
+  			<p class="text-center">Editando visitante.</p>
+  			<hr>
+  					{!! Form::open(array('route' => ['visitantes.update',$us->ci], 'method' => 'put')) !!}﻿
 				
 				<div class="form-group">
 					<div class="form-group">{!! Form::label('id','CI')!!}</div>

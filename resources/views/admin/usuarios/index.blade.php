@@ -7,6 +7,7 @@
   			<div class="col-md-11 col-md-offset-1">
 				<a href="{{ route('users.create')}}" class="btn btn-info">Registrar nuevo Usuario</a><hr>
 				<p class="text-center">Lista de Usuarios.</p>
+				<hr>
 				<table class="table table-hover">
 					<thead>
 						<th>Empleado</th>

@@ -7,6 +7,8 @@
 
     	<div class="row">
   			<div class="col-md-6 col-md-offset-3">
+  			  			<p class="text-center">Creacion de Visitantes.</p>
+  				<hr>
 				{!! Form::open(['route'=>'visitantes.store','method'=>'POST'])!!}
 
 				

@@ -7,6 +7,7 @@
   			<div class="col-md-11 col-md-offset-1">
 				<a href="{{ route('motivos.create')}}" class="btn btn-info">Registrar nuevo motivo</a><hr>
 				<p class="text-center">Lista de motivos.</p>
+	  			<hr>
 				<table class="table table-hover">
 					<thead>
 						<th></th>
