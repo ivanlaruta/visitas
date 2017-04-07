@@ -24,8 +24,16 @@ class VisitasController extends Controller
         ;
         //dd($vi->all());
     }
- 
-   
+    public function diarias(Request $request)
+    {   
+        
+
+        $vi = Visita::where('estado_visita', '=', 1)->Search($request->ci)->orderBy('id_visita','DESC')->paginate(6);
+        return view('ope.visitas.index')
+            ->with('vi',$vi)
+             ->with('recuperado',$request)
+        ;
+    }
 
     /**
      * Show the form for creating a new resource.
@@ -180,13 +188,5 @@ class VisitasController extends Controller
         $vi -> save();
         return redirect()->route('visitas.index')->with('mensaje',"visita se marco como terminada a hrs:".date("H:i:s", $time));
     }
-
-     public function hoy()
-    {
-        date_default_timezone_set('America/La_Paz');
-        $time = time();
-        date("H:i:s", $time);
-    }
-
 }
 
