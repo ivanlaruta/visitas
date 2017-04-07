@@ -43,4 +43,5 @@ class Visita extends Model
     {
         return $query->where('ci_visitante','LIKE','%'.$ci.'%');
     }
+    
 }

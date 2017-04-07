@@ -53,10 +53,9 @@
 
 					<div class="form-group">
 					{!! Form::label('cargo','Cargo')!!}
-
-						{!! Form::select('id_cargo',$cargos,null,['class'=>'form-control','placeholder'=>'seleccione un cargo','required'])!!}
+					{!! Form::select('id_cargo',$cargos,null,['class'=>'form-control','placeholder'=>'seleccione un cargo','required'])!!}
 					</div>
-
+					
 					<div class="form-group">
 					{!! Form::label('email','Ubicacion')!!}
 						{!! Form::select('id_ubicacion',$ubica,null,['class'=>'form-control','placeholder'=>'seleccione una ubicacion','required'])!!}

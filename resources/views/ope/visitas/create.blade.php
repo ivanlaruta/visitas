@@ -3,26 +3,33 @@
 @section('title','visitas')
 
 @section('content')
-	
+
 	<div class="row">
+		{!! Form::open (['route' => 'visitas.create','method' => 'GET','class' => 'navbar-form pull-left'])!!}
+					<div class ="input-group">	
+						{!! Form::text('ci', $recuperado -> ci ,['class'=> 'form-control','placeholder'=>'Ingrese Nro de documento','aria-describedby'=>'seacrch'])!!}
+						<span class="input-group-addon" id="seach">
+						<span class="glyphicon glyphicon-search" aria-hidden="true">		 
+				      </span>
+				      </span>
+					</div>
+		{!! Form::close()!!}
+
+</div>
+
+<div class="row">
 		{!! Form::open(['route'=>'visitas.store','method'=>'POST'])!!}
 		
 		<div class="col-md-6">
-
 			<div class="row">
-		      	<div class="col-md-5">
-					<div class="form-group">
-						<h6>Nro. Documento</h6>
-						{!! Form::text('ci_visitante',null,['class'=> 'form-control','placeholder'=>'Nro doc','required'])!!}
-					</div>
-		      	</div>
-		      	<div class="col-md-3">
+		      	<div class="col-md-6">
 					<div class="form-group">
 						<h6>Expendido</h6>
-						{!! Form::select('ex',['LP'=>'LP','OR'=>'OR','PT'=>'PT','CH'=>'CH','CB'=>'CB','TJ'=>'TJ','BN'=>'BN','PA'=>'PA','SC'=>'SC'],null,['class'=>'form-control'])!!}
+						{!! Form::select('ex',['LP'=>'La Paz','OR'=>'Oruro','PT'=>'Potosi','CH'=>'Chuquisaca','CB'=>'Cochabamba','TJ'=>'Tarija','BN'=>'Beni','PA'=>'Pando','SC'=>'Santa Cruz'],null,['class'=>'form-control','placeholder'=>'seleccione una expedicion','required'])!!}
 					</div>
+		      
 		      	</div>
-		      	<div class="col-md-4">
+		      	<div class="col-md-6">
 					<div class="form-group">
 					<h6>Tipo Documento</h6>
 						{!! Form::select('tipo_doc',['ci'=>'Cedula de identidad','lic'=>'Licencia de conducir'],null,['class'=>'form-control'])!!}
@@ -34,16 +41,19 @@
 					<thead>
 						<th><h6>CI</h6></th>
 						<th><h6>Nombre </h6></th>
+						<th><h6>Seleccionar </h6></th>
 					</thead>
-					{{-- <tbody>
-						@foreach($vi as $vis)
+					<tbody>
+						@foreach($vis as $visi)
 							<tr>								
-								<td>{{ $vis-> id_visita }}</td>
-								<td>{{ $vis -> ci_visitante }}</td>
+								<td>{{ $visi-> ci }}</td>
+								<td>{{ $visi -> nombre }} {{ $visi -> paterno }} </td>
+								<td><a href="{{ route('visitas.salida',$visi -> ci )}}" class="btn btn-success"><span class="glyphicon glyphicon-ok"></span></a> 
 								
+								</td>
 							</tr>
 						@endforeach
-					</tbody> --}}
+					</tbody>
 				</table>
 			</div>
 
@@ -72,32 +82,28 @@
 		
 		<div class="col-md-3">
 			<div class="form-group">
-				<h6>Motivo:</h4>
-				{!! Form::select('id_motivo',['1'=>'Entrevista','2'=>'Visita'],null,['class'=>'form-control'])!!}
+					<h6>Motivo:</h4>
+					{!! Form::select('id_cargo',$motivos,null,['class'=>'form-control','placeholder'=>'motivo de la visita','required'])!!}
 			</div>
 			<div class="form-group">
-				<h6>Empleado Visitado:</h4>
-				{!! Form::select('ci_empleado',['8264209'=>'Ivan Laruta','12345678'=>'Maria Tarifa'],null,['class'=>'form-control'])!!}
+					<h6>Empleado:</h4>
+					{!! Form::select('ci_empleado',$empleados,null,['class'=>'form-control','placeholder'=>'Empleado visitado','required'])!!}
+			</div>
+			<div class="form-group">
+					<h6>Codigo de Tarjeta :</h4>
+					{!! Form::select('id_tarjeta',$tarjetas,null,['class'=>'form-control','placeholder'=>'Tarjeta para el visitante','required'])!!}
 			</div>
 			<div class="form-group">
 				<h6>Obervaciones:</h4>
 				{!! Form::text('observaciones',null,['class'=> 'form-control','placeholder'=>'observacion','required'])!!}
 			</div>
 			<div class="form-group">
-				<h6>Tarejeta asignada:</h4>
-				{!! Form::select('id_tarjeta',['1'=>'Visita','2'=>'Personal autorizado'],null,['class'=>'form-control'])!!}
-			</div>
-			<div class="form-group">
-				<div class="col-md-6">
 				<h6>Fecha:</h4>
-				{{-- {!! Form::label('fecha', \Carbon\Carbon::now())!!} --}}
-				{!! Form::date('fecha', \Carbon\Carbon::now()); !!}
-				</div>
-				<div class="col-md-6">
-				<h6>Hora:</h4>
-
-				{!! Form::text('hora_entrada',null,['class'=> 'form-control','placeholder'=>'15:00:25','required'])!!}
-				</div>
+				<input class="form-control" id="" type="text" placeholder="<?php
+						$time = time();
+						echo date("d-m-Y ", $time);
+				?>" disabled>
+				
 			</div>
 		     			 
 		</div>	

@@ -23,4 +23,8 @@ class Visitante extends Model
     {
         return $this->belongsTo('App\User','modificado_por');
     }
+    public function scopeSearch($query,$ci)
+    {
+        return $query->where('ci','LIKE','%'.$ci.'%');
+    }
 }
