@@ -7,7 +7,6 @@
 	
 </head>
 <body>
-
 	<div class="container">
 		@if(Auth::user()->id_rol==0 || Auth::user()->id_rol==2 )
 		@include('ope.template.partials.nav')
@@ -17,8 +16,6 @@
 			 	{{session('mensaje')}}
 		 	</div>
 		@endif﻿
-
-
 		<section>
 			@yield('content')
 		</section>

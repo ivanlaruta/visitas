@@ -16,7 +16,7 @@
 			 <div class="col-md-10">
 				{!! Form::open (['route' => 'visitas.create','method' => 'GET','class' => 'navbar-form pull-left'])!!}
 					<div class ="input-group">	
-						{!! Form::text('ci', $recuperado -> ci ,['class'=> 'form-control','placeholder'=>'Ingrese CI para la busqueda','aria-describedby'=>'seacrch'])!!}
+						{!! Form::text('ci', null ,['class'=> 'form-control','placeholder'=>'Ingrese CI para la busqueda','aria-describedby'=>'seacrch'])!!}
 						<span class="input-group-addon" id="seach">
 						<span class="glyphicon glyphicon-search" aria-hidden="true">		 
 				      </span>
@@ -33,7 +33,7 @@
 						<th><h6>Nombre </h6></th>
 						<th><h6>Seleccionar </h6></th>
 					</thead>
-					<tbody>
+					{{-- <tbody>
 						@foreach($vis as $visi)
 							<tr>								
 								<td>{{ $visi-> ci }}</td>
@@ -43,25 +43,25 @@
 								</td>
 							</tr>
 						@endforeach
-					</tbody>
+					</tbody> --}}
 				</table>
 			</div>
 
 
 		</div>
 		<div class="col-md-7">
-			{!! Form::open(['route'=>'visitas.store','method'=>'POST'])!!}
+			{!! Form::open(['route'=>'visitas.ingreso','method'=>'POST'])!!}
 				<div class="col-md-6">
 					<div class="form-group">
 						<h6>CI</h6>
-						{!! Form::text('ci',  $recuperado -> ci ,['class'=> 'form-control','placeholder'=>'Ingrese Nro de documento para registrar'])!!}
+						{!! Form::text('ci',  $dato->ci ,['class'=> 'form-control', 'readonly'])!!}
 					</div>
 		      
 		      	</div>
 		      	<div class="col-md-3">
 					<div class="form-group">
 						<h6>Expendido</h6>
-						{!! Form::select('ex',['LP'=>'La Paz','OR'=>'Oruro','PT'=>'Potosi','CH'=>'Chuquisaca','CB'=>'Cochabamba','TJ'=>'Tarija','BN'=>'Beni','PA'=>'Pando','SC'=>'Santa Cruz'],null,['class'=>'form-control','placeholder'=>'seleccione una expedicion','required'])!!}
+						{!! Form::text('ex',$dato->ex,['class'=>'form-control', 'readonly'])!!}
 					</div>
 		      
 		      	</div>
@@ -77,19 +77,19 @@
 			
 			<div class="form-group">
 				<h6>Nombre:</h4>
-				{!! Form::text('nombre',null,['class'=> 'form-control','placeholder'=>'Ingrese nombre de visitante','required'])!!}
+				{!! Form::text('nombre', $dato->nombre,['class'=> 'form-control', 'readonly'])!!}
 			</div>
 			<div class="form-group">
 				<h6>Paterno:</h4>
-				{!! Form::text('paterno',null,['class'=> 'form-control','placeholder'=>'Ingrese apellido paterno','required'])!!}
+				{!! Form::text('paterno', $dato->paterno,['class'=> 'form-control', 'readonly'])!!}
 			</div>
 			<div class="form-group">
 				<h6>Materno:</h4>
-				{!! Form::text('materno',null,['class'=> 'form-control','placeholder'=>'Ingrese apellido materno','required'])!!}
+				{!! Form::text('materno', $dato->materno,['class'=> 'form-control', 'readonly'])!!}
 			</div>
 			<div class="form-group">
 				<h6>Telefono:</h4>
-				{!! Form::text('telefono',null,['class'=> 'form-control','placeholder'=>'Ingrese telefono','required'])!!}
+				{!! Form::text('telefono', $dato->telefono,['class'=> 'form-control','placeholder'=>' 77712345 ','required'])!!}
 			</div>
 		</div>
 		

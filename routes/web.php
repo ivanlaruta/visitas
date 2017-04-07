@@ -93,10 +93,22 @@ Route::group(['prefix'=>'admin','middleware'=>'auth'],function(){
 
 Route::group(['prefix'=>'ope'],function(){
 	route::resource('visitas','VisitasController');
+
 	route::get('visitas/{id}/update',[
 		'uses' => 'VisitasController@salida', 
 		'as'   =>	'visitas.salida'
 	]);
+
+	route::post('visitas/ingreso',[
+		'uses' => 'VisitasController@ingreso', 
+		'as'   =>	'visitas.ingreso'
+	]);
+
+	route::get('visitas/hoy',[
+		'uses' => 'VisitasController@hoy', 
+		'as'   =>	'visitas.hoy'
+	]);
+
 });
 
 Auth::routes();
