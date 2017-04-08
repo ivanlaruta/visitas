@@ -15,7 +15,7 @@ class UsersController extends Controller
     public function index()
     {
        
-        $us = User::where('estado', '=', 1)->paginate(10);
+        $us = User::where('estado', '=', 1)->paginate(8);
         return view('admin.usuarios.index')->with('us',$us);
     }
     /**
@@ -25,7 +25,7 @@ class UsersController extends Controller
      */
     public function create()
     {
-        $emp = Empleado::all()->pluck('paterno','ci');
+        $emp = Empleado::all(['ci', 'nombre','paterno']);
         return view('admin.usuarios.create')
             ->with('emp',$emp)
         ;
@@ -86,8 +86,8 @@ class UsersController extends Controller
     {
         $us =User::find($id);
         // $us->usuario = $request->usuario;
-        // $us->id_rol = $request->id_rol;
-        $us->fill($request->all());
+        $us->id_rol = $request->id_rol;
+        //$us->fill($request->all());
         $us -> save();
         return redirect()->route('users.index')->with('mensaje',"Usuario modificado exitosamente!");
     }

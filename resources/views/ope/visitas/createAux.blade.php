@@ -68,7 +68,7 @@
 		      	<div class="col-md-3">
 					<div class="form-group">
 					<h6>Tipo Documento</h6>
-						{!! Form::select('tipo_doc',['ci'=>'Cedula de identidad','lic'=>'Licencia de conducir'],null,['class'=>'form-control'])!!}
+						{!! Form::select('tipo_doc',['CI'=>'Cedula de identidad','LIC'=>'Licencia de conducir'],null,['class'=>'form-control'])!!}
 					</div>
 		      	</div>
 	   		
@@ -100,7 +100,12 @@
 			</div>
 			<div class="form-group">
 					<h6>Empleado:</h4>
-					{!! Form::select('ci_empleado',$empleados,null,['class'=>'form-control','placeholder'=>'Empleado visitado','required'])!!}
+					<select class="form-control" name="ci_empleado">
+					<option value="">Selecione un empleado</option>
+					    @foreach($empleados as $emp)
+					      <option value="{{$emp->ci}}">{{$emp->paterno}} {{$emp->nombre}}</option>
+					    @endforeach
+				  	</select>
 			</div>
 			<div class="form-group">
 					<h6>Codigo de Tarjeta :</h4>

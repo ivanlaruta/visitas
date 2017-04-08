@@ -44,4 +44,8 @@ class Empleado extends Model
     {
         return $this->hasMany('App\User','ci');
     }
+    public function getFullnameAttribute()
+    {
+        return [$this->nombre . ' ' . $this->paterno];
+    }
 }

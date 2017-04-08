@@ -25,7 +25,7 @@
 						{{-- <th>ID</th> --}}
 						<th>Documento</th>
 						<th>Ex</th>
-						<th>Tipo documento</th>
+						<th>Tipo doc</th>
 						<th>Visitante</th>
 						{{-- <th>Fecha</th> --}}
 						<th>Entrada</th>
@@ -36,7 +36,8 @@
 						<th>Tarjeta</th>
 						{{-- <th>Tipo tarjeta</th> --}}
 						{{-- <th>Ubicacion</th> --}}
-						<th>Observacion</th>
+						<th>Obs</th>
+						<th>Estado</th>
 					</thead>
 					<tbody>
 						@foreach($vi as $vis)

@@ -11,14 +11,22 @@
   			<hr>
 				{!! Form::open(['route'=>'users.store','method'=>'POST'])!!}
 
-
-
 				<div class="form-group">
 					{!! Form::label('ci_empleado','Empleado')!!}
+					<select class="form-control" name="ci_empleado">
+					<option value="">Selecione un empleado</option>
+					    @foreach($emp as $emps)
+					      <option value="{{$emps->ci}}">{{$emps->paterno}} {{$emps->nombre}}</option>
+					    @endforeach
+				  	</select>
+				</div>
 
+				{{-- <div class="form-group">
+					{!! Form::label('ci_empleado','Empleado')!!}
+					
 						{!! Form::select('ci_empleado',$emp,null,['class'=>'form-control','placeholder'=>'seleccione un empleado','required'])!!}
 					</div>
-
+ --}}
 
 				<div class="form-group">
 					{!! Form::label('usuario','Usuario')!!}

@@ -27,7 +27,7 @@
 						{{-- <th>ID</th> --}}
 						<th>Documento</th>
 						<th>Ex</th>
-						<th>Tipo documento</th>
+						<th>Tipo doc</th>
 						<th>Visitante</th>
 						{{-- <th>Fecha</th> --}}
 						<th>Entrada</th>
@@ -37,7 +37,7 @@
 						<th>Tarjeta</th>
 						{{-- <th>Tipo tarjeta</th> --}}
 						{{-- <th>Ubicacion</th> --}}
-						<th>Observacion</th>
+						<th>Obs</th>
 					</thead>
 					<tbody>
 						@foreach($vi as $vis)
@@ -50,7 +50,7 @@
 								{{-- <td>{{ $vis -> fecha }}</td> --}}
 								<td><span class="text-danger">{{ $vis -> hora_entrada }}</span></td>
 								<td>{{ $vis -> motivo -> descripcion}}</td>
-								<td>{{ $vis -> empleado -> nombre }}  {{ $vis -> empleado -> paterno }}  {{ $vis -> empleado -> materno }}</td>
+								<td>{{ $vis -> empleado -> nombre }}  {{ $vis -> empleado -> paterno }}</td>
 								{{-- <td>{{ $vis -> empleado -> cargo -> descripcion }} </td> --}}
 								<td><span class="text-info">{{ $vis -> id_tarjeta }}</td>
 								{{-- <td>{{ $vis -> tarjeta -> tipo_tarjeta }} </td> --}}

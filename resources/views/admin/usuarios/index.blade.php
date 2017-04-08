@@ -10,6 +10,7 @@
 				<hr>
 				<table class="table table-hover">
 					<thead>
+						<th>Ci empleado</th>
 						<th>Empleado</th>
 						<th>Usuario</th>
 						<th>Rol</th>
@@ -19,6 +20,13 @@
 						@foreach($us as $usu)
 							<tr>								
 								<td>{{ $usu-> ci_empleado }}</td>
+
+								@if(is_null($usu -> ci_empleado))
+									<td>No asignado</td>
+								@else
+									<td>{{ $usu-> empleado -> nombre }} {{ $usu-> empleado -> paterno }}</td>
+								@endif
+
 								<td>{{ $usu -> usuario }}</td>
 								<td>
 									@if($usu->id_rol=="1")

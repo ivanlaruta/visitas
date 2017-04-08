@@ -16,8 +16,17 @@ class VisitasController extends Controller
      * @return \Illuminate\Http\Response
      */
     public function index(Request $request)
-    {
-        $vi = Visita::where('estado_visita', '=', 1)->Search($request->ci)->orderBy('id_visita','DESC')->paginate(6);
+    {    date_default_timezone_set('America/La_Paz');
+        $time = time();
+        $hoy=date("d-m-Y ", $time);
+
+        $vi = Visita::where('estado_visita', '=', 1)
+        ->where('fecha', '=', $hoy)
+        ->Search($request->ci)
+        ->orderBy('id_visita','DESC')
+        ->paginate(6)
+        ;
+
         return view('ope.visitas.index')
             ->with('vi',$vi)
              ->with('recuperado',$request)
@@ -33,12 +42,14 @@ class VisitasController extends Controller
      */
     public function create(Request $request)
     {
-        $motivos = Motivo::orderBy('id_motivo','ASC')->pluck('descripcion','id_motivo');
-        $empleados = Empleado::all()->pluck('nombre','ci');
-        $tarjetas = Tarjeta::all()->pluck('id_tarjeta','id_tarjeta');
 
+        $empleados = Empleado::all(['ci', 'nombre','paterno']);
+        $motivos = Motivo::orderBy('id_motivo','ASC')->pluck('descripcion','id_motivo');
+        // $empleados = Empleado::all()->pluck('nombre','ci');
+        $tarjetas = Tarjeta::all()->pluck('id_tarjeta','id_tarjeta');
         $vis = Visitante::where('estado', '=', 1)->Search($request->ci)->orderBy('ci')->paginate(5);
-        
+        // dd($empleados);
+       
 
         return view('ope.visitas.create')
             ->with('vis',$vis)
@@ -92,7 +103,7 @@ class VisitasController extends Controller
         
         date_default_timezone_set('America/La_Paz');
         $time = time();
-        date("H:i:s", $time);
+        date("d-m-Y ", $time);
 
       
 
@@ -132,13 +143,13 @@ class VisitasController extends Controller
      */
     public function edit($id)
     {
-         $motivos = Motivo::orderBy('id_motivo','ASC')->pluck('descripcion','id_motivo');
-        $empleados = Empleado::all()->pluck('nombre','ci');
+        $motivos = Motivo::orderBy('id_motivo','ASC')->pluck('descripcion','id_motivo');
+       $empleados = Empleado::all(['ci', 'nombre','paterno']);
         $tarjetas = Tarjeta::all()->pluck('id_tarjeta','id_tarjeta');
 
 
         $dato =Visitante::find($id);
-       return view('ope.visitas.create2')
+       return view('ope.visitas.createAux')
        ->with('motivos',$motivos)
         ->with('empleados',$empleados)
         ->with('tarjetas',$tarjetas)
