@@ -86,17 +86,13 @@ Route::group(['prefix'=>'admin','middleware'=>'auth'],function(){
 		'as'   =>	'parametricas.baja'
 	]);
 
-	route::get('visitas/diarias',[
-		'uses' => 'VisitasController@diarias', 
-		'as'   =>	'visitas.diarias'
-	]);
+
 });
 
-
+// * para operadores
 
 Route::group(['prefix'=>'ope'],function(){
 	route::resource('visitas','VisitasController');
-	
 	route::get('visitas/{id}/update',[
 		'uses' => 'VisitasController@salida', 
 		'as'   =>	'visitas.salida'
@@ -107,10 +103,9 @@ Route::group(['prefix'=>'ope'],function(){
 		'as'   =>	'visitas.ingreso'
 	]);
 
-	route::get('visitas/diarias',[
-		'uses' => 'VisitasController@diarias', 
-		'as'   =>	'visitas.diarias'
-	]);
+});
+Route::group(['prefix'=>'rep'],function(){
+	route::resource('reportes','ReportesController');
 });
 
 

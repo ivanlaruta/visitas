@@ -28,7 +28,7 @@
         <li class="dropdown">
           <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">Reportes <span class="caret"></span></a>
           <ul class="dropdown-menu">
-            <li><a href="{{ route('visitas.diarias')}}">Visitas Diarias</a></li>
+            <li><a href="{{ route('reportes.index')}}">Visitas Diarias</a></li>
             <li><a href="#">Visitas entre fechas</a></li>
             <li><a href="#">tops</a></li>
             <li role="separator" class="divider"></li>
@@ -50,8 +50,8 @@
                         @else
                             <li class="dropdown">
                                 <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-expanded="false">
-                                    Usuario:{{ Auth::user()->empleado->nombre }} {{ Auth::user()->empleado->paterno }}  Ubicacion:{{ Auth::user()->empleado->ubicacion->nombre }}
-                                    Tipo Usuario:{{ Auth::user()->id_rol }}<span class="caret"></span>
+                                    Usuario:{{ Auth::user()->empleado->nombre }} {{ Auth::user()->empleado->paterno }} | Ubicacion:{{ Auth::user()->empleado->ubicacion->nombre }}
+                                   <span class="caret"></span>
                                 </a>
 
                                 <ul class="dropdown-menu" role="menu">

@@ -85,8 +85,8 @@
                         @else
                             <li class="dropdown">
                                 <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-expanded="false">
-                                    Usuario:{{ Auth::user()->empleado->nombre }} {{ Auth::user()->empleado->paterno }}  Ubicacion:{{ Auth::user()->empleado->ubicacion->nombre }}
-                                    Tipo Usuario:{{ Auth::user()->id_rol }}<span class="caret"></span>
+                                    Usuario:{{ Auth::user()->empleado->nombre }} {{ Auth::user()->empleado->paterno }} | Ubicacion:{{ Auth::user()->empleado->ubicacion->nombre }}
+                                    <span class="caret"></span>
                                 </a>
 
                                 <ul class="dropdown-menu" role="menu">

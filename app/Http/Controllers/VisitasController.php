@@ -24,16 +24,7 @@ class VisitasController extends Controller
         ;
         //dd($vi->all());
     }
-    public function diarias(Request $request)
-    {   
-        
-
-        $vi = Visita::where('estado_visita', '=', 1)->Search($request->ci)->orderBy('id_visita','DESC')->paginate(6);
-        return view('ope.visitas.index')
-            ->with('vi',$vi)
-             ->with('recuperado',$request)
-        ;
-    }
+   
 
     /**
      * Show the form for creating a new resource.
