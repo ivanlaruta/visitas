@@ -9,19 +9,32 @@
   			<div class="col-md-6 col-md-offset-3">
   				  			<p class="text-center">Creacion de tarjetas.</p>
   			<hr>
-				{!! Form::open(['route'=>'ubicaciones.store','method'=>'POST'])!!}
+				{!! Form::open(['route'=>'tarjetas.store','method'=>'POST'])!!}
 
 				<div class="form-group">
 
-					{!! Form::label('id','ID')!!}
-					{!! Form::text('id_ubicacion',null,['class'=> 'form-control','placeholder'=>'Ingrese un Identificador','required'])!!}
-					{!! Form::label('nombre','Nombre del lugar')!!}
-					{!! Form::text('nombre',null,['class'=> 'form-control','placeholder'=>'Ingrese el nombre del lugar','required'])!!}
+					<h6>Id:</h4>
+					{!! Form::text('id_tarjeta',null,['class'=> 'form-control','placeholder'=>'Ingrese nuero de tarjeta','required'])!!}
+					
+					<h6>PSW:</h4>
+					{!! Form::text('psw',null,['class'=> 'form-control','placeholder'=>'Ingrese un PSW'])!!}
 					
 					<div class="form-group">
-						{!! Form::label('ciu','Ciudad')!!}
-						{!! Form::select('ciudad',['LP'=>'La Paz','CB'=>'Cochabamba','SC'=>'Santa Cruz','PT'=>'Potosi','SC'=>'Sucre','OR'=>'Oruro'],null,['class'=>'form-control','placeholder'=>'seleccione una ciudad','required'])!!}
+					<h6>Tipo Tarjeta:</h4>
+					{!! Form::select('tipo_tarjeta',$tipo,null,['class'=>'form-control','placeholder'=>'seleccione un tipo','required'])!!}
 					</div>
+
+					<div class="form-group">
+					<h6>Empleado:</h4>
+					<select class="form-control" name="ci_empleado">
+						<option value="">Selecione un empleado</option>
+					    @foreach($empleados as $emp)
+					      <option value="{{$emp->ci}}">{{$emp->paterno}} {{$emp->nombre}}</option>
+					    @endforeach
+				  	</select>
+					</div>
+					
+					
 					
 				</div>
 				

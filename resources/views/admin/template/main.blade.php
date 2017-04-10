@@ -9,7 +9,7 @@
 <body>
 	<div class="container">
 		
-		@if(Auth::user()->id_rol==1 || Auth::user()->id_rol==2 )
+		@if(Auth::user()->id_rol==1  )
 			@include('admin.template.partials.nav')
 
 

@@ -3,7 +3,7 @@
 namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
-
+use App\Parametrica;
 class ParametricasController extends Controller
 {
     /**
@@ -13,7 +13,8 @@ class ParametricasController extends Controller
      */
     public function index()
     {
-        //
+        $pa = Parametrica::where('estado', '=', 1)->orderBy('nombre_tabla','ASC')->paginate(15);
+        return view('admin.parametricas.index')->with('pa',$pa);
     }
 
     /**
@@ -23,7 +24,7 @@ class ParametricasController extends Controller
      */
     public function create()
     {
-        //
+        return view('admin.parametricas.create');
     }
 
     /**
@@ -34,7 +35,10 @@ class ParametricasController extends Controller
      */
     public function store(Request $request)
     {
-        //
+        $pa = new Parametrica($request->all());
+        $pa->save();
+
+         return redirect()->route('parametricas.index')->with('mensaje',"Parametrica creado exitosamente!");
     }
 
     /**
@@ -56,7 +60,8 @@ class ParametricasController extends Controller
      */
     public function edit($id)
     {
-        //
+       $pa =Parametrica::find($id);
+       return view('admin.parametricas.edit')->with('pa',$pa);
     }
 
     /**
@@ -68,7 +73,18 @@ class ParametricasController extends Controller
      */
     public function update(Request $request, $id)
     {
-        //
+        $pa =Parametrica::find($id);
+        $pa->fill($request->all());
+        $pa -> save();
+        return redirect()->route('parametricas.index')->with('mensaje',"Parametrica modificado exitosamente!");
+    }
+    
+    public function baja($id)
+    {
+       $pa =Parametrica::find($id);
+       $pa->estado = '0';
+       $pa -> save();
+       return redirect()->route('parametricas.index')->with('mensaje',"Parametrica dado de baja exitosamente!");
     }
 
     /**

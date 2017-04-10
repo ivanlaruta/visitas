@@ -1,6 +1,6 @@
 @extends('admin.template.main')
 
-@section('title','Editar Ubicaciones')
+@section('title','Editar Tarjeta')
 
 @section('content')
 
@@ -8,21 +8,35 @@
   			<div class="col-md-6 col-md-offset-3">
 				  			<p class="text-center">Editando de tarjeta.</p>
   			<hr>
-				{!! Form::open(array('route' => ['ubicaciones.update',$ub->id_ubicacion], 'method' => 'put')) !!}﻿
+				{!! Form::open(array('route' => ['tarjetas.update',$ta->id_tarjeta], 'method' => 'put')) !!}﻿
 				
 				<div class="form-group">
 
-					{!! Form::label('id','ID')!!}
-					{!! Form::text('id_ubicacion',$ub->id_ubicacion,['class'=> 'form-control','placeholder'=>'Ingrese un Identificador','required'])!!}
-					{!! Form::label('nombre','Nombre del lugar')!!}
-					{!! Form::text('nombre',$ub->nombre,['class'=> 'form-control','placeholder'=>'Ingrese el nombre del lugar','required'])!!}
+					<h6>Id:</h4>
+					{!! Form::text('id_tarjeta',$ta->id_tarjeta,['class'=> 'form-control','placeholder'=>'Ingrese nuero de tarjeta','required'])!!}
+					
+					<h6>PSW:</h4>
+					{!! Form::text('psw',$ta->id_psw,['class'=> 'form-control','placeholder'=>'Ingrese un PSW'])!!}
 					
 					<div class="form-group">
-						{!! Form::label('ciu','Ciudad')!!}
-						{!! Form::select('ciudad',['LP'=>'La Paz','CB'=>'Cochabamba','SC'=>'Santa Cruz','PT'=>'Potosi','CH'=>'Sucre','OR'=>'Oruro'],$ub->ciudad ,['class'=>'form-control','placeholder'=>'seleccione una ciudad','required'])!!}
+					<h6>Tipo Tarjeta:</h4>
+					{!! Form::select('tipo_tarjeta',$tipo,$ta->tipo_tarjeta,['class'=>'form-control','placeholder'=>'seleccione un tipo','required'])!!}
 					</div>
 
-					
+					<div class="form-group">
+					<h6>Empleado:</h4>
+					<select class="form-control" name="ci_empleado">
+						<option value="">Selecione un empleado</option>
+					    @foreach($empleados as $emp)
+					      <option value="{{$emp->ci}}">{{$emp->paterno}} {{$emp->nombre}}</option>
+					    @endforeach
+				  	</select>
+					</div>
+
+
+
+
+
 				</div>
 				<div class="form-group">
 					{!! Form::submit('Modificar',['class'=>'btn btn-primary'])!!}

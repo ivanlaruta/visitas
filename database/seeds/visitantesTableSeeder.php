@@ -15,7 +15,7 @@ class visitantesTableSeeder extends Seeder
 
        	DB::table('visitantes')->insert([
 
-            'ci' => '123',
+            'ci' => '7897465',
             'ex' => 'LP',
             'nombre' => 'Pedro',
             'paterno'=> 'Marquez',            
@@ -26,7 +26,7 @@ class visitantesTableSeeder extends Seeder
        ]);
        	DB::table('visitantes')->insert([
 
-            'ci' => '321',
+            'ci' => '2587456',
             'ex' => 'LP',
             'nombre' => 'Peter',
             'paterno'=> 'Alveiro',            
@@ -37,7 +37,7 @@ class visitantesTableSeeder extends Seeder
        ]);
        	DB::table('visitantes')->insert([
 
-            'ci' => '456',
+            'ci' => '87954624',
             'ex' => 'LP',
             'nombre' => 'Anai',
             'paterno'=> 'Perez',            
@@ -48,7 +48,7 @@ class visitantesTableSeeder extends Seeder
        ]);
        	DB::table('visitantes')->insert([
 
-            'ci' => '654',
+            'ci' => '8996547',
             'ex' => 'LP',
             'nombre' => 'Meliza',
             'paterno'=> 'Cortez',            

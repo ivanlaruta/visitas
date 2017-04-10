@@ -12,7 +12,7 @@ class UsersTableSeeder extends Seeder
 
         DB::table('users')->insert([
            
-            'usuario' => 'ivan',
+            'usuario' => 'ivan.laruta',
             'password' => bcrypt('12345'),
             'ci_empleado' => '8264209',
             'id_rol'=> '1',
@@ -20,10 +20,10 @@ class UsersTableSeeder extends Seeder
 
          DB::table('users')->insert([
             
-            'usuario' => 'tarifa',
+            'usuario' => 'melisa.tarifa',
             'password' => bcrypt('12345'),
             'ci_empleado' => '12345678',
-            'id_rol'=> '1',
+            'id_rol'=> '0',
         ]);
 
     }

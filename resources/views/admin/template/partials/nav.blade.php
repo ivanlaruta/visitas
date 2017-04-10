@@ -61,11 +61,10 @@
           <ul class="dropdown-menu">
             
             <li><a href="{{ route('motivos.index')}}">Motivos</a></li>
-            <li><a href="">Expendidos</a></li>
-            <li><a href="">Estados</a></li>
-            <li><a href="">Tipos de documentos</a></li>
-            <li><a href="#">Ciudades</a></li>
-            <li><a href="#">Roles</a></li>
+            <li role="separator" class="divider"></li>
+            <li><a href="{{ route('parametricas.index')}}">Parametricas</a></li>
+            <li role="separator" class="divider"></li>
+            <li><a href="#">opciones</a></li>
           </ul>
         </li>
 

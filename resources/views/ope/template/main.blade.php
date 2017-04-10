@@ -8,7 +8,7 @@
 </head>
 <body>
 	<div class="container">
-		@if(Auth::user()->id_rol==0 || Auth::user()->id_rol==2 )
+		@if(Auth::user()->id_rol==0  )
 		@include('ope.template.partials.nav')
 		@if(!session('mensaje')==null)
 		 	<div class="alert alert-success">

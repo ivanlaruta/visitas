@@ -9,7 +9,7 @@ class Tarjeta extends Model
     protected $table = "tarjetas";
     public $incrementing=false;
     protected $primaryKey ='id_tarjeta';
-    protected $fillable =['id_tarjeta','tipo_tarjeta','psw','ci_empleado','estado','creado_por','modificado_por'];
+    protected $fillable =['id_tarjeta','tipo_tarjeta','estado_prestamo','psw','ci_empleado','estado','creado_por','modificado_por'];
 
     public function visitas()
     {
@@ -27,4 +27,6 @@ class Tarjeta extends Model
     {
         return $this->belongsTo('App\User','modificado_por');
     }
+   
+
 }

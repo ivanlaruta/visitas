@@ -29,6 +29,7 @@
 						<th>Ex</th>
 						<th>Tipo doc</th>
 						<th>Visitante</th>
+						<th>Telefono</th>
 						{{-- <th>Fecha</th> --}}
 						<th>Entrada</th>
 						<th>Motivo</th>
@@ -47,6 +48,7 @@
 								<td>{{ $vis -> visitante -> ex}}</td>
 								<td>{{ $vis -> tipo_doc }}</td>
 								<td>{{ $vis -> visitante -> nombre }}  {{ $vis -> visitante -> paterno }}  {{ $vis -> visitante -> materno }}</td>
+								<td>{{ $vis -> visitante -> telefono }}</td>
 								{{-- <td>{{ $vis -> fecha }}</td> --}}
 								<td><span class="text-danger">{{ $vis -> hora_entrada }}</span></td>
 								<td>{{ $vis -> motivo -> descripcion}}</td>

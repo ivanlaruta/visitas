@@ -8,6 +8,7 @@ use App\Visitante;
 use App\Motivo;
 use App\Empleado;
 use App\Tarjeta;
+use App\Parametrica;
 class VisitasController extends Controller
 {
     /**
@@ -42,7 +43,8 @@ class VisitasController extends Controller
      */
     public function create(Request $request)
     {
-
+        $expe = Parametrica::where('nombre_tabla','EXPENDIDO')->orderBy('id','ASC')->pluck('descripcion','id');
+        $tipoDoc = Parametrica::where('nombre_tabla','TIPO_DOC')->orderBy('id','ASC')->pluck('descripcion','id');
         $empleados = Empleado::all(['ci', 'nombre','paterno']);
         $motivos = Motivo::orderBy('id_motivo','ASC')->pluck('descripcion','id_motivo');
         // $empleados = Empleado::all()->pluck('nombre','ci');
@@ -52,6 +54,8 @@ class VisitasController extends Controller
        
 
         return view('ope.visitas.create')
+            ->with('expe',$expe)
+            ->with('tipoDoc',$tipoDoc)
             ->with('vis',$vis)
             ->with('motivos',$motivos)
             ->with('empleados',$empleados)
@@ -143,17 +147,21 @@ class VisitasController extends Controller
      */
     public function edit($id)
     {
+        $expe = Parametrica::where('nombre_tabla','EXPENDIDO')->orderBy('id','ASC')->pluck('descripcion','id');
+        $tipoDoc = Parametrica::where('nombre_tabla','TIPO_DOC')->orderBy('id','ASC')->pluck('descripcion','id');
         $motivos = Motivo::orderBy('id_motivo','ASC')->pluck('descripcion','id_motivo');
-       $empleados = Empleado::all(['ci', 'nombre','paterno']);
+        $empleados = Empleado::all(['ci', 'nombre','paterno']);
         $tarjetas = Tarjeta::all()->pluck('id_tarjeta','id_tarjeta');
 
 
         $dato =Visitante::find($id);
        return view('ope.visitas.createAux')
-       ->with('motivos',$motivos)
+        ->with('expe',$expe)
+        ->with('tipoDoc',$tipoDoc)
+        ->with('motivos',$motivos)
         ->with('empleados',$empleados)
         ->with('tarjetas',$tarjetas)
-       ->with('dato',$dato);
+        ->with('dato',$dato);
     }
 
     /**

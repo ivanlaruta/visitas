@@ -29,7 +29,7 @@
 
 								<td>{{ $usu -> usuario }}</td>
 								<td>
-									@if($usu->id_rol=="1")
+									@if($usu->id_rol==1)
 											<span class="larabel label-info"> {{ 'Administrador' }}</span>
 									@else
 											<span class="larabel label-success"> {{ 'Operador' }}</span>

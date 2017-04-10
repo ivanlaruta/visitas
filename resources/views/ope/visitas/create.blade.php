@@ -46,7 +46,7 @@
 					</tbody>
 				</table>
 			</div>
-
+			{{ $vis->links() }} 
 
 		</div>
 		<div class="col-md-7">
@@ -61,15 +61,17 @@
 		      	<div class="col-md-3">
 					<div class="form-group">
 						<h6>Expendido</h6>
-						{!! Form::select('ex',['LP'=>'La Paz','OR'=>'Oruro','PT'=>'Potosi','CH'=>'Chuquisaca','CB'=>'Cochabamba','TJ'=>'Tarija','BN'=>'Beni','PA'=>'Pando','SC'=>'Santa Cruz'],null,['class'=>'form-control','placeholder'=>'seleccione una expedicion','required'])!!}
+						{!! Form::select('ex',$expe,null,['class'=>'form-control','placeholder'=>'seleccione un tipo','required'])!!}
+						{{-- {!! Form::select('ex',['LP'=>'La Paz','OR'=>'Oruro','PT'=>'Potosi','CH'=>'Chuquisaca','CB'=>'Cochabamba','TJ'=>'Tarija','BN'=>'Beni','PA'=>'Pando','SC'=>'Santa Cruz'],null,['class'=>'form-control','placeholder'=>'seleccione una expedicion','required'])!!} --}}
 					</div>
 		      
 		      	</div>
 		      	<div class="col-md-3">
 					<div class="form-group">
 					<h6>Tipo Documento</h6>
-						{!! Form::select('tipo_doc',['CI'=>'Cedula de identidad','LIC'=>'Licencia de conducir'],null,['class'=>'form-control'])!!}
-					</div>
+					{!! Form::select('tipo_doc',$tipoDoc,null,['class'=>'form-control','placeholder'=>'seleccione un tipo','required'])!!}
+{{-- 						{!! Form::select('tipo_doc',['CI'=>'Cedula de identidad','LIC'=>'Licencia de conducir'],null,['class'=>'form-control'])!!}
+ --}}					</div>
 		      	</div>
 	   		
 		
@@ -85,7 +87,7 @@
 			</div>
 			<div class="form-group">
 				<h6>Materno:</h4>
-				{!! Form::text('materno',null,['class'=> 'form-control','placeholder'=>'Ingrese apellido materno','required'])!!}
+				{!! Form::text('materno',null,['class'=> 'form-control','placeholder'=>'Ingrese apellido materno'])!!}
 			</div>
 			<div class="form-group">
 				<h6>Telefono:</h4>
@@ -121,7 +123,7 @@
 				<input id="ubicacion" name="ubicacion" type="hidden" value="{{ Auth::user()->empleado->ubicacion->id_ubicacion }}">
 			
 			
-		     </div>			 
+		     </div>	 
 		</div>	
 	</div>
 	<hr>

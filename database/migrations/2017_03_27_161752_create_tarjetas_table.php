@@ -21,6 +21,7 @@ class CreateTarjetasTable extends Migration
             $table->string('ci_empleado',15)->nullable()->unsigned();
             
             $table->enum('estado',['1','0'])->default('1');
+            $table->enum('estado_prestamo',['1','0'])->default('1');
             $table->string('creado_por')->nullable()->unsigned();
             $table->string('modificado_por')->nullable()->unsigned();
             $table->timestamps();

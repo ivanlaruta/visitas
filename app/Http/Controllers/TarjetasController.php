@@ -4,6 +4,8 @@ namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
 use App\Tarjeta;
+use App\Empleado;
+use App\Parametrica;
 class TarjetasController extends Controller
 {
     /**
@@ -23,8 +25,15 @@ class TarjetasController extends Controller
      * @return \Illuminate\Http\Response
      */
     public function create()
+
     {
-        return view('admin.tarjetas.create');
+        $empleados = Empleado::all(['ci', 'nombre','paterno']);
+        $tipo = Parametrica::where('nombre_tabla','TIPO_TAR')->orderBy('id','ASC')->pluck('descripcion','descripcion');
+
+        return view('admin.tarjetas.create')
+            ->with('empleados',$empleados)
+             ->with('tipo',$tipo)
+        ;
     }
 
     /**
@@ -38,7 +47,7 @@ class TarjetasController extends Controller
         $ta = new Tarjeta($request->all());
         $ta->save();
 
-         return redirect()->route('tarjetas.index')->with('mensaje',"Tarjeta creado exitosamente!");
+         return redirect()->route('tarjetas.index')->with('mensaje',"Tarjeta creada exitosamente!");
     }
 
     /**
@@ -60,8 +69,18 @@ class TarjetasController extends Controller
      */
     public function edit($id)
     {
-       $ta =Tarjeta::find($id);
-       return view('admin.tarjetas.edit')->with('ta',$ta);
+        $empleados = Empleado::all(['ci', 'nombre','paterno']);
+        $tipo = Parametrica::where('nombre_tabla','TIPO_TAR')->orderBy('id','ASC')->pluck('descripcion','descripcion');
+         $ta =Tarjeta::find($id);
+
+        return view('admin.tarjetas.edit')
+            ->with('ta',$ta)
+            ->with('empleados',$empleados)
+            ->with('tipo',$tipo)
+        ;
+
+      
+       
     }
 
     /**

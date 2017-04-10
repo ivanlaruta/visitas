@@ -11,7 +11,7 @@ class VisitasTableSeeder extends Seeder
      */
     public function run()
     {
-        	DB::table('visitas')->insert([
+        /*	DB::table('visitas')->insert([
 
             'ci_visitante' => '123',
             'tipo_doc' => 'ci',
@@ -65,6 +65,6 @@ class VisitasTableSeeder extends Seeder
             'id_tarjeta' => '1',
             'id_ubicacion'=> '131C',
             'observaciones'=> 'ninguna',
-       ]);
+       ]);*/
     }
 }

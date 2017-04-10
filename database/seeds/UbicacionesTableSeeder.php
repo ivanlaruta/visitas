@@ -11,13 +11,27 @@ class UbicacionesTableSeeder extends Seeder
      */
     public function run()
     {
-    	
-    	
         DB::table('ubicaciones')->insert([
 
             'id_ubicacion' => '131C',
-            'nombre' => 'OFICINA CENTRAL ',
-            'ciudad' => 'LP',
+            'nombre' => 'Oficina central',
+            'ciudad' => 'La Paz',
+            'creado_por'=> 'admin',
+            'modificado_por'=>'admin',
+       ]);
+        DB::table('ubicaciones')->insert([
+
+            'id_ubicacion' => '135C',
+            'nombre' => 'Curva de Holggin ',
+            'ciudad' => 'La Paz',
+            'creado_por'=> 'admin',
+            'modificado_por'=>'admin',
+       ]);
+        DB::table('ubicaciones')->insert([
+
+            'id_ubicacion' => '133C',
+            'nombre' => 'Sucursal el Alto ',
+            'ciudad' => 'El Alto',
             'creado_por'=> 'admin',
             'modificado_por'=>'admin',
        ]);

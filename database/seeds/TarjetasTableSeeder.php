@@ -13,25 +13,49 @@ class TarjetasTableSeeder extends Seeder
     {
         DB::table('tarjetas')->insert([
 
-            'id_tarjeta' => '1',
-            'tipo_tarjeta' => 'VISITA',
+            'id_tarjeta' => '10005',
+            'tipo_tarjeta' => 'Visita',
             'psw' => '2256',
             'creado_por'=> 'admin',
             'modificado_por'=>'admin',
        ]);
         DB::table('tarjetas')->insert([
 
-            'id_tarjeta' => '2',
-            'tipo_tarjeta' => 'PERSONAL AUTORIZADO',
+            'id_tarjeta' => '10006',
+            'tipo_tarjeta' => 'Visita',
             'psw' => '2256',
             'creado_por'=> 'admin',
             'modificado_por'=>'admin',
        ]);
         DB::table('tarjetas')->insert([
 
-            'id_tarjeta' => '3',
-            'tipo_tarjeta' => 'PASANTE',
+            'id_tarjeta' => '10007',
+            'tipo_tarjeta' => 'Visita',
             'psw' => '2256',
+            'creado_por'=> 'admin',
+            'modificado_por'=>'admin',
+       ]);
+        DB::table('tarjetas')->insert([
+
+            'id_tarjeta' => '10008',
+            'tipo_tarjeta' => 'Visita',
+            'psw' => '2256',
+            'creado_por'=> 'admin',
+            'modificado_por'=>'admin',
+       ]);
+        DB::table('tarjetas')->insert([
+
+            'id_tarjeta' => '10009',
+            'tipo_tarjeta' => 'Visita',
+            'psw' => '2256',
+            'creado_por'=> 'admin',
+            'modificado_por'=>'admin',
+       ]);
+        DB::table('tarjetas')->insert([
+
+            'id_tarjeta' => '10010',
+            'tipo_tarjeta' => 'Visita',
+            
             'creado_por'=> 'admin',
             'modificado_por'=>'admin',
        ]);

@@ -23,7 +23,7 @@ class CargosTableSeeder extends Seeder
 
         DB::table('cargos')->insert([
 
-            'descripcion' => 'Secretaria',       
+            'descripcion' => 'Recepcion',       
             'creado_por'=> 'admin',
             'modificado_por'=>'admin',
        ]);
