@@ -1,2 +1,2 @@
-@extends('template.index')
+@extends('template.inicio')
 

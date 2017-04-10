@@ -19,7 +19,9 @@
 Route::get('/', function () {
     return view('welcome');
 });
-
+Route::get('/inicial', function () {
+    return view('inicial');
+});
 // Rpara dministradores
 
 Route::group(['prefix'=>'admin','middleware'=>'auth'],function(){
