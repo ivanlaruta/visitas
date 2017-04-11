@@ -1,4 +1,4 @@
-@extends('admin.template.main')
+@extends('template.dashboard')
 
 @section('title','crear Tarjeta')
 
@@ -16,8 +16,8 @@
 					<h6>Id:</h4>
 					{!! Form::text('id_tarjeta',null,['class'=> 'form-control','placeholder'=>'Ingrese nuero de tarjeta','required'])!!}
 					
-					<h6>PSW:</h4>
-					{!! Form::text('psw',null,['class'=> 'form-control','placeholder'=>'Ingrese un PSW'])!!}
+					<h6>Contraseña:</h4>
+					{!! Form::text('psw',null,['class'=> 'form-control','placeholder'=>'Ingrese una contraseña (Opcional)'])!!}
 					
 					<div class="form-group">
 					<h6>Tipo Tarjeta:</h4>
@@ -27,7 +27,7 @@
 					<div class="form-group">
 					<h6>Empleado:</h4>
 					<select class="form-control" name="ci_empleado">
-						<option value="">Selecione un empleado</option>
+						<option value="">Selecione un empleado (Opcional) </option>
 					    @foreach($empleados as $emp)
 					      <option value="{{$emp->ci}}">{{$emp->paterno}} {{$emp->nombre}}</option>
 					    @endforeach

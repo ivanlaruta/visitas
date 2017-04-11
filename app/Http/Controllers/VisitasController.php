@@ -25,7 +25,7 @@ class VisitasController extends Controller
         ->where('fecha', '=', $hoy)
         ->Search($request->ci)
         ->orderBy('id_visita','DESC')
-        ->paginate(6)
+        ->paginate(10)
         ;
 
         return view('ope.visitas.index')

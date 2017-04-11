@@ -15,7 +15,7 @@ class UsersController extends Controller
     public function index()
     {
        
-        $us = User::where('estado', '=', 1)->paginate(8);
+        $us = User::where('estado', '=', 1)->paginate(15);
         return view('admin.usuarios.index')->with('us',$us);
     }
     /**

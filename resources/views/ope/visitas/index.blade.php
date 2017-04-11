@@ -1,4 +1,4 @@
-@extends('ope.template.main')
+@extends('template.dashboard')
 @section('title','Lista de visitas')
 @section('content')
     	<div class="row">

@@ -22,7 +22,7 @@ class ReportesController extends Controller
         $time = time();
         $hoy=date("d-m-Y ", $time);
 
-        $vi = Visita::where('fecha', '=', $hoy)->Search($request->ci)->orderBy('id_visita','DESC')->paginate(7);
+        $vi = Visita::where('fecha', '=', $hoy)->Search($request->ci)->orderBy('id_visita','DESC')->paginate(10);
         return view('ope.visitas.reporte')
             ->with('vi',$vi)
              ->with('recuperado',$request)

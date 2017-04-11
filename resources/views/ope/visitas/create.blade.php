@@ -1,19 +1,21 @@
-@extends('ope.template.main')
+@extends('template.dashboard')
 @section('title','visitas')
 @section('content')
 	
 <h4><p class="text-center">Nueva Visita, {{ Auth::user()->empleado->ubicacion->nombre }} , 
-					<?php
-						$time = time();
-						echo date("d-m-Y ", $time);
-					?>
-				</p></h4>
-			<hr>	
+	<?php
+		$time = time();
+		echo date("d-m-Y ", $time);
+	?>
+</p></h4>
+<hr>
+
 <div class="row">
-		<div class="col-md-5">
-			
-			
-			 <div class="col-md-10">
+  	<div class="col-md-12 col-md-offset-1">
+		
+
+		<div class="col-md-6">
+			<div class="col-md-12">
 				{!! Form::open (['route' => 'visitas.create','method' => 'GET','class' => 'navbar-form pull-left'])!!}
 					<div class ="input-group">	
 						{!! Form::text('ci', $recuperado -> ci ,['class'=> 'form-control','placeholder'=>'Ingrese CI para la busqueda','aria-describedby'=>'seacrch'])!!}
@@ -24,7 +26,6 @@
 					</div>
 				{!! Form::close()!!}
 			</div>
-
 			<hr>
 			<div class="row">
 					<table class="table table-hover">
@@ -47,9 +48,9 @@
 				</table>
 			</div>
 			{{ $vis->links() }} 
-
 		</div>
-		<div class="col-md-7">
+
+		<div class="col-md-6">
 			{!! Form::open(['route'=>'visitas.store','method'=>'POST'])!!}
 				<div class="col-md-6">
 					<div class="form-group">
@@ -140,7 +141,8 @@
 
 {!! Form::close()!!}
 		</div>	
-	</div>
-	
+	</div>	
+</div>
+</div>
 @endsection
 

@@ -1,10 +1,10 @@
-@extends('admin.template.main')
+@extends('template.dashboard')
 @section('title','Lista de visitantes')
 
 @section('content')
 
     	<div class="row">
-  			<div class="col-md-11 col-md-offset-1">
+  			<div class="col-md-10 col-md-offset-1">
 				<a href="{{ route('visitantes.create')}}" class="btn btn-info">Registrar nuevo Visitante</a><hr>
 				<p class="text-center">Lista de visitantes.</p>
 				<hr>

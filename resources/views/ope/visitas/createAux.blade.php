@@ -1,4 +1,4 @@
-@extends('ope.template.main')
+@extends('template.dashboard')
 @section('title','visitas')
 @section('content')
 	

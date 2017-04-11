@@ -36,7 +36,7 @@
 <body id="page-top" data-spy="scroll" data-target=".navbar-fixed-top">
 
    @if (Auth::guest())
-            @include('template.partials.navinicio')
+            @include('template.partials.inicio_nav')
                 @else               
                         @if(Auth::user()->id_rol==1 )
                             @include('admin.template.partials.nav')

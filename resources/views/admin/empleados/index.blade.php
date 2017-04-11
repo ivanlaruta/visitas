@@ -1,10 +1,10 @@
-@extends('admin.template.main')
+@extends('template.dashboard')
 @section('title','Lista de empleados')
 
 @section('content')
 
     	<div class="row">
-  			<div class="col-md-11 col-md-offset-1">
+  			<div class="col-md-11">
 				<a href="{{ route('empleados.create')}}" class="btn btn-info">Registrar nuevo empleado</a><hr>
 				<p class="text-center">Lista de empleados.</p>
 				<hr>
@@ -17,6 +17,7 @@
 						<th>Cargo</th>
 						<th>Ubicacion</th>
 						<th>Telefono</th>
+						<th>Accion</th>
 					</thead>
 					<tbody>
 						@foreach($us as $usu)

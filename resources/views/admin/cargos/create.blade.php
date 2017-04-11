@@ -1,4 +1,4 @@
-@extends('admin.template.main')
+@extends('template.dashboard')
 
 @section('title','crear Cargo')
 

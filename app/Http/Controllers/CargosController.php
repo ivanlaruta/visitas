@@ -13,7 +13,7 @@ class CargosController extends Controller
      */
     public function index()
     {
-        $ca = Cargo::where('estado', '=', 1)->paginate(10);
+        $ca = Cargo::where('estado', '=', 1)->paginate(15);
         return view('admin.cargos.index')->with('ca',$ca);
     }
 

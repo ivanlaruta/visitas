@@ -13,7 +13,7 @@ class UbicacionesController extends Controller
      */
     public function index()
     {
-        $ub = Ubicacion::where('estado', '=', 1)->paginate(10);
+        $ub = Ubicacion::where('estado', '=', 1)->paginate(15);
         return view('admin.ubicaciones.index')->with('ub',$ub);
     }
 
