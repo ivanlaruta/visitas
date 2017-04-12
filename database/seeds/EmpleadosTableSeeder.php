@@ -32,7 +32,7 @@ class EmpleadosTableSeeder extends Seeder
 
             'ci' => '12345678',
             'ex' => 'LP',
-            'nombre' => 'Maria',
+            'nombre' => 'Melisa',
             'paterno'=> 'Tarifa',            
             'materno' => 'Portugal',
             'email' => 'maria.tarifa@toyosa.com',

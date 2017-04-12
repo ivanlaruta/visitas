@@ -22,6 +22,11 @@
 					<h6>Tipo Tarjeta:</h4>
 					{!! Form::select('tipo_tarjeta',$tipo,$ta->tipo_tarjeta,['class'=>'form-control','placeholder'=>'seleccione un tipo','required'])!!}
 					</div>
+					
+					<div class="form-group">
+					{!! Form::label('email','Ubicacion')!!}
+						{!! Form::select('id_ubicacion',$ubica,$ta->id_ubicacion,['class'=>'form-control','placeholder'=>'seleccione una ubicacion','required'])!!}
+					</div>
 
 					<div class="form-group">
 					<h6>Empleado:</h4>

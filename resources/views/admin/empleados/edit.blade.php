@@ -21,7 +21,7 @@
 					</div>
 					
 					<div class="form-group">
-						<h6>Expendido</h6>
+						<h6>Expedido</h6>
 						{!! Form::select('ex',['LP'=>'La Paz','OR'=>'Oruro','PT'=>'Potosi','CH'=>'Chuquisaca','CB'=>'Cochabamba','TJ'=>'Tarija','BN'=>'Beni','PA'=>'Pando','SC'=>'Santa Cruz'],$us->ex,['class'=>'form-control','placeholder'=>'seleccione una expedicion','required'])!!}
 					</div>
 		      

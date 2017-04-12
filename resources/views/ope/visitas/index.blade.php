@@ -1,28 +1,31 @@
 @extends('template.dashboard')
 @section('title','Lista de visitas')
 @section('content')
-    	<div class="row">
-  			
+@section('ventana','Lista de visitas en curso')	
 
-				<a href="{{ route('visitas.create')}}" class="btn btn-info">Registrar nueva Entrada</a><hr>
-				<h3><p class="text-center">Lista de Visitas en curso: 
-					<?php
-						$time = time();
-						echo date("d-m-Y ", $time);
-					?>
-				</p></h3>
-				{!! Form::open (['route' => 'visitas.index','method' => 'GET','class' => 'navbar-form pull-left'])!!}
-					<div class ="input-group">	
-						{!! Form::text('ci',$recuperado -> ci,['class'=> 'form-control','placeholder'=>'Ingrese Nro de documento','aria-describedby'=>'seacrch'])!!}
-						<span class="input-group-addon" id="seach">
+<a href="{{ route('visitas.create')}}" class="btn btn-success">Registrar nueva Entrada</a>
+<br><br>
+@include('ope.visitas.head')
+			<div class="col-md-12">
+				<div class="row">
+  					<div class="col-md-12">
+						{!! Form::open (['route' => 'visitas.index','method' => 'GET','class' => 'navbar-form pull-left'])!!}
+							<div class ="input-group">	
+								{!! Form::text('ci',$recuperado -> ci,['class'=> 'form-control','placeholder'=>'Ingrese Nro de documento','aria-describedby'=>'seacrch'])!!}
+								<span class="input-group-addon" id="seach">
 
-						<span class="glyphicon glyphicon-search" aria-hidden="true">
-				       		 
-				      </span>
-				      </span>
+								<span class="glyphicon glyphicon-search" aria-hidden="true">
+						       		 
+						      </span>
+						      </span>
+							</div>
+						{!! Form::close()!!}
 					</div>
-				{!! Form::close()!!}
-				<table class="table table-hover">
+				</div>
+
+				 <div class="table-responsive">
+                    <table class="table table-hover table-striped">
+                    
 					<thead>
 						{{-- <th>ID</th> --}}
 						<th>Documento</th>
@@ -65,6 +68,8 @@
 						@endforeach
 					</tbody>
 				</table>
+				</div>
 				{{ $vi->links() }} 
 		</div>
+@include('ope.visitas.foot') 
 @endsection

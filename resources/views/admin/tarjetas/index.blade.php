@@ -13,7 +13,8 @@
 					<thead>
 						<th>ID</th>
 						<th>Tipo tarjeta</th>
-						<th>Psw</th>
+						<th>Contraseña</th>
+						<th>ubicacion</th>
 						<th>Empleado asignado</th>
 						<th>Accion</th>
 					</thead>
@@ -27,6 +28,14 @@
 								@else
 									<td>{{ $tar -> psw }}</td>
 								@endif
+
+								@if(is_null($tar -> id_ubicacion))
+									<td> ---- </td>
+								@else
+									<td>{{ $tar -> ubicacion -> nombre }}</td>
+								@endif
+
+
 								@if(is_null($tar -> ci_empleado))
 									<td>No asignado</td>
 								@else

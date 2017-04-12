@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
 use App\Ubicacion;
+use App\Parametrica;
 class UbicacionesController extends Controller
 {
     /**
@@ -23,8 +24,9 @@ class UbicacionesController extends Controller
      * @return \Illuminate\Http\Response
      */
     public function create()
-    {
-        return view('admin.ubicaciones.create');
+    {   
+       $ciudad = Parametrica::where('nombre_tabla','CIUDAD')->orderBy('id','ASC')->pluck('descripcion','descripcion');
+        return view('admin.ubicaciones.create')->with('ciudad',$ciudad);
     }
 
     /**
@@ -60,8 +62,9 @@ class UbicacionesController extends Controller
      */
     public function edit($id)
     {
+        $ciudad = Parametrica::where('nombre_tabla','CIUDAD')->orderBy('id','ASC')->pluck('descripcion','descripcion');
        $ub =Ubicacion::find($id);
-       return view('admin.ubicaciones.edit')->with('ub',$ub);
+       return view('admin.ubicaciones.edit')->with('ub',$ub)->with('ciudad',$ciudad);
     }
 
     /**

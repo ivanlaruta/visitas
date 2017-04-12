@@ -19,8 +19,8 @@
 					{!! Form::text('nombre',null,['class'=> 'form-control','placeholder'=>'Ingrese el nombre del lugar','required'])!!}
 					
 					<div class="form-group">
-						{!! Form::label('ciu','Ciudad')!!}
-						{!! Form::select('ciudad',['LP'=>'La Paz','CB'=>'Cochabamba','SC'=>'Santa Cruz','PT'=>'Potosi','SC'=>'Sucre','OR'=>'Oruro'],null,['class'=>'form-control','placeholder'=>'seleccione una ciudad','required'])!!}
+					{!! Form::label('ciudad','Ciudad')!!}
+						{!! Form::select('ciudad',$ciudad,null,['class'=>'form-control','placeholder'=>'seleccione una ciudad','required'])!!}
 					</div>
 					
 				</div>

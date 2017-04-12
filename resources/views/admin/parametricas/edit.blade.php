@@ -10,11 +10,6 @@
 				{!! Form::open(array('route' => ['parametricas.update',$pa->id_parametrica], 'method' => 'put')) !!}﻿
 				
 				<div class="form-group">
-						<h6>Parametrica</h6>
-						{!! Form::select('nombre_tabla',['ESTADO'=>'Estado','EXPENDIDO'=>'Expendido','ROL'=>'Rol de usuario','TIPO_DOC'=>'Tipos de documento','CIUDAD'=>'Ciudad','E_VISITA'=>'Estado visita','E_PRESTAMO'=>'Estado prestamo de trajeta'],$pa->nombre_tabla,['class'=>'form-control','placeholder'=>'seleccione categoria','required'])!!}
-					</div>
-
-				<div class="form-group">
 
 					{!! Form::label('id','ID')!!}
 					{!! Form::text('id',$pa->id,['class'=> 'form-control','0placeholder'=>'ingrese un ID','required'])!!}

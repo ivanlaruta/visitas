@@ -6,6 +6,7 @@ use Illuminate\Http\Request;
 use App\Tarjeta;
 use App\Empleado;
 use App\Parametrica;
+use App\Ubicacion;
 class TarjetasController extends Controller
 {
     /**
@@ -27,12 +28,15 @@ class TarjetasController extends Controller
     public function create()
 
     {
+        $ubica =Ubicacion::all()->pluck('nombre','id_ubicacion');
+  
         $empleados = Empleado::all(['ci', 'nombre','paterno']);
         $tipo = Parametrica::where('nombre_tabla','TIPO_TAR')->orderBy('id','ASC')->pluck('descripcion','descripcion');
 
         return view('admin.tarjetas.create')
             ->with('empleados',$empleados)
              ->with('tipo',$tipo)
+             ->with('ubica',$ubica) 
         ;
     }
 
@@ -68,7 +72,8 @@ class TarjetasController extends Controller
      * @return \Illuminate\Http\Response
      */
     public function edit($id)
-    {
+    {   
+        $ubica =Ubicacion::all()->pluck('nombre','id_ubicacion');
         $empleados = Empleado::all(['ci', 'nombre','paterno']);
         $tipo = Parametrica::where('nombre_tabla','TIPO_TAR')->orderBy('id','ASC')->pluck('descripcion','descripcion');
          $ta =Tarjeta::find($id);
@@ -77,6 +82,7 @@ class TarjetasController extends Controller
             ->with('ta',$ta)
             ->with('empleados',$empleados)
             ->with('tipo',$tipo)
+            ->with('ubica',$ubica)
         ;
 
       

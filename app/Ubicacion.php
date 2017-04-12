@@ -11,6 +11,10 @@ class Ubicacion extends Model
     protected $primaryKey ='id_ubicacion';
     protected $fillable =['id_ubicacion','nombre','ciudad','estado','creado_por','modificado_por'];
 
+    public function tarjetas()
+    {
+        return $this->hasMany('App\Tarjeta','id_ubicacion');
+    }
     public function empleados()
     {
     	return $this->hasMany('App\Empleado','id_ubicacion');

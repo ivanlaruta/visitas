@@ -1,1 +1,1 @@
-@extends('template.dashboard')
+@extends('template.inicio')

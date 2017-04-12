@@ -40,63 +40,63 @@ class ParametricasTableSeeder extends Seeder
             'modificado_por'=>'admin',
         ]);
          DB::table('parametricas')->insert([
-            'nombre_tabla' => 'EXPENDIDO',
+            'nombre_tabla' => 'EXPEDIDO',
             'id' => 'LP',
             'descripcion' => 'La Paz',
             'creado_por'=> 'admin',
             'modificado_por'=>'admin',
         ]);
           DB::table('parametricas')->insert([
-            'nombre_tabla' => 'EXPENDIDO',
+            'nombre_tabla' => 'EXPEDIDO',
             'id' => 'OR',
             'descripcion' => 'Oruro',
             'creado_por'=> 'admin',
             'modificado_por'=>'admin',
         ]);
            DB::table('parametricas')->insert([
-            'nombre_tabla' => 'EXPENDIDO',
+            'nombre_tabla' => 'EXPEDIDO',
             'id' => 'PT',
             'descripcion' => 'Potosi',
             'creado_por'=> 'admin',
             'modificado_por'=>'admin',
         ]);
             DB::table('parametricas')->insert([
-            'nombre_tabla' => 'EXPENDIDO',
+            'nombre_tabla' => 'EXPEDIDO',
             'id' => 'CH',
             'descripcion' => 'Chuquisaca',
             'creado_por'=> 'admin',
             'modificado_por'=>'admin',
         ]);
              DB::table('parametricas')->insert([
-            'nombre_tabla' => 'EXPENDIDO',
+            'nombre_tabla' => 'EXPEDIDO',
             'id' => 'TJ',
             'descripcion' => 'Tarija',
             'creado_por'=> 'admin',
             'modificado_por'=>'admin',
         ]);
               DB::table('parametricas')->insert([
-            'nombre_tabla' => 'EXPENDIDO',
+            'nombre_tabla' => 'EXPEDIDO',
             'id' => 'CB',
             'descripcion' => 'Cochabamba',
             'creado_por'=> 'admin',
             'modificado_por'=>'admin',
         ]);
                DB::table('parametricas')->insert([
-            'nombre_tabla' => 'EXPENDIDO',
+            'nombre_tabla' => 'EXPEDIDO',
             'id' => 'SC',
             'descripcion' => 'Santa Cruz',
             'creado_por'=> 'admin',
             'modificado_por'=>'admin',
         ]);
                 DB::table('parametricas')->insert([
-            'nombre_tabla' => 'EXPENDIDO',
+            'nombre_tabla' => 'EXPEDIDO',
             'id' => 'BN',
             'descripcion' => 'Beni',
             'creado_por'=> 'admin',
             'modificado_por'=>'admin',
         ]);
                  DB::table('parametricas')->insert([
-            'nombre_tabla' => 'EXPENDIDO',
+            'nombre_tabla' => 'EXPEDIDO',
             'id' => 'PA',
             'descripcion' => 'Pando',
             'creado_por'=> 'admin',

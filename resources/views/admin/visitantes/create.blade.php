@@ -22,7 +22,7 @@
 					</div>
 					
 					<div class="form-group">
-						<h6>Expendido</h6>
+						<h6>Expedido</h6>
 						{!! Form::select('ex',['LP'=>'LP','OR'=>'OR','PT'=>'PT','CH'=>'CH','CB'=>'CB','TJ'=>'TJ','BN'=>'BN','PA'=>'PA','SC'=>'SC'],null,['class'=>'form-control','placeholder'=>'seleccione una expedicion','required'])!!}
 					</div>
 		      

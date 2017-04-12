@@ -25,7 +25,7 @@ class VisitasController extends Controller
         ->where('fecha', '=', $hoy)
         ->Search($request->ci)
         ->orderBy('id_visita','DESC')
-        ->paginate(10)
+        ->paginate(5)
         ;
 
         return view('ope.visitas.index')
@@ -43,12 +43,12 @@ class VisitasController extends Controller
      */
     public function create(Request $request)
     {
-        $expe = Parametrica::where('nombre_tabla','EXPENDIDO')->orderBy('id','ASC')->pluck('descripcion','id');
+        $expe = Parametrica::where('nombre_tabla','EXPENDIDO')->orderBy('id','ASC')->pluck('id','id');
         $tipoDoc = Parametrica::where('nombre_tabla','TIPO_DOC')->orderBy('id','ASC')->pluck('descripcion','id');
         $empleados = Empleado::all(['ci', 'nombre','paterno']);
         $motivos = Motivo::orderBy('id_motivo','ASC')->pluck('descripcion','id_motivo');
         // $empleados = Empleado::all()->pluck('nombre','ci');
-        $tarjetas = Tarjeta::all()->pluck('id_tarjeta','id_tarjeta');
+        $tarjetas = Tarjeta::where('estado_prestamo','1')->orderBy('id_tarjeta','ASC')->pluck('id_tarjeta','id_tarjeta');
         $vis = Visitante::where('estado', '=', 1)->Search($request->ci)->orderBy('ci')->paginate(5);
         // dd($empleados);
        
@@ -96,6 +96,10 @@ class VisitasController extends Controller
         $visita -> id_ubicacion = $request->ubicacion;
         $visita -> observaciones = $request->observaciones;
 
+        $ta = Tarjeta::find( $request->id_tarjeta);
+        $ta->estado_prestamo = '0';
+
+        $ta -> save();
         $visitante->save();
         $visita->save();
 
@@ -122,7 +126,9 @@ class VisitasController extends Controller
         $visita -> id_ubicacion = $request->ubicacion;
         $visita -> observaciones = $request->observaciones;
 
-      
+        $ta = Tarjeta::find( $request->id_tarjeta);
+        $ta->estado_prestamo = '0';
+        $ta->save();
         $visita->save();
 
         return redirect()->route('visitas.index')->with('mensaje',"Se marco el Ingreso correctamente  a hrs:".date("H:i:s", $time));
@@ -147,11 +153,15 @@ class VisitasController extends Controller
      */
     public function edit($id)
     {
+
         $expe = Parametrica::where('nombre_tabla','EXPENDIDO')->orderBy('id','ASC')->pluck('descripcion','id');
         $tipoDoc = Parametrica::where('nombre_tabla','TIPO_DOC')->orderBy('id','ASC')->pluck('descripcion','id');
         $motivos = Motivo::orderBy('id_motivo','ASC')->pluck('descripcion','id_motivo');
         $empleados = Empleado::all(['ci', 'nombre','paterno']);
-        $tarjetas = Tarjeta::all()->pluck('id_tarjeta','id_tarjeta');
+        
+
+
+        $tarjetas = Tarjeta::where('estado_prestamo','1')->orderBy('id_tarjeta','ASC')->pluck('id_tarjeta','id_tarjeta');
 
 
         $dato =Visitante::find($id);
@@ -195,6 +205,9 @@ class VisitasController extends Controller
         $vi->estado_visita = '0';
         $vi->hora_salida = date("H:i:s", $time);
         // echo ("Según el servidor la hora actual es: ". date("H:i:s", $time));
+        $ta = Tarjeta::find( $vi->id_tarjeta);
+        $ta->estado_prestamo = '1';
+        $ta->save();
         $vi -> save();
         return redirect()->route('visitas.index')->with('mensaje',"visita se marco como terminada a hrs:".date("H:i:s", $time));
     }

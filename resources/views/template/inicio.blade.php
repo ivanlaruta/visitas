@@ -39,14 +39,11 @@
             @include('template.partials.inicio_nav')
                 @else               
                         @if(Auth::user()->id_rol==1 )
-                            @include('admin.template.partials.nav')
-                            Bienvenido  {{ Auth::user()->empleado->nombre }}
-                            Usted se encuentra en: {{ Auth::user()->empleado->ubicacion->nombre }}
-                        
+                            @include('template.partials.inicio_nav')
+                                                   
                         @else                       
-                            @include('ope.template.partials.nav')
-                            Bienvenido  {{ Auth::user()->empleado->nombre }}
-                            Usted se encuentra en: {{ Auth::user()->empleado->ubicacion->nombre }}
+                            @include('template.partials.inicio_nav')
+                            
                         @endif      
     @endif
 
@@ -56,8 +53,19 @@
             <div class="container">
                 <div class="row">
                     <div class="col-md-8 col-md-offset-2">
+                    <br>
                         <h1 class="brand-heading">TOYOSA S.A.</h1>
-                        <p class="intro-text">SISTEMA DE CONTROL DE VISITAS.</p>
+                         @if (Auth::guest())
+                         <a href="{{ route('login') }}" class="btn btn-default btn-lg">SISTEMA DE CONTROL DE VISITAS | INICIO</a>
+                         @else               
+                        @if(Auth::user()->id_rol==1 )
+                           <a href="{{ route('users.index')}}" class="btn btn-default btn-lg">SISTEMA DE CONTROL DE VISITAS | INICIO</a>
+                        @else                       
+                           <a href="{{ route('visitas.index')}}" class="btn btn-default btn-lg">SISTEMA DE CONTROL DE VISITAS | INICIO</a>
+                        @endif      
+                         @endif
+                       
+                        <br><br>
                         <a href="#about" class="btn btn-circle page-scroll">
                             <i class="fa fa-angle-double-down animated"></i>
                         </a>
@@ -73,8 +81,11 @@
             <div class="container">
                 <div class="col-lg-8 col-lg-offset-2">
                     <h2>SISTEMA DE CONTROL DE VISITAS</h2>
-                    <p>El sistema permite registrar a visitantes y marcar las horas de entrada y salida de las visitas realizadas, ademas genera reportes con los datos optenidos.</p>
+                    <p>El sistema permite registrar a visitantes y marcar las horas de entrada y salida de las visitas realizadas, ademas genera reportes con los datos obtenidos.</p>
+
                     <a href="https://www.toyosa.com/" class="btn btn-default btn-lg">Visite la pagina oficial</a>
+
+
                 </div>
             </div>
         </div>
@@ -84,7 +95,8 @@
     <!-- Footer -->
     <footer>
         <div class="container text-center">
-            <p>Copyright &copy; SistemaVisitas TOYOSA S.A. 2017</p>
+            <h6>Copyright &copy; SistemaVisitas TOYOSA S.A. 2017</h6>
+            <h6>DEPARTAMENTO DE SISTEMAS</h6>
         </div>
     </footer>
 

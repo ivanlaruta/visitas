@@ -1,14 +1,12 @@
 @extends('template.dashboard')
 @section('title','Lista de visitas diarias')
 @section('content')
-    	<div class="row">
-  			
-				<h3><p class="text-center">Lista de Visitas diarias: 
-					<?php
-						$time = time();
-						echo date("d-m-Y ", $time);
-					?>
-				</p></h3>
+@section('ventana','Visitas diarias')	
+@include('ope.visitas.head')
+
+    	<div class="col-md-12">
+				<div class="row">
+  					<div class="col-md-12">
 				{!! Form::open (['route' => 'reportes.index','method' => 'GET','class' => 'navbar-form pull-left'])!!}
 					<div class ="input-group">	
 						{!! Form::text('ci',$recuperado -> ci,['class'=> 'form-control','placeholder'=>'Ingrese Nro de documento','aria-describedby'=>'seacrch'])!!}
@@ -20,7 +18,11 @@
 				      </span>
 					</div>
 				{!! Form::close()!!}
-				<table class="table table-hover">
+			</div>
+				</div>
+
+				<div class="table-responsive">
+                    <table class="table table-hover table-striped">
 					<thead>
 						{{-- <th>ID</th> --}}
 						<th>Documento</th>
@@ -66,6 +68,8 @@
 						@endforeach
 					</tbody>
 				</table>
+				</div>
 				{{ $vi->links() }} 
 		</div>
+@include('ope.visitas.foot') 
 @endsection
