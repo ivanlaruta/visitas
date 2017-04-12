@@ -107,9 +107,21 @@ Route::group(['prefix'=>'ope'],function(){
 
 });
 Route::group(['prefix'=>'rep'],function(){
-	route::resource('reportes','ReportesController');
-});
 
+	route::get('reportes/visitasDiarias',[
+		'uses' => 'ReportesController@visitasDiarias', 
+		'as'   =>	'reportes.visitasDiarias'
+	]);
+
+	route::get('reportes/visitasTodo',[
+		'uses' => 'ReportesController@visitasTodo', 
+		'as'   =>	'reportes.visitasTodo'
+	]);
+
+
+	route::resource('reportes','ReportesController');
+
+});
 
 Auth::routes();
 

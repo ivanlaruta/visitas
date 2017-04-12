@@ -9,6 +9,8 @@ use App\Motivo;
 use App\Empleado;
 use App\Tarjeta;
 use App\Parametrica;
+use Illuminate\Support\Facades\Auth;
+use DB;
 class VisitasController extends Controller
 {
     /**
@@ -17,7 +19,9 @@ class VisitasController extends Controller
      * @return \Illuminate\Http\Response
      */
     public function index(Request $request)
-    {    date_default_timezone_set('America/La_Paz');
+    {   
+
+        date_default_timezone_set('America/La_Paz');
         $time = time();
         $hoy=date("d-m-Y ", $time);
 
@@ -42,13 +46,15 @@ class VisitasController extends Controller
      * @return \Illuminate\Http\Response
      */
     public function create(Request $request)
-    {
+    {   
+        $ubicacion = Auth::user()->empleado->id_ubicacion;
+
         $expe = Parametrica::where('nombre_tabla','EXPENDIDO')->orderBy('id','ASC')->pluck('id','id');
         $tipoDoc = Parametrica::where('nombre_tabla','TIPO_DOC')->orderBy('id','ASC')->pluck('descripcion','id');
         $empleados = Empleado::all(['ci', 'nombre','paterno']);
         $motivos = Motivo::orderBy('id_motivo','ASC')->pluck('descripcion','id_motivo');
         // $empleados = Empleado::all()->pluck('nombre','ci');
-        $tarjetas = Tarjeta::where('estado_prestamo','1')->orderBy('id_tarjeta','ASC')->pluck('id_tarjeta','id_tarjeta');
+        $tarjetas = Tarjeta::where('estado_prestamo','1')->where('id_ubicacion', $ubicacion )->orderBy('id_tarjeta','ASC')->pluck('id_tarjeta','id_tarjeta');
         $vis = Visitante::where('estado', '=', 1)->Search($request->ci)->orderBy('ci')->paginate(5);
         // dd($empleados);
        
@@ -154,6 +160,8 @@ class VisitasController extends Controller
     public function edit($id)
     {
 
+        $ubicacion = Auth::user()->empleado->id_ubicacion;
+
         $expe = Parametrica::where('nombre_tabla','EXPENDIDO')->orderBy('id','ASC')->pluck('descripcion','id');
         $tipoDoc = Parametrica::where('nombre_tabla','TIPO_DOC')->orderBy('id','ASC')->pluck('descripcion','id');
         $motivos = Motivo::orderBy('id_motivo','ASC')->pluck('descripcion','id_motivo');
@@ -161,7 +169,7 @@ class VisitasController extends Controller
         
 
 
-        $tarjetas = Tarjeta::where('estado_prestamo','1')->orderBy('id_tarjeta','ASC')->pluck('id_tarjeta','id_tarjeta');
+        $tarjetas = Tarjeta::where('estado_prestamo','1')->where('id_ubicacion', $ubicacion )->orderBy('id_tarjeta','ASC')->pluck('id_tarjeta','id_tarjeta');
 
 
         $dato =Visitante::find($id);

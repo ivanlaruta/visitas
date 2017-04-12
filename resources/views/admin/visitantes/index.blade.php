@@ -1,13 +1,11 @@
 @extends('template.dashboard')
-@section('title','Lista de visitantes')
+@section('ventana','Lista de visitantes')
 
 @section('content')
 
     	<div class="row">
   			<div class="col-md-10 col-md-offset-1">
-				<a href="{{ route('visitantes.create')}}" class="btn btn-info">Registrar nuevo Visitante</a><hr>
-				<p class="text-center">Lista de visitantes.</p>
-				<hr>
+				<a href="{{ route('visitantes.create')}}" class="btn btn-success">Registrar nuevo Visitante</a><hr>
 				<table class="table table-hover">
 					<thead>
 						<th>CI</th>

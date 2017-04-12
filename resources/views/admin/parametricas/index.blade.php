@@ -1,12 +1,12 @@
 @extends('template.dashboard')
-@section('title','Lista de Paramentrica')
+@section('ventana','Lista de Paramentrica')
 
 @section('content')
 
     	<div class="row">
   			<div class="col-md-10 col-md-offset-1">
-				<a href="{{ route('parametricas.create')}}" class="btn btn-info">Registrar nueva parametrica</a><hr>
-				<p class="text-center">Lista de parametrica.</p>
+				<a href="{{ route('parametricas.create')}}" class="btn btn-success">Registrar nueva parametrica</a><hr>
+				
 				<table class="table table-hover">
 					<thead>
 						<th>PARAMETRICA</th>

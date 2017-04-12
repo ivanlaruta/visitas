@@ -1,14 +1,12 @@
 @extends('template.dashboard')
 
-@section('title','crear Tarjeta')
+@section('ventana','crear Tarjeta')
 
 @section('content')
 	
 
     	<div class="row">
   			<div class="col-md-6 col-md-offset-3">
-  				  			<p class="text-center">Creacion de tarjetas.</p>
-  			<hr>
 				{!! Form::open(['route'=>'tarjetas.store','method'=>'POST'])!!}
 
 				<div class="form-group">

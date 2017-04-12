@@ -3,12 +3,9 @@
 @section('title','Editar Empleado')
 
 @section('content')
-	
+@section('ventana','edicion de empleados')	
     	<div class="row">
-
-  			<div class="col-md-6 col-md-offset-3">
-				  			<p class="text-center">Edicion de empleados.</p>
-  			<hr>
+			<div class="col-md-6 col-md-offset-3">
 				{!! Form::open(array('route' => ['empleados.update',$us->ci], 'method' => 'put')) !!}﻿
 				
 				

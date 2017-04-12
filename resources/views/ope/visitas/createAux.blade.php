@@ -106,7 +106,7 @@
 					<div class="form-group">
 						<h6>Empleado:</h6>
 						
-						<select class="form-control" name="ci_empleado">
+						<select class="form-control" name="ci_empleado" required>
 							<option value="">Selecione un empleado</option>
 						    @foreach($empleados as $emp)
 						      <option value="{{$emp->ci}}">{{$emp->paterno}} {{$emp->nombre}}</option>

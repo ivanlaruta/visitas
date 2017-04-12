@@ -1,14 +1,13 @@
 @extends('template.dashboard')
 
-@section('title','crear Ubicacion')
+@section('ventana','crear Ubicacion')
 
 @section('content')
 	
 
     	<div class="row">
   			<div class="col-md-6 col-md-offset-3">
-  			  			<p class="text-center">Creacion de ubicaciones.</p>
-  			<hr>
+  			  			
 				{!! Form::open(['route'=>'ubicaciones.store','method'=>'POST'])!!}
 
 				<div class="form-group">

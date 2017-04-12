@@ -1,14 +1,13 @@
 @extends('template.dashboard')
 
-@section('title','Editar Visitante')
+@section('ventana','Editar Visitante')
 
 @section('content')
 	
     	<div class="row">
 
   			<div class="col-md-6 col-md-offset-3">
-  			<p class="text-center">Editando visitante.</p>
-  			<hr>
+  			
   					{!! Form::open(array('route' => ['visitantes.update',$us->ci], 'method' => 'put')) !!}﻿
 				
 				<div class="form-group">

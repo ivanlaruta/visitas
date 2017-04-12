@@ -1,12 +1,11 @@
 @extends('template.dashboard')
 
-@section('title','Editar Ubicaciones')
+@section('ventana','Editar Ubicaciones')
 
 @section('content')
 
     	<div class="row">
-    	  			<p class="text-center">editando de ubicacion.</p>
-  			<hr>
+    	  			
   			<div class="col-md-6 col-md-offset-3">
 				
 				{!! Form::open(array('route' => ['ubicaciones.update',$ub->id_ubicacion], 'method' => 'put')) !!}﻿

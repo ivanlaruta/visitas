@@ -1,6 +1,6 @@
 @extends('template.dashboard')
 
-@section('title','Editar cargo')
+@section('ventana','Editar cargo')
 
 @section('content')
 

@@ -1,13 +1,11 @@
 @extends('template.dashboard')
 
-@section('title','Editar Tarjeta')
+@section('ventana','Editar Tarjeta')
 
 @section('content')
 
     	<div class="row">
   			<div class="col-md-6 col-md-offset-3">
-				  			<p class="text-center">Editando de tarjeta.</p>
-  			<hr>
 				{!! Form::open(array('route' => ['tarjetas.update',$ta->id_tarjeta], 'method' => 'put')) !!}﻿
 				
 				<div class="form-group">

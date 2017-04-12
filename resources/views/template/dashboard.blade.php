@@ -34,7 +34,7 @@
                         <div class="col-lg-11">
                             <section>
                                 @if(!session('mensaje')==null)
-                                         <div class="alert alert-info">
+                                         <div class="alert alert-success">
                                           <button type="button" class="close" data-dismiss="alert" aria-hidden="true">&times;</button> {!! session('flash_notification.message') !!}
                                              {{session('mensaje')}}
                                          </div>

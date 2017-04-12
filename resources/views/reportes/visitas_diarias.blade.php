@@ -1,12 +1,12 @@
 @extends('template.dashboard')
-@section('title','Lista de visitas diarias')
+@section('title','Lista de Todas las visitas')
 @section('content')
 @section('ventana','Visitas diarias')	
 
     	<div class="col-md-12">
 				<div class="row">
   					<div class="col-md-12">
-				{!! Form::open (['route' => 'reportes.index','method' => 'GET','class' => 'navbar-form pull-left'])!!}
+				{!! Form::open (['route' => 'reportes.visitasDiarias','method' => 'GET','class' => 'navbar-form pull-left'])!!}
 					<div class ="input-group">	
 						{!! Form::text('ci',$recuperado -> ci,['class'=> 'form-control','placeholder'=>'Ingrese Nro de documento','aria-describedby'=>'seacrch'])!!}
 						<span class="input-group-addon" id="seach">
@@ -42,7 +42,11 @@
 					</thead>
 					<tbody>
 						@foreach($vi as $vis)
-							<tr>								
+						@if(is_null($vis -> hora_salida))
+							<tr class="danger">
+						@else
+							 <tr class="success">	
+						@endif							
 								{{-- <td>{{ $vis-> id_visita }}</td> --}}
 								<td>{{ $vis -> ci_visitante }}</td>
 								<td>{{ $vis -> visitante -> ex}}</td>
@@ -61,7 +65,7 @@
 								@if(is_null($vis -> hora_salida))
 									<td><span class="text-danger">En curso</span></td>
 								@else
-									<td><span class="text-success">Finalizada</span></td>
+									<td><span class="text-success">Finalizado</span></td>
 								@endif
 							</tr>
 						@endforeach

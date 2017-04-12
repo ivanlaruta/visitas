@@ -1,14 +1,11 @@
 @extends('template.dashboard')
-@section('title','Lista de tarjetas')
+@section('ventana','Lista de tarjetas')
 
 @section('content')
 
     	<div class="row">
   			<div class="col-md-10 col-md-offset-1">
-				<a href="{{ route('tarjetas.create')}}" class="btn btn-info">Registrar nueva tarjeta</a><hr>
-				<p class="text-center">Lista de tarjetas.</p>
-				  		
-  			<hr>
+				<a href="{{ route('tarjetas.create')}}" class="btn btn-success">Registrar nueva tarjeta</a><hr>
 				<table class="table table-hover">
 					<thead>
 						<th>ID</th>

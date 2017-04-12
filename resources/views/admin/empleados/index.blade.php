@@ -1,13 +1,12 @@
 @extends('template.dashboard')
-@section('title','Lista de empleados')
+@section('ventana','Lista de empleados')
 
 @section('content')
-
+@section('ventana','Lista de empleados')
     	<div class="row">
-  			<div class="col-md-11">
-				<a href="{{ route('empleados.create')}}" class="btn btn-info">Registrar nuevo empleado</a><hr>
-				<p class="text-center">Lista de empleados.</p>
-				<hr>
+  			<div class="col-md-12">
+				<a href="{{ route('empleados.create')}}" class="btn btn-success">Registrar nuevo empleado</a><hr>
+
 				<table class="table table-hover">
 					<thead>
 						<th>CI</th>

@@ -56,7 +56,7 @@
 			    <div class="col-md-2">
 					<div class="form-group">
 						<h6>Expedido</h6>
-						{!! Form::select('ex',$expe,null,['class'=>'form-control','placeholder'=>'Expe','required'])!!}
+						{!! Form::select('ex',$expe,null,['class'=>'form-control','placeholder'=>'Expedido','required'])!!}
 					</div>
 			    </div>
 			    <div class="col-md-4">
@@ -108,7 +108,8 @@
 				<div class="col-md-6">
 					<div class="form-group">
 						<h6>Empleado:</h6>
-						<select class="form-control" name="ci_empleado">
+
+						<select class="form-control" name="ci_empleado" required>
 							<option value="">Selecione un empleado</option>
 						    @foreach($empleados as $emp)
 						      <option value="{{$emp->ci}}">{{$emp->paterno}} {{$emp->nombre}}</option>

@@ -1,6 +1,6 @@
 @extends('template.dashboard')
 
-@section('title','crear parametrica')
+@section('ventana','crear parametrica')
 
 @section('content')
 	
@@ -11,7 +11,7 @@
 
 				<div class="form-group">
 						<h6>Parametrica</h6>
-						{!! Form::select('nombre_tabla',['ESTADO'=>'Estado','EXPEDIDO'=>'Expendido','ROL'=>'Rol de usuario','TIPO_DOC'=>'Tipos de documento','CIUDAD'=>'Ciudad','E_VISITA'=>'Estado visita','E_PRESTAMO'=>'Estado prestamo de tarjeta','TIPO_TAR'=>'Tipo de tarjeta'],null,['class'=>'form-control','placeholder'=>'seleccione categoria','required'])!!}
+						{!! Form::select('nombre_tabla',['ESTADO'=>'Estado','EXPEDIDO'=>'Expedido','ROL'=>'Rol de usuario','TIPO_DOC'=>'Tipos de documento','CIUDAD'=>'Ciudad','E_VISITA'=>'Estado visita','E_PRESTAMO'=>'Estado prestamo de tarjeta','TIPO_TAR'=>'Tipo de tarjeta'],null,['class'=>'form-control','placeholder'=>'seleccione categoria','required'])!!}
 					</div>
 
 				<div class="form-group">

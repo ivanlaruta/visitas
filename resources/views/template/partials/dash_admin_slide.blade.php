@@ -3,7 +3,7 @@
                 <ul class="nav navbar-nav side-nav">
                     <li >
                         <a href="{{ route('users.index')}}"><i class="fa fa-user"></i> Usuarios</a>
-                    </li>
+                     </li>
                     <li>
                         <a href="{{ route('empleados.index')}}"><i class="fa fa-suitcase"></i> Empleados</a>
                     </li>
@@ -13,7 +13,7 @@
                     
                     <li>
                         <a href="javascript:;" data-toggle="collapse" data-target="#demo"><i class="fa fa-keyboard-o"></i> Administracion <i class="fa fa-fw fa-caret-down"></i></a>
-                        <ul id="demo" class="collapse">
+                        <ul id="demo" class="collapse in">
                             <li>
                                 <a href="{{ route('cargos.index')}}">Cargos</a>
                             </li>
@@ -49,6 +49,36 @@
 
                     <li>
                         <a href="{{ route('parametricas.index')}}"><i class="fa fa-fw fa-file"></i> Parametrizacion</a>
+                    </li>
+
+                    <li>
+                        <a href="javascript:;" data-toggle="collapse" data-target="#bajas"><i class="fa fa-bar-chart-o"></i> Bajas <i class="fa fa-fw fa-caret-down"></i></a>
+                        <ul id="bajas" class="collapse">
+                            <li>
+                                <a href="#">Usuarios</a>
+                            </li>
+                            <li>
+                                <a href="#">Empleados</a>
+                            </li>
+                            <li>
+                                <a href="#">Visitantes</a>
+                            </li>
+                            <li>
+                                <a href="#">Cargos</a>
+                            </li>
+                            <li>
+                                <a href="#">Tarjetas</a>
+                            </li>
+                            <li>
+                                <a href="#">Ubicaciones</a>
+                            </li>
+                            <li>
+                                <a href="#">Motivos</a>
+                            </li>
+                            <li>
+                                <a href="#">Parametricas</a>
+                            </li>
+                        </ul>
                     </li>
                     
                 </ul>

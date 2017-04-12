@@ -1,13 +1,11 @@
 @extends('template.dashboard')
-@section('title','Lista de Usuarios')
+@section('ventana','Lista de Usuarios')
 
 @section('content')
 
     	<div class="row">
   			<div class="col-md-10 col-md-offset-1">
-				<a href="{{ route('users.create')}}" class="btn btn-info">Registrar nuevo Usuario</a><hr>
-				<p class="text-center">Lista de Usuarios.</p>
-				<hr>
+				<a href="{{ route('users.create')}}" class="btn btn-success">Registrar nuevo Usuario</a><hr>
 				<table class="table table-hover">
 					<thead>
 						<th>Ci empleado</th>
@@ -30,9 +28,9 @@
 								<td>{{ $usu -> usuario }}</td>
 								<td>
 									@if($usu->id_rol==1)
-											<span class="larabel label-info"> {{ 'Administrador' }}</span>
+											<span class="text-primary"> {{ 'Administrador' }}</span>
 									@else
-											<span class="larabel label-success"> {{ 'Operador' }}</span>
+											<span class="text-success"> {{ 'Operador' }}</span>
 									@endif
 								</td>
 								<td>

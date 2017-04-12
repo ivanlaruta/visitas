@@ -11,12 +11,12 @@
 
                      <li>
                         <a href="javascript:;" data-toggle="collapse" data-target="#demo2"><i class="fa fa-bar-chart-o"></i> Reportes <i class="fa fa-fw fa-caret-down"></i></a>
-                        <ul id="demo2" class="collapse">
+                        <ul id="demo2" class="collapse in">
                             <li>
-                                <a href="{{ route('reportes.index')}}">Visitas diarias</a>
+                                <a href="{{ route('reportes.visitasDiarias')}}">Visitas diarias</a>
                             </li>
                             <li>
-                                <a href="#">Visitas entre Fechas</a>
+                                <a href="{{ route('reportes.visitasTodo')}}">Todas las visitas</a>
                             </li>
                             <li>
                                 <a href="#">Usuarios mas visitados</a>
