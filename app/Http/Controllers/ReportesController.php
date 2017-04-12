@@ -26,7 +26,11 @@ class ReportesController extends Controller
     public function index(Request $request)
     {
         
+        
     }
+
+    
+
     public function visitasDiarias(Request $request)
     {
         date_default_timezone_set('America/La_Paz');
