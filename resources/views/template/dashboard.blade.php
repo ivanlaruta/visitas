@@ -46,7 +46,9 @@
                     <section >
                     <div class="row">
                         <div class="col-lg-12">
-                            @yield('content')
+                            @include('template.partials.panel_head')
+                                @yield('content')
+                            @include('template.partials.panel_foot') 
                         </div>
                     </div>    
                     </section>

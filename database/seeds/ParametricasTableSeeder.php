@@ -113,7 +113,7 @@ class ParametricasTableSeeder extends Seeder
         DB::table('parametricas')->insert([
             'nombre_tabla' => 'TIPO_DOC',
             'id' => 'LIC',
-            'descripcion' => 'Licencia de condicir',
+            'descripcion' => 'Licencia de conducir',
             'creado_por'=> 'admin',
             'modificado_por'=>'admin',
         ]);

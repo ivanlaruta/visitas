@@ -1,8 +1,8 @@
 @extends('template.dashboard')
 @section('title','visitas')
+
 @section('content')
 @section('ventana','Creacion de nueva visita')	
-@include('ope.visitas.head')
 
 
 <div class="row">
@@ -151,6 +151,6 @@
 	</div>	
 </div>	
 
-@include('ope.visitas.foot') 
+
 @endsection
 

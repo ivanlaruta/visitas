@@ -2,7 +2,6 @@
 @section('title','visitas')
 @section('content')
 @section('ventana','Creacion de nueva visita')	
-@include('ope.visitas.head')
 
 <div class="row">
   	<div class="col-md-12">
@@ -150,6 +149,5 @@
 	</div>	
 </div>	
 
-@include('ope.visitas.foot') 
 @endsection
 

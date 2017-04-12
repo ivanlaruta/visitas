@@ -2,7 +2,7 @@
                             <div class="panel-heading">
 
                                 <h3 class="panel-title"><i class="fa fa-bar-chart-o"></i> 
-                                @yield('ventana','algo') 
+                                @yield('ventana','Inicio') 
                                 | {{ Auth::user()->empleado->ubicacion->nombre }} | 
 								<?php $time = time();
 								echo date("d-m-Y ", $time);?>

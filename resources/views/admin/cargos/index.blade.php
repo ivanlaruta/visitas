@@ -1,13 +1,10 @@
 @extends('template.dashboard')
-@section('title','Lista de Usuarios')
-
+@section('title','Lista de cargos')
 @section('content')
-
+@section('ventana','Cargos')
     	<div class="row">
-  			<div class="col-md-10 col-md-offset-1">
-				<a href="{{ route('cargos.create')}}" class="btn btn-info">Registrar nuevo Cargo</a><hr>
-				<p class="text-center">Lista de Cargos.</p>
-				 <hr>
+  			<div class="col-md-8 col-md-offset-2">
+				<a href="{{ route('cargos.create')}}" class="btn btn-success">Registrar nuevo Cargo</a><br><br>
 				<table class="table table-hover">
 					<thead>
 						<th></th>

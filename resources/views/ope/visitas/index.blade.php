@@ -5,7 +5,6 @@
 
 <a href="{{ route('visitas.create')}}" class="btn btn-success">Registrar nueva Entrada</a>
 <br><br>
-@include('ope.visitas.head')
 			<div class="col-md-12">
 				<div class="row">
   					<div class="col-md-12">
@@ -71,5 +70,4 @@
 				</div>
 				{{ $vi->links() }} 
 		</div>
-@include('ope.visitas.foot') 
 @endsection

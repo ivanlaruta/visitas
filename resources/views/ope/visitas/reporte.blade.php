@@ -2,7 +2,6 @@
 @section('title','Lista de visitas diarias')
 @section('content')
 @section('ventana','Visitas diarias')	
-@include('ope.visitas.head')
 
     	<div class="col-md-12">
 				<div class="row">
@@ -71,5 +70,4 @@
 				</div>
 				{{ $vi->links() }} 
 		</div>
-@include('ope.visitas.foot') 
 @endsection
