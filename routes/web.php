@@ -24,7 +24,7 @@ Route::get('/inicial', function () {
 });
 // Rpara dministradores
 
-Route::group(['prefix'=>'admin','middleware'=>'auth'],function(){
+Route::group(['prefix'=>'admin'],function(){
 	
 	route::resource('users','UsersController');
 	
