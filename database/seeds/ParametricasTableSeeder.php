@@ -135,7 +135,7 @@ class ParametricasTableSeeder extends Seeder
           DB::table('parametricas')->insert([
             'nombre_tabla' => 'TIPO_TAR',
             'id' => 'PS',
-            'descripcion' => 'PASANTIA',
+            'descripcion' => 'PASANTE',
             'creado_por'=> 'admin',
             'modificado_por'=>'admin',
         ]);
@@ -143,6 +143,13 @@ class ParametricasTableSeeder extends Seeder
             'nombre_tabla' => 'TIPO_TAR',
             'id' => 'PRE',
             'descripcion' => 'PRESIDENCIA',
+            'creado_por'=> 'admin',
+            'modificado_por'=>'admin',
+        ]);
+        DB::table('parametricas')->insert([
+            'nombre_tabla' => 'TIPO_TAR',
+            'id' => 'PRE',
+            'descripcion' => 'VICEPRESIDENCIA',
             'creado_por'=> 'admin',
             'modificado_por'=>'admin',
         ]);

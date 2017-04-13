@@ -23,9 +23,7 @@ Route::get('/inicial', function () {
     return view('inicial');
 });
 
-Route::get('/hola', function () {
-    return view('hola');
-});
+
 // Rpara dministradores
 
 Route::group(['prefix'=>'admin'],function(){
@@ -98,7 +96,19 @@ Route::group(['prefix'=>'admin'],function(){
 // * para operadores
 
 Route::group(['prefix'=>'ope'],function(){
-	route::resource('visitas','VisitasController');
+
+	
+	Route::get ('visitas/reportadas',[
+		'uses' => 'VisitasController@reportadas', 
+		'as'   =>	'visitas.reportadas'
+	]);
+	
+	route::get('visitas/{id}/restaurar',[
+		'uses' => 'VisitasController@restaurar', 
+		'as'   =>	'visitas.restaurar'
+	]);
+
+
 	route::get('visitas/{id}/update',[
 		'uses' => 'VisitasController@salida', 
 		'as'   =>	'visitas.salida'
@@ -108,6 +118,8 @@ Route::group(['prefix'=>'ope'],function(){
 		'uses' => 'VisitasController@ingreso', 
 		'as'   =>	'visitas.ingreso'
 	]);
+
+	route::resource('visitas','VisitasController');
 
 });
 Route::group(['prefix'=>'rep'],function(){
@@ -122,11 +134,12 @@ Route::group(['prefix'=>'rep'],function(){
 		'as'   =>	'reportes.visitasTodo'
 	]);
 
+	
+
 	Route::get ('reportes/pdf',[
 		'uses' => 'ReportesController@pdf', 
 		'as'   =>	'reportes.pdf'
 	]);
-
 
 	route::resource('reportes','ReportesController');
 

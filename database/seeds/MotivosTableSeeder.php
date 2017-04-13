@@ -18,17 +18,17 @@ class MotivosTableSeeder extends Seeder
             
         ]);
         DB::table('motivos')->insert([
-            'descripcion' => 'entrevista',
+            'descripcion' => 'Entrevista',
             'creado_por'=> 'admin',
             'modificado_por'=>'admin',
         ]);
         DB::table('motivos')->insert([
-            'descripcion' => 'reunion',
+            'descripcion' => 'Reunion',
             'creado_por'=> 'admin',
             'modificado_por'=>'admin',
         ]);
         DB::table('motivos')->insert([
-            'descripcion' => 'entrega de carta',
+            'descripcion' => 'Entrega de carta',
             'creado_por'=> 'admin',
             'modificado_por'=>'admin',
         ]);

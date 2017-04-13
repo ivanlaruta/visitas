@@ -15,12 +15,12 @@ class EmpleadosTableSeeder extends Seeder
 
        	DB::table('empleados')->insert([
 
-            'ci' => '8264209',
+            'ci' => '00',
             'ex' => 'LP',
-            'nombre' => 'Ivan',
-            'paterno'=> 'Laruta',            
-            'materno' => 'Espinal',
-            'email' => 'ivan.laruta@toyosa.com',
+            'nombre' => 'super',
+            'paterno'=> 'user',            
+            'materno' => '',
+            'email' => ' ',
             'id_cargo' => '1',
             'id_ubicacion'=> '131C',
             'telefono'=> '77756103',
@@ -30,61 +30,34 @@ class EmpleadosTableSeeder extends Seeder
 
        	DB::table('empleados')->insert([
 
-            'ci' => '12345678',
+            'ci' => '01',
             'ex' => 'LP',
-            'nombre' => 'Melisa',
-            'paterno'=> 'Tarifa',            
-            'materno' => 'Portugal',
-            'email' => 'maria.tarifa@toyosa.com',
-            'id_cargo' => '2',
+            'nombre' => 'operador',
+            'paterno'=> '1',            
+            'materno' => ' ',
+            'email' => ' ',
+            'id_cargo' => '1',
             'id_ubicacion'=> '131C',
-            'telefono'=> '123546',
+            'telefono'=> ' ',
             'creado_por'=> 'admin',
             'modificado_por'=>'admin',
        ]);
 
        	DB::table('empleados')->insert([
 
-            'ci' => '87654321',
+            'ci' => '02',
             'ex' => 'LP',
-            'nombre' => 'jose',
-            'paterno'=> 'Pacheco',            
-            'materno' => 'Medina',
-            'email' => 'jose.pacheco@toyosa.com',
-            'id_cargo' => '4',
+            'nombre' => 'administrador',
+            'paterno'=> '1',            
+            'materno' => ' ',
+            'email' => ' ',
+            'id_cargo' => '1',
             'id_ubicacion'=> '131C',
-            'telefono'=> '75698412',
+            'telefono'=> ' ',
             'creado_por'=> 'admin',
             'modificado_por'=>'admin',
        ]);
 
-       	DB::table('empleados')->insert([
-
-            'ci' => '12345',
-            'ex' => 'LP',
-            'nombre' => 'Patricia',
-            'paterno'=> 'Mollinedo',            
-            'materno' => 'Medina',
-            'email' => 'pati.mo@toyosa.com',
-            'id_cargo' => '3',
-            'id_ubicacion'=> '131C',
-            'telefono'=> '65575672',
-            'creado_por'=> 'admin',
-            'modificado_por'=>'admin',
-       ]);
-       	DB::table('empleados')->insert([
-
-            'ci' => '54321',
-            'ex' => 'LP',
-            'nombre' => 'Carlos',
-            'paterno'=> 'Roca',            
-            'materno' => 'Salas',
-            'email' => 'carlos.roca@toyosa.com',
-            'id_cargo' => '4',
-            'id_ubicacion'=> '131C',
-            'telefono'=> '879456',
-            'creado_por'=> 'admin',
-            'modificado_por'=>'admin',
-       ]);
+       	
     }
 }

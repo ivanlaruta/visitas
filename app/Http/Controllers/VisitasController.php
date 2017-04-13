@@ -39,6 +39,26 @@ class VisitasController extends Controller
         //dd($vi->all());
     }
    
+    public function reportadas(Request $request)
+    {   
+
+        date_default_timezone_set('America/La_Paz');
+        $time = time();
+        $hoy=date("d-m-Y ", $time);
+
+        $vi = Visita::where('estado_visita', '=', 1)
+        ->where('fecha', '<>', $hoy)
+        ->Search($request->ci)
+        ->orderBy('id_visita','DESC')
+        ->paginate(5)
+        ;
+
+        return view('ope.visitas.reportadas')
+            ->with('vi',$vi)
+             ->with('recuperado',$request)
+        ;
+        //dd($vi->all());
+    }
 
     /**
      * Show the form for creating a new resource.
@@ -51,10 +71,14 @@ class VisitasController extends Controller
 
         $expe = Parametrica::where('nombre_tabla','EXPENDIDO')->orderBy('id','ASC')->pluck('id','id');
         $tipoDoc = Parametrica::where('nombre_tabla','TIPO_DOC')->orderBy('id','ASC')->pluck('descripcion','id');
-        $empleados = Empleado::all(['ci', 'nombre','paterno']);
+        // $empleados = Empleado::all(['ci', 'nombre','paterno']);
+
+        $empleados = Empleado::orderBy('paterno','ASC')->select('ci', 'nombre','paterno')->where('id_ubicacion', $ubicacion )->where('estado','1')->get();
+        $tarjetas = Tarjeta::where('estado_prestamo','1')->where('estado','1')->where('id_ubicacion', $ubicacion )->whereNull('ci_empleado')->orderBy('id_tarjeta','ASC')->pluck('id_tarjeta','id_tarjeta');
+        
         $motivos = Motivo::orderBy('id_motivo','ASC')->pluck('descripcion','id_motivo');
         // $empleados = Empleado::all()->pluck('nombre','ci');
-        $tarjetas = Tarjeta::where('estado_prestamo','1')->where('id_ubicacion', $ubicacion )->orderBy('id_tarjeta','ASC')->pluck('id_tarjeta','id_tarjeta');
+        
         $vis = Visitante::where('estado', '=', 1)->Search($request->ci)->orderBy('ci')->paginate(5);
         // dd($empleados);
        
@@ -165,12 +189,8 @@ class VisitasController extends Controller
         $expe = Parametrica::where('nombre_tabla','EXPENDIDO')->orderBy('id','ASC')->pluck('descripcion','id');
         $tipoDoc = Parametrica::where('nombre_tabla','TIPO_DOC')->orderBy('id','ASC')->pluck('descripcion','id');
         $motivos = Motivo::orderBy('id_motivo','ASC')->pluck('descripcion','id_motivo');
-        $empleados = Empleado::all(['ci', 'nombre','paterno']);
-        
-
-
-        $tarjetas = Tarjeta::where('estado_prestamo','1')->where('id_ubicacion', $ubicacion )->orderBy('id_tarjeta','ASC')->pluck('id_tarjeta','id_tarjeta');
-
+       $empleados = Empleado::orderBy('paterno','ASC')->select('ci', 'nombre','paterno')->where('id_ubicacion', $ubicacion )->where('estado','1')->get();
+        $tarjetas = Tarjeta::where('estado_prestamo','1')->where('estado','1')->where('id_ubicacion', $ubicacion )->whereNull('ci_empleado')->orderBy('id_tarjeta','ASC')->pluck('id_tarjeta','id_tarjeta');
 
         $dato =Visitante::find($id);
        return view('ope.visitas.createAux')
@@ -181,6 +201,7 @@ class VisitasController extends Controller
         ->with('tarjetas',$tarjetas)
         ->with('dato',$dato);
     }
+
 
     /**
      * Update the specified resource in storage.
@@ -218,6 +239,19 @@ class VisitasController extends Controller
         $ta->save();
         $vi -> save();
         return redirect()->route('visitas.index')->with('mensaje',"visita se marco como terminada a hrs:".date("H:i:s", $time));
+    }
+
+    public function restaurar( $id)
+    {
+        $vi =Visita::find($id);
+        $vi->estado_visita = '2';
+        
+        // echo ("Según el servidor la hora actual es: ". date("H:i:s", $time));
+        $ta = Tarjeta::find( $vi->id_tarjeta);
+        $ta->estado_prestamo = '1';
+        $ta->save();
+        $vi -> save();
+        return redirect()->route('visitas.index')->with('mensaje',"tarjeta restaurada:");
     }
 }
 

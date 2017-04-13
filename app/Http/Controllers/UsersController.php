@@ -25,7 +25,7 @@ class UsersController extends Controller
      */
     public function create()
     {
-        $emp = Empleado::all(['ci', 'nombre','paterno']);
+        $emp = Empleado::orderBy('paterno','ASC')->select('ci', 'nombre','paterno')->where('id_ubicacion', $ubicacion )->get();
         return view('admin.usuarios.create')
             ->with('emp',$emp)
         ;

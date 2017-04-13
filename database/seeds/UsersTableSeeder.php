@@ -12,18 +12,18 @@ class UsersTableSeeder extends Seeder
 
         DB::table('users')->insert([
            
-            'usuario' => 'ivan.laruta',
-            'password' => bcrypt('12345'),
-            'ci_empleado' => '8264209',
-            'id_rol'=> '1',
+            'usuario' => 'operador',
+            'password' => bcrypt('visitasoperador'),
+            'ci_empleado' => '01',
+            'id_rol'=> '0',
         ]);
 
          DB::table('users')->insert([
             
-            'usuario' => 'melisa.tarifa',
-            'password' => bcrypt('12345'),
-            'ci_empleado' => '12345678',
-            'id_rol'=> '0',
+            'usuario' => 'administrador',
+            'password' => bcrypt('vistasadministrador'),
+            'ci_empleado' => '02',
+            'id_rol'=> '1',
         ]);
 
     }
