@@ -22,6 +22,10 @@ Route::get('/', function () {
 Route::get('/inicial', function () {
     return view('inicial');
 });
+
+Route::get('/hola', function () {
+    return view('hola');
+});
 // Rpara dministradores
 
 Route::group(['prefix'=>'admin'],function(){
