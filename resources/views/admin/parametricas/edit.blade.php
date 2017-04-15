@@ -12,7 +12,7 @@
 				<div class="form-group">
 
 					{!! Form::label('id','ID')!!}
-					{!! Form::text('id',$pa->id,['class'=> 'form-control','0placeholder'=>'ingrese un ID','required'])!!}
+					{!! Form::text('id',$pa->id,['class'=> 'form-control','0placeholder'=>'ingrese un ID','readonly'])!!}
 				</div>
 
 				<div class="form-group">

@@ -47,6 +47,7 @@ class EmpleadosController extends Controller
     {
 
         $us = new Empleado($request->all());
+        $us->ci = trim($request->ci);
         
         $us->save();
 

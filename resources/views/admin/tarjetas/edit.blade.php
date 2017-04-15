@@ -22,7 +22,7 @@
 					</div>
 					
 					<div class="form-group">
-					{!! Form::label('email','Ubicacion')!!}
+					<h6>Ubicacion:</h4>
 						{!! Form::select('id_ubicacion',$ubica,$ta->id_ubicacion,['class'=>'form-control','placeholder'=>'seleccione una ubicacion','required'])!!}
 					</div>
 

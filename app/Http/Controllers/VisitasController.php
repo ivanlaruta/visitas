@@ -73,8 +73,16 @@ class VisitasController extends Controller
         $tipoDoc = Parametrica::where('nombre_tabla','TIPO_DOC')->orderBy('id','ASC')->pluck('descripcion','id');
         // $empleados = Empleado::all(['ci', 'nombre','paterno']);
 
-        $empleados = Empleado::orderBy('paterno','ASC')->select('ci', 'nombre','paterno')->where('id_ubicacion', $ubicacion )->where('estado','1')->get();
+        $empleados = Empleado::orderBy('paterno','ASC')
+                    ->select('ci', 'nombre','paterno')
+                    ->where('id_cargo','<>','3' )
+                    ->where('id_ubicacion', $ubicacion )
+                    ->where('estado','1')
+                    ->get();
+
+
         $tarjetas = Tarjeta::where('estado_prestamo','1')->where('estado','1')->where('id_ubicacion', $ubicacion )->whereNull('ci_empleado')->orderBy('id_tarjeta','ASC')->pluck('id_tarjeta','id_tarjeta');
+
         
         $motivos = Motivo::orderBy('id_motivo','ASC')->pluck('descripcion','id_motivo');
         // $empleados = Empleado::all()->pluck('nombre','ci');
@@ -103,6 +111,7 @@ class VisitasController extends Controller
     public function store(Request $request)
     {
         
+        
         date_default_timezone_set('America/La_Paz');
         $time = time();
         date("H:i:s", $time);
@@ -126,6 +135,7 @@ class VisitasController extends Controller
         $visita -> id_ubicacion = $request->ubicacion;
         $visita -> observaciones = $request->observaciones;
 
+        
         $ta = Tarjeta::find( $request->id_tarjeta);
         $ta->estado_prestamo = '0';
 
@@ -155,7 +165,7 @@ class VisitasController extends Controller
         $visita -> id_tarjeta = $request->id_tarjeta;
         $visita -> id_ubicacion = $request->ubicacion;
         $visita -> observaciones = $request->observaciones;
-
+ // dd($request->id_tarjeta);  
         $ta = Tarjeta::find( $request->id_tarjeta);
         $ta->estado_prestamo = '0';
         $ta->save();
@@ -189,7 +199,14 @@ class VisitasController extends Controller
         $expe = Parametrica::where('nombre_tabla','EXPENDIDO')->orderBy('id','ASC')->pluck('descripcion','id');
         $tipoDoc = Parametrica::where('nombre_tabla','TIPO_DOC')->orderBy('id','ASC')->pluck('descripcion','id');
         $motivos = Motivo::orderBy('id_motivo','ASC')->pluck('descripcion','id_motivo');
-       $empleados = Empleado::orderBy('paterno','ASC')->select('ci', 'nombre','paterno')->where('id_ubicacion', $ubicacion )->where('estado','1')->get();
+        
+       $empleados = Empleado::orderBy('paterno','ASC')
+                    ->select('ci', 'nombre','paterno')
+                    ->where('id_cargo','<>','3' )
+                    ->where('id_ubicacion', $ubicacion )
+                    ->where('estado','1')
+                    ->get();
+
         $tarjetas = Tarjeta::where('estado_prestamo','1')->where('estado','1')->where('id_ubicacion', $ubicacion )->whereNull('ci_empleado')->orderBy('id_tarjeta','ASC')->pluck('id_tarjeta','id_tarjeta');
 
         $dato =Visitante::find($id);

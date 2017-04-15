@@ -5,6 +5,8 @@ namespace App\Http\Controllers;
 use Illuminate\Http\Request;
 use App\User;
 use App\Empleado;
+use Illuminate\Support\Facades\Auth;
+use DB;
 class UsersController extends Controller
 {
     /**
@@ -25,7 +27,15 @@ class UsersController extends Controller
      */
     public function create()
     {
-        $emp = Empleado::orderBy('paterno','ASC')->select('ci', 'nombre','paterno')->where('id_ubicacion', $ubicacion )->get();
+        $ubicacion = Auth::user()->empleado->id_ubicacion;
+
+        $emp = Empleado::orderBy('paterno','ASC')
+                    ->select('ci', 'nombre','paterno')
+                    
+                    ->where('id_ubicacion', $ubicacion )
+                    ->where('estado','1')
+                    ->get();
+
         return view('admin.usuarios.create')
             ->with('emp',$emp)
         ;

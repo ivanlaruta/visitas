@@ -49,6 +49,7 @@ class TarjetasController extends Controller
     public function store(Request $request)
     {
         $ta = new Tarjeta($request->all());
+        $ta->id_tarjeta = trim($request->id_tarjeta);
         $ta->save();
 
          return redirect()->route('tarjetas.index')->with('mensaje',"Tarjeta creada exitosamente!");

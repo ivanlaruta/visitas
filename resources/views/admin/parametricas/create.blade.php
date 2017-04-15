@@ -11,18 +11,18 @@
 
 				<div class="form-group">
 						<h6>Parametrica</h6>
-						{!! Form::select('nombre_tabla',['ESTADO'=>'Estado','EXPEDIDO'=>'Expedido','ROL'=>'Rol de usuario','TIPO_DOC'=>'Tipos de documento','CIUDAD'=>'Ciudad','E_VISITA'=>'Estado visita','E_PRESTAMO'=>'Estado prestamo de tarjeta','TIPO_TAR'=>'Tipo de tarjeta'],null,['class'=>'form-control','placeholder'=>'seleccione categoria','required'])!!}
+						{!! Form::select('nombre_tabla',['EXPEDIDO'=>'EXPEDIDO','TIPO_DOC'=>'TIPO DE DOCUMENTO','CIUDAD'=>'CIUDAD','TIPO_TAR'=>'TIPO DE TARJETA'],null,['class'=>'form-control','placeholder'=>'seleccione categoria','required'])!!}
 					</div>
 
 				<div class="form-group">
 
 					{!! Form::label('id','ID')!!}
-					{!! Form::text('id',null,['class'=> 'form-control','0placeholder'=>'ingrese un ID','required'])!!}
+					{!! Form::text('id',null,['class'=> 'form-control','0placeholder'=>'ID para parametrica ej: LIC','required'])!!}
 				</div>
 
 				<div class="form-group">
 					{!! Form::label('descripcion','Descripcion')!!}
-					{!! Form::text('descripcion',null,['class'=> 'form-control','placeholder'=>'Descripcion','required'])!!}
+					{!! Form::text('descripcion',null,['class'=> 'form-control','placeholder'=>'Descripcion ejemplo: Licencia de conducir','required'])!!}
 
 				</div>
 				

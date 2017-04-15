@@ -23,6 +23,7 @@ class EmpleadosTableSeeder extends Seeder
             'email' => ' ',
             'id_cargo' => '1',
             'id_ubicacion'=> '131C',
+            'estado'=>'0',
             'telefono'=> '77756103',
             'creado_por'=> 'admin',
             'modificado_por'=>'admin',
@@ -38,6 +39,7 @@ class EmpleadosTableSeeder extends Seeder
             'email' => ' ',
             'id_cargo' => '1',
             'id_ubicacion'=> '131C',
+            'estado'=>'0',
             'telefono'=> ' ',
             'creado_por'=> 'admin',
             'modificado_por'=>'admin',
@@ -53,14 +55,19 @@ class EmpleadosTableSeeder extends Seeder
             'email' => ' ',
             'id_cargo' => '1',
             'id_ubicacion'=> '131C',
+            'estado'=>'0',
             'telefono'=> ' ',
             'creado_por'=> 'admin',
             'modificado_por'=>'admin',
        ]);
 
+        /* 
+        /--------------
+        */
+        
         DB::table('empleados')->insert([
 
-            'ci' => '1 ',
+            'ci' => '1',
             'ex' => 'LP',
             'nombre' => 'MIRNA',
             'paterno'=> ' SORUCO',            
@@ -74,7 +81,7 @@ class EmpleadosTableSeeder extends Seeder
        ]);
         DB::table('empleados')->insert([
 
-            'ci' => '2 ',
+            'ci' => '2',
             'ex' => 'LP',
             'nombre' => 'GABRIEL',
             'paterno'=> ' HERBAS',            
@@ -88,7 +95,7 @@ class EmpleadosTableSeeder extends Seeder
        ]);
         DB::table('empleados')->insert([
 
-            'ci' => '3 ',
+            'ci' => '3',
             'ex' => 'LP',
             'nombre' => 'MANUEL',
             'paterno'=> ' CERNADAS',            
@@ -102,7 +109,7 @@ class EmpleadosTableSeeder extends Seeder
        ]);
         DB::table('empleados')->insert([
 
-            'ci' => '4 ',
+            'ci' => '4',
             'ex' => 'LP',
             'nombre' => 'CRISTHIAN',
             'paterno'=> ' DE LA TORRE',            
@@ -116,7 +123,7 @@ class EmpleadosTableSeeder extends Seeder
        ]);
         DB::table('empleados')->insert([
 
-            'ci' => '5 ',
+            'ci' => '5',
             'ex' => 'LP',
             'nombre' => 'CESAR',
             'paterno'=> ' TABOADA',            
@@ -130,7 +137,7 @@ class EmpleadosTableSeeder extends Seeder
        ]);
         DB::table('empleados')->insert([
 
-            'ci' => '6 ',
+            'ci' => '6',
             'ex' => 'LP',
             'nombre' => 'OSCAR',
             'paterno'=> ' SANCHEZ ',            
@@ -144,7 +151,7 @@ class EmpleadosTableSeeder extends Seeder
        ]);
         DB::table('empleados')->insert([
 
-            'ci' => '7 ',
+            'ci' => '7',
             'ex' => 'LP',
             'nombre' => 'DAVID',
             'paterno'=> ' MICHEL',            
@@ -158,7 +165,7 @@ class EmpleadosTableSeeder extends Seeder
        ]);
         DB::table('empleados')->insert([
 
-            'ci' => '8 ',
+            'ci' => '8',
             'ex' => 'LP',
             'nombre' => 'JIMENA',
             'paterno'=> ' YANGUAS',            
@@ -172,7 +179,7 @@ class EmpleadosTableSeeder extends Seeder
        ]);
         DB::table('empleados')->insert([
 
-            'ci' => '9 ',
+            'ci' => '9',
             'ex' => 'LP',
             'nombre' => 'ADRIANA',
             'paterno'=> ' JUSTINIANO',            
@@ -327,6 +334,297 @@ class EmpleadosTableSeeder extends Seeder
        ]);
 
 
+          // POLICIAS//
+
+        
+        DB::table('empleados')->insert([
+
+            'ci' => '100',
+            'ex' => 'LP',
+            'nombre' => 'JULIO',
+            'paterno'=> ' CHOQUE',            
+            'materno' => ' ',
+            'email' => ' ',
+            'id_cargo' => '3',
+            'id_ubicacion'=> '131C',
+            'telefono'=> ' ',
+            'creado_por'=> 'admin',
+            'modificado_por'=>'admin',
+       ]);
+
+        DB::table('empleados')->insert([
+
+            'ci' => '101',
+            'ex' => 'LP',
+            'nombre' => 'CRISPIN',
+            'paterno'=> ' RAMOS',            
+            'materno' => 'CRUZ',
+            'email' => ' ',
+            'id_cargo' => '3',
+            'id_ubicacion'=> '131C',
+            'telefono'=> ' ',
+            'creado_por'=> 'admin',
+            'modificado_por'=>'admin',
+       ]);
+
+        DB::table('empleados')->insert([
+
+            'ci' => '102',
+            'ex' => 'LP',
+            'nombre' => 'ELOY',
+            'paterno'=> ' ROJAS',            
+            'materno' => 'QUISPE',
+            'email' => ' ',
+            'id_cargo' => '3',
+            'id_ubicacion'=> '131C',
+            'telefono'=> ' ',
+            'creado_por'=> 'admin',
+            'modificado_por'=>'admin',
+       ]);
+        // ---------------------
+        DB::table('empleados')->insert([
+
+            'ci' => '103',
+            'ex' => 'LP',
+            'nombre' => 'CRISTOBAL',
+            'paterno'=> ' APAZA',            
+            'materno' => 'FLORES',
+            'email' => ' ',
+            'id_cargo' => '3',
+            'id_ubicacion'=> '135',
+            'telefono'=> ' ',
+            'creado_por'=> 'admin',
+            'modificado_por'=>'admin',
+       ]);
+
+        DB::table('empleados')->insert([
+
+            'ci' => '104',
+            'ex' => 'LP',
+            'nombre' => 'EMILIANO',
+            'paterno'=> ' VALENCIA',            
+            'materno' => 'CHOQUE',
+            'email' => ' ',
+            'id_cargo' => '3',
+            'id_ubicacion'=> '135',
+            'telefono'=> ' ',
+            'creado_por'=> 'admin',
+            'modificado_por'=>'admin',
+       ]);
+
+        DB::table('empleados')->insert([
+
+            'ci' => '105',
+            'ex' => 'LP',
+            'nombre' => 'ELESIO',
+            'paterno'=> ' CHURA',            
+            'materno' => 'MENA',
+            'email' => ' ',
+            'id_cargo' => '3',
+            'id_ubicacion'=> '135',
+            'telefono'=> ' ',
+            'creado_por'=> 'admin',
+            'modificado_por'=>'admin',
+       ]);
+
+        DB::table('empleados')->insert([
+
+            'ci' => '106',
+            'ex' => 'LP',
+            'nombre' => 'LAURIANO',
+            'paterno'=> ' LUCANA',            
+            'materno' => 'FLORES',
+            'email' => ' ',
+            'id_cargo' => '3',
+            'id_ubicacion'=> '135',
+            'telefono'=> ' ',
+            'creado_por'=> 'admin',
+            'modificado_por'=>'admin',
+       ]);
+//----------------
+        DB::table('empleados')->insert([
+
+            'ci' => '107',
+            'ex' => 'LP',
+            'nombre' => 'ALFREDO',
+            'paterno'=> ' RAMOS',            
+            'materno' => ' ',
+            'email' => ' ',
+            'id_cargo' => '3',
+            'id_ubicacion'=> '131C',
+            'telefono'=> ' ',
+            'creado_por'=> 'admin',
+            'modificado_por'=>'admin',
+       ]);
+
+        DB::table('empleados')->insert([
+
+            'ci' => '108',
+            'ex' => 'LP',
+            'nombre' => 'HEFFNER',
+            'paterno'=> ' VARGAS',            
+            'materno' => ' ',
+            'email' => ' ',
+            'id_cargo' => '3',
+            'id_ubicacion'=> '131C',
+            'telefono'=> ' ',
+            'creado_por'=> 'admin',
+            'modificado_por'=>'admin',
+       ]);
+        //-------------------------
+        
+
+        DB::table('empleados')->insert([
+
+            'ci' => '110',
+            'ex' => 'LP',
+            'nombre' => 'GREGORIO',
+            'paterno'=> ' MOLLO',            
+            'materno' => ' ',
+            'email' => ' ',
+            'id_cargo' => '3',
+            'id_ubicacion'=> '137',
+            'telefono'=> ' ',
+            'creado_por'=> 'admin',
+            'modificado_por'=>'admin',
+       ]);
+
+        DB::table('empleados')->insert([
+
+            'ci' => '109',
+            'ex' => 'LP',
+            'nombre' => 'RUFINO',
+            'paterno'=> ' CUSI',            
+            'materno' => ' ',
+            'email' => ' ',
+            'id_cargo' => '3',
+            'id_ubicacion'=> '137',
+            'telefono'=> ' ',
+            'creado_por'=> 'admin',
+            'modificado_por'=>'admin',
+       ]);
+
+        //---------------------------------------
+
+        DB::table('empleados')->insert([
+
+            'ci' => '111',
+            'ex' => 'LP',
+            'nombre' => 'SEFERINO',
+            'paterno'=> ' APAZA',            
+            'materno' => ' ',
+            'email' => ' ',
+            'id_cargo' => '3',
+            'id_ubicacion'=> '131C',
+            'telefono'=> ' ',
+            'creado_por'=> 'admin',
+            'modificado_por'=>'admin',
+       ]);
+//-------------------------
+        DB::table('empleados')->insert([
+
+            'ci' => '112',
+            'ex' => 'LP',
+            'nombre' => 'ANGEL',
+            'paterno'=> ' MAMANI',            
+            'materno' => ' ',
+            'email' => ' ',
+            'id_cargo' => '3',
+            'id_ubicacion'=> '134',
+            'telefono'=> ' ',
+            'creado_por'=> 'admin',
+            'modificado_por'=>'admin',
+       ]);
+
+        DB::table('empleados')->insert([
+
+            'ci' => '113',
+            'ex' => 'LP',
+            'nombre' => 'SAMUEL',
+            'paterno'=> ' ESPEJO',            
+            'materno' => ' ',
+            'email' => ' ',
+            'id_cargo' => '3',
+            'id_ubicacion'=> '134',
+            'telefono'=> ' ',
+            'creado_por'=> 'admin',
+            'modificado_por'=>'admin',
+       ]);
+
+        DB::table('empleados')->insert([
+
+            'ci' => '114',
+            'ex' => 'LP',
+            'nombre' => 'PORFIRIO',
+            'paterno'=> ' MAMANI',            
+            'materno' => ' ',
+            'email' => ' ',
+            'id_cargo' => '3',
+            'id_ubicacion'=> '134',
+            'telefono'=> ' ',
+            'creado_por'=> 'admin',
+            'modificado_por'=>'admin',
+       ]);
+
+        DB::table('empleados')->insert([
+
+            'ci' => '115',
+            'ex' => 'LP',
+            'nombre' => 'NILO',
+            'paterno'=> ' TOLA',            
+            'materno' => ' ',
+            'email' => ' ',
+            'id_cargo' => '3',
+            'id_ubicacion'=> '134',
+            'telefono'=> ' ',
+            'creado_por'=> 'admin',
+            'modificado_por'=>'admin',
+       ]);
+
+        DB::table('empleados')->insert([
+
+            'ci' => '116',
+            'ex' => 'LP',
+            'nombre' => 'BARTOLOME',
+            'paterno'=> ' TARQUI',            
+            'materno' => ' ',
+            'email' => ' ',
+            'id_cargo' => '3',
+            'id_ubicacion'=> '134',
+            'telefono'=> ' ',
+            'creado_por'=> 'admin',
+            'modificado_por'=>'admin',
+       ]);
+
+        DB::table('empleados')->insert([
+
+            'ci' => '117',
+            'ex' => 'LP',
+            'nombre' => 'NARCISO',
+            'paterno'=> ' COPA',            
+            'materno' => ' ',
+            'email' => ' ',
+            'id_cargo' => '3',
+            'id_ubicacion'=> '118',
+            'telefono'=> ' ',
+            'creado_por'=> 'admin',
+            'modificado_por'=>'admin',
+       ]);
+
+        DB::table('empleados')->insert([
+
+            'ci' => '118',
+            'ex' => 'LP',
+            'nombre' => 'RODOLFO',
+            'paterno'=> ' CALA',            
+            'materno' => ' ',
+            'email' => ' ',
+            'id_cargo' => '3',
+            'id_ubicacion'=> '118',
+            'telefono'=> ' ',
+            'creado_por'=> 'admin',
+            'modificado_por'=>'admin',
+       ]);
 
     }
 }

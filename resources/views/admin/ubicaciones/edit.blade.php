@@ -13,7 +13,7 @@
 				<div class="form-group">
 
 					{!! Form::label('id','ID')!!}
-					{!! Form::text('id_ubicacion',$ub->id_ubicacion,['class'=> 'form-control','placeholder'=>'Ingrese un Identificador','required'])!!}
+					{!! Form::text('id_ubicacion',$ub->id_ubicacion,['class'=> 'form-control','readonly','placeholder'=>'Ingrese un Identificador','required'])!!}
 					{!! Form::label('nombre','Nombre del lugar')!!}
 					{!! Form::text('nombre',$ub->nombre,['class'=> 'form-control','placeholder'=>'Ingrese el nombre del lugar','required'])!!}
 					
