@@ -28,9 +28,6 @@ class ReportesController extends Controller
         
         
     }
-
-    
-
     public function visitasDiarias(Request $request)
     {
         date_default_timezone_set('America/La_Paz');
@@ -46,18 +43,25 @@ class ReportesController extends Controller
         ;
         //dd($vi->all());
     }
-     public function visitasTodo(Request $request)
+    public function visitasTodo(Request $request)
     {
         $ubicacion = Auth::user()->empleado->id_ubicacion;
-
         $vi = Visita::where('id_ubicacion', '=', $ubicacion)->Search($request->ci)->orderBy('id_visita','DESC')->paginate(10);
         return view('reportes.visitas_todo')
             ->with('vi',$vi)
              ->with('recuperado',$request)
         ;
-        //dd($vi->all());
-    }
+    } 
 
+     public function visitasEntreFechas(Request $request)
+    {
+        $ubicacion = Auth::user()->empleado->id_ubicacion;
+        $vi = Visita::where('id_ubicacion', '=', $ubicacion)->Search($request->ci)->orderBy('id_visita','DESC')->paginate(10);
+        return view('reportes.entre_fechas')
+            ->with('vi',$vi)
+             ->with('recuperado',$request)
+        ;
+    } 
 
     /**
      * Show the form for creating a new resource.

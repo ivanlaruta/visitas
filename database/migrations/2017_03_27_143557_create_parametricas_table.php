@@ -16,8 +16,8 @@ class CreateParametricasTable extends Migration
         Schema::create('parametricas', function (Blueprint $table) {
             
             $table->increments('id_parametrica');
-            $table->string('nombre_tabla',20);
-            $table->string('id',15);
+            $table->string('nombre_tabla',30);
+            $table->string('id',20);
             $table->string('descripcion',50)->nullable();
             
             $table->enum('estado',['1','0'])->default('1');

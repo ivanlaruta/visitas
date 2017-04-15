@@ -134,11 +134,15 @@ Route::group(['prefix'=>'rep'],function(){
 		'as'   =>	'reportes.visitasTodo'
 	]);
 
-	
 
 	Route::get ('reportes/pdf',[
 		'uses' => 'ReportesController@pdf', 
 		'as'   =>	'reportes.pdf'
+	]);
+
+	Route::get ('reportes/visitasEntreFechas',[
+		'uses' => 'ReportesController@visitasEntreFechas', 
+		'as'   =>	'reportes.visitasEntreFechas'
 	]);
 
 	route::resource('reportes','ReportesController');

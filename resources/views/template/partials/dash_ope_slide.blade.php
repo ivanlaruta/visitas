@@ -22,7 +22,7 @@
                                 <a href="{{ route('reportes.visitasTodo')}}">Todas las visitas</a>
                             </li>
                             <li>
-                                <a href="#">Usuarios mas visitados</a>
+                                <a href="#">Visitas entre fechas</a>
                             </li>
                             <li>
                                 <a href="#">Motivos mas frecuentes</a>

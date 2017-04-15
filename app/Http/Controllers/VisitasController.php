@@ -69,7 +69,7 @@ class VisitasController extends Controller
     {   
         $ubicacion = Auth::user()->empleado->id_ubicacion;
 
-        $expe = Parametrica::where('nombre_tabla','EXPENDIDO')->orderBy('id','ASC')->pluck('id','id');
+        $expe = Parametrica::where('nombre_tabla','EXPEDIDO')->orderBy('id','ASC')->pluck('id','id');
         $tipoDoc = Parametrica::where('nombre_tabla','TIPO_DOC')->orderBy('id','ASC')->pluck('descripcion','id');
         // $empleados = Empleado::all(['ci', 'nombre','paterno']);
 
