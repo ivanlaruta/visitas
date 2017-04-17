@@ -32,8 +32,8 @@
 						<th>Tipo doc</th>
 						<th>Visitante</th>
 						<th>Telefono</th>
-						{{-- <th>Fecha</th> --}}
-						<th>Entrada</th>
+						<th>Fecha Entrada</th> 
+						<th>Hora</th>
 						<th>Motivo</th>
 						<th>Vistado</th>
 						{{-- <th>Cargo</th> --}}
@@ -41,17 +41,23 @@
 						{{-- <th>Tipo tarjeta</th> --}}
 						{{-- <th>Ubicacion</th> --}}
 						<th>Obs</th>
-					</thead>
 					<tbody>
+						<?php $hoy=date("Y-m-d"); ?>
 						@foreach($vi as $vis)
-							<tr>								
+							<tr>											
+							@if($vis -> fecha_entrada < $hoy)
+								<tr class="danger">
+							@endif	
+								{{-- <td>{{ date('d-m-Y', strtotime($vis -> fecha_entrada))}}</td> --}}
+
 								{{-- <td>{{ $vis-> id_visita }}</td> --}}
+							
 								<td>{{ $vis -> ci_visitante }}</td>
 								<td>{{ $vis -> visitante -> ex}}</td>
 								<td>{{ $vis -> tipo_doc }}</td>
 								<td>{{ $vis -> visitante -> nombre }}  {{ $vis -> visitante -> paterno }}  {{ $vis -> visitante -> materno }}</td>
 								<td>{{ $vis -> visitante -> telefono }}</td>
-								{{-- <td>{{ $vis -> fecha }}</td> --}}
+								<td>{{ date('d-m-Y', strtotime($vis -> fecha_entrada)) }}
 								<td><span class="text-danger">{{ $vis -> hora_entrada }}</span></td>
 								<td>{{ $vis -> motivo -> descripcion}}</td>
 								<td>{{ $vis -> empleado -> nombre }}  {{ $vis -> empleado -> paterno }}</td>

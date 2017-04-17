@@ -23,18 +23,19 @@ class VisitasController extends Controller
 
         date_default_timezone_set('America/La_Paz');
         $time = time();
-        $hoy=date("d-m-Y ", $time);
+        $hoy=date("Y-m-d ", $time);
+        
 
-        $vi = Visita::where('estado_visita', '=', 1)
-        ->where('fecha', '=', $hoy)
+        $vi = Visita::where('estado_visita', '<>', 0)
+        // ->where('fecha_entrada', '=', $hoy)
         ->Search($request->ci)
-        ->orderBy('id_visita','DESC')
+        ->orderBy('fecha_entrada','ASC')
         ->paginate(5)
         ;
 
         return view('ope.visitas.index')
             ->with('vi',$vi)
-             ->with('recuperado',$request)
+            ->with('recuperado',$request)
         ;
         //dd($vi->all());
     }
@@ -47,7 +48,7 @@ class VisitasController extends Controller
         $hoy=date("d-m-Y ", $time);
 
         $vi = Visita::where('estado_visita', '=', 1)
-        ->where('fecha', '<>', $hoy)
+        ->where('fecha_entrada', '<>', $hoy)
         ->Search($request->ci)
         ->orderBy('id_visita','DESC')
         ->paginate(5)
@@ -69,6 +70,8 @@ class VisitasController extends Controller
     {   
         $ubicacion = Auth::user()->empleado->id_ubicacion;
 
+        
+
         $expe = Parametrica::where('nombre_tabla','EXPEDIDO')->orderBy('id','ASC')->pluck('id','id');
         $tipoDoc = Parametrica::where('nombre_tabla','TIPO_DOC')->orderBy('id','ASC')->pluck('descripcion','id');
         // $empleados = Empleado::all(['ci', 'nombre','paterno']);
@@ -80,10 +83,36 @@ class VisitasController extends Controller
                     ->where('estado','1')
                     ->get();
 
+        if (Auth::user()->empleado->id_cargo == '3')
+        {
+             $tarjetas = Tarjeta::where('estado_prestamo','1')
+                    ->where('estado','1')
+                    ->where('id_ubicacion', $ubicacion)                    
+                    ->whereNull('ci_empleado')
 
-        $tarjetas = Tarjeta::where('estado_prestamo','1')->where('estado','1')->where('id_ubicacion', $ubicacion )->whereNull('ci_empleado')->orderBy('id_tarjeta','ASC')->pluck('id_tarjeta','id_tarjeta');
+                    ->where('tipo_tarjeta', 'VISITA')
+                    ->orWhere('tipo_tarjeta', 'PERSONAL AUTORIZADO')
+                    ->orWhere('tipo_tarjeta', 'SIN NOMBRE')
+                    ->orWhere('tipo_tarjeta', 'PASANTE')
 
-        
+                    ->orderBy('id_tarjeta','ASC')
+                    ->pluck('id_tarjeta','id_tarjeta');
+        }
+        else
+        {
+        $tarjetas = Tarjeta::where('estado_prestamo','1')
+                    ->where('estado','1')
+                    ->where('id_ubicacion', $ubicacion )
+                    ->whereNull('ci_empleado')
+
+                    ->where('tipo_tarjeta', 'VICEPRESIDENCIA')
+                    ->orWhere('tipo_tarjeta', 'PRESIDENCIA')
+
+
+                    ->orderBy('id_tarjeta','ASC')
+                    ->pluck('id_tarjeta','id_tarjeta');
+
+        }
         $motivos = Motivo::orderBy('id_motivo','ASC')->pluck('descripcion','id_motivo');
         // $empleados = Empleado::all()->pluck('nombre','ci');
         
@@ -127,7 +156,7 @@ class VisitasController extends Controller
         $visita = new Visita();
         $visita -> ci_visitante = $request->ci;
         $visita -> tipo_doc = $request->tipo_doc;
-        $visita -> fecha = date("d-m-Y ", $time);
+        $visita -> fecha_entrada = date("d-m-Y ", $time);
         $visita -> hora_entrada =date("H:i:s", $time);
         $visita -> id_motivo = $request->id_motivo;
         $visita -> ci_empleado = $request->ci_empleado;
@@ -158,7 +187,7 @@ class VisitasController extends Controller
         $visita = new Visita();
         $visita -> ci_visitante = $request->ci;
         $visita -> tipo_doc = $request->tipo_doc;
-        $visita -> fecha = date("d-m-Y ", $time);
+        $visita -> fecha_entrada = date("d-m-Y ", $time);
         $visita -> hora_entrada =date("H:i:s", $time);
         $visita -> id_motivo = $request->id_motivo;
         $visita -> ci_empleado = $request->ci_empleado;
@@ -249,6 +278,7 @@ class VisitasController extends Controller
         $time = time();
         $vi =Visita::find($id);
         $vi->estado_visita = '0';
+        $vi->fecha_salida = date("d-m-Y ", $time);
         $vi->hora_salida = date("H:i:s", $time);
         // echo ("Según el servidor la hora actual es: ". date("H:i:s", $time));
         $ta = Tarjeta::find( $vi->id_tarjeta);

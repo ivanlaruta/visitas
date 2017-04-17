@@ -151,7 +151,7 @@ class TarjetasTableSeeder extends Seeder
        ]);
         DB::table('tarjetas')->insert([
             'id_tarjeta' => '1151111',
-            'tipo_tarjeta' => 'VISITA ',
+            'tipo_tarjeta' => 'VISITA',
             'id_ubicacion' => '131C',
             'creado_por'=> 'admin',
             'modificado_por'=>'admin',

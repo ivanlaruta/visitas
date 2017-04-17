@@ -7,7 +7,7 @@
                     <span class="icon-bar"></span>
                     <span class="icon-bar"></span>
                 </button>
-                <a class="navbar-brand" href="#">Panel de control</a>
+                <a class="navbar-brand" href="#">SISTEMA DE VISITAS</a>
             </div>
             <!-- Top Menu Items -->
             <ul class="nav navbar-right top-nav">

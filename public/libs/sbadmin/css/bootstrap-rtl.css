@@ -1117,6 +1117,7 @@ th {
 }
 .navbar-brand {
   float: right;
+  
 }
 @media (min-width: 768px) {
   .navbar > .container .navbar-brand,

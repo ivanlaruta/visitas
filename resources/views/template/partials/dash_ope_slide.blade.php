@@ -15,9 +15,9 @@
                             <li>
                                 <a href="{{ route('reportes.visitasDiarias')}}">Visitas diarias</a>
                             </li>
-                            <li>
+                            {{-- <li>
                                 <a href="{{ route('visitas.reportadas')}}">Visitas reportadas</a>
-                            </li>
+                            </li> --}}
                             <li>
                                 <a href="{{ route('reportes.visitasTodo')}}">Todas las visitas</a>
                             </li>
