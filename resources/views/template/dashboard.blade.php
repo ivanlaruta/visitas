@@ -11,10 +11,21 @@
     <meta name="author" content="">
 
     <title>Panel Visitas</title>
-
+    
+    
     <link href="{{ asset('libs/sbadmin/css/bootstrap.min.css')}}" rel="stylesheet">
 
     <link href="{{ asset('libs/sbadmin/css/sb-admin.css')}}" rel="stylesheet">
+
+    <!-- DataTables CSS -->
+   
+
+
+    {{-- <link href="{{ asset('libs/sbadmin/vendor/metisMenu/metisMenu.min.css')}}" rel="stylesheet">
+    <link href="{{ asset('libs/sbadmin/dist/css/sb-admin-2.css')}}" rel="stylesheet">
+    <!-- DataTables Responsive CSS --> --}}
+    <link href="{{ asset('libs/sbadmin/vendor/datatables-responsive/dataTables.responsive.css')}}" rel="stylesheet">
+
 
     <link href="{{ asset('libs/sbadmin/css/plugins/morris.css')}}" rel="stylesheet">
 
@@ -31,12 +42,18 @@
             
                 <div class="container-fluid">
                     <div class="row">
-                        <div class="col-lg-11">
+                        <div class="col-lg-12">
                             <section>
                                 @if(!session('mensaje')==null)
                                          <div class="alert alert-success">
                                           <button type="button" class="close" data-dismiss="alert" aria-hidden="true">&times;</button> {!! session('flash_notification.message') !!}
                                              {{session('mensaje')}}
+                                         </div>
+                                @endif﻿
+                                @if(!session('mensaje2')==null)
+                                         <div class="alert alert-danger">
+                                          <button type="button" class="close" data-dismiss="alert" aria-hidden="true">&times;</button> {!! session('flash_notification.message') !!}
+                                             {{session('mensaje2')}}
                                          </div>
                                 @endif﻿
                             </section>
@@ -76,15 +93,39 @@
     <!-- /#wrapper -->
 
     <!-- jQuery -->
-    <script src="{{ asset('libs/sbadmin/js/jquery.js')}}"></script>
+    <script src="{{ asset('plugins/jquery/js/jquery-3.2.0.js')}}"></script>
+    {{-- <script src="../vendor/jquery/jquery.min.js"></script> --}}
 
     <!-- Bootstrap Core JavaScript -->
     <script src="{{ asset('libs/sbadmin/js/bootstrap.min.js')}}"></script>
+    
 
+    <script type="text/javascript" charset="utf8" src="{{ asset('libs/DataTables/jquery.dataTables.js')}}"></script> --}}
+
+   <script src="{{ asset('libs/sbadmin/vendor/datatables/js/jquery.dataTables.js')}}"></script>
+    <script src="{{ asset('libs/sbadmin/vendor/datatables-plugins/dataTables.bootstrap.js')}}"></script>
+    <script src="{{ asset('libs/sbadmin/vendor/datatables-responsive/dataTables.responsive.js')}}"></script>
+{{--  
     <!-- Morris Charts JavaScript -->
     <script src="{{ asset('libs/sbadmin/js/plugins/morris/raphael.min.js')}}"></script>
     <script src="{{ asset('libs/sbadmin/js/plugins/morris/morris.min.js')}}"></script>
-    <script src="{{ asset('libs/sbadmin/js/plugins/morris/morris-data.js')}}"></script>
+    <script src="{{ asset('libs/sbadmin/js/plugins/morris/morris-data.js')}}"></script> --}}    
+    {{-- <script src="{{ asset('libs/sbadmin/dist/js/sb-admin-2.js')}}"></script> --}}
+
+    <!-- Page-Level Demo Scripts - Tables - Use for reference -->
+
+    
+   <script>
+    $(document).ready(function() {
+        // alert('1');
+        $('#dataTables-example').DataTable({
+            
+            responsive: true
+
+        });
+    });
+    </script> 
+
 
 </body>
 

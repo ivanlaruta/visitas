@@ -169,10 +169,18 @@ class VisitasController extends Controller
         $ta->estado_prestamo = '0';
 
         $ta -> save();
-        $visitante->save();
-        $visita->save();
 
-        return redirect()->route('visitas.index')->with('mensaje',"Se marco el Ingreso correctamente  a hrs:".date("H:i:s", $time));
+        if(is_null(Visitante::find($request->ci)))
+        {
+            $visitante->save();
+            $visita->save();
+            return redirect()->route('visitas.index')->with('mensaje',"Se marco el Ingreso correctamente  a hrs:".date("H:i:s", $time));
+        }
+        else
+        {
+            return redirect()->route('visitas.create')->with('mensaje',"Error!. El Ci que intento registrar ya existe.");
+        }
+       
     }
 
     public function ingreso(Request $request)
@@ -236,7 +244,36 @@ class VisitasController extends Controller
                     ->where('estado','1')
                     ->get();
 
-        $tarjetas = Tarjeta::where('estado_prestamo','1')->where('estado','1')->where('id_ubicacion', $ubicacion )->whereNull('ci_empleado')->orderBy('id_tarjeta','ASC')->pluck('id_tarjeta','id_tarjeta');
+        if (Auth::user()->empleado->id_cargo == '3')
+        {
+             $tarjetas = Tarjeta::where('estado_prestamo','1')
+                    ->where('estado','1')
+                    ->where('id_ubicacion', $ubicacion)                    
+                    ->whereNull('ci_empleado')
+
+                    ->where('tipo_tarjeta', 'VISITA')
+                    ->orWhere('tipo_tarjeta', 'PERSONAL AUTORIZADO')
+                    ->orWhere('tipo_tarjeta', 'SIN NOMBRE')
+                    ->orWhere('tipo_tarjeta', 'PASANTE')
+
+                    ->orderBy('id_tarjeta','ASC')
+                    ->pluck('id_tarjeta','id_tarjeta');
+        }
+        else
+        {
+            $tarjetas = Tarjeta::where('estado_prestamo','1')
+                    ->where('estado','1')
+                    ->where('id_ubicacion', $ubicacion )
+                    ->whereNull('ci_empleado')
+
+                    ->where('tipo_tarjeta', 'VICEPRESIDENCIA')
+                    ->orWhere('tipo_tarjeta', 'PRESIDENCIA')
+
+
+                    ->orderBy('id_tarjeta','ASC')
+                    ->pluck('id_tarjeta','id_tarjeta');
+
+        }
 
         $dato =Visitante::find($id);
        return view('ope.visitas.createAux')

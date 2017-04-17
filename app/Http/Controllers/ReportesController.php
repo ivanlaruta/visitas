@@ -36,7 +36,7 @@ class ReportesController extends Controller
 
          $ubicacion = Auth::user()->empleado->id_ubicacion;
 
-        $vi = Visita::where('fecha_entrada', '=', $hoy)->where('id_ubicacion', '=', $ubicacion)->Search($request->ci)->orderBy('id_visita','DESC')->paginate(10);
+        $vi = Visita::where('fecha_entrada', '=', $hoy)->where('id_ubicacion', '=', $ubicacion)->Search($request->ci)->orderBy('id_visita','ASC')->paginate(10);
         return view('reportes.visitas_diarias')
             ->with('vi',$vi)
              ->with('recuperado',$request)
@@ -46,7 +46,7 @@ class ReportesController extends Controller
     public function visitasTodo(Request $request)
     {
         $ubicacion = Auth::user()->empleado->id_ubicacion;
-        $vi = Visita::where('id_ubicacion', '=', $ubicacion)->Search($request->ci)->orderBy('id_visita','ASC')->paginate(10);
+        $vi = Visita::where('id_ubicacion', '=', $ubicacion)->Search($request->ci)->orderBy('id_visita','ASC')->paginate(100);
         return view('reportes.visitas_todo')
             ->with('vi',$vi)
              ->with('recuperado',$request)

@@ -12,23 +12,23 @@ class MotivosTableSeeder extends Seeder
     public function run()
     {
         DB::table('motivos')->insert([
-            'descripcion' => 'visita',
+            'descripcion' => 'VISITA',
             'creado_por'=> 'admin',
             'modificado_por'=>'admin',
             
         ]);
         DB::table('motivos')->insert([
-            'descripcion' => 'Entrevista',
+            'descripcion' => 'ENTREVISTA',
             'creado_por'=> 'admin',
             'modificado_por'=>'admin',
         ]);
         DB::table('motivos')->insert([
-            'descripcion' => 'Reunion',
+            'descripcion' => 'REUNION',
             'creado_por'=> 'admin',
             'modificado_por'=>'admin',
         ]);
         DB::table('motivos')->insert([
-            'descripcion' => 'Entrega de carta',
+            'descripcion' => 'ENTREGA DE CARTA',
             'creado_por'=> 'admin',
             'modificado_por'=>'admin',
         ]);
