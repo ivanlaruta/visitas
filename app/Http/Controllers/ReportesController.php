@@ -28,6 +28,7 @@ class ReportesController extends Controller
         
         
     }
+
     public function visitasDiarias(Request $request)
     {
         date_default_timezone_set('America/La_Paz');
@@ -46,21 +47,61 @@ class ReportesController extends Controller
     public function visitasTodo(Request $request)
     {
         $ubicacion = Auth::user()->empleado->id_ubicacion;
-        $vi = Visita::where('id_ubicacion', '=', $ubicacion)->Search($request->ci)->orderBy('id_visita','ASC')->paginate(100);
+        $vi = Visita::where('id_ubicacion', '=', $ubicacion)
+            ->Search($request->ci)
+            ->orderBy('id_visita','ASC')
+            ->paginate(100);
+
         return view('reportes.visitas_todo')
             ->with('vi',$vi)
              ->with('recuperado',$request)
         ;
     } 
 
+
      public function visitasEntreFechas(Request $request)
     {
         $ubicacion = Auth::user()->empleado->id_ubicacion;
-        $vi = Visita::where('id_ubicacion', '=', $ubicacion)->Search($request->ci)->orderBy('id_visita','DESC')->paginate(10);
+
+        if (is_null($request->inicial))
+        {
+            if (is_null($request->fin))
+            {
+                $vi = Visita::where('id_ubicacion', '=', $ubicacion)
+                ->orderBy('id_visita','ASC')
+                ->paginate(10);
+            }
+            else
+            {
+                $vi = Visita::where('id_ubicacion', '=', $ubicacion)
+                ->where('fecha_entrada','<=',$request->fin)
+                ->orderBy('id_visita','ASC')
+                ->paginate(10);
+            }
+        }
+        else
+        {
+            if (is_null($request->fin))
+            {
+                $vi = Visita::where('id_ubicacion', '=', $ubicacion)
+                ->where('fecha_entrada','>=',$request->inicial)
+                ->orderBy('id_visita','ASC')
+                ->paginate(10);
+            }
+            else
+            {
+                $vi = Visita::where('id_ubicacion', '=', $ubicacion)
+                ->where('fecha_entrada','>=',$request->inicial)
+                ->where('fecha_entrada','<=',$request->fin)
+                ->orderBy('id_visita','ASC')
+                ->paginate(10);
+            }
+        }
+
+        
         return view('reportes.entre_fechas')
             ->with('vi',$vi)
-             ->with('recuperado',$request)
-        ;
+            ->with('recuperado',$request);
     } 
 
     /**

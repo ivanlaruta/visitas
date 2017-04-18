@@ -17,19 +17,13 @@
 
     <link href="{{ asset('libs/sbadmin/css/sb-admin.css')}}" rel="stylesheet">
 
-    <!-- DataTables CSS -->
-   
-
-
-    {{-- <link href="{{ asset('libs/sbadmin/vendor/metisMenu/metisMenu.min.css')}}" rel="stylesheet">
-    <link href="{{ asset('libs/sbadmin/dist/css/sb-admin-2.css')}}" rel="stylesheet">
-    <!-- DataTables Responsive CSS --> --}}
     <link href="{{ asset('libs/sbadmin/vendor/datatables-responsive/dataTables.responsive.css')}}" rel="stylesheet">
-
 
     <link href="{{ asset('libs/sbadmin/css/plugins/morris.css')}}" rel="stylesheet">
 
     <link href="{{ asset('libs/sbadmin/font-awesome/css/font-awesome.min.css')}}" rel="stylesheet" type="text/css">
+
+    <link rel="stylesheet" href="{{ asset('libs/datepicker/css/bootstrap-datepicker.css')}}" >
 
    
 </head>
@@ -99,12 +93,14 @@
     <!-- Bootstrap Core JavaScript -->
     <script src="{{ asset('libs/sbadmin/js/bootstrap.min.js')}}"></script>
     
+   <script type="text/javascript" charset="utf8" src="{{ asset('libs/datepicker/js/bootstrap-datepicker.min.js')}}"></script>
 
-    <script type="text/javascript" charset="utf8" src="{{ asset('libs/DataTables/jquery.dataTables.js')}}"></script> --}}
-
-   <script src="{{ asset('libs/sbadmin/vendor/datatables/js/jquery.dataTables.js')}}"></script>
+    <script type="text/javascript" charset="utf8" src="{{ asset('libs/DataTables/jquery.dataTables.js')}}"></script> 
+    
+    <script src="{{ asset('libs/sbadmin/vendor/datatables/js/jquery.dataTables.js')}}"></script>
     <script src="{{ asset('libs/sbadmin/vendor/datatables-plugins/dataTables.bootstrap.js')}}"></script>
-    <script src="{{ asset('libs/sbadmin/vendor/datatables-responsive/dataTables.responsive.js')}}"></script>
+    <script src="{{ asset('libs/sbadmin/vendor/datatables-responsive/dataTables.responsive.js')}}"></script> 
+    
 {{--  
     <!-- Morris Charts JavaScript -->
     <script src="{{ asset('libs/sbadmin/js/plugins/morris/raphael.min.js')}}"></script>
@@ -114,17 +110,9 @@
 
     <!-- Page-Level Demo Scripts - Tables - Use for reference -->
 
+  @yield('scripts')
     
-   <script>
-    $(document).ready(function() {
-        // alert('1');
-        $('#dataTables-example').DataTable({
-            
-            responsive: true
-
-        });
-    });
-    </script> 
+   
 
 
 </body>

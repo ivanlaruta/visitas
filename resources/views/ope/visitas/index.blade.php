@@ -40,7 +40,7 @@
 						<th>Tarjeta</th>
 						{{-- <th>Tipo tarjeta</th> --}}
 						{{-- <th>Ubicacion</th> --}}
-						<th>Obs</th>
+						<th>Observacion</th>
 					<tbody>
 						<?php $hoy=date("Y-m-d"); ?>
 						@foreach($vi as $vis)

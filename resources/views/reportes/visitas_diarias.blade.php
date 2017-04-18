@@ -6,7 +6,7 @@
     	<div class="col-md-12">
 				<div class="row">
   					<div class="col-md-12">
-				{!! Form::open (['route' => 'reportes.visitasDiarias','method' => 'GET','class' => 'navbar-form pull-left'])!!}
+					{!! Form::open (['route' => 'reportes.visitasDiarias','method' => 'GET','class' => 'navbar-form pull-left'])!!}
 					<div class ="input-group">	
 						{!! Form::text('ci',$recuperado -> ci,['class'=> 'form-control','placeholder'=>'Ingrese Nro de documento','aria-describedby'=>'seacrch'])!!}
 						<span class="input-group-addon" id="seach">
@@ -16,8 +16,8 @@
 				      </span>
 				      </span>
 					</div>
-				{!! Form::close()!!}
-			</div>
+					{!! Form::close()!!}
+					</div>
 				</div>
 
 				<div class="table-responsive">
