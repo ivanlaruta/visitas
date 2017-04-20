@@ -24,6 +24,7 @@ Route::get('/inicial', function () {
 });
 
 
+
 // Rpara dministradores
 
 Route::group(['prefix'=>'admin'],function(){
@@ -123,6 +124,16 @@ Route::group(['prefix'=>'ope'],function(){
 
 });
 Route::group(['prefix'=>'rep'],function(){
+
+	route::get('reportes/getPDF',[
+		'uses' =>'PDFController@getPDF',
+		'as'   =>	'reportes.getPDF'
+	]);
+
+	route::get('reportes/visitasFechas',[
+		'uses' =>'PDFController@visitasFechas',
+		'as'   =>	'reportes.visitasFechas'
+	]);
 
 	route::get('reportes/visitasDiarias',[
 		'uses' => 'ReportesController@visitasDiarias', 

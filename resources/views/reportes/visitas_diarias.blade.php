@@ -5,7 +5,7 @@
 
     	<div class="col-md-12">
 				<div class="row">
-  					<div class="col-md-12">
+  					<div class="col-md-8">
 					{!! Form::open (['route' => 'reportes.visitasDiarias','method' => 'GET','class' => 'navbar-form pull-left'])!!}
 					<div class ="input-group">	
 						{!! Form::text('ci',$recuperado -> ci,['class'=> 'form-control','placeholder'=>'Ingrese Nro de documento','aria-describedby'=>'seacrch'])!!}
@@ -17,6 +17,16 @@
 				      </span>
 					</div>
 					{!! Form::close()!!}
+					</div>
+					<div class="col-md-4">
+						{!! Form::open (['route' => 'reportes.getPDF','method' => 'GET','class' => 'navbar-form pull-right'])!!}
+						{!! Form::hidden('ci',$recuperado -> ci)!!}
+
+						<div class="form-group">
+						{!! Form::submit('Generar Reporte',['class'=>'btn btn-info'])!!}
+						</div>
+						
+						{!! Form::close()!!}
 					</div>
 				</div>
 

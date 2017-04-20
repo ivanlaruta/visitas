@@ -5,10 +5,9 @@
 
 			
 
-	<div class="row">
-		<div class ="input-group">
-
-		<div class="col-md-12">
+<div class="col-md-12">
+		<div class="row">
+  		<div class="col-md-10">
 		{!! Form::open (['route' => 'reportes.visitasEntreFechas','method' => 'GET','class' => 'navbar-form pull-left'])!!}
 			<div class="form-group date prueba">
                 <label>Fecha inicial: </label>
@@ -24,21 +23,27 @@
                     <span class="input-group-addon"><i class="glyphicon glyphicon-calendar"></i></span>
                 </div>
             </div>
-
             <div class="form-group">
 					{!! Form::submit('Buscar',['class'=>'btn btn-info'])!!}
 			</div>
-
 		{!! Form::close()!!}
+		
 		</div>
-		</div>
-		<hr>
-	</div>
-	
-
+		<div class="col-md-2">
+						{!! Form::open (['route' => 'reportes.visitasFechas','method' => 'GET','class' => 'navbar-form pull-right'])!!}
+						{!! Form::hidden('inicial',$recuperado -> inicial)!!}
+						{!! Form::hidden('fin',$recuperado -> fin)!!}
+						<div class="form-group">
+						{!! Form::submit('Generar Reporte',['class'=>'btn btn-info'])!!}
+						</div>
+						
+						{!! Form::close()!!}
+					</div>	
+	</div>	
+	<hr>
 	<div class="row">
-		<div class="col-md-12">
-			<table width="100%" class="table table-hover table-striped">
+		<div class="table-responsive">
+                <table class="table table-hover table-striped">
 			    <thead>
 			        <tr>
 			            <th>Documento</th>
@@ -51,7 +56,7 @@
 						<th>Vistado</th>
 						<th>Tarjeta</th>
 						<th>Obs</th>
-						<th>estado</th>
+						<th>Estado</th>
 			        </tr>
 			    </thead>
 			    <tbody>	        
@@ -95,6 +100,7 @@
 		</div>
 		{{ $vi->links() }}
 	</div>
+</div>
 @endsection
 
 @section('scripts')

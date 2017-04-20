@@ -49,9 +49,10 @@ class ReportesController extends Controller
         $ubicacion = Auth::user()->empleado->id_ubicacion;
         $vi = Visita::where('id_ubicacion', '=', $ubicacion)
             ->Search($request->ci)
-            ->orderBy('id_visita','ASC')
+            ->orderBy('fecha_entrada','ASC')
+            ->orderBy('hora_entrada','ASC')
             ->paginate(100);
-
+        
         return view('reportes.visitas_todo')
             ->with('vi',$vi)
              ->with('recuperado',$request)
@@ -68,14 +69,16 @@ class ReportesController extends Controller
             if (is_null($request->fin))
             {
                 $vi = Visita::where('id_ubicacion', '=', $ubicacion)
-                ->orderBy('id_visita','ASC')
+                ->orderBy('fecha_entrada','ASC')
+                ->orderBy('hora_entrada','ASC')
                 ->paginate(10);
             }
             else
             {
                 $vi = Visita::where('id_ubicacion', '=', $ubicacion)
                 ->where('fecha_entrada','<=',$request->fin)
-                ->orderBy('id_visita','ASC')
+                ->orderBy('fecha_entrada','ASC')
+                ->orderBy('hora_entrada','ASC')
                 ->paginate(10);
             }
         }
@@ -85,7 +88,8 @@ class ReportesController extends Controller
             {
                 $vi = Visita::where('id_ubicacion', '=', $ubicacion)
                 ->where('fecha_entrada','>=',$request->inicial)
-                ->orderBy('id_visita','ASC')
+                ->orderBy('fecha_entrada','ASC')
+                ->orderBy('hora_entrada','ASC')
                 ->paginate(10);
             }
             else
@@ -93,7 +97,8 @@ class ReportesController extends Controller
                 $vi = Visita::where('id_ubicacion', '=', $ubicacion)
                 ->where('fecha_entrada','>=',$request->inicial)
                 ->where('fecha_entrada','<=',$request->fin)
-                ->orderBy('id_visita','ASC')
+                ->orderBy('fecha_entrada','ASC')
+                ->orderBy('hora_entrada','ASC')
                 ->paginate(10);
             }
         }
