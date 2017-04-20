@@ -35,9 +35,9 @@ class ReportesController extends Controller
         $time = time();
         $hoy=date("d-m-Y ", $time);
 
-         $ubicacion = Auth::user()->empleado->id_ubicacion;
+        $ubicacion = Auth::user()->empleado->id_ubicacion;
 
-        $vi = Visita::where('fecha_entrada', '=', $hoy)->where('id_ubicacion', '=', $ubicacion)->Search($request->ci)->orderBy('id_visita','ASC')->paginate(10);
+        $vi = Visita::where('fecha_entrada', '=', $hoy)->where('id_ubicacion', '=', $ubicacion)->Search($request->ci)->orderBy('id_visita','ASC')->paginate(15);
         return view('reportes.visitas_diarias')
             ->with('vi',$vi)
              ->with('recuperado',$request)
@@ -49,8 +49,8 @@ class ReportesController extends Controller
         $ubicacion = Auth::user()->empleado->id_ubicacion;
         $vi = Visita::where('id_ubicacion', '=', $ubicacion)
             ->Search($request->ci)
-            ->orderBy('fecha_entrada','ASC')
-            ->orderBy('hora_entrada','ASC')
+            ->orderBy('fecha_entrada','DESC')
+            ->orderBy('hora_entrada','DESC')
             ->paginate(100);
         
         return view('reportes.visitas_todo')
@@ -69,17 +69,17 @@ class ReportesController extends Controller
             if (is_null($request->fin))
             {
                 $vi = Visita::where('id_ubicacion', '=', $ubicacion)
-                ->orderBy('fecha_entrada','ASC')
-                ->orderBy('hora_entrada','ASC')
-                ->paginate(10);
+                ->orderBy('fecha_entrada','DESC')
+                ->orderBy('hora_entrada','DESC')
+                ->paginate(20);
             }
             else
             {
                 $vi = Visita::where('id_ubicacion', '=', $ubicacion)
                 ->where('fecha_entrada','<=',$request->fin)
-                ->orderBy('fecha_entrada','ASC')
-                ->orderBy('hora_entrada','ASC')
-                ->paginate(10);
+                ->orderBy('fecha_entrada','DESC')
+                ->orderBy('hora_entrada','DESC')
+                ->paginate(20);
             }
         }
         else
@@ -88,18 +88,18 @@ class ReportesController extends Controller
             {
                 $vi = Visita::where('id_ubicacion', '=', $ubicacion)
                 ->where('fecha_entrada','>=',$request->inicial)
-                ->orderBy('fecha_entrada','ASC')
-                ->orderBy('hora_entrada','ASC')
-                ->paginate(10);
+                ->orderBy('fecha_entrada','DESC')
+                ->orderBy('hora_entrada','DESC')
+                ->paginate(20);
             }
             else
             {
                 $vi = Visita::where('id_ubicacion', '=', $ubicacion)
                 ->where('fecha_entrada','>=',$request->inicial)
                 ->where('fecha_entrada','<=',$request->fin)
-                ->orderBy('fecha_entrada','ASC')
-                ->orderBy('hora_entrada','ASC')
-                ->paginate(10);
+                ->orderBy('fecha_entrada','DESC')
+                ->orderBy('hora_entrada','DESC')
+                ->paginate(20);
             }
         }
 

@@ -41,21 +41,18 @@
 				{!! Form::close()!!}
 			</div>
 			<div class="col-md-6">
-				{!! Form::open (['route' => 'reportes.visitasFechas','method' => 'GET','class' => 'navbar-form pull-right'])!!}
-					{!! Form::hidden('inicial',$recuperado -> inicial)!!}
-					{!! Form::hidden('fin',$recuperado -> fin)!!}
-					<div class="input-group">
-					{{ Form::button('<i class="fa fa-file-excel-o"></i>', ['type' => 'submit', 'class' => 'btn btn-success', 'data-toggle'=> 'tooltip', 'data-placement'=>'bottom', 'title'=>'Generar excel' ] )  }}
-									
-					</div>
-				{!! Form::close()!!}
+				<div class="form-group">
+				<div class="navbar-form pull-right">
+				{{ Form::button('<i class="fa fa-file-excel-o"></i>', ['type' => 'submit', 'class' => 'btn btn-success miboton', 'data-toggle'=> 'tooltip', 'data-placement'=>'bottom', 'title'=>'Generar Excel' ] )  }}
+				</div>	
+				</div>	
 			</div>
 		</div>
 	</div>	
 	<hr>
 	<div class="row">
 		<div class="table-responsive">
-                <table class="table table-hover table-striped">
+                <table class="table table-hover table-striped mitabla" id="mitabla">
 			    <thead>
 			        <tr>
 			            <th>Documento</th>
@@ -125,6 +122,16 @@
 	    language: "es"
         });
     });
-    </script> 
-});
+
+    $(document).ready(function(e) {
+        
+        $('.miboton').click(function(e) {
+          $('.mitabla').table2excel({
+            name:"toyosa",
+            filename:"visitas entre fechas {{$recuperado -> inicial }} - {{$recuperado -> fin }}",
+            fileext:".xls"
+          });         
+        });
+    });
+</script> 
 @endsection

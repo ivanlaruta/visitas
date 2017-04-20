@@ -19,31 +19,31 @@
 					{!! Form::close()!!}
 					</div>
 					<div class="col-md-2">
-					<div class="col-md-6">
-						{!! Form::open (['route' => 'reportes.getPDF','method' => 'GET','class' => 'navbar-form pull-right'])!!}
-						{!! Form::hidden('ci',$recuperado -> ci)!!}
+						<div class="row">
+						<div class="col-md-6">
+							{!! Form::open (['route' => 'reportes.getPDF','method' => 'GET','class' => 'navbar-form pull-right'])!!}
+							{!! Form::hidden('ci',$recuperado -> ci)!!}
 
-						<div class="form-group">
-						{{ Form::button('<i class="fa fa-file-pdf-o"></i>', ['type' => 'submit', 'class' => 'btn btn-danger', 'data-toggle'=> 'tooltip', 'data-placement'=>'bottom', 'title'=>'Generar PDF'] )  }}
+							<div class="form-group">
+							{{ Form::button('<i class="fa fa-file-pdf-o"></i>', ['type' => 'submit', 'class' => 'btn btn-danger', 'data-toggle'=> 'tooltip', 'data-placement'=>'bottom', 'title'=>'Generar PDF'] )  }}
+							</div>
+							
+							{!! Form::close()!!}
 						</div>
-						
-						{!! Form::close()!!}
-					</div>
-					<div class="col-md-6">
-						{!! Form::open (['route' => 'reportes.getPDF','method' => 'GET','class' => 'navbar-form pull-right'])!!}
-						{!! Form::hidden('ci',$recuperado -> ci)!!}
-
-						<div class="form-group">
-						{{ Form::button('<i class="fa fa-file-excel-o"></i>', ['type' => 'submit', 'class' => 'btn btn-success', 'data-toggle'=> 'tooltip', 'data-placement'=>'bottom', 'title'=>'Generar excel' ] )  }}
+						<div class="col-md-6">
+							
+							<div class="form-group">
+							<div class="navbar-form pull-right">
+							{{ Form::button('<i class="fa fa-file-excel-o"></i>', ['type' => 'submit', 'class' => 'btn btn-success miboton', 'data-toggle'=> 'tooltip', 'data-placement'=>'bottom', 'title'=>'Generar Excel' ] )  }}
+							</div>	
+							</div>	
 						</div>
-						
-						{!! Form::close()!!}
-					</div>
+						</div>
 					</div>
 				</div>
 <hr>
 				<div class="table-responsive">
-                    <table class="table table-hover table-striped">
+                    <table class="table table-hover table-striped mitabla" id="mitabla">
 					<thead>
 						{{-- <th>ID</th> --}}
 						<th>Documento</th>
@@ -96,4 +96,21 @@
 				</div>
 				{{ $vi->links() }} 
 		</div>
+		
+@endsection
+
+@section('scripts')
+
+<script>
+    $(document).ready(function(e) {
+        
+        $('.miboton').click(function(e) {
+          $('.mitabla').table2excel({
+            name:"toyosa",
+            filename:"visitas diarias {{$recuperado -> ci }}",
+            fileext:".xls"
+          });         
+        });
+    });
+</script> 
 @endsection

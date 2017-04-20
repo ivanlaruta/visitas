@@ -2,14 +2,23 @@
 @section('title','Lista de visitas')
 @section('content')
 @section('ventana','Visitas de todas las Visitas')
+
 <div class="navbar-form pull-right">
-		<button type="button" class="btn btn-danger" data-toggle="tooltip" title="Generar PDF" aria-label="Left Align">
+		<button type="button" class="btn btn-danger pdf" data-toggle="tooltip" title="Generar PDF" aria-label="Left Align">
 		  <span class="fa fa-file-pdf-o"  aria-hidden="true"></span>
-		</button>	
+		</button>
+
+							
+							<div class="form-group">
+							<div class="navbar-form pull-right">
+							{{ Form::button('<i class="fa fa-file-excel-o"></i>', ['type' => 'submit', 'class' => 'btn btn-success miboton', 'data-toggle'=> 'tooltip', 'data-placement'=>'bottom', 'title'=>'Generar Excel' ] )  }}
+							</div>	
+							</div>	
+						
 </div>
 
 <div>
-	<table width="100%" class="table table-hover table-striped" id="todo">
+	<table width="100%" class="table table-hover table-striped mitabla" id="todo">
 	    <thead>
 	        <tr>
 	            <th>Documento</th>
@@ -70,6 +79,18 @@
 
 @section('scripts')
 <script>
+
+	$(document).ready(function(e) {
+        
+        $('.miboton').click(function(e) {
+          $('.mitabla').table2excel({
+            name:"toyosa",
+            filename:"Reporte personalizado ",
+            fileext:".xls"
+          });         
+        });
+    });
+
     $(document).ready(function() {
         // alert('1');
         $('#todo').DataTable({
@@ -169,7 +190,7 @@
 	   newWin.close();
 	}
 
-	$('button').on('click',function(){
+	$('.pdf').on('click',function(){
 	printData();
 	})
 

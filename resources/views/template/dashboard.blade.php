@@ -92,7 +92,8 @@
 
     <!-- Bootstrap Core JavaScript -->
     <script src="{{ asset('libs/sbadmin/js/bootstrap.min.js')}}"></script>
-    
+
+    <script type="text/javascript" charset="utf8" src="{{ asset('plugins/jquery/js/jquery.table2excel.js')}}"></script>
    <script type="text/javascript" charset="utf8" src="{{ asset('libs/datepicker/js/bootstrap-datepicker.min.js')}}"></script>
 
     <script type="text/javascript" charset="utf8" src="{{ asset('libs/DataTables/jquery.dataTables.js')}}"></script> 
