@@ -37,7 +37,8 @@
 				</div>
 				<div class="form-group">
 					{!! Form::label('id_rol','Rol')!!}
-					{!! Form::select('id_rol',['0'=>'Operador','1'=>'Administrador'],null,['class'=>'form-control','placeholder'=>'seleccione un rol','required'])!!}
+					
+					{!! Form::select('id_rol',['0'=>'OPERADOR','1'=>'ADMINISTRADOR'],null,['class'=>'form-control','placeholder'=>'seleccione un rol','required'])!!}
 				</div>
 				<div class="form-group">
 					{!! Form::submit('registrar',['class'=>'btn btn-primary'])!!}

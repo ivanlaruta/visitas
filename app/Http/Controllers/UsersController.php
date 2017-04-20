@@ -6,6 +6,7 @@ use Illuminate\Http\Request;
 use App\User;
 use App\Empleado;
 use Illuminate\Support\Facades\Auth;
+
 use DB;
 class UsersController extends Controller
 {
@@ -17,7 +18,7 @@ class UsersController extends Controller
     public function index()
     {
        
-        $us = User::where('estado', '=', 1)->paginate(15);
+        $us = User::where('estado', '=', 1)->orderBy('usuario','ASC')->paginate(10);
         return view('admin.usuarios.index')->with('us',$us);
     }
     /**
@@ -31,7 +32,6 @@ class UsersController extends Controller
 
         $emp = Empleado::orderBy('paterno','ASC')
                     ->select('ci', 'nombre','paterno')
-                    
                     ->where('id_ubicacion', $ubicacion )
                     ->where('estado','1')
                     ->get();
@@ -52,6 +52,8 @@ class UsersController extends Controller
         //dd($request->all());
         $us = new User($request->all());
         $us->password = bcrypt($request->password);
+        $us ->creado_por = Auth::user()->usuario;
+        $us ->modificado_por = Auth::user()->usuario;
         //dd($us);
         $us->save();
 
@@ -100,6 +102,7 @@ class UsersController extends Controller
         //$us->fill($request->all());
         $us -> save();
         return redirect()->route('users.index')->with('mensaje',"Usuario modificado exitosamente!");
+        $us ->modificado_por = Auth::user()->usuario;
     }
 
     /**
@@ -119,6 +122,7 @@ class UsersController extends Controller
     {
         $us =User::find($id);
         $us->estado = '0';
+        $us ->modificado_por = Auth::user()->usuario;
         $us -> save();
         return redirect()->route('users.index')->with('mensaje',"Usuario dado de baja exitosamente!");
     }

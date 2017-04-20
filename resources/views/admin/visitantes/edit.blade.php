@@ -12,7 +12,7 @@
 				
 				<div class="form-group">
 					<div class="form-group">{!! Form::label('id','CI')!!}</div>
-					<div class="form-group">{!! Form::text('ci',$us->ci,['class'=> 'form-control','placeholder'=>'ci','required'])!!}</div>
+					<div class="form-group">{!! Form::text('ci',$us->ci,['class'=> 'form-control','placeholder'=>'ci','required', 'readonly'])!!}</div>
 					<div class="form-group">
 						<h6>Expedido</h6>
 						{!! Form::select('ex',['LP'=>'LP','OR'=>'OR','PT'=>'PT','CH'=>'CH','CB'=>'CB','TJ'=>'TJ','BN'=>'BN','PA'=>'PA','SC'=>'SC'],$us->ex,['class'=>'form-control','placeholder'=>'seleccione una expedicion','required'])!!}

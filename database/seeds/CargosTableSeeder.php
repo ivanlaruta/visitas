@@ -16,46 +16,46 @@ class CargosTableSeeder extends Seeder
 
         DB::table('cargos')->insert([
 
-            'descripcion' => 'Ventas',       
+            'descripcion' => 'VENTAS',       
             'creado_por'=> 'admin',
             'modificado_por'=>'admin',
        ]);
 
         DB::table('cargos')->insert([
 
-            'descripcion' => 'Repuestos',       
+            'descripcion' => 'REPUESTOS',       
             'creado_por'=> 'admin',
             'modificado_por'=>'admin',
        ]);
 
         DB::table('cargos')->insert([
 
-            'descripcion' => 'Policia',       
+            'descripcion' => 'POLICIA',       
             'creado_por'=> 'admin',
             'modificado_por'=>'admin',
        ]);
 
         DB::table('cargos')->insert([
 
-            'descripcion' => 'Recpecion',       
+            'descripcion' => 'RECPECION',       
             'creado_por'=> 'admin',
             'modificado_por'=>'admin',
        ]);
         DB::table('cargos')->insert([
 
-            'descripcion' => 'Licitaciones',       
+            'descripcion' => 'LICITACIONES',       
             'creado_por'=> 'admin',
             'modificado_por'=>'admin',
        ]);
         DB::table('cargos')->insert([
 
-            'descripcion' => 'Gerencia regional',       
+            'descripcion' => 'GERENCIA REGIONAL',       
             'creado_por'=> 'admin',
             'modificado_por'=>'admin',
        ]);
         DB::table('cargos')->insert([
 
-            'descripcion' => 'Concordia',       
+            'descripcion' => 'CONCORDIA',       
             'creado_por'=> 'admin',
             'modificado_por'=>'admin',
        ]);
@@ -67,55 +67,55 @@ class CargosTableSeeder extends Seeder
        ]);
         DB::table('cargos')->insert([
 
-            'descripcion' => 'Importaciones',       
+            'descripcion' => 'IMPORTACIONES',       
             'creado_por'=> 'admin',
             'modificado_por'=>'admin',
        ]);
         DB::table('cargos')->insert([
 
-            'descripcion' => 'Marketing',       
+            'descripcion' => 'MARKETING',       
             'creado_por'=> 'admin',
             'modificado_por'=>'admin',
        ]);
         DB::table('cargos')->insert([
 
-            'descripcion' => 'Sistemas',       
+            'descripcion' => 'SISTEMAS',       
             'creado_por'=> 'admin',
             'modificado_por'=>'admin',
        ]);
         DB::table('cargos')->insert([
 
-            'descripcion' => 'Finanzas',       
+            'descripcion' => 'FINANZAS',       
             'creado_por'=> 'admin',
             'modificado_por'=>'admin',
        ]);
         DB::table('cargos')->insert([
 
-            'descripcion' => 'Tramites',       
+            'descripcion' => 'TRAMITES',       
             'creado_por'=> 'admin',
             'modificado_por'=>'admin',
        ]);
         DB::table('cargos')->insert([
 
-            'descripcion' => 'Repuestos',       
+            'descripcion' => 'REPUESTOS',       
             'creado_por'=> 'admin',
             'modificado_por'=>'admin',
        ]);
         DB::table('cargos')->insert([
 
-            'descripcion' => 'Contabilidad',       
+            'descripcion' => 'CONTABILIDAD',       
             'creado_por'=> 'admin',
             'modificado_por'=>'admin',
        ]);
         DB::table('cargos')->insert([
 
-            'descripcion' => 'Arquitectura',       
+            'descripcion' => 'ARQUITECTURA',       
             'creado_por'=> 'admin',
             'modificado_por'=>'admin',
        ]);
         DB::table('cargos')->insert([
 
-            'descripcion' => 'Gerencia',       
+            'descripcion' => 'GERENCIA',       
             'creado_por'=> 'admin',
             'modificado_por'=>'admin',
        ]);

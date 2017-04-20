@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
 use App\Motivo;
+use Illuminate\Support\Facades\Auth;
 class MotivosController extends Controller
 {
     /**
@@ -36,6 +37,9 @@ class MotivosController extends Controller
     public function store(Request $request)
     {
         $mo = new Motivo($request->all());
+        $mo -> descripcion = strtoupper($request->descripcion);
+        $mo ->creado_por = Auth::user()->usuario;
+        $mo ->modificado_por = Auth::user()->usuario;
         $mo->save();
 
          return redirect()->route('motivos.index')->with('mensaje',"Motivo creado exitosamente!");
@@ -75,6 +79,9 @@ class MotivosController extends Controller
     {
         $mo =Motivo::find($id);
         $mo->fill($request->all());
+        $mo -> descripcion = strtoupper($request->descripcion);
+        
+        $mo ->modificado_por = Auth::user()->usuario;
         $mo -> save();
         return redirect()->route('motivos.index')->with('mensaje',"Motivo modificado exitosamente!");
     }
@@ -83,6 +90,8 @@ class MotivosController extends Controller
     {
        $mo =Motivo::find($id);
        $mo->estado = '0';
+
+       $mo ->modificado_por = Auth::user()->usuario;
        $mo -> save();
        return redirect()->route('motivos.index')->with('mensaje',"Motivo dado de baja exitosamente!");
     }

@@ -45,7 +45,7 @@
 					{!! Form::label('email','E-mail')!!}
 					</div>
 					<div class="form-group">
-					{!! Form::email('email',$us->email,['class'=> 'form-control','placeholder'=>'ejemplo@toyosa.com','required'])!!}
+					{!! Form::email('email',$us->email,['class'=> 'form-control','placeholder'=>'ejemplo@toyosa.com'])!!}
 					</div>
 
 					<div class="form-group">

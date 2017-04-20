@@ -5,7 +5,7 @@
 
     	<div class="col-md-12">
 				<div class="row">
-  					<div class="col-md-8">
+  					<div class="col-md-10">
 					{!! Form::open (['route' => 'reportes.visitasDiarias','method' => 'GET','class' => 'navbar-form pull-left'])!!}
 					<div class ="input-group">	
 						{!! Form::text('ci',$recuperado -> ci,['class'=> 'form-control','placeholder'=>'Ingrese Nro de documento','aria-describedby'=>'seacrch'])!!}
@@ -18,18 +18,30 @@
 					</div>
 					{!! Form::close()!!}
 					</div>
-					<div class="col-md-4">
+					<div class="col-md-2">
+					<div class="col-md-6">
 						{!! Form::open (['route' => 'reportes.getPDF','method' => 'GET','class' => 'navbar-form pull-right'])!!}
 						{!! Form::hidden('ci',$recuperado -> ci)!!}
 
 						<div class="form-group">
-						{!! Form::submit('Generar Reporte',['class'=>'btn btn-info'])!!}
+						{{ Form::button('<i class="fa fa-file-pdf-o"></i>', ['type' => 'submit', 'class' => 'btn btn-danger', 'data-toggle'=> 'tooltip', 'data-placement'=>'bottom', 'title'=>'Generar PDF'] )  }}
 						</div>
 						
 						{!! Form::close()!!}
 					</div>
-				</div>
+					<div class="col-md-6">
+						{!! Form::open (['route' => 'reportes.getPDF','method' => 'GET','class' => 'navbar-form pull-right'])!!}
+						{!! Form::hidden('ci',$recuperado -> ci)!!}
 
+						<div class="form-group">
+						{{ Form::button('<i class="fa fa-file-excel-o"></i>', ['type' => 'submit', 'class' => 'btn btn-success', 'data-toggle'=> 'tooltip', 'data-placement'=>'bottom', 'title'=>'Generar excel' ] )  }}
+						</div>
+						
+						{!! Form::close()!!}
+					</div>
+					</div>
+				</div>
+<hr>
 				<div class="table-responsive">
                     <table class="table table-hover table-striped">
 					<thead>

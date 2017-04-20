@@ -5,6 +5,7 @@ namespace App\Http\Controllers;
 use Illuminate\Http\Request;
 use App\Ubicacion;
 use App\Parametrica;
+use Illuminate\Support\Facades\Auth;
 class UbicacionesController extends Controller
 {
     /**
@@ -14,7 +15,7 @@ class UbicacionesController extends Controller
      */
     public function index()
     {
-        $ub = Ubicacion::where('estado', '=', 1)->paginate(15);
+        $ub = Ubicacion::where('estado', '=', 1)->orderBy('id_ubicacion','ASC')->paginate(10);
         return view('admin.ubicaciones.index')->with('ub',$ub);
     }
 
@@ -37,10 +38,22 @@ class UbicacionesController extends Controller
      */
     public function store(Request $request)
     {
-        $ub = new Ubicacion($request->all());
-        $ub->save();
+       
 
-         return redirect()->route('ubicaciones.index')->with('mensaje',"Ubicacion creada exitosamente!");
+        $ub = new Ubicacion($request->all());
+        $ub -> nombre = strtoupper($request->nombre);
+        $ub ->creado_por = Auth::user()->usuario;
+        $ub ->modificado_por = Auth::user()->usuario;
+
+        if(is_null(Ubicacion::find($request->id_ubicacion)))
+        {
+            $ub->save();
+            return redirect()->route('ubicaciones.index')->with('mensaje',"Ubicacion creada exitosamente!");
+        }
+        else
+        {
+            return redirect()->route('ubicaciones.create')->with('mensaje2',"Error!. El identificador  que intento registrar ya existe.");
+        }
     }
 
     /**
@@ -78,6 +91,9 @@ class UbicacionesController extends Controller
     {
         $ub =Ubicacion::find($id);
         $ub->fill($request->all());
+        $ub -> nombre = strtoupper($request->nombre);
+        
+        $ub ->modificado_por = Auth::user()->usuario;
         $ub -> save();
         return redirect()->route('ubicaciones.index')->with('mensaje',"Ubicacion modificada exitosamente!");
     }
@@ -85,6 +101,7 @@ class UbicacionesController extends Controller
     {
        $ub =Ubicacion::find($id);
        $ub->estado = '0';
+       $ub ->modificado_por = Auth::user()->usuario;
        $ub -> save();
        return redirect()->route('ubicaciones.index')->with('mensaje',"Ubicacion dada de baja exitosamente!");
     }

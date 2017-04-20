@@ -6,7 +6,7 @@
     	<div class="row">
   			<div class="col-md-12">
 				<a href="{{ route('empleados.create')}}" class="btn btn-success">Registrar nuevo empleado</a><hr>
-
+				<div class="table-responsive">
 				<table class="table table-hover">
 					<thead>
 						<th>CI</th>
@@ -23,7 +23,7 @@
 							<tr>								
 								<td>{{ $usu-> ci }}</td>
 								<td>{{ $usu -> ex }}</td>
-								<td>{{ $usu -> nombre }} {{ $usu -> paterno }} {{ $usu -> materno }}</td>
+								<td>{{ $usu -> paterno }} {{ $usu -> materno }} {{ $usu -> nombre }} </td>
 								<td>{{ $usu -> email }}</td>
 								<td>{{ $usu -> cargo -> descripcion }}</td>
 								<td>{{ $usu -> ubicacion -> nombre }}</td>
@@ -38,7 +38,8 @@
 					</tbody>
 				</table>
 				{{ $us->Links() }} 
- 			</div>	
+ 			</div>
+ 			</div>
 		</div>
 
 @endsection

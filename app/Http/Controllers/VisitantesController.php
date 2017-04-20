@@ -4,6 +4,8 @@ namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
 use App\Visitante;
+use App\Parametrica;
+use Illuminate\Support\Facades\Auth;
 class VisitantesController extends Controller
 {
     /**
@@ -24,7 +26,8 @@ class VisitantesController extends Controller
      */
     public function create()
     {
-        return view('admin.visitantes.create');
+        $expe = Parametrica::where('nombre_tabla','EXPEDIDO')->orderBy('id','ASC')->pluck('descripcion','id');
+        return view('admin.visitantes.create')->with('expe',$expe);
     }
 
     /**
@@ -35,17 +38,26 @@ class VisitantesController extends Controller
      */
     public function store(Request $request)
     {
-        //dd($request->all());
+       
         $us = new Visitante($request->all());
-        //$us->password = bcrypt($request->password);
-        //dd($us);
-        $us->save();
+        $us -> nombre =strtoupper($request->nombre);
+        $us -> paterno =strtoupper($request->paterno);
+        $us -> materno =strtoupper($request->materno);
+        $us -> creado_por = Auth::user()->usuario;
+        $us -> modificado_por = Auth::user()->usuario;  
 
-        //dd('visitante creado');
 
-        //return redirect()->route('visitantes.index');
+        if(is_null(Visitante::find($request->ci)))
+        {
+            $us->save();
+            return redirect()->route('visitantes.index')->with('mensaje',"visitante creado exitosamente!");
+        }
+        else
+        {
+            return redirect()->route('visitantes.create')->with('mensaje2',"Error!. El Ci que intento registrar ya existe.");
+        }
 
-         return redirect()->route('visitantes.index')->with('mensaje',"visitante creado exitosamente!");
+        
     }
 
     /**
@@ -84,6 +96,11 @@ class VisitantesController extends Controller
         // $us->visitante = $request->visitante;
         // $us->id_rol = $request->id_rol;
         $us->fill($request->all());
+        $us -> nombre =strtoupper($request->nombre);
+        $us -> paterno =strtoupper($request->paterno);
+        $us -> materno =strtoupper($request->materno);
+        
+        $us ->modificado_por = Auth::user()->usuario;
         $us -> save();
         return redirect()->route('visitantes.index')->with('mensaje',"visitante modificado exitosamente!");
     }
@@ -98,6 +115,7 @@ class VisitantesController extends Controller
     {
         $us =Visitante::find($id);
         $us->estado = '0';
+        $us ->modificado_por = Auth::user()->usuario;
         $us -> save();
         return redirect()->route('visitantes.index')->with('mensaje',"visitante dado de baja exitosamente!");
     }

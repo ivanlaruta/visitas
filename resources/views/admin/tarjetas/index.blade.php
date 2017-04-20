@@ -6,6 +6,7 @@
     	<div class="row">
   			<div class="col-md-10 col-md-offset-1">
 				<a href="{{ route('tarjetas.create')}}" class="btn btn-success">Registrar nueva tarjeta</a><hr>
+				 <div class="table-responsive">
 				<table class="table table-hover">
 					<thead>
 						<th>ID</th>
@@ -49,6 +50,7 @@
 					</tbody>
 				</table>
 				{{ $ta->Links() }} 
+ 			</div>
  			</div>	
 		</div>
 @endsection

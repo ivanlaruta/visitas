@@ -7,6 +7,8 @@ use App\Tarjeta;
 use App\Empleado;
 use App\Parametrica;
 use App\Ubicacion;
+use Illuminate\Support\Facades\Auth;
+
 class TarjetasController extends Controller
 {
     /**
@@ -28,9 +30,13 @@ class TarjetasController extends Controller
     public function create()
 
     {
-        $ubica =Ubicacion::all()->pluck('nombre','id_ubicacion');
-  
-        $empleados = Empleado::all(['ci', 'nombre','paterno']);
+        $ubica =Ubicacion::orderBy('nombre','ASC')->pluck('nombre','id_ubicacion');
+        $ubicacion = Auth::user()->empleado->id_ubicacion;
+        $empleados = Empleado::orderBy('paterno','ASC')
+                    ->select('ci', 'nombre','paterno')
+                    ->where('estado','1')
+                    ->get();
+
         $tipo = Parametrica::where('nombre_tabla','TIPO_TAR')->orderBy('id','ASC')->pluck('descripcion','descripcion');
 
         return view('admin.tarjetas.create')
@@ -50,6 +56,9 @@ class TarjetasController extends Controller
     {
         $ta = new Tarjeta($request->all());
         $ta->id_tarjeta = trim($request->id_tarjeta);
+
+        $ta ->creado_por = Auth::user()->usuario;
+        $ta ->modificado_por = Auth::user()->usuario;
         $ta->save();
 
          return redirect()->route('tarjetas.index')->with('mensaje',"Tarjeta creada exitosamente!");
@@ -101,6 +110,7 @@ class TarjetasController extends Controller
     {
         $ta =Tarjeta::find($id);
         $ta->fill($request->all());
+        $ta ->modificado_por = Auth::user()->usuario;
         $ta -> save();
         return redirect()->route('tarjetas.index')->with('mensaje',"Tarjeta modificado exitosamente!");
     }
@@ -108,6 +118,7 @@ class TarjetasController extends Controller
     {
        $ta =Tarjeta::find($id);
        $ta->estado = '0';
+       $ta ->modificado_por = Auth::user()->usuario;
        $ta -> save();
        return redirect()->route('tarjetas.index')->with('mensaje',"Tarjeta dado de baja exitosamente!");
     }

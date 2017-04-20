@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
 use App\Parametrica;
+use Illuminate\Support\Facades\Auth;
 class ParametricasController extends Controller
 {
     /**
@@ -36,6 +37,11 @@ class ParametricasController extends Controller
     public function store(Request $request)
     {
         $pa = new Parametrica($request->all());
+        $pa -> nombre_tabla = strtoupper($request->nombre_tabla);
+        $pa -> id = strtoupper($request->id);
+        $pa -> descripcion = strtoupper($request->descripcion);
+        $pa ->creado_por = Auth::user()->usuario;
+        $pa ->modificado_por = Auth::user()->usuario;
         $pa->save();
 
          return redirect()->route('parametricas.index')->with('mensaje',"Parametrica creado exitosamente!");
@@ -75,6 +81,10 @@ class ParametricasController extends Controller
     {
         $pa =Parametrica::find($id);
         $pa->fill($request->all());
+        $pa -> id = strtoupper($request->id);
+        $pa -> descripcion = strtoupper($request->descripcion);
+        
+        $pa ->modificado_por = Auth::user()->usuario;
         $pa -> save();
         return redirect()->route('parametricas.index')->with('mensaje',"Parametrica modificado exitosamente!");
     }
@@ -83,6 +93,7 @@ class ParametricasController extends Controller
     {
        $pa =Parametrica::find($id);
        $pa->estado = '0';
+       $pa ->modificado_por = Auth::user()->usuario;
        $pa -> save();
        return redirect()->route('parametricas.index')->with('mensaje',"Parametrica dado de baja exitosamente!");
     }

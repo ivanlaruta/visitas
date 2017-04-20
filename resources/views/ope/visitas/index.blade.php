@@ -21,7 +21,7 @@
 						{!! Form::close()!!}
 					</div>
 				</div>
-
+				<hr>
 				 <div class="table-responsive">
                     <table class="table table-hover table-striped">
                     

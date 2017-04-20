@@ -67,7 +67,7 @@
 	<body>
 		<div>
 	  		<div class="titulo">TOYOSA S.A.</div>
-	  		<div class="secundario">{{ Auth::user()->empleado->ubicacion->nombre }}  |  <?php $time = time(); echo date("d-m-Y H:i:s", $time);?>
+	  		<div class="secundario">{{ Auth::user()->empleado->ubicacion->nombre }}  |  <?php date_default_timezone_set('America/La_Paz'); $time = time(); echo date("d-m-Y H:i:s", $time);?>
 	  		</div>
 	  	</div>
 	  	<hr>

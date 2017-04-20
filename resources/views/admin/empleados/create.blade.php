@@ -20,7 +20,7 @@
 					
 					<div class="form-group">
 						<h6>Expedido</h6>
-						{!! Form::select('ex',['LP'=>'La Paz','OR'=>'Oruro','PT'=>'Potosi','CH'=>'Chuquisaca','CB'=>'Cochabamba','TJ'=>'Tarija','BN'=>'Beni','PA'=>'Pando','SC'=>'Santa Cruz'],null,['class'=>'form-control','placeholder'=>'seleccione una expedicion','required'])!!}
+						{!! Form::select('ex',$expe,null,['class'=>'form-control','placeholder'=>'Expedido','required'])!!}
 					</div>
 		      
 					<div class="form-group">
@@ -46,7 +46,7 @@
 					{!! Form::label('email','E-mail')!!}
 					</div>
 					<div class="form-group">
-					{!! Form::email('email',null,['class'=> 'form-control','placeholder'=>'ejemplo@toyosa.com','required'])!!}
+					{!! Form::email('email',null,['class'=> 'form-control','placeholder'=>'ejemplo@toyosa.com'])!!}
 					</div>
 
 					<div class="form-group">

@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
 use App\Cargo;
+use Illuminate\Support\Facades\Auth;
 class CargosController extends Controller
 {
     /**
@@ -13,7 +14,7 @@ class CargosController extends Controller
      */
     public function index()
     {
-        $ca = Cargo::where('estado', '=', 1)->paginate(15);
+        $ca = Cargo::where('estado', '=', 1)->orderBy('descripcion','ASC')->paginate(10);
         return view('admin.cargos.index')->with('ca',$ca);
     }
 
@@ -36,6 +37,10 @@ class CargosController extends Controller
     public function store(Request $request)
     {
         $ca = new Cargo($request->all());
+
+        $ca -> descripcion = strtoupper($request->descripcion);
+        $ca ->creado_por = Auth::user()->usuario;
+        $ca ->modificado_por = Auth::user()->usuario;
         $ca->save();
 
          return redirect()->route('cargos.index')->with('mensaje',"Cargo creado exitosamente!");
@@ -75,6 +80,9 @@ class CargosController extends Controller
     {
         $ca =Cargo::find($id);
         $ca->fill($request->all());
+        $ca -> descripcion = strtoupper($request->descripcion);
+       
+        $ca ->modificado_por = Auth::user()->usuario;
         $ca -> save();
         return redirect()->route('cargos.index')->with('mensaje',"cargo modificado exitosamente!");
     }
@@ -82,6 +90,7 @@ class CargosController extends Controller
     {
        $ca =Cargo::find($id);
        $ca->estado = '0';
+       $ca ->modificado_por = Auth::user()->usuario;
        $ca -> save();
        return redirect()->route('cargos.index')->with('mensaje',"Cargo dado de baja exitosamente!");
     }

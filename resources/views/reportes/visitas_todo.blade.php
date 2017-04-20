@@ -1,7 +1,14 @@
 @extends('template.dashboard')
 @section('title','Lista de visitas')
 @section('content')
-@section('ventana','Visitas de todas las Visitas')	
+@section('ventana','Visitas de todas las Visitas')
+<div class="navbar-form pull-right">
+		<button type="button" class="btn btn-danger" data-toggle="tooltip" title="Generar PDF" aria-label="Left Align">
+		  <span class="fa fa-file-pdf-o"  aria-hidden="true"></span>
+		</button>	
+</div>
+
+<div>
 	<table width="100%" class="table table-hover table-striped" id="todo">
 	    <thead>
 	        <tr>
@@ -56,8 +63,9 @@
 			@endforeach
 	    </tbody>
 	</table>
+</div>
 
-<button class= "btn btn-success">Imprimir</button>
+
 @endsection
 
 @section('scripts')
@@ -145,14 +153,13 @@
 		html+='<body>';
 		html+='<div>';
 		html+='<div class="titulo">TOYOSA S.A.</div>';
-		html+='<div class="secundario">{{ Auth::user()->empleado->ubicacion->nombre }}  |  <?php $time = time(); echo date("d-m-Y H:i:s", $time);?>';
+		html+='<div class="secundario">{{ Auth::user()->empleado->ubicacion->nombre }}  |  <?php date_default_timezone_set('America/La_Paz'); $time = time(); echo date("d-m-Y H:i:s", $time);?>';
 		html+='</div>';
 		html+='</div>';
 		html+='<hr>';
 		html+='<section >';
 
 		html+='<div><div class="tituloRep"> REPORTE PERSONALIZADO VISITAS</div></div><hr>';
-		html+='<table width="100%" class="table table-hover table-striped" id="todo">';
 
 
 	   var divToPrint=document.getElementById("todo");

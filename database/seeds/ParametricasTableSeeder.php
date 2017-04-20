@@ -47,49 +47,49 @@ class ParametricasTableSeeder extends Seeder
          DB::table('parametricas')->insert([
             'nombre_tabla' => 'EXPEDIDO',
             'id' => 'LP',
-            'descripcion' => 'La Paz',
+            'descripcion' => 'LA PAZ',
             'creado_por'=> 'admin',
             'modificado_por'=>'admin',
         ]);
           DB::table('parametricas')->insert([
             'nombre_tabla' => 'EXPEDIDO',
             'id' => 'OR',
-            'descripcion' => 'Oruro',
+            'descripcion' => 'ORURO',
             'creado_por'=> 'admin',
             'modificado_por'=>'admin',
         ]);
            DB::table('parametricas')->insert([
             'nombre_tabla' => 'EXPEDIDO',
             'id' => 'PT',
-            'descripcion' => 'Potosi',
+            'descripcion' => 'POTOSI',
             'creado_por'=> 'admin',
             'modificado_por'=>'admin',
         ]);
             DB::table('parametricas')->insert([
             'nombre_tabla' => 'EXPEDIDO',
             'id' => 'CH',
-            'descripcion' => 'Chuquisaca',
+            'descripcion' => 'CHUQUISACA',
             'creado_por'=> 'admin',
             'modificado_por'=>'admin',
         ]);
              DB::table('parametricas')->insert([
             'nombre_tabla' => 'EXPEDIDO',
             'id' => 'TJ',
-            'descripcion' => 'Tarija',
+            'descripcion' => 'TARIJA',
             'creado_por'=> 'admin',
             'modificado_por'=>'admin',
         ]);
               DB::table('parametricas')->insert([
             'nombre_tabla' => 'EXPEDIDO',
             'id' => 'CB',
-            'descripcion' => 'Cochabamba',
+            'descripcion' => 'COCHABAMBA',
             'creado_por'=> 'admin',
             'modificado_por'=>'admin',
         ]);
                DB::table('parametricas')->insert([
             'nombre_tabla' => 'EXPEDIDO',
             'id' => 'SC',
-            'descripcion' => 'Santa Cruz',
+            'descripcion' => 'SANTA CRUZ',
             'creado_por'=> 'admin',
             'modificado_por'=>'admin',
         ]);
@@ -111,14 +111,14 @@ class ParametricasTableSeeder extends Seeder
              DB::table('parametricas')->insert([
             'nombre_tabla' => 'TIPO_DOC',
             'id' => 'CI',
-            'descripcion' => 'Cedula de identidad',
+            'descripcion' => 'CEDULA DE IDENTIDAD',
             'creado_por'=> 'admin',
             'modificado_por'=>'admin',
         ]);
         DB::table('parametricas')->insert([
             'nombre_tabla' => 'TIPO_DOC',
             'id' => 'LIC',
-            'descripcion' => 'Licencia de conducir',
+            'descripcion' => 'LICENCIA DE CONDUCIR',
             'creado_por'=> 'admin',
             'modificado_por'=>'admin',
         ]);
@@ -161,7 +161,7 @@ class ParametricasTableSeeder extends Seeder
            DB::table('parametricas')->insert([
             'nombre_tabla' => 'CIUDAD',
             'id' => 'LP',
-            'descripcion' => 'La paz',
+            'descripcion' => 'LA PAZ',
             'creado_por'=> 'admin',
             'modificado_por'=>'admin',
         ]);

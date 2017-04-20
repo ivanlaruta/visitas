@@ -6,7 +6,8 @@ use Illuminate\Http\Request;
 use App\Empleado;
 use App\Cargo;
 use App\Ubicacion;
-
+use App\Parametrica;
+use Illuminate\Support\Facades\Auth;
 class EmpleadosController extends Controller
 {
     /**
@@ -17,7 +18,7 @@ class EmpleadosController extends Controller
    public function index()
     {
        
-        $us = Empleado::where('estado', '=', 1)->paginate(15);
+        $us = Empleado::where('estado', '=', 1)->orderBy('paterno','ASC')->paginate(10);
         return view('admin.empleados.index')->with('us',$us);
     }
     /**
@@ -25,15 +26,19 @@ class EmpleadosController extends Controller
      *
      * @return \Illuminate\Http\Response
      */
+    
     public function create()
     {   
-        $cargos = Cargo::orderBy('id_cargo','ASC')->pluck('descripcion','id_cargo');
+        $expe = Parametrica::where('nombre_tabla','EXPEDIDO')->orderBy('id','ASC')->pluck('descripcion','id');
+
+        $cargos = Cargo::orderBy('descripcion','ASC')->pluck('descripcion','id_cargo');
        
-        $ubica =Ubicacion::all()->pluck('nombre','id_ubicacion');
+        $ubica =Ubicacion::orderBy('nombre','ASC')->pluck('nombre','id_ubicacion');
 
         return view('admin.empleados.create')
             ->with('cargos',$cargos)
-            ->with('ubica',$ubica)   
+            ->with('ubica',$ubica)
+            ->with('expe',$expe)  
         ;
     }
 
@@ -48,7 +53,11 @@ class EmpleadosController extends Controller
 
         $us = new Empleado($request->all());
         $us->ci = trim($request->ci);
-        
+        $us -> nombre =strtoupper($request->nombre);
+        $us -> paterno =strtoupper($request->paterno);
+        $us -> materno =strtoupper($request->materno);
+        $us ->creado_por = Auth::user()->usuario;
+        $us ->modificado_por = Auth::user()->usuario;
         $us->save();
 
 
@@ -98,6 +107,11 @@ class EmpleadosController extends Controller
     {
         $us =Empleado::find($id);
         $us->fill($request->all());
+        $us -> nombre =strtoupper($request->nombre);
+        $us -> paterno =strtoupper($request->paterno);
+        $us -> materno =strtoupper($request->materno);
+        
+        $us ->modificado_por = Auth::user()->usuario;
         $us -> save();
         return redirect()->route('empleados.index')->with('mensaje',"Empleado modificado exitosamente!");
     }
@@ -112,6 +126,7 @@ class EmpleadosController extends Controller
     {
         $us =Empleado::find($id);
         $us->estado = '0';
+        $us ->modificado_por = Auth::user()->usuario;
         $us -> save();
         return redirect()->route('empleados.index')->with('mensaje',"Empleado dado de baja exitosamente!");
     }

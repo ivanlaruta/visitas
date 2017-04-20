@@ -148,10 +148,12 @@ class VisitasController extends Controller
         $visitante = new Visitante();
         $visitante -> ci = $request->ci;
         $visitante -> ex = $request->ex;
-        $visitante -> nombre = $request->nombre;
-        $visitante -> paterno = $request->paterno;
-        $visitante -> materno = $request->materno;
+        $visitante -> nombre = strtoupper($request->nombre);
+        $visitante -> paterno = strtoupper($request->paterno);
+        $visitante -> materno = strtoupper($request->materno);
         $visitante -> telefono = $request->telefono;
+        $visitante -> creado_por = Auth::user()->usuario;
+        $visitante -> modificado_por = Auth::user()->usuario;
 
         $visita = new Visita();
         $visita -> ci_visitante = $request->ci;
@@ -163,22 +165,24 @@ class VisitasController extends Controller
         $visita -> id_tarjeta = $request->id_tarjeta;
         $visita -> id_ubicacion = $request->ubicacion;
         $visita -> observaciones = $request->observaciones;
+        $visita -> creado_por = Auth::user()->usuario;
+        $visita -> modificado_por = Auth::user()->usuario;
 
-        
         $ta = Tarjeta::find( $request->id_tarjeta);
-        $ta->estado_prestamo = '0';
-
-        $ta -> save();
+        $ta -> estado_prestamo = '0';
+        $ta -> modificado_por = Auth::user()->usuario;
+        
 
         if(is_null(Visitante::find($request->ci)))
         {
             $visitante->save();
             $visita->save();
+            $ta -> save();
             return redirect()->route('visitas.index')->with('mensaje',"Se marco el Ingreso correctamente  a hrs:".date("H:i:s", $time));
         }
         else
         {
-            return redirect()->route('visitas.create')->with('mensaje',"Error!. El Ci que intento registrar ya existe.");
+            return redirect()->route('visitas.create')->with('mensaje2',"Error!. El Ci que intento registrar ya existe. Porfavor seleccione un visitante de la lista o registre uno nuevo para registrar una visita.");
         }
        
     }
@@ -202,9 +206,13 @@ class VisitasController extends Controller
         $visita -> id_tarjeta = $request->id_tarjeta;
         $visita -> id_ubicacion = $request->ubicacion;
         $visita -> observaciones = $request->observaciones;
+        $visita -> creado_por = Auth::user()->usuario;
+        $visita -> modificado_por = Auth::user()->usuario;
  // dd($request->id_tarjeta);  
         $ta = Tarjeta::find( $request->id_tarjeta);
         $ta->estado_prestamo = '0';
+        $ta -> modificado_por = Auth::user()->usuario;
+
         $ta->save();
         $visita->save();
 
@@ -317,11 +325,15 @@ class VisitasController extends Controller
         $vi->estado_visita = '0';
         $vi->fecha_salida = date("d-m-Y ", $time);
         $vi->hora_salida = date("H:i:s", $time);
+        $vi->modificado_por = Auth::user()->usuario;
         // echo ("Según el servidor la hora actual es: ". date("H:i:s", $time));
         $ta = Tarjeta::find( $vi->id_tarjeta);
         $ta->estado_prestamo = '1';
+        $ta -> modificado_por = Auth::user()->usuario;
+
         $ta->save();
         $vi -> save();
+
         return redirect()->route('visitas.index')->with('mensaje',"visita se marco como terminada a hrs:".date("H:i:s", $time));
     }
 
@@ -333,6 +345,7 @@ class VisitasController extends Controller
         // echo ("Según el servidor la hora actual es: ". date("H:i:s", $time));
         $ta = Tarjeta::find( $vi->id_tarjeta);
         $ta->estado_prestamo = '1';
+        
         $ta->save();
         $vi -> save();
         return redirect()->route('visitas.index')->with('mensaje',"tarjeta restaurada:");

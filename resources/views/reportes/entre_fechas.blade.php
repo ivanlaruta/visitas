@@ -30,15 +30,27 @@
 		
 		</div>
 		<div class="col-md-2">
-						{!! Form::open (['route' => 'reportes.visitasFechas','method' => 'GET','class' => 'navbar-form pull-right'])!!}
-						{!! Form::hidden('inicial',$recuperado -> inicial)!!}
-						{!! Form::hidden('fin',$recuperado -> fin)!!}
-						<div class="form-group">
-						{!! Form::submit('Generar Reporte',['class'=>'btn btn-info'])!!}
-						</div>
-						
-						{!! Form::close()!!}
-					</div>	
+			<div class="col-md-6">
+				{!! Form::open (['route' => 'reportes.visitasFechas','method' => 'GET','class' => 'navbar-form pull-right'])!!}
+					{!! Form::hidden('inicial',$recuperado -> inicial)!!}
+					{!! Form::hidden('fin',$recuperado -> fin)!!}
+					<div class="input-group">
+					{{ Form::button('<i class="fa fa-file-pdf-o"></i>', ['type' => 'submit', 'class' => 'btn btn-danger', 'data-toggle'=> 'tooltip', 'data-placement'=>'bottom', 'title'=>'Generar PDF'] )  }}
+									
+					</div>
+				{!! Form::close()!!}
+			</div>
+			<div class="col-md-6">
+				{!! Form::open (['route' => 'reportes.visitasFechas','method' => 'GET','class' => 'navbar-form pull-right'])!!}
+					{!! Form::hidden('inicial',$recuperado -> inicial)!!}
+					{!! Form::hidden('fin',$recuperado -> fin)!!}
+					<div class="input-group">
+					{{ Form::button('<i class="fa fa-file-excel-o"></i>', ['type' => 'submit', 'class' => 'btn btn-success', 'data-toggle'=> 'tooltip', 'data-placement'=>'bottom', 'title'=>'Generar excel' ] )  }}
+									
+					</div>
+				{!! Form::close()!!}
+			</div>
+		</div>
 	</div>	
 	<hr>
 	<div class="row">
