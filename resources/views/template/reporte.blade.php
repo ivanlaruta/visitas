@@ -5,7 +5,7 @@
 	<title>Reporte</title>
 	<style>
 	body {
-   		 font-family: Arial, Helvetica, sans-serif;
+   		 
 	}
 	table {
 	    border-collapse: collapse;
@@ -52,7 +52,7 @@
 	.filtro {
    		  color: #787878;
    		  text-align: center;
-			font-size: xx-small;
+		  font-size: xx-small;
 	}
 	.tituloRep {
    		  text-align: center;
