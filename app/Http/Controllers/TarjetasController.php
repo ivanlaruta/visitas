@@ -18,7 +18,7 @@ class TarjetasController extends Controller
      */
     public function index()
     {
-        $ta = Tarjeta::where('estado', '=', 1)->paginate(15);
+        $ta = Tarjeta::where('estado', '=', 1)->paginate(100);
         return view('admin.tarjetas.index')->with('ta',$ta);
     }
 

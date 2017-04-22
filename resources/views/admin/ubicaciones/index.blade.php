@@ -7,7 +7,7 @@
   			<div class="col-md-10 col-md-offset-1">
 				<a href="{{ route('ubicaciones.create')}}" class="btn btn-success">Registrar nueva Ubicacion</a><hr>
 				<div class="table-responsive">
-				<table class="table table-hover">
+				<table width="100%" class="table table-hover table-striped mitabla" id="todo">
 					<thead>
 						<th>ID</th>
 						<th>Nombre</th>
@@ -36,4 +36,16 @@
  			</div>
 		</div>
 
+@endsection
+@section('scripts')
+<script>
+    $(document).ready(function() {
+        // alert('1');
+        $('#todo').DataTable({
+            
+            responsive: true
+
+        });
+    });
+</script> 
 @endsection

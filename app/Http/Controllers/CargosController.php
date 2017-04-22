@@ -14,7 +14,7 @@ class CargosController extends Controller
      */
     public function index()
     {
-        $ca = Cargo::where('estado', '=', 1)->orderBy('descripcion','ASC')->paginate(10);
+        $ca = Cargo::where('estado', '=', 1)->orderBy('descripcion','ASC')->paginate(100);
         return view('admin.cargos.index')->with('ca',$ca);
     }
 

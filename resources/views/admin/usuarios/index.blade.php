@@ -6,7 +6,7 @@
     	<div class="row">
   			<div class="col-md-10 col-md-offset-1">
 				<a href="{{ route('users.create')}}" class="btn btn-success">Registrar nuevo Usuario</a><hr>
-				<table class="table table-hover">
+				<table width="100%" class="table table-hover table-striped mitabla" id="todo">
 					<thead>
 						<th>Ci empleado</th>
 						<th>Empleado</th>
@@ -45,4 +45,17 @@
  			</div>	
 		</div>
 
+@endsection
+
+@section('scripts')
+<script>
+    $(document).ready(function() {
+        // alert('1');
+        $('#todo').DataTable({
+            
+            responsive: true
+
+        });
+    });
+</script> 
 @endsection

@@ -15,7 +15,7 @@ class UbicacionesController extends Controller
      */
     public function index()
     {
-        $ub = Ubicacion::where('estado', '=', 1)->orderBy('id_ubicacion','ASC')->paginate(10);
+        $ub = Ubicacion::where('estado', '=', 1)->orderBy('id_ubicacion','ASC')->paginate(100);
         return view('admin.ubicaciones.index')->with('ub',$ub);
     }
 

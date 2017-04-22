@@ -18,7 +18,7 @@ class EmpleadosController extends Controller
    public function index()
     {
        
-        $us = Empleado::where('estado', '=', 1)->orderBy('paterno','ASC')->paginate(15);
+        $us = Empleado::where('estado', '=', 1)->orderBy('paterno','ASC')->paginate(100);
         return view('admin.empleados.index')->with('us',$us);
     }
     /**

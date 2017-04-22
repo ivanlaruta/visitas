@@ -6,12 +6,13 @@
     	<div class="row">
   			<div class="col-md-10 col-md-offset-1">
 				<a href="{{ route('visitantes.create')}}" class="btn btn-success">Registrar nuevo Visitante</a><hr>
-				<table class="table table-hover">
+				<table width="100%" class="table table-hover table-striped mitabla" id="todo">
 					<thead>
 						<th>CI</th>
 						<th>Ex</th>
 						<th>Nombre</th>
 						<th>Telefono</th>
+						<th>Accion</th>
 					</thead>
 					<tbody>
 						@foreach($us as $usu)
@@ -29,8 +30,21 @@
 						@endforeach
 					</tbody>
 				</table>
-				{{ $us->Links() }} 
- 			</div>	
+{{-- 				{{ $us->Links() }} 
+ --}} 			</div>	
 		</div>
 
+@endsection
+
+@section('scripts')
+<script>
+    $(document).ready(function() {
+        // alert('1');
+        $('#todo').DataTable({
+            
+            responsive: true
+
+        });
+    });
+</script> 
 @endsection

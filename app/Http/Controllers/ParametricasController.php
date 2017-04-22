@@ -14,7 +14,7 @@ class ParametricasController extends Controller
      */
     public function index()
     {
-        $pa = Parametrica::where('estado', '=', 1)->orderBy('nombre_tabla','ASC')->paginate(15);
+        $pa = Parametrica::where('estado', '=', 1)->orderBy('nombre_tabla','ASC')->paginate(100);
         return view('admin.parametricas.index')->with('pa',$pa);
     }
 

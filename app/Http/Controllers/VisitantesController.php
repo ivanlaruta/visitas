@@ -16,7 +16,7 @@ class VisitantesController extends Controller
      public function index()
     {
        
-        $us = Visitante::where('estado', '=', 1)->paginate(15);
+        $us = Visitante::where('estado', '=', 1)->paginate(100);
         return view('admin.visitantes.index')->with('us',$us);
     }
     /**

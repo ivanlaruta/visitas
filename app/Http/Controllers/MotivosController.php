@@ -14,7 +14,7 @@ class MotivosController extends Controller
      */
     public function index()
     {
-        $mo = Motivo::where('estado', '=', 1)->paginate(15);
+        $mo = Motivo::where('estado', '=', 1)->paginate(100);
         return view('admin.motivos.index')->with('mo',$mo);
     }
 

@@ -5,7 +5,7 @@
     	<div class="row">
   			<div class="col-md-8 col-md-offset-2">
 				<a href="{{ route('cargos.create')}}" class="btn btn-success">Registrar nuevo Cargo</a><hr>
-				<table class="table table-hover">
+				<table width="100%" class="table table-hover table-striped mitabla" id="todo">
 					<thead>
 						<th></th>
 						<th>Descripcion</th>
@@ -29,4 +29,17 @@
 		</div>
 
 
+@endsection
+
+@section('scripts')
+<script>
+    $(document).ready(function() {
+        // alert('1');
+        $('#todo').DataTable({
+            
+            responsive: true
+
+        });
+    });
+</script> 
 @endsection

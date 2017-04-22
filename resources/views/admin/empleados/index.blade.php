@@ -7,7 +7,7 @@
   			<div class="col-md-12">
 				<a href="{{ route('empleados.create')}}" class="btn btn-success">Registrar nuevo empleado</a><hr>
 				<div class="table-responsive">
-				<table class="table table-hover">
+				<table width="100%" class="table table-hover table-striped mitabla" id="todo">
 					<thead>
 						<th>CI</th>
 						<th>Ex</th>
@@ -42,4 +42,17 @@
  			</div>
 		</div>
 
+@endsection
+
+@section('scripts')
+<script>
+    $(document).ready(function() {
+        // alert('1');
+        $('#todo').DataTable({
+            
+            responsive: true
+
+        });
+    });
+</script> 
 @endsection
