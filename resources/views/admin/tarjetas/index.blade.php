@@ -49,8 +49,8 @@
 						@endforeach
 					</tbody>
 				</table>
-				{{ $ta->Links() }} 
- 			</div>
+{{-- 				{{ $ta->Links() }} 
+ --}} 			</div>
  			</div>	
 		</div>
 @endsection

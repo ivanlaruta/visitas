@@ -24,7 +24,7 @@
 						@endforeach
 					</tbody>
 				</table>
-				{{ $ca->Links() }} 
+				{{-- {{ $ca->Links() }}  --}}
  			</div>	
 		</div>
 

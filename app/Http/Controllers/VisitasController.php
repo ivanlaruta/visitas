@@ -26,7 +26,7 @@ class VisitasController extends Controller
         // ->where('fecha_entrada', '=', $hoy)
         ->Search($request->ci)
         ->orderBy('fecha_entrada','ASC')
-        ->paginate(10)
+        ->paginate(100)
         ;
 
         return view('ope.visitas.index')

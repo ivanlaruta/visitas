@@ -26,7 +26,7 @@
 				</div>
 				<hr>
 				 <div class="table-responsive">
-                    <table class="table table-hover table-striped">
+                    <table width="100%" class="table table-hover table-striped mitabla" id="todo">
                     
 					<thead>
 						{{-- <th>ID</th> --}}
@@ -44,6 +44,7 @@
 						{{-- <th>Tipo tarjeta</th> --}}
 						{{-- <th>Ubicacion</th> --}}
 						<th>Observacion</th>
+						<th>Marcar</th>
 					<tbody>
 						<?php $hoy=date("Y-m-d"); ?>
 						@foreach($vi as $vis)
@@ -79,4 +80,17 @@
 				</div>
 				{{ $vi->links() }} 
 		</div>
+@endsection
+
+@section('scripts')
+<script>
+    $(document).ready(function() {
+        // alert('1');
+        $('#todo').DataTable({
+            
+            responsive: true
+
+        });
+    });
+</script> 
 @endsection

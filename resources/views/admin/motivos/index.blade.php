@@ -28,8 +28,8 @@
 						@endforeach
 					</tbody>
 				</table>
-				{{ $mo->Links() }} 
- 			</div>	
+{{-- 				{{ $mo->Links() }} 
+ --}} 			</div>	
 		</div>
 
 @endsection

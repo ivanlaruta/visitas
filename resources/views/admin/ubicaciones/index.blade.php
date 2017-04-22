@@ -31,8 +31,8 @@
 						@endforeach
 					</tbody>
 				</table>
-				{{ $ub->Links() }} 
- 				</div>
+{{-- 				{{ $ub->Links() }} 
+ --}} 				</div>
  			</div>
 		</div>
 

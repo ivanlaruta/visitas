@@ -28,8 +28,8 @@
 						@endforeach
 					</tbody>
 				</table>
-				{{ $pa->Links() }} 
- 			</div>	
+{{-- 				{{ $pa->Links() }} 
+ --}} 			</div>	
 		</div>
 
 
