@@ -21,8 +21,14 @@ class CreateUsersTable extends Migration
             $table->enum('estado',['1','0','2'])->default('1');
             $table->string('id_rol',1)->unsigned();
 
-            $table->primary('usuario');
+            $table->string('creado_por')->nullable()->unsigned();
+            $table->string('modificado_por')->nullable()->unsigned();
+            
             $table->timestamps();
+            $table->primary('usuario');
+
+            $table->foreign('creado_por')->references('usuario')->on('users');
+            $table->foreign('modificado_por')->references('usuario')->on('users');
         });
     }
 

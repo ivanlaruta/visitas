@@ -55,13 +55,19 @@ class UsersController extends Controller
         $us ->creado_por = Auth::user()->usuario;
         $us ->modificado_por = Auth::user()->usuario;
         //dd($us);
-        $us->save();
 
-        //dd('Usuario creado');
 
-        //return redirect()->route('usuarios.index');
+        if(is_null(User::find($request->usuario)))
+        {
+            $us->save();
+            return redirect()->route('users.index')->with('mensaje',"Usuario creado exitosamente!");
+        }
+        else
+        {
+            return redirect()->route('user.create')->with('mensaje2',"Error!. Este usuario ya existe.");
+        }
 
-         return redirect()->route('users.index')->with('mensaje',"Usuario creado exitosamente!");
+        
     }
 
     /**
@@ -99,10 +105,12 @@ class UsersController extends Controller
         $us =User::find($id);
         // $us->usuario = $request->usuario;
         $us->id_rol = $request->id_rol;
+        $us->password = bcrypt($request->password);
+        $us ->modificado_por = Auth::user()->usuario;
         //$us->fill($request->all());
         $us -> save();
         return redirect()->route('users.index')->with('mensaje',"Usuario modificado exitosamente!");
-        $us ->modificado_por = Auth::user()->usuario;
+       
     }
 
     /**

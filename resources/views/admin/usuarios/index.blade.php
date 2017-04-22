@@ -34,7 +34,7 @@
 									@endif
 								</td>
 								<td>
-									<a href="{{ route('users.edit',$usu -> usuario )}}" class="btn btn-warning">Modificar Rol</a> 
+									<a href="{{ route('users.edit',$usu -> usuario )}}" class="btn btn-warning">Modificar</a> 
 									<a href="{{ route('users.baja',$usu -> usuario )}}" onclick ="return confirm('¿Desea Dar de baja?')" class="btn btn-danger">Eliminar</a> 
 								</td>
 							</tr>

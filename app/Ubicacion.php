@@ -9,7 +9,7 @@ class Ubicacion extends Model
     protected $table = "ubicaciones";
     public $incrementing=false;
     protected $primaryKey ='id_ubicacion';
-    protected $fillable =['id_ubicacion','nombre','ciudad','estado','creado_por','modificado_por'];
+    protected $fillable =['id_ubicacion','nombre','ciudad','direccion','estado','creado_por','modificado_por'];
 
     public function tarjetas()
     {

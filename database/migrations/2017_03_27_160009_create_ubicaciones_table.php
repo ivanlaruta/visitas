@@ -17,7 +17,7 @@ class CreateUbicacionesTable extends Migration
             $table->string('id_ubicacion',10);
             $table->string('nombre',100);
             $table->string('ciudad',50);
-            
+            $table->string('direccion',150)->nullable();
             $table->enum('estado',['1','0'])->default('1');
             $table->string('creado_por')->nullable()->unsigned();
             $table->string('modificado_por')->nullable()->unsigned();

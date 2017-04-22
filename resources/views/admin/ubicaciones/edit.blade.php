@@ -22,7 +22,8 @@
 						{!! Form::select('ciudad',$ciudad,$ub->ciudad,['class'=>'form-control','placeholder'=>'seleccione una ciudad','required'])!!}
 					</div>
 
-					
+					{!! Form::label('dir','Direccion')!!}
+					{!! Form::text('direccion',$ub->direccion,['class'=> 'form-control','placeholder'=>'Ingrese direccion','required'])!!}
 				</div>
 				<div class="form-group">
 					{!! Form::submit('Modificar',['class'=>'btn btn-primary'])!!}

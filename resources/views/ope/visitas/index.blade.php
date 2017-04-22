@@ -3,11 +3,11 @@
 @section('content')
 @section('ventana','Lista de visitas en curso')	
 
-<a href="{{ route('visitas.create')}}" class="btn btn-success">Registrar nueva Entrada</a>
-<br><br>
+
+
 			<div class="col-md-12">
 				<div class="row">
-  					<div class="col-md-12">
+  					<div class="col-md-8">
 						{!! Form::open (['route' => 'visitas.index','method' => 'GET','class' => 'navbar-form pull-left'])!!}
 							<div class ="input-group">	
 								{!! Form::text('ci',$recuperado -> ci,['class'=> 'form-control','placeholder'=>'Ingrese Nro de documento','aria-describedby'=>'seacrch'])!!}
@@ -20,6 +20,9 @@
 							</div>
 						{!! Form::close()!!}
 					</div>
+					<div class="col-md-4">
+						<a href="{{ route('visitas.create')}}" class="btn btn-success">Registrar nueva Entrada</a>
+					</div>
 				</div>
 				<hr>
 				 <div class="table-responsive">
@@ -27,9 +30,9 @@
                     
 					<thead>
 						{{-- <th>ID</th> --}}
-						<th>Documento</th>
+						<th>Nro Doc</th>
 						<th>Ex</th>
-						<th>Tipo doc</th>
+						<th>Tipo Doc</th>
 						<th>Visitante</th>
 						<th>Telefono</th>
 						<th>Fecha Entrada</th> 

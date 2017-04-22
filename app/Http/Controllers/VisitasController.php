@@ -1,7 +1,5 @@
 <?php
-
 namespace App\Http\Controllers;
-
 use Illuminate\Http\Request;
 use App\Visita;
 use App\Visitante;
@@ -20,17 +18,15 @@ class VisitasController extends Controller
      */
     public function index(Request $request)
     {   
-
         date_default_timezone_set('America/La_Paz');
         $time = time();
         $hoy=date("Y-m-d ", $time);
         
-
         $vi = Visita::where('estado_visita', '<>', 0)
         // ->where('fecha_entrada', '=', $hoy)
         ->Search($request->ci)
         ->orderBy('fecha_entrada','ASC')
-        ->paginate(5)
+        ->paginate(10)
         ;
 
         return view('ope.visitas.index')
@@ -86,6 +82,7 @@ class VisitasController extends Controller
         if (Auth::user()->empleado->id_cargo == '3')
         {
              $tarjetas = Tarjeta::where('estado_prestamo','1')
+                    ->select('id_tarjeta','tipo_tarjeta')
                     ->where('estado','1')
                     ->where('id_ubicacion', $ubicacion)                    
                     ->whereNull('ci_empleado')
@@ -96,11 +93,12 @@ class VisitasController extends Controller
                     ->orWhere('tipo_tarjeta', 'PASANTE')
 
                     ->orderBy('id_tarjeta','ASC')
-                    ->pluck('id_tarjeta','id_tarjeta');
+                    ->get();
         }
         else
         {
         $tarjetas = Tarjeta::where('estado_prestamo','1')
+                    ->select('id_tarjeta','tipo_tarjeta')
                     ->where('estado','1')
                     ->where('id_ubicacion', $ubicacion )
                     ->whereNull('ci_empleado')
@@ -110,7 +108,7 @@ class VisitasController extends Controller
 
 
                     ->orderBy('id_tarjeta','ASC')
-                    ->pluck('id_tarjeta','id_tarjeta');
+                    ->get();
 
         }
         $motivos = Motivo::orderBy('id_motivo','ASC')->pluck('descripcion','id_motivo');
@@ -182,19 +180,14 @@ class VisitasController extends Controller
         }
         else
         {
-            return redirect()->route('visitas.create')->with('mensaje2',"Error!. El Ci que intento registrar ya existe. Porfavor seleccione un visitante de la lista o registre uno nuevo para registrar una visita.");
+            return redirect()->route('visitas.create')->with('mensaje2',"Error!. El Ci que intento registrar ya existe.");
         }
-       
     }
-
     public function ingreso(Request $request)
     {
-        
         date_default_timezone_set('America/La_Paz');
         $time = time();
         date("d-m-Y ", $time);
-
-      
 
         $visita = new Visita();
         $visita -> ci_visitante = $request->ci;
@@ -213,10 +206,20 @@ class VisitasController extends Controller
         $ta->estado_prestamo = '0';
         $ta -> modificado_por = Auth::user()->usuario;
 
-        $ta->save();
-        $visita->save();
+        $inf =  Visita::where('estado_visita','1')
+                ->where('ci_visitante', $request->ci)                    
+                ->get();
 
-        return redirect()->route('visitas.index')->with('mensaje',"Se marco el Ingreso correctamente  a hrs:".date("H:i:s", $time));
+        if(sizeof($inf)>0)
+        {
+        return redirect()->route('visitas.create')->with('mensaje2',"Esta persona YA se encuentra en una Visita en Curso.");
+        }
+        else
+        {
+            $ta->save();
+            $visita->save();
+            return redirect()->route('visitas.index')->with('mensaje',"Se marco el Ingreso correctamente  a hrs:".date("H:i:s", $time));
+        }
     }
 
     /**
@@ -255,6 +258,7 @@ class VisitasController extends Controller
         if (Auth::user()->empleado->id_cargo == '3')
         {
              $tarjetas = Tarjeta::where('estado_prestamo','1')
+                    ->select('id_tarjeta','tipo_tarjeta')
                     ->where('estado','1')
                     ->where('id_ubicacion', $ubicacion)                    
                     ->whereNull('ci_empleado')
@@ -265,11 +269,12 @@ class VisitasController extends Controller
                     ->orWhere('tipo_tarjeta', 'PASANTE')
 
                     ->orderBy('id_tarjeta','ASC')
-                    ->pluck('id_tarjeta','id_tarjeta');
+                    ->get();
         }
         else
         {
-            $tarjetas = Tarjeta::where('estado_prestamo','1')
+        $tarjetas = Tarjeta::where('estado_prestamo','1')
+                    ->select('id_tarjeta','tipo_tarjeta')
                     ->where('estado','1')
                     ->where('id_ubicacion', $ubicacion )
                     ->whereNull('ci_empleado')
@@ -279,7 +284,7 @@ class VisitasController extends Controller
 
 
                     ->orderBy('id_tarjeta','ASC')
-                    ->pluck('id_tarjeta','id_tarjeta');
+                    ->get();
 
         }
 
@@ -351,4 +356,3 @@ class VisitasController extends Controller
         return redirect()->route('visitas.index')->with('mensaje',"tarjeta restaurada:");
     }
 }
-

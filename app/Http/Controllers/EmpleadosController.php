@@ -18,7 +18,7 @@ class EmpleadosController extends Controller
    public function index()
     {
        
-        $us = Empleado::where('estado', '=', 1)->orderBy('paterno','ASC')->paginate(10);
+        $us = Empleado::where('estado', '=', 1)->orderBy('paterno','ASC')->paginate(15);
         return view('admin.empleados.index')->with('us',$us);
     }
     /**
@@ -50,7 +50,6 @@ class EmpleadosController extends Controller
      */
     public function store(Request $request)
     {
-
         $us = new Empleado($request->all());
         $us->ci = trim($request->ci);
         $us -> nombre =strtoupper($request->nombre);
@@ -58,10 +57,16 @@ class EmpleadosController extends Controller
         $us -> materno =strtoupper($request->materno);
         $us ->creado_por = Auth::user()->usuario;
         $us ->modificado_por = Auth::user()->usuario;
-        $us->save();
-
-
-         return redirect()->route('empleados.index')->with('mensaje',"Empleado creado exitosamente!");
+        
+        if(is_null(Empleado::find($request->ci)))
+        {
+            $us->save();
+            return redirect()->route('empleados.index')->with('mensaje',"Empleado creado exitosamente!");
+        }
+        else
+        {
+            return redirect()->route('empleados.create')->with('mensaje2',"Error!. El Ci que intento registrar ya existe.");
+        }
     }
 
     /**

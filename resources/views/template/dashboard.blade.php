@@ -9,11 +9,11 @@
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <meta name="description" content="">
     <meta name="author" content="">
-
+     
     <title>Panel Visitas</title>
     
     
-    <link href="{{ asset('libs/sbadmin/css/bootstrap.min.css')}}" rel="stylesheet">
+    <link href="{{ asset('libs/sbadmin/css/bootstrap.css')}}" rel="stylesheet">
 
     <link href="{{ asset('libs/sbadmin/css/sb-admin.css')}}" rel="stylesheet">
 

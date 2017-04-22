@@ -42,6 +42,7 @@ class UbicacionesController extends Controller
 
         $ub = new Ubicacion($request->all());
         $ub -> nombre = strtoupper($request->nombre);
+        $ub -> direccion = strtoupper($request->direccion);
         $ub ->creado_por = Auth::user()->usuario;
         $ub ->modificado_por = Auth::user()->usuario;
 
@@ -92,7 +93,7 @@ class UbicacionesController extends Controller
         $ub =Ubicacion::find($id);
         $ub->fill($request->all());
         $ub -> nombre = strtoupper($request->nombre);
-        
+        $ub -> direccion = strtoupper($request->direccion);
         $ub ->modificado_por = Auth::user()->usuario;
         $ub -> save();
         return redirect()->route('ubicaciones.index')->with('mensaje',"Ubicacion modificada exitosamente!");

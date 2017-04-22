@@ -37,7 +37,7 @@ class ReportesController extends Controller
 
         $ubicacion = Auth::user()->empleado->id_ubicacion;
 
-        $vi = Visita::where('fecha_entrada', '=', $hoy)->where('id_ubicacion', '=', $ubicacion)->Search($request->ci)->orderBy('id_visita','ASC')->paginate(15);
+        $vi = Visita::where('fecha_entrada', '=', $hoy)->where('id_ubicacion', '=', $ubicacion)->Search($request->ci)->orderBy('id_visita','ASC')->paginate(20);
         return view('reportes.visitas_diarias')
             ->with('vi',$vi)
              ->with('recuperado',$request)

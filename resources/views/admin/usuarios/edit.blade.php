@@ -20,6 +20,11 @@
 				</div>
 
 				<div class="form-group">
+					{!! Form::label('password',' Nuevo Password')!!}
+					{!! Form::password('password',['class'=> 'form-control','placeholder'=>'Ingrese nueva contraseña (Opcional)'])!!}
+				</div>
+
+				<div class="form-group">
 					{!! Form::label('id_rol','Rol')!!}
 					{!! Form::select('id_rol',['0'=>'Operador','1'=>'Administrador'], $us -> id_rol ,['class'=>'form-control'])!!}
 				</div>

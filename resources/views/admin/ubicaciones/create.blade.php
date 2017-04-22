@@ -21,7 +21,8 @@
 					{!! Form::label('ciudad','Ciudad')!!}
 						{!! Form::select('ciudad',$ciudad,null,['class'=>'form-control','placeholder'=>'seleccione una ciudad','required'])!!}
 					</div>
-					
+					{!! Form::label('dir','Direccion')!!}
+					{!! Form::text('direccion',null,['class'=> 'form-control','placeholder'=>'Ingrese direccion','required'])!!}
 				</div>
 				
 				<div class="form-group">

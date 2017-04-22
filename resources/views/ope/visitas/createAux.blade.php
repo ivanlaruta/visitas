@@ -119,7 +119,12 @@
 				<div class="col-md-6">
 					<div class="form-group">
 						<h6>Codigo de Tarjeta :</h6>
-						{!! Form::select('id_tarjeta',$tarjetas,null,['class'=>'form-control','placeholder'=>'Tarjeta para el visitante','required'])!!}
+						<select class="form-control" name="id_tarjeta" required>
+							<option value="">Tarjeta para el visitante</option>
+						    @foreach($tarjetas as $tar)
+						      <option value="{{$tar->id_tarjeta}}">{{$tar->id_tarjeta}} - {{$tar->tipo_tarjeta}}</option>
+						    @endforeach
+					  	</select>
 					</div>
 				</div>
 				<div class="col-md-6">

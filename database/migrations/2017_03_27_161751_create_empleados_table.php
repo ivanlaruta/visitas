@@ -19,7 +19,7 @@ class CreateEmpleadosTable extends Migration
             $table->string('nombre',30);
             $table->string('paterno',30);
             $table->string('materno',30)->nullable();
-            $table->string('email',50);
+            $table->string('email',50)->nullable();;
             $table->integer('id_cargo')->unsigned();
             $table->string('id_ubicacion',10)->unsigned();
             $table->string('telefono',15)->nullable();
