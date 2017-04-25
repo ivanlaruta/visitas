@@ -27,7 +27,7 @@ class CreateVisitasTable extends Migration
             $table->string('id_ubicacion',10)->nullable()->unsigned();
             $table->string('observaciones')->nullable();
 
-            $table->enum('estado_visita',['1','0','2'])->default('1');
+            $table->enum('estado_visita',['0','1','2','3'])->default('1');//0 terminado ,1 en curso ,2 observado 3 rehabilitado
             $table->string('creado_por')->nullable()->unsigned();
             $table->string('modificado_por')->nullable()->unsigned();
             $table->timestamps();

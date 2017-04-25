@@ -18,7 +18,7 @@ class EmpleadosController extends Controller
    public function index()
     {
        
-        $us = Empleado::where('estado', '=', 1)->orderBy('paterno','ASC')->paginate(100);
+        $us = Empleado::all()->where('estado', '=', 1);
         return view('admin.empleados.index')->with('us',$us);
     }
     /**
@@ -52,9 +52,9 @@ class EmpleadosController extends Controller
     {
         $us = new Empleado($request->all());
         $us->ci = trim($request->ci);
-        $us -> nombre =strtoupper($request->nombre);
-        $us -> paterno =strtoupper($request->paterno);
-        $us -> materno =strtoupper($request->materno);
+        $us -> nombre =strtr(strtoupper($request->nombre),"àèìòùáéíóúçñäëïöü","ÀÈÌÒÙÁÉÍÓÚÇÑÄËÏÖÜ");
+        $us -> paterno =strtr(strtoupper($request->paterno),"àèìòùáéíóúçñäëïöü","ÀÈÌÒÙÁÉÍÓÚÇÑÄËÏÖÜ");
+        $us -> materno =strtr(strtoupper($request->materno),"àèìòùáéíóúçñäëïöü","ÀÈÌÒÙÁÉÍÓÚÇÑÄËÏÖÜ");
         $us ->creado_por = Auth::user()->usuario;
         $us ->modificado_por = Auth::user()->usuario;
         
@@ -112,9 +112,9 @@ class EmpleadosController extends Controller
     {
         $us =Empleado::find($id);
         $us->fill($request->all());
-        $us -> nombre =strtoupper($request->nombre);
-        $us -> paterno =strtoupper($request->paterno);
-        $us -> materno =strtoupper($request->materno);
+        $us -> nombre =strtr(strtoupper($request->nombre),"àèìòùáéíóúçñäëïöü","ÀÈÌÒÙÁÉÍÓÚÇÑÄËÏÖÜ");
+        $us -> paterno =strtr(strtoupper($request->paterno),"àèìòùáéíóúçñäëïöü","ÀÈÌÒÙÁÉÍÓÚÇÑÄËÏÖÜ");
+        $us -> materno =strtr(strtoupper($request->materno),"àèìòùáéíóúçñäëïöü","ÀÈÌÒÙÁÉÍÓÚÇÑÄËÏÖÜ");
         
         $us ->modificado_por = Auth::user()->usuario;
         $us -> save();

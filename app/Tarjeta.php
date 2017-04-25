@@ -9,12 +9,9 @@ class Tarjeta extends Model
     protected $table = "tarjetas";
     public $incrementing=false;
     protected $primaryKey ='id_tarjeta';
-    protected $fillable =['id_tarjeta','tipo_tarjeta','estado_prestamo','psw','id_ubicacion','ci_empleado','estado','creado_por','modificado_por'];
+    protected $fillable =['id_tarjeta','tipo_tarjeta','estado_prestamo','psw','id_ubicacion','ci_empleado','estado','creado_por','modificado_por','ci_visitante'];
 
-    public function visitas()
-    {
-        return $this->hasMany('App\Visita','id_tarjeta');
-    }
+    
     public function empleado()
     {
         return $this->belongsTo('App\Empleado','ci_empleado');
@@ -30,6 +27,10 @@ class Tarjeta extends Model
     public function ubicacion()
     {
         return $this->belongsTo('App\Ubicacion','id_ubicacion');
+    }
+    public function visitante()
+    {
+        return $this->belongsTo('App\Visitante','ci_visitante');
     }
 
 }

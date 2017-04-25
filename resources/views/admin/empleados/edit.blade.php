@@ -38,7 +38,7 @@
 					{!! Form::label('materno','Materno')!!}
 					</div>
 					<div class="form-group">
-					{!! Form::text('materno',$us->materno,['class'=> 'form-control','placeholder'=>'ingrese apellido Materno','required'])!!}
+					{!! Form::text('materno',$us->materno,['class'=> 'form-control','placeholder'=>'ingrese apellido Materno'])!!}
 					</div>
 
 					<div class="form-group">

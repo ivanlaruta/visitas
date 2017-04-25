@@ -7,14 +7,14 @@
 				<a href="{{ route('cargos.create')}}" class="btn btn-success">Registrar nuevo Cargo</a><hr>
 				<table width="100%" class="table table-hover table-striped mitabla" id="todo">
 					<thead>
-						<th></th>
+						
 						<th>Descripcion</th>
 						<th>Accion</th>
 					</thead>
 					<tbody>
 						@foreach($ca as $car)
 							<tr>								
-								<td>{{ $car-> id_cargo }}</td>
+								{{-- <td>{{ $car-> id_cargo }}</td> --}}
 								<td>{{ $car -> descripcion }}</td>
 								<td>
 									<a href="{{ route('cargos.edit',$car -> id_cargo )}}" class="btn btn-warning">Modificar</a> 

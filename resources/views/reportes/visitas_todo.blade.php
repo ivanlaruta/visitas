@@ -1,7 +1,7 @@
 @extends('template.dashboard')
 @section('title','Lista de visitas')
 @section('content')
-@section('ventana','Visitas de todas las Visitas')
+@section('ventana','Todas las Visitas de su ubicacion actual')
 
 <div class="navbar-form pull-right">
 		<button type="button" class="btn btn-danger pdf" data-toggle="tooltip" title="Generar PDF" aria-label="Left Align">
@@ -25,8 +25,8 @@
 				<th>Ex</th>
 				<th>Doc</th>
 				<th>Visitante</th>
-				<th>Fecha Entrada</th>
-				<th>Fecha Salida</th>
+				<th>Entrada</th>
+				<th>Salida</th>
 				<th>Motivo</th>
 				<th>Vistado</th>
 				<th>Tarjeta</th>

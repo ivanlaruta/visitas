@@ -16,7 +16,7 @@ class VisitantesController extends Controller
      public function index()
     {
        
-        $us = Visitante::where('estado', '=', 1)->paginate(100);
+        $us = Visitante::all()->where('estado', '=', 1);
         return view('admin.visitantes.index')->with('us',$us);
     }
     /**
@@ -40,9 +40,9 @@ class VisitantesController extends Controller
     {
        
         $us = new Visitante($request->all());
-        $us -> nombre =strtoupper($request->nombre);
-        $us -> paterno =strtoupper($request->paterno);
-        $us -> materno =strtoupper($request->materno);
+        $us -> nombre =strtr(strtoupper($request->nombre),"àèìòùáéíóúçñäëïöü","ÀÈÌÒÙÁÉÍÓÚÇÑÄËÏÖÜ");
+        $us -> paterno =strtr(strtoupper($request->paterno),"àèìòùáéíóúçñäëïöü","ÀÈÌÒÙÁÉÍÓÚÇÑÄËÏÖÜ");
+        $us -> materno =strtr(strtoupper($request->materno),"àèìòùáéíóúçñäëïöü","ÀÈÌÒÙÁÉÍÓÚÇÑÄËÏÖÜ");
         $us -> creado_por = Auth::user()->usuario;
         $us -> modificado_por = Auth::user()->usuario;  
 
@@ -96,9 +96,9 @@ class VisitantesController extends Controller
         // $us->visitante = $request->visitante;
         // $us->id_rol = $request->id_rol;
         $us->fill($request->all());
-        $us -> nombre =strtoupper($request->nombre);
-        $us -> paterno =strtoupper($request->paterno);
-        $us -> materno =strtoupper($request->materno);
+        $us -> nombre =strtr(strtoupper($request->nombre),"àèìòùáéíóúçñäëïöü","ÀÈÌÒÙÁÉÍÓÚÇÑÄËÏÖÜ");
+        $us -> paterno =strtr(strtoupper($request->paterno),"àèìòùáéíóúçñäëïöü","ÀÈÌÒÙÁÉÍÓÚÇÑÄËÏÖÜ");
+        $us -> materno =strtr(strtoupper($request->materno),"àèìòùáéíóúçñäëïöü","ÀÈÌÒÙÁÉÍÓÚÇÑÄËÏÖÜ");
         
         $us ->modificado_por = Auth::user()->usuario;
         $us -> save();

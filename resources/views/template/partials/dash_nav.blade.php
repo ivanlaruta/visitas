@@ -50,10 +50,9 @@
             @else               
                          @if(Auth::user()->id_rol==1 )
                             @include('template.partials.dash_admin_slide')
-                            
-                        
                         @else                       
                             @include('template.partials.dash_ope_slide')
+
                         @endif      
         @endif
            

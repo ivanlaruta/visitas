@@ -96,7 +96,7 @@ class ParametricasTableSeeder extends Seeder
                 DB::table('parametricas')->insert([
             'nombre_tabla' => 'EXPEDIDO',
             'id' => 'BN',
-            'descripcion' => 'Beni',
+            'descripcion' => 'BENI',
             'creado_por'=> 'admin',
             'modificado_por'=>'admin',
         ]);

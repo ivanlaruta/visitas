@@ -60,7 +60,7 @@
 			    <div class="col-md-4">
 					<div class="form-group">
 					<h6>Tipo Documento</h6>
-						{!! Form::select('tipo_doc',$tipoDoc,null,['class'=>'form-control','placeholder'=>'seleccione tipo','required'])!!}
+						{!! Form::select('tipo_doc',$tipoDoc,null,['class'=>'form-control'])!!}
 					</div>
 			    </div>
 	   		</div>

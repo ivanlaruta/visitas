@@ -4,7 +4,8 @@
 
 @section('content')
 	
-    	<div class="row">
+    <div class="row">
+    	<div class="col-md-6 col-md-offset-3">
   			{!! Form::open(['route'=>'motivos.store','method'=>'POST'])!!}
 				<div class="form-group">
 
@@ -17,6 +18,6 @@
 				{!! Form::close()!!}
 			</div>	
 		</div>
-	
+	</div>
 @endsection
 

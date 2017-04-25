@@ -15,6 +15,10 @@ class Visitante extends Model
     {
         return $this->hasMany('App\Visita','ci');
     }
+    public function tarjetas()
+    {
+        return $this->hasMany('App\tarjetas','ci');
+    }
      public function creado()
     {
         return $this->belongsTo('App\User','creado_por');

@@ -25,7 +25,7 @@
 							{!! Form::hidden('ci',$recuperado -> ci)!!}
 
 							<div class="form-group">
-							{{ Form::button('<i class="fa fa-file-pdf-o"></i>', ['type' => 'submit', 'class' => 'btn btn-danger', 'data-toggle'=> 'tooltip', 'data-placement'=>'bottom', 'title'=>'Generar PDF'] )  }}
+							{{ Form::button('<i class="fa fa-file-pdf-o"></i>', ['type' => 'submit', 'class' => 'btn btn-danger', 'title'=>'Generar PDF'] )  }}
 							</div>
 							
 							{!! Form::close()!!}

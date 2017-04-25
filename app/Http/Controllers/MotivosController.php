@@ -14,7 +14,7 @@ class MotivosController extends Controller
      */
     public function index()
     {
-        $mo = Motivo::where('estado', '=', 1)->paginate(100);
+        $mo = Motivo::all()->where('estado', '=', 1);
         return view('admin.motivos.index')->with('mo',$mo);
     }
 
@@ -37,7 +37,7 @@ class MotivosController extends Controller
     public function store(Request $request)
     {
         $mo = new Motivo($request->all());
-        $mo -> descripcion = strtoupper($request->descripcion);
+        $mo -> descripcion = strtr(strtoupper($request->descripcion),"àèìòùáéíóúçñäëïöü","ÀÈÌÒÙÁÉÍÓÚÇÑÄËÏÖÜ");
         $mo ->creado_por = Auth::user()->usuario;
         $mo ->modificado_por = Auth::user()->usuario;
         $mo->save();
@@ -79,7 +79,7 @@ class MotivosController extends Controller
     {
         $mo =Motivo::find($id);
         $mo->fill($request->all());
-        $mo -> descripcion = strtoupper($request->descripcion);
+        $mo -> descripcion = strtr(strtoupper($request->descripcion),"àèìòùáéíóúçñäëïöü","ÀÈÌÒÙÁÉÍÓÚÇÑÄËÏÖÜ");
         
         $mo ->modificado_por = Auth::user()->usuario;
         $mo -> save();

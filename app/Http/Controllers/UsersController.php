@@ -18,7 +18,7 @@ class UsersController extends Controller
     public function index()
     {
        
-        $us = User::where('estado', '=', 1)->orderBy('usuario','ASC')->paginate(100);
+        $us = User::all()->where('estado', '=', '1');
         return view('admin.usuarios.index')->with('us',$us);
     }
     /**
@@ -107,7 +107,7 @@ class UsersController extends Controller
         $us->id_rol = $request->id_rol;
         $us->password = bcrypt($request->password);
         $us ->modificado_por = Auth::user()->usuario;
-        //$us->fill($request->all());
+        $us->fill($request->all());
         $us -> save();
         return redirect()->route('users.index')->with('mensaje',"Usuario modificado exitosamente!");
        

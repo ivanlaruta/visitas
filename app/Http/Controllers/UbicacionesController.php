@@ -15,7 +15,7 @@ class UbicacionesController extends Controller
      */
     public function index()
     {
-        $ub = Ubicacion::where('estado', '=', 1)->orderBy('id_ubicacion','ASC')->paginate(100);
+        $ub = Ubicacion::all()->where('estado', '=', 1);
         return view('admin.ubicaciones.index')->with('ub',$ub);
     }
 
@@ -41,8 +41,8 @@ class UbicacionesController extends Controller
        
 
         $ub = new Ubicacion($request->all());
-        $ub -> nombre = strtoupper($request->nombre);
-        $ub -> direccion = strtoupper($request->direccion);
+        $ub -> nombre = strtr(strtoupper($request->nombre),"àèìòùáéíóúçñäëïöü","ÀÈÌÒÙÁÉÍÓÚÇÑÄËÏÖÜ");
+        $ub -> direccion = strtr(strtoupper($request->direccion),"àèìòùáéíóúçñäëïöü","ÀÈÌÒÙÁÉÍÓÚÇÑÄËÏÖÜ");
         $ub ->creado_por = Auth::user()->usuario;
         $ub ->modificado_por = Auth::user()->usuario;
 
@@ -92,8 +92,8 @@ class UbicacionesController extends Controller
     {
         $ub =Ubicacion::find($id);
         $ub->fill($request->all());
-        $ub -> nombre = strtoupper($request->nombre);
-        $ub -> direccion = strtoupper($request->direccion);
+        $ub -> nombre = strtr(strtoupper($request->nombre),"àèìòùáéíóúçñäëïöü","ÀÈÌÒÙÁÉÍÓÚÇÑÄËÏÖÜ");
+        $ub -> direccion = strtr(strtoupper($request->direccion),"àèìòùáéíóúçñäëïöü","ÀÈÌÒÙÁÉÍÓÚÇÑÄËÏÖÜ");
         $ub ->modificado_por = Auth::user()->usuario;
         $ub -> save();
         return redirect()->route('ubicaciones.index')->with('mensaje',"Ubicacion modificada exitosamente!");

@@ -14,7 +14,8 @@ class CargosController extends Controller
      */
     public function index()
     {
-        $ca = Cargo::where('estado', '=', 1)->orderBy('descripcion','ASC')->paginate(100);
+        //$ca = Cargo::where('estado', '=', 1)->orderBy('descripcion','ASC')->paginate(100);
+        $ca = Cargo::all()->where('estado', '=', 1);
         return view('admin.cargos.index')->with('ca',$ca);
     }
 
@@ -38,7 +39,7 @@ class CargosController extends Controller
     {
         $ca = new Cargo($request->all());
 
-        $ca -> descripcion = strtoupper($request->descripcion);
+        $ca -> descripcion = strtr(strtoupper($request->descripcion),"àèìòùáéíóúçñäëïöü","ÀÈÌÒÙÁÉÍÓÚÇÑÄËÏÖÜ");
         $ca ->creado_por = Auth::user()->usuario;
         $ca ->modificado_por = Auth::user()->usuario;
         $ca->save();
@@ -80,7 +81,7 @@ class CargosController extends Controller
     {
         $ca =Cargo::find($id);
         $ca->fill($request->all());
-        $ca -> descripcion = strtoupper($request->descripcion);
+        $ca -> descripcion = strtr(strtoupper($request->descripcion),"àèìòùáéíóúçñäëïöü","ÀÈÌÒÙÁÉÍÓÚÇÑÄËÏÖÜ");
        
         $ca ->modificado_por = Auth::user()->usuario;
         $ca -> save();

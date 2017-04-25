@@ -19,11 +19,7 @@
 Route::get('/', function () {
     return view('welcome');
 });
-Route::get('/inicial', function () {
-    return view('inicial');
-});
-
-
+Route::get('/inicial', 'ValidarUsuarioController@index');
 
 // Rpara dministradores
 
@@ -75,6 +71,36 @@ Route::group(['prefix'=>'admin'],function(){
 		'as'   =>	'visitantes.baja'
 	]);
 
+	
+	// ----------VISITAS --------------
+
+	Route::get ('visitas/reportadas',[
+		'uses' => 'VisitasController@reportadas', 
+		'as'   =>	'visitas.reportadas'
+	]);
+	
+	route::get('visitas/{id}/restaurar',[
+		'uses' => 'VisitasController@restaurar', 
+		'as'   =>	'visitas.restaurar'
+	]);
+
+	route::get('visitas/{id}/baja',[
+		'uses' => 'VisitasController@baja', 
+		'as'   =>	'visitas.baja'
+	]);
+
+
+	route::get('visitas/{id}/rehabilitar',[
+		'uses' => 'VisitasController@rehabilitar', 
+		'as'   =>	'visitas.rehabilitar'
+	]);
+
+	route::post('visitas/bajaTarjeta',[
+		'uses' => 'VisitasController@bajaTarjeta', 
+		'as'   =>	'visitas.bajaTarjeta'
+	]);
+
+	// **************************************//
 
 	route::resource('empleados','EmpleadosController');
 	
@@ -98,18 +124,12 @@ Route::group(['prefix'=>'admin'],function(){
 
 Route::group(['prefix'=>'ope'],function(){
 
-	
-	Route::get ('visitas/reportadas',[
-		'uses' => 'VisitasController@reportadas', 
-		'as'   =>	'visitas.reportadas'
-	]);
-	
-	route::get('visitas/{id}/restaurar',[
-		'uses' => 'VisitasController@restaurar', 
-		'as'   =>	'visitas.restaurar'
+	route::get('visitas/{id}/reportar',[
+		'uses' => 'VisitasController@reportar', 
+		'as'   =>	'visitas.reportar'
 	]);
 
-
+	
 	route::get('visitas/{id}/update',[
 		'uses' => 'VisitasController@salida', 
 		'as'   =>	'visitas.salida'
@@ -120,6 +140,7 @@ Route::group(['prefix'=>'ope'],function(){
 		'as'   =>	'visitas.ingreso'
 	]);
 
+	
 	route::resource('visitas','VisitasController');
 
 });

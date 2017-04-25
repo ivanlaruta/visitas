@@ -7,16 +7,18 @@
 
 <div class="row">
   	<div class="col-md-12">
-		<div class="col-md-4">
+		<div class="col-md-4" >
 			<div class="row">
 				<div class="col-md-12">
 					{!! Form::open (['route' => 'visitas.create','method' => 'GET','class' => 'navbar-form pull-left'])!!}
-						<div class ="input-group">	
+						<div class ="row">	
 							{!! Form::text('ci', $recuperado -> ci ,['class'=> 'form-control','placeholder'=>'Ingrese CI para busqueda','aria-describedby'=>'seacrch'])!!}
-							<span class="input-group-addon" id="seach">
-							<span class="glyphicon glyphicon-search" aria-hidden="true">		 
-					      </span>
-					      </span>
+							{{-- <span class="input-group-addon" > --}}
+								<button type="submit"  class="btn btn-info" aria-label="Left Align">
+									<span class="glyphicon glyphicon-search" aria-hidden="true"></span>
+								</button>
+								{{-- <span class="glyphicon glyphicon-search" ></span> --}}
+					      	{{-- </span> --}}
 						</div>
 					{!! Form::close()!!}
 				</div>
@@ -26,13 +28,14 @@
 					<thead>
 						<th><h6>CI</h6></th>
 						<th><h6>Nombre </h6></th>
+						<th><h6>Agregar </h6></th>
 					</thead>
 					<tbody>
 						@foreach($vis as $visi)
 							<tr>								
 								<td>{{ $visi-> ci }}</td>
 								<td>{{ $visi -> nombre }} {{ $visi -> paterno }} </td>
-								<td><a href="{{ route('visitas.edit', $visi -> ci )}}" class="btn btn-success"><span class="glyphicon glyphicon-ok"></span></a> 
+								<td><a href="{{ route('visitas.edit', $visi -> ci )}}" class="btn btn-success btn-xs"><span class="glyphicon glyphicon-ok"></span></a> 
 								
 								</td>
 							</tr>
@@ -50,19 +53,19 @@
 					{!! Form::open(['route'=>'visitas.store','method'=>'POST'])!!}
 					<div class="form-group">
 						<h6>CI</h6>
-						{!! Form::text('ci',  $recuperado -> ci ,['class'=> 'form-control','placeholder'=>'Ingrese Nro de documento para registrar'])!!}
+						{!! Form::text('ci',  $recuperado -> ci ,['class'=> 'form-control text-ci','placeholder'=>'Ingrese Nro de documento para registrar'])!!}
 					</div>
 			    </div>
 			    <div class="col-md-2">
 					<div class="form-group">
 						<h6>Expedido</h6>
-						{!! Form::select('ex',$expe,null,['class'=>'form-control','placeholder'=>'Expedido','required'])!!}
+						{!! Form::select('ex',$expe,'LP',['class'=>'form-control'])!!}
 					</div>
 			    </div>
 			    <div class="col-md-4">
 					<div class="form-group">
 					<h6>Tipo Documento</h6>
-						{!! Form::select('tipo_doc',$tipoDoc,null,['class'=>'form-control','placeholder'=>'seleccione tipo','required'])!!}
+						{!! Form::select('tipo_doc',$tipoDoc,null,['class'=>'form-control'])!!}
 					</div>
 			    </div>
 	   		</div>
@@ -144,22 +147,36 @@
 			<input id="ubicacion" name="ubicacion" type="hidden" value="{{ Auth::user()->empleado->ubicacion->id_ubicacion }}">
 			
 				
-		</div> 
+		
+			<hr>
+			<div class="row">
+				<div class="col-md-8 col-md-offset-2">
+					<div class="col-md-6">
+						<div class="form-group">
+							{!! Form::submit('Marcar Ingreso visita',['class'=>'btn btn-primary'])!!}
+						</div>
+					</div>
+					<div class="col-md-6">
+						<a href="{{ route('visitas.index')}}" onclick ="return confirm('Los datos no guardados se perderan al salir de esta pagina. ¿Desea continuar?')" class="btn btn-warning">Ver visitas en Curso</a>
+						{!! Form::close()!!}
+					</div>
+				</div>
+			</div>	
+		</div>	
 	</div>	
 </div>
-<div class="row">
 
-	<div class="col-md-4 col-md-offset-4">
-
-		<div class="form-group">
-
-			{!! Form::submit('Marcar Ingreso visita',['class'=>'btn btn-primary'])!!}
-			<a href="{{ route('visitas.index')}}" onclick ="return confirm('Los datos no guardados se perderan al salir de esta pagina. ¿Desea continuar?')" class="btn btn-warning">Ver visitas en Curso</a>
-			{!! Form::close()!!}
-		</div>
-	</div>	
-</div>	
 
 
 @endsection
 
+@section('scripts')
+<script>
+
+    $(document).ready(function() {
+        $(".text-ci").focus();
+    });
+
+    
+</script> 
+@endsection

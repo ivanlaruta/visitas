@@ -36,26 +36,7 @@ class VisitasController extends Controller
         //dd($vi->all());
     }
    
-    public function reportadas(Request $request)
-    {   
-
-        date_default_timezone_set('America/La_Paz');
-        $time = time();
-        $hoy=date("d-m-Y ", $time);
-
-        $vi = Visita::where('estado_visita', '=', 1)
-        ->where('fecha_entrada', '<>', $hoy)
-        ->Search($request->ci)
-        ->orderBy('id_visita','DESC')
-        ->paginate(5)
-        ;
-
-        return view('ope.visitas.reportadas')
-            ->with('vi',$vi)
-             ->with('recuperado',$request)
-        ;
-        //dd($vi->all());
-    }
+   
 
     /**
      * Show the form for creating a new resource.
@@ -81,30 +62,26 @@ class VisitasController extends Controller
 
         if (Auth::user()->empleado->id_cargo == '3')
         {
-             $tarjetas = Tarjeta::where('estado_prestamo','1')
-                    ->select('id_tarjeta','tipo_tarjeta')
+             $tarjetas = Tarjeta::
+                    select('id_tarjeta','tipo_tarjeta')
                     ->where('estado','1')
                     ->where('id_ubicacion', $ubicacion)                    
                     ->whereNull('ci_empleado')
-
-                    ->where('tipo_tarjeta', 'VISITA')
-                    ->orWhere('tipo_tarjeta', 'PERSONAL AUTORIZADO')
-                    ->orWhere('tipo_tarjeta', 'SIN NOMBRE')
-                    ->orWhere('tipo_tarjeta', 'PASANTE')
+                    ->where('estado_prestamo','=','1') 
+                    ->whereIn('tipo_tarjeta', ['VISITA', 'PERSONAL AUTORIZADO', 'SIN NOMBRE', 'PASANTE'])
 
                     ->orderBy('id_tarjeta','ASC')
                     ->get();
         }
         else
         {
-        $tarjetas = Tarjeta::where('estado_prestamo','1')
-                    ->select('id_tarjeta','tipo_tarjeta')
+        $tarjetas = Tarjeta::
+                    select('id_tarjeta','tipo_tarjeta')
                     ->where('estado','1')
                     ->where('id_ubicacion', $ubicacion )
                     ->whereNull('ci_empleado')
-
-                    ->where('tipo_tarjeta', 'VICEPRESIDENCIA')
-                    ->orWhere('tipo_tarjeta', 'PRESIDENCIA')
+                    ->where('estado_prestamo','=','1')    
+                    ->whereIn ('tipo_tarjeta',['VICEPRESIDENCIA','PRESIDENCIA'])
 
 
                     ->orderBy('id_tarjeta','ASC')
@@ -114,7 +91,7 @@ class VisitasController extends Controller
         $motivos = Motivo::orderBy('id_motivo','ASC')->pluck('descripcion','id_motivo');
         // $empleados = Empleado::all()->pluck('nombre','ci');
         
-        $vis = Visitante::where('estado', '=', 1)->Search($request->ci)->orderBy('ci')->paginate(5);
+        $vis = Visitante::where('estado', '=', 1)->Search($request->ci)->orderBy('ci')->paginate(7);
         // dd($empleados);
        
 
@@ -127,6 +104,71 @@ class VisitasController extends Controller
             ->with('tarjetas',$tarjetas)
             ->with('recuperado',$request)
         ;
+    }
+
+
+    public function edit($id)
+    {
+        $ubicacion = Auth::user()->empleado->id_ubicacion;
+
+        $expe = Parametrica::where('nombre_tabla','EXPENDIDO')->orderBy('id','ASC')->pluck('descripcion','id');
+        $tipoDoc = Parametrica::where('nombre_tabla','TIPO_DOC')->orderBy('id','ASC')->pluck('descripcion','id');
+        $motivos = Motivo::orderBy('id_motivo','ASC')->pluck('descripcion','id_motivo');
+        $dato =Visitante::find($id);
+
+        $empleados = Empleado::orderBy('paterno','ASC')
+                    ->select('ci', 'nombre','paterno')
+                    ->where('id_cargo','<>','3' )
+                    ->where('id_ubicacion', $ubicacion )
+                    ->where('estado','1')
+                    ->get();
+
+        if (Auth::user()->empleado->id_cargo == '3')
+        {
+             $tarjetas = Tarjeta::select('id_tarjeta','tipo_tarjeta')
+                    ->where('estado','1')
+                    ->where('id_ubicacion', $ubicacion)                    
+                    ->whereNull('ci_empleado')
+                    ->where('estado_prestamo','=','1')
+                    ->whereIn('tipo_tarjeta', ['VISITA', 'PERSONAL AUTORIZADO', 'SIN NOMBRE', 'PASANTE'])
+
+                    ->orderBy('id_tarjeta','ASC')
+                    ->get();
+        }
+        else
+        {
+                    $tarjetas = Tarjeta::select('id_tarjeta','tipo_tarjeta')
+                    ->where('estado','1')
+                    ->where('id_ubicacion', $ubicacion )
+                    ->whereNull('ci_empleado')
+                    ->where('estado_prestamo','=','1')    
+                    ->whereIn ('tipo_tarjeta',['VICEPRESIDENCIA','PRESIDENCIA'])
+
+                    ->orderBy('id_tarjeta','ASC')
+                    ->get();
+
+        }
+        
+        $inf =  Visita::where('estado_visita','1')
+                ->where('ci_visitante', $id)                    
+                ->get();
+
+        if(sizeof($inf)>0)
+        {
+            return redirect()->route('visitas.create')->with('mensaje2',"Actualmente esta persona  se encuentra en una visita en curso.");
+        }
+        else
+        {
+            
+
+            return view('ope.visitas.createAux')
+            ->with('expe',$expe)
+            ->with('tipoDoc',$tipoDoc)
+            ->with('motivos',$motivos)
+            ->with('empleados',$empleados)
+            ->with('tarjetas',$tarjetas)
+            ->with('dato',$dato);
+        }
     }
 
     /**
@@ -146,9 +188,9 @@ class VisitasController extends Controller
         $visitante = new Visitante();
         $visitante -> ci = $request->ci;
         $visitante -> ex = $request->ex;
-        $visitante -> nombre = strtoupper($request->nombre);
-        $visitante -> paterno = strtoupper($request->paterno);
-        $visitante -> materno = strtoupper($request->materno);
+        $visitante -> nombre = strtr(strtoupper($request->nombre),"àèìòùáéíóúçñäëïöü","ÀÈÌÒÙÁÉÍÓÚÇÑÄËÏÖÜ");
+        $visitante -> paterno = strtr(strtoupper($request->paterno),"àèìòùáéíóúçñäëïöü","ÀÈÌÒÙÁÉÍÓÚÇÑÄËÏÖÜ");
+        $visitante -> materno = strtr(strtoupper($request->materno),"àèìòùáéíóúçñäëïöü","ÀÈÌÒÙÁÉÍÓÚÇÑÄËÏÖÜ");
         $visitante -> telefono = $request->telefono;
         $visitante -> creado_por = Auth::user()->usuario;
         $visitante -> modificado_por = Auth::user()->usuario;
@@ -205,21 +247,11 @@ class VisitasController extends Controller
         $ta = Tarjeta::find( $request->id_tarjeta);
         $ta->estado_prestamo = '0';
         $ta -> modificado_por = Auth::user()->usuario;
-
-        $inf =  Visita::where('estado_visita','1')
-                ->where('ci_visitante', $request->ci)                    
-                ->get();
-
-        if(sizeof($inf)>0)
-        {
-        return redirect()->route('visitas.create')->with('mensaje2',"Esta persona YA se encuentra en una Visita en Curso.");
-        }
-        else
-        {
-            $ta->save();
+        $ta->save();
             $visita->save();
             return redirect()->route('visitas.index')->with('mensaje',"Se marco el Ingreso correctamente  a hrs:".date("H:i:s", $time));
-        }
+
+        
     }
 
     /**
@@ -239,65 +271,7 @@ class VisitasController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function edit($id)
-    {
-
-        $ubicacion = Auth::user()->empleado->id_ubicacion;
-
-        $expe = Parametrica::where('nombre_tabla','EXPENDIDO')->orderBy('id','ASC')->pluck('descripcion','id');
-        $tipoDoc = Parametrica::where('nombre_tabla','TIPO_DOC')->orderBy('id','ASC')->pluck('descripcion','id');
-        $motivos = Motivo::orderBy('id_motivo','ASC')->pluck('descripcion','id_motivo');
-        
-       $empleados = Empleado::orderBy('paterno','ASC')
-                    ->select('ci', 'nombre','paterno')
-                    ->where('id_cargo','<>','3' )
-                    ->where('id_ubicacion', $ubicacion )
-                    ->where('estado','1')
-                    ->get();
-
-        if (Auth::user()->empleado->id_cargo == '3')
-        {
-             $tarjetas = Tarjeta::where('estado_prestamo','1')
-                    ->select('id_tarjeta','tipo_tarjeta')
-                    ->where('estado','1')
-                    ->where('id_ubicacion', $ubicacion)                    
-                    ->whereNull('ci_empleado')
-
-                    ->where('tipo_tarjeta', 'VISITA')
-                    ->orWhere('tipo_tarjeta', 'PERSONAL AUTORIZADO')
-                    ->orWhere('tipo_tarjeta', 'SIN NOMBRE')
-                    ->orWhere('tipo_tarjeta', 'PASANTE')
-
-                    ->orderBy('id_tarjeta','ASC')
-                    ->get();
-        }
-        else
-        {
-        $tarjetas = Tarjeta::where('estado_prestamo','1')
-                    ->select('id_tarjeta','tipo_tarjeta')
-                    ->where('estado','1')
-                    ->where('id_ubicacion', $ubicacion )
-                    ->whereNull('ci_empleado')
-
-                    ->where('tipo_tarjeta', 'VICEPRESIDENCIA')
-                    ->orWhere('tipo_tarjeta', 'PRESIDENCIA')
-
-
-                    ->orderBy('id_tarjeta','ASC')
-                    ->get();
-
-        }
-
-        $dato =Visitante::find($id);
-       return view('ope.visitas.createAux')
-        ->with('expe',$expe)
-        ->with('tipoDoc',$tipoDoc)
-        ->with('motivos',$motivos)
-        ->with('empleados',$empleados)
-        ->with('tarjetas',$tarjetas)
-        ->with('dato',$dato);
-    }
-
+    
 
     /**
      * Update the specified resource in storage.
@@ -308,7 +282,7 @@ class VisitasController extends Controller
      */
     public function update(Request $request, $id)
     {
-        //
+        
     }
 
     /**
@@ -342,17 +316,72 @@ class VisitasController extends Controller
         return redirect()->route('visitas.index')->with('mensaje',"visita se marco como terminada a hrs:".date("H:i:s", $time));
     }
 
-    public function restaurar( $id)
+    public function reportar($id)
     {
         $vi =Visita::find($id);
         $vi->estado_visita = '2';
         
         // echo ("Según el servidor la hora actual es: ". date("H:i:s", $time));
         $ta = Tarjeta::find( $vi->id_tarjeta);
-        $ta->estado_prestamo = '1';
+        $ta->estado_prestamo = '2';
+        $ta->ci_visitante = $vi->ci_visitante;
         
         $ta->save();
         $vi -> save();
-        return redirect()->route('visitas.index')->with('mensaje',"tarjeta restaurada:");
+        return redirect()->route('visitas.index')->with('mensaje',"visita reportada:");
+    }
+    public function reportadas(Request $request)
+    {   
+
+        date_default_timezone_set('America/La_Paz');
+        $vi = Visita::all()
+        ->where('estado_visita', '=', 2);
+
+        return view('admin.visitas.reportadas')
+            ->with('vi',$vi)
+            ->with('recuperado',$request)
+        ;
+        //dd($vi->all());
+    }
+
+    public function rehabilitar( $id)
+    {
+        $vi =Visita::find($id);
+        $vi->estado_visita = '1';
+
+        // $ta = Tarjeta::find( $vi->id_tarjeta);
+        // $ta->estado_prestamo = '1';
+        
+        //$ta->save();
+        $vi -> save();
+        return redirect()->route('visitas.reportadas')->with('mensaje',"visita rehabilitada:");
+    }
+
+    public function restaurar( $id)
+    {
+        $vi =Visita::find($id);
+        $vi->estado_visita = '0';
+
+        // $ta = Tarjeta::find( $vi->id_tarjeta);
+        // $ta->estado_prestamo = '1';
+        
+        //$ta->save();
+        $vi -> save();
+        return redirect()->route('visitas.index')->with('mensaje',"visita concluida:");
+    }
+
+    public function baja($id)
+    {   
+        $vi =Visita::find($id);
+        $ta =Tarjeta::find($id);
+
+        return view('admin.visitas.baja')
+            ->with('ta',$ta)
+            ->with('vi',$vi)
+        ;
+    }
+    public function bajaTarjeta(Request $request)
+    {   
+        dd($request->fecha_deposito);
     }
 }
