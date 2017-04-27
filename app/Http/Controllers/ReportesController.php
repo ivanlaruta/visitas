@@ -48,6 +48,7 @@ class ReportesController extends Controller
     {
         $ubicacion = Auth::user()->empleado->id_ubicacion;
         $vi = Visita::all()->where('id_ubicacion', '=', $ubicacion);
+       
         // $vi = Visita::where('id_ubicacion', '=', $ubicacion)
         //     ->Search($request->ci)
         //     ->orderBy('fecha_entrada','DESC')

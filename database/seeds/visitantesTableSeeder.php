@@ -57,6 +57,39 @@ class visitantesTableSeeder extends Seeder
             'creado_por'=> 'admin',
             'modificado_por'=>'admin',
        ]);
+        DB::table('visitantes')->insert([
+
+            'ci' => '2872542',
+            'ex' => 'LP',
+            'nombre' => 'ANA',
+            'paterno'=> 'PERALTA',            
+            'materno' => 'PALMA',
+            'telefono'=> '77756103',
+            'creado_por'=> 'admin',
+            'modificado_por'=>'admin',
+       ]);
+        DB::table('visitantes')->insert([
+
+            'ci' => '9874548741',
+            'ex' => 'LP',
+            'nombre' => 'JOSE',
+            'paterno'=> 'AVASTOFLOR',            
+            'materno' => 'VILCA',
+            'telefono'=> '77756103',
+            'creado_por'=> 'admin',
+            'modificado_por'=>'admin',
+       ]);
+        DB::table('visitantes')->insert([
+
+            'ci' => '36257841',
+            'ex' => 'LP',
+            'nombre' => 'ROLANDO',
+            'paterno'=> 'ROJAS',            
+            'materno' => 'CAMINO',
+            'telefono'=> '77756103',
+            'creado_por'=> 'admin',
+            'modificado_por'=>'admin',
+       ]);
 
 
     }

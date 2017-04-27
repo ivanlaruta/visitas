@@ -31,18 +31,26 @@
 				<th>Vistado</th>
 				<th>Tarjeta</th>
 				<th>Obs</th>
-				<th>estado</th>
+				<th>Estado</th>
 	        </tr>
 	    </thead>
 	    <tbody>	        
 			@foreach($vi as $vis)
-				@if($vis -> fecha_entrada < $vis -> fecha_salida)
+				@if($vis -> estado_visita == 1)
 						<tr class="warning">
 				@else
-					@if(is_null($vis -> hora_salida))
+					@if($vis -> estado_visita == 2)
 						<tr class="danger">
 					@else
-						<tr class="success">	
+						@if($vis -> estado_visita == 3)
+							<tr class="info">
+						@else
+							@if($vis -> estado_visita == 4)
+								<tr class="orange">
+							@else
+								<tr class="success">
+							@endif	
+						@endif		
 					@endif
 				@endif
 				<td>{{ $vis -> ci_visitante }}</td>
@@ -59,7 +67,27 @@
 				<td>{{ $vis -> empleado -> nombre }}  {{ $vis -> empleado -> paterno }}
 				<td><span class="text-info">{{ $vis -> id_tarjeta }}</td>
 				<td>{{ $vis -> observaciones }}</td>
-				@if($vis -> fecha_entrada < $vis -> fecha_salida)
+
+				@if($vis -> estado_visita == 1)
+					<td><span class="text-warning">En curso</span></td>	
+				@else
+					@if($vis -> estado_visita == 2)
+						<td><span class="text-danger">Reportada</span></td>
+					@else
+						@if($vis -> estado_visita == 3)
+							<td><span class="text-info">Regularizando</span></td>
+						@else
+							@if($vis -> estado_visita == 4)
+								<td><span class="text-danger">Finalizada con tarjeta extraviada</span></td>
+							@else
+								<td><span class="text-success">Finalizada</span></td>
+							@endif
+						@endif		
+					@endif
+				@endif
+			
+
+				{{-- @if($vis -> fecha_entrada < $vis -> fecha_salida)
 					<td><span class="text-warning">Observado</span></td>
 				@else
 					@if(is_null($vis -> hora_salida))
@@ -67,7 +95,8 @@
 					@else
 						<td><span class="text-success">Finalizado</span></td>
 					@endif
-				@endif
+				@endif --}}
+
 			</tr>
 			@endforeach
 	    </tbody>

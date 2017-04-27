@@ -124,6 +124,11 @@ Route::group(['prefix'=>'admin'],function(){
 
 Route::group(['prefix'=>'ope'],function(){
 
+	route::get('visitas/autocomplete',[
+		'uses' => 'AutoCompleteController@autocomplete', 
+		'as'   =>	'visitas.autocomplete'
+	]);
+	
 	route::get('visitas/{id}/reportar',[
 		'uses' => 'VisitasController@reportar', 
 		'as'   =>	'visitas.reportar'

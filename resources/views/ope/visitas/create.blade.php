@@ -105,19 +105,18 @@
 				<div class="col-md-6">
 					<div class="form-group">
 						<h6>Motivo:</h6>
-						{!! Form::select('id_motivo',$motivos,null,['class'=>'form-control','placeholder'=>'motivo de la visita','required'])!!}
+						{!! Form::select('id_motivo',$motivos,null,['class'=>'form-control ','placeholder'=>'motivo de la visita','required'])!!}
 					</div>
 				</div>
 				<div class="col-md-6">
 					<div class="form-group">
 						<h6>Empleado:</h6>
-
-						<select class="form-control" name="ci_empleado" required>
+						<select class="form-control select2" data-width="100%" name="ci_empleado" id="empleados" required >
 							<option value="">Selecione un empleado</option>
 						    @foreach($empleados as $emp)
-						      <option value="{{$emp->ci}}">{{$emp->paterno}} {{$emp->nombre}}</option>
+						      <option value="{{$emp->ci}}">{{$emp->paterno}} {{$emp->nombre}} - {{$emp->cargo->descripcion}} </option>
 						    @endforeach
-					  	</select>
+					  	</select> 
 					</div>
 				</div>
 			</div>
@@ -126,14 +125,12 @@
 					<div class="form-group">
 						<h6>Codigo de Tarjeta :</h6>
 
-						<select class="form-control" name="id_tarjeta" required>
+						<select class="form-control select2" data-width="100%" name="id_tarjeta" id="tarjetas" required >
 							<option value="">Tarjeta para el visitante</option>
 						    @foreach($tarjetas as $tar)
 						      <option value="{{$tar->id_tarjeta}}">{{$tar->id_tarjeta}} - {{$tar->tipo_tarjeta}}</option>
 						    @endforeach
 					  	</select>
-
-						{{-- {!! Form::select('id_tarjeta',$tarjetas,null,['class'=>'form-control','placeholder'=>'Tarjeta para el visitante','required'])!!} --}}
 					</div>
 				</div>
 				<div class="col-md-6">
@@ -165,18 +162,26 @@
 		</div>	
 	</div>	
 </div>
-
-
-
+	
+</div>
 @endsection
+
 
 @section('scripts')
 <script>
 
-    $(document).ready(function() {
-        $(".text-ci").focus();
-    });
+$(document).ready(function() {
+  $('#empleados').select2({
+  	theme: "bootstrap"
+  });
 
-    
+});
+$(document).ready(function() {
+  $('#tarjetas').select2({
+  	theme: "bootstrap"
+  });
+
+});
+	
 </script> 
 @endsection

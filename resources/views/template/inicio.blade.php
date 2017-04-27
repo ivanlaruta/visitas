@@ -83,7 +83,7 @@
                     <h2>SISTEMA DE CONTROL DE VISITAS</h2>
                     <p>El sistema permite registrar a visitantes y marcar las horas de entrada y salida de las visitas realizadas, ademas genera reportes con los datos obtenidos.</p>
 
-                    <a href="https://www.toyosa.com/" class="btn btn-default btn-lg">Visite la pagina oficial</a>
+                    <a href="#page-top" class="btn btn-default btn-lg">Visite la pagina oficial</a>
 
 
                 </div>

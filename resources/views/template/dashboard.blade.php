@@ -15,7 +15,13 @@
     
     <link href="{{ asset('libs/sbadmin/css/bootstrap.css')}}" rel="stylesheet">
 
-    <link href="{{ asset('libs/sbadmin/css/sb-admin.css')}}" rel="stylesheet">
+    <link href="{{ asset('libs/sbadmin/css/sb-admin.css')}}" rel="stylesheet">  
+
+    <link href="{{ asset('css/select2.css')}}" rel="stylesheet">
+
+    <link href="{{ asset('css/select2-bootstrap.css')}}" rel="stylesheet">
+
+    <link href="{{ asset('css/jquery-ui.css')}}" rel="stylesheet"> 
 
     <link href="{{ asset('libs/sbadmin/vendor/datatables-responsive/dataTables.responsive.css')}}" rel="stylesheet">
 
@@ -91,7 +97,13 @@
     {{-- <script src="../vendor/jquery/jquery.min.js"></script> --}}
 
     <!-- Bootstrap Core JavaScript -->
-    <script src="{{ asset('libs/sbadmin/js/bootstrap.min.js')}}"></script>
+    <script src="{{ asset('libs/sbadmin/js/bootstrap.min.js')}}"></script>   
+
+    <script src="{{ asset('plugins/jquery/js/select2.js')}}"></script> 
+
+    <script src="{{ asset('plugins/jquery/js/jquery-ui.js')}}"></script>
+
+    
 
     <script type="text/javascript" charset="utf8" src="{{ asset('plugins/jquery/js/jquery.table2excel.js')}}"></script>
    <script type="text/javascript" charset="utf8" src="{{ asset('libs/datepicker/js/bootstrap-datepicker.min.js')}}"></script>

@@ -48,7 +48,7 @@
 						{{-- <th>ID</th> --}}
 						<th>Documento</th>
 						<th>Ex</th>
-						<th>Tipo doc</th>
+						<th>Tipo</th>
 						<th>Visitante</th>
 						{{-- <th>Fecha</th> --}}
 						<th>Entrada</th>
@@ -65,7 +65,7 @@
 					<tbody>
 						@foreach($vi as $vis)
 						@if(is_null($vis -> hora_salida))
-							<tr class="danger">
+							<tr class="warning">
 						@else
 							 <tr class="success">	
 						@endif							

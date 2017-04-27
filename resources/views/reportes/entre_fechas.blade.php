@@ -69,42 +69,59 @@
 			        </tr>
 			    </thead>
 			    <tbody>	        
-					@foreach($vi as $vis)
-					@if($vis -> fecha_entrada < $vis -> fecha_salida)
+			@foreach($vi as $vis)
+				@if($vis -> estado_visita == 1)
 						<tr class="warning">
+				@else
+					@if($vis -> estado_visita == 2)
+						<tr class="danger">
 					@else
-						@if(is_null($vis -> hora_salida))
-							<tr class="danger">
+						@if($vis -> estado_visita == 3)
+							<tr class="info">
 						@else
-							<tr class="success">	
-						@endif
-					@endif
-						<td>{{ $vis -> ci_visitante }}</td>
-						<td>{{ $vis -> visitante -> ex}}</td>
-						<td>{{ $vis -> tipo_doc }}</td>
-						<td>{{ $vis -> visitante -> nombre }}  {{ $vis -> visitante -> paterno }}</td>	
-						<td><span class="text-success">{{ date('d-m-Y', strtotime($vis -> fecha_entrada ))}} {{ $vis -> hora_entrada }}</span></td>	
-						@if(is_null($vis -> hora_salida))
-							<td>-- : -- : --</td>
-						@else
-							<td><span class="text-danger">{{ date('d-m-Y', strtotime($vis -> fecha_salida)) }} {{ $vis -> hora_salida }}</span></td>
-						@endif	
-						<td>{{ $vis -> motivo -> descripcion}}</td>
-						<td>{{ $vis -> empleado -> nombre }}  {{ $vis -> empleado -> paterno }}
-						<td><span class="text-info">{{ $vis -> id_tarjeta }}</td>
-						<td>{{ $vis -> observaciones }}</td>
-						@if($vis -> fecha_entrada < $vis -> fecha_salida)
-							<td><span class="text-warning">Observado</span></td>
-						@else
-							@if(is_null($vis -> hora_salida))
-								<td><span class="text-danger">En curso</span></td>
+							@if($vis -> estado_visita == 4)
+								<tr class="orange">
 							@else
-								<td><span class="text-success">Finalizado</span></td>
+								<tr class="success">
+							@endif	
+						@endif		
+					@endif
+				@endif
+				<td>{{ $vis -> ci_visitante }}</td>
+				<td>{{ $vis -> visitante -> ex}}</td>
+				<td>{{ $vis -> tipo_doc }}</td>
+				<td>{{ $vis -> visitante -> nombre }}  {{ $vis -> visitante -> paterno }}
+				<td><span class="text-success">{{ date('d-m-Y', strtotime($vis -> fecha_entrada ))}} {{ $vis -> hora_entrada }}</span></td>	
+				@if(is_null($vis -> hora_salida))
+					<td>-- : -- : --</td>
+				@else
+					<td><span class="text-danger">{{ date('d-m-Y', strtotime($vis -> fecha_salida)) }} {{ $vis -> hora_salida }}</span></td>
+				@endif	
+				<td>{{ $vis -> motivo -> descripcion}}</td>
+				<td>{{ $vis -> empleado -> nombre }}  {{ $vis -> empleado -> paterno }}
+				<td><span class="text-info">{{ $vis -> id_tarjeta }}</td>
+				<td>{{ $vis -> observaciones }}</td>
+
+				@if($vis -> estado_visita == 1)
+					<td><span class="text-warning">En curso</span></td>	
+				@else
+					@if($vis -> estado_visita == 2)
+						<td><span class="text-danger">Reportada</span></td>
+					@else
+						@if($vis -> estado_visita == 3)
+							<td><span class="text-info">Regularizacion</span></td>
+						@else
+							@if($vis -> estado_visita == 4)
+								<td><span class="text-danger">OBSERVADO</span></td>
+							@else
+								<td><span class="text-success">Fianlizada</span></td>
 							@endif
-						@endif
-					</tr>
-					@endforeach
-			    </tbody>
+						@endif		
+					@endif
+				@endif
+			</tr>
+			@endforeach
+	    </tbody>
 			</table>
 		</div>
 		{{ $vi->links() }}

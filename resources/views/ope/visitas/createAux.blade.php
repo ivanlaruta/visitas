@@ -9,12 +9,14 @@
 			<div class="row">
 				<div class="col-md-12">
 					{!! Form::open (['route' => 'visitas.create','method' => 'GET','class' => 'navbar-form pull-left'])!!}
-						<div class ="input-group">	
+						<div class ="row">	
 							{!! Form::text('ci', null ,['class'=> 'form-control','placeholder'=>'Ingrese CI para busqueda','aria-describedby'=>'seacrch'])!!}
-							<span class="input-group-addon" id="seach">
-							<span class="glyphicon glyphicon-search" aria-hidden="true">		 
-					      </span>
-					      </span>
+							{{-- <span class="input-group-addon" > --}}
+								<button type="submit"  class="btn btn-info" aria-label="Left Align">
+									<span class="glyphicon glyphicon-search" aria-hidden="true"></span>
+								</button>
+								{{-- <span class="glyphicon glyphicon-search" ></span> --}}
+					      	{{-- </span> --}}
 						</div>
 					{!! Form::close()!!}
 				</div>
@@ -106,7 +108,7 @@
 					<div class="form-group">
 						<h6>Empleado:</h6>
 						
-						<select class="form-control" name="ci_empleado" required>
+						<select class="form-control select2" data-width="100%" name="ci_empleado" id="empleados" required >
 							<option value="">Selecione un empleado</option>
 						    @foreach($empleados as $emp)
 						      <option value="{{$emp->ci}}">{{$emp->paterno}} {{$emp->nombre}}</option>
@@ -119,7 +121,7 @@
 				<div class="col-md-6">
 					<div class="form-group">
 						<h6>Codigo de Tarjeta :</h6>
-						<select class="form-control" name="id_tarjeta" required>
+						<select class="form-control select2" data-width="100%" name="id_tarjeta" id="tarjetas" required >
 							<option value="">Tarjeta para el visitante</option>
 						    @foreach($tarjetas as $tar)
 						      <option value="{{$tar->id_tarjeta}}">{{$tar->id_tarjeta}} - {{$tar->tipo_tarjeta}}</option>
@@ -134,25 +136,43 @@
 					</div>
 				</div>
 			</div>
-
 			<input id="ubicacion" name="ubicacion" type="hidden" value="{{ Auth::user()->empleado->ubicacion->id_ubicacion }}">
-			
-	
-		</div> 
+			<hr>
+			<div class="row">
+				<div class="col-md-8 col-md-offset-2">
+					<div class="col-md-6">
+						<div class="form-group">
+							{!! Form::submit('Marcar Ingreso visita',['class'=>'btn btn-primary'])!!}
+						</div>
+					</div>
+					<div class="col-md-6">
+						<a href="{{ route('visitas.index')}}" onclick ="return confirm('Los datos no guardados se perderan al salir de esta pagina. ¿Desea continuar?')" class="btn btn-warning">Ver visitas en Curso</a>
+						{!! Form::close()!!}
+					</div>
+				</div>
+			</div>	
+		</div>	
 	</div>	
 </div>
-<div class="row">
 
-	<div class="col-md-4 col-md-offset-4">
-
-		<div class="form-group">
-
-			{!! Form::submit('Marcar Ingreso visita',['class'=>'btn btn-primary'])!!}
-			<a href="{{ route('visitas.index')}}" onclick ="return confirm('Los datos no guardados se perderan al salir de esta pagina. ¿Desea continuar?')" class="btn btn-warning">Ver visitas en Curso</a>
-			{!! Form::close()!!}
-		</div>
-	</div>	
-</div>	
 
 @endsection
 
+@section('scripts')
+<script>
+
+$(document).ready(function() {
+  $('#empleados').select2({
+  	theme: "bootstrap"
+  });
+
+});
+$(document).ready(function() {
+  $('#tarjetas').select2({
+  	theme: "bootstrap"
+  });
+
+});
+	
+</script> 
+@endsection

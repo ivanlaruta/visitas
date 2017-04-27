@@ -2376,6 +2376,28 @@ table th[class*="col-"] {
 .table-hover > tbody > tr.success:hover > th {
   background-color: #d0e9c6;
 }
+.table > thead > tr > td.orange,
+.table > tbody > tr > td.orange,
+.table > tfoot > tr > td.orange,
+.table > thead > tr > th.orange,
+.table > tbody > tr > th.orange,
+.table > tfoot > tr > th.orange,
+.table > thead > tr.orange > td,
+.table > tbody > tr.orange > td,
+.table > tfoot > tr.orange > td,
+.table > thead > tr.orange > th,
+.table > tbody > tr.orange > th,
+.table > tfoot > tr.orange > th {
+  background-color: #f4e3c9;
+}
+.table-hover > tbody > tr > td.orange:hover,
+.table-hover > tbody > tr > th.orange:hover,
+.table-hover > tbody > tr.orange:hover > td,
+.table-hover > tbody > tr:hover > .orange,
+.table-hover > tbody > tr.orange:hover > th {
+  background-color: #ecd4ae;
+}
+
 .table > thead > tr > td.info,
 .table > tbody > tr > td.info,
 .table > tfoot > tr > td.info,

@@ -23,10 +23,12 @@ class ValidarUsuarioController extends Controller
         {
 	        return redirect()->route('visitas.create');
     	}
+        
     	if (Auth::user()->id_rol== '1')
         {	
     		 return redirect()->route('users.index');
     	}
+        
     }
 
 }

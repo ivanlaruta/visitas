@@ -23,6 +23,7 @@ class VisitasController extends Controller
         $hoy=date("Y-m-d ", $time);
         
         $vi = Visita::where('estado_visita', '<>', 0)
+        ->where('estado_visita', '<>', 4)
         // ->where('fecha_entrada', '=', $hoy)
         ->Search($request->ci)
         ->orderBy('fecha_entrada','ASC')
@@ -54,7 +55,7 @@ class VisitasController extends Controller
         // $empleados = Empleado::all(['ci', 'nombre','paterno']);
 
         $empleados = Empleado::orderBy('paterno','ASC')
-                    ->select('ci', 'nombre','paterno')
+                    ->select('*')
                     ->where('id_cargo','<>','3' )
                     ->where('id_ubicacion', $ubicacion )
                     ->where('estado','1')
@@ -92,8 +93,7 @@ class VisitasController extends Controller
         // $empleados = Empleado::all()->pluck('nombre','ci');
         
         $vis = Visitante::where('estado', '=', 1)->Search($request->ci)->orderBy('ci')->paginate(7);
-        // dd($empleados);
-       
+        // dd($empleados);      
 
         return view('ope.visitas.create')
             ->with('expe',$expe)
@@ -103,6 +103,7 @@ class VisitasController extends Controller
             ->with('empleados',$empleados)
             ->with('tarjetas',$tarjetas)
             ->with('recuperado',$request)
+            
         ;
     }
 
@@ -244,11 +245,14 @@ class VisitasController extends Controller
         $visita -> creado_por = Auth::user()->usuario;
         $visita -> modificado_por = Auth::user()->usuario;
  // dd($request->id_tarjeta);  
+
         $ta = Tarjeta::find( $request->id_tarjeta);
-        $ta->estado_prestamo = '0';
+        
+        $ta -> estado_prestamo = '0';
         $ta -> modificado_por = Auth::user()->usuario;
+
         $ta->save();
-            $visita->save();
+        $visita->save();
             return redirect()->route('visitas.index')->with('mensaje',"Se marco el Ingreso correctamente  a hrs:".date("H:i:s", $time));
 
         
@@ -305,6 +309,7 @@ class VisitasController extends Controller
         $vi->fecha_salida = date("d-m-Y ", $time);
         $vi->hora_salida = date("H:i:s", $time);
         $vi->modificado_por = Auth::user()->usuario;
+      
         // echo ("Según el servidor la hora actual es: ". date("H:i:s", $time));
         $ta = Tarjeta::find( $vi->id_tarjeta);
         $ta->estado_prestamo = '1';
@@ -313,7 +318,7 @@ class VisitasController extends Controller
         $ta->save();
         $vi -> save();
 
-        return redirect()->route('visitas.index')->with('mensaje',"visita se marco como terminada a hrs:".date("H:i:s", $time));
+        return redirect()->route('visitas.index')->with('mensaje',"Visita se marco como terminada a hrs:".date("H:i:s", $time));
     }
 
     public function reportar($id)
@@ -325,15 +330,15 @@ class VisitasController extends Controller
         $ta = Tarjeta::find( $vi->id_tarjeta);
         $ta->estado_prestamo = '2';
         $ta->ci_visitante = $vi->ci_visitante;
-        
+        $ta -> modificado_por = Auth::user()->usuario;
         $ta->save();
         $vi -> save();
-        return redirect()->route('visitas.index')->with('mensaje',"visita reportada:");
+        return redirect()->route('visitas.index')->with('mensaje',"Visita reportada:");
     }
     public function reportadas(Request $request)
     {   
 
-        date_default_timezone_set('America/La_Paz');
+       
         $vi = Visita::all()
         ->where('estado_visita', '=', 2);
 
@@ -348,40 +353,62 @@ class VisitasController extends Controller
     {
         $vi =Visita::find($id);
         $vi->estado_visita = '1';
-
+        $vi -> modificado_por = Auth::user()->usuario;
         // $ta = Tarjeta::find( $vi->id_tarjeta);
         // $ta->estado_prestamo = '1';
         
         //$ta->save();
         $vi -> save();
-        return redirect()->route('visitas.reportadas')->with('mensaje',"visita rehabilitada:");
+        return redirect()->route('visitas.reportadas')->with('mensaje',"Visita rehabilitada:");
     }
 
     public function restaurar( $id)
     {
+        date_default_timezone_set('America/La_Paz');
+        $time = time();
         $vi =Visita::find($id);
-        $vi->estado_visita = '0';
+        $vi->estado_visita = '4';
+        $vi->fecha_salida = date("d-m-Y ", $time);
+        $vi->hora_salida = date("H:i:s", $time);
+        $vi->modificado_por = Auth::user()->usuario;
 
-        // $ta = Tarjeta::find( $vi->id_tarjeta);
-        // $ta->estado_prestamo = '1';
-        
-        //$ta->save();
         $vi -> save();
-        return redirect()->route('visitas.index')->with('mensaje',"visita concluida:");
+        return redirect()->route('visitas.index')->with('mensaje',"Visita concluida:");
     }
 
     public function baja($id)
     {   
         $vi =Visita::find($id);
         $ta =Tarjeta::find($id);
-
+       
         return view('admin.visitas.baja')
             ->with('ta',$ta)
             ->with('vi',$vi)
+
         ;
     }
+
     public function bajaTarjeta(Request $request)
     {   
-        dd($request->fecha_deposito);
+        // dd($request->all());
+
+        $vi =Visita::find($request->id_visita);
+        $vi->estado_visita = '3';
+        $vi -> modificado_por = Auth::user()->usuario;
+
+        $ta = Tarjeta::find( $vi->id_tarjeta);
+        $ta->estado_prestamo = '0';
+        $ta->estado = '0';
+        $ta->boleta_deposito = $request->boleta_deposito;
+        $ta->cuenta = $request->cuenta;
+        $ta->monto = $request->monto;
+        $ta->fecha_deposito = $request->fecha_deposito;
+        $ta->ci_visitante = $request->ci_visitante;
+        $ta -> modificado_por = Auth::user()->usuario;
+
+        $ta->save();
+        $vi -> save();
+
+        return redirect()->route('visitas.reportadas')->with('mensaje',"Deposito registrado correctamente");
     }
 }

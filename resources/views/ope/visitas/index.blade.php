@@ -5,8 +5,8 @@
 
 
 
-			{{-- <div>
-				<div class="row">
+			<div>
+				{{-- <div class="row">
   					<div class="col-md-8">
 						{!! Form::open (['route' => 'visitas.index','method' => 'GET','class' => 'navbar-form pull-left'])!!}
 							<div class ="input-group">	
@@ -20,11 +20,11 @@
 							</div>
 						{!! Form::close()!!}
 					</div>
-					<div class="col-md-4">
+					<div class="navbar-form pull-right">
 						<a href="{{ route('visitas.create')}}" class="btn btn-success">Registrar nueva Entrada</a>
 					</div>
-				</div>
-			</div> --}}
+				</div> --}}
+			
 			<div class="row">
 				
 				 <div class="table-responsive">
@@ -38,7 +38,7 @@
 						<th>Visitante</th>
 						<th>Telefono</th>
 						<th>Entrada</th> 
-						<th>Hora</th>
+						
 						<th>Motivo</th>
 						<th>Vistado</th>
 						{{-- <th>Cargo</th> --}}
@@ -71,10 +71,9 @@
 								<td>{{ $vis -> tipo_doc }}</td>
 								<td>{{ $vis -> visitante -> nombre }}  {{ $vis -> visitante -> paterno }}  {{ $vis -> visitante -> materno }}</td>
 								<td>{{ $vis -> visitante -> telefono }}</td>
-								<td>{{ date('d-m-Y', strtotime($vis -> fecha_entrada)) }}
-								<td><span class="text-danger">{{ $vis -> hora_entrada }}</span></td>
+								<td><span class="text-danger">{{ date('d-m-Y', strtotime($vis -> fecha_entrada)) }}	{{ $vis -> hora_entrada }}</span></td>
 								<td>{{ $vis -> motivo -> descripcion}}</td>
-								<td>{{ $vis -> empleado -> nombre }}  {{ $vis -> empleado -> paterno }}</td>
+								<td>{{ $vis -> empleado -> nombre }}  {{ $vis -> empleado -> paterno }} </td>
 								{{-- <td>{{ $vis -> empleado -> cargo -> descripcion }} </td> --}}
 								<td><span class="text-info">{{ $vis -> id_tarjeta }}</td>
 								{{-- <td>{{ $vis -> tarjeta -> tipo_tarjeta }} </td> --}}
@@ -82,12 +81,12 @@
 								<td>{{ $vis -> observaciones }}</td>
 								<td>
 								@if($vis -> estado_visita === '2')
-									Deshabilitado!
+									<span class="text-danger">Reportada!</span>
 								@else
 									@if($vis -> estado_visita === '3')
 										<div class="row">
 										
-										<a href="{{ route('visitas.restaurar',$vis -> id_visita )}}"  class="btn btn-success btn-sm" title="">Devolucion</a>
+										<a href="{{ route('visitas.restaurar',$vis -> id_visita )}}"  class="btn btn-info btn-sm" title="">Devolver</a>
 										</div>
 									@else
 										<div class="row">
@@ -112,6 +111,7 @@
 				</div>
 				{{ $vi->links() }} 
 		</div>
+	</div>
 @endsection
 
 @section('scripts')
