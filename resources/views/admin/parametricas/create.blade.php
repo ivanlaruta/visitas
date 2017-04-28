@@ -11,13 +11,13 @@
 
 				<div class="form-group">
 						<h6>Parametrica</h6>
-						{!! Form::select('nombre_tabla',['EXPEDIDO'=>'EXPEDIDO','TIPO_DOC'=>'TIPO DE DOCUMENTO','CIUDAD'=>'CIUDAD','TIPO_TAR'=>'TIPO DE TARJETA'],null,['class'=>'form-control','placeholder'=>'seleccione categoria','required'])!!}
+						{!! Form::select('nombre_tabla',['BANCO'=>'BANCO','AREA'=>'AREA','EXPEDIDO'=>'EXPEDIDO','TIPO_DOC'=>'TIPO DE DOCUMENTO','CIUDAD'=>'CIUDAD','TIPO_TAR'=>'TIPO DE TARJETA'],null,['class'=>'form-control','placeholder'=>'seleccione categoria','required'])!!}
 					</div>
 
 				<div class="form-group">
 
 					{!! Form::label('id','ID')!!}
-					{!! Form::text('id',null,['class'=> 'form-control','0placeholder'=>'ID para parametrica ej: LIC','required'])!!}
+					{!! Form::text('id',null,['class'=> 'form-control','placeholder'=>'ID para parametrica ej: LIC'])!!}
 				</div>
 
 				<div class="form-group">

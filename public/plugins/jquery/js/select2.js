@@ -4498,7 +4498,7 @@ S2.define('select2/i18n/en',[],function () {
       return message;
     },
     noResults: function () {
-      return 'No results found';
+      return 'Sin resultados';
     },
     searching: function () {
       return 'Searching…';

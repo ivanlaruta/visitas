@@ -88,7 +88,7 @@ class EmpleadosController extends Controller
      */
     public function edit($id)
     {
-
+        $expe = Parametrica::where('nombre_tabla','EXPEDIDO')->orderBy('id','ASC')->pluck('descripcion','id');
         $cargos = Cargo::orderBy('id_cargo','ASC')->pluck('descripcion','id_cargo');
        
         $ubica =Ubicacion::all()->pluck('nombre','id_ubicacion');
@@ -98,6 +98,7 @@ class EmpleadosController extends Controller
        ->with('us',$us)
         ->with('cargos',$cargos)
         ->with('ubica',$ubica) 
+        ->with('expe',$expe)
        ;
     }
 

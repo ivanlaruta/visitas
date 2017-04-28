@@ -53,7 +53,7 @@
 					{!! Form::open(['route'=>'visitas.store','method'=>'POST'])!!}
 					<div class="form-group">
 						<h6>CI</h6>
-						{!! Form::text('ci',  $recuperado -> ci ,['class'=> 'form-control text-ci','placeholder'=>'Ingrese Nro de documento para registrar'])!!}
+						{!! Form::text('ci',  $recuperado -> ci ,['class'=> 'form-control texto','placeholder'=>'Ingrese Nro de documento para registrar'])!!}
 					</div>
 			    </div>
 			    <div class="col-md-2">
@@ -169,6 +169,8 @@
 
 @section('scripts')
 <script>
+
+$('.texto').focus();
 
 $(document).ready(function() {
   $('#empleados').select2({

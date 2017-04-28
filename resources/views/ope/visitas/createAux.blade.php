@@ -62,7 +62,7 @@
 			    <div class="col-md-4">
 					<div class="form-group">
 					<h6>Tipo Documento</h6>
-						{!! Form::select('tipo_doc',$tipoDoc,null,['class'=>'form-control'])!!}
+						{!! Form::select('tipo_doc',$tipoDoc,null,['class'=>'form-control texto'])!!}
 					</div>
 			    </div>
 	   		</div>
@@ -160,6 +160,8 @@
 
 @section('scripts')
 <script>
+
+$('.texto').focus();
 
 $(document).ready(function() {
   $('#empleados').select2({

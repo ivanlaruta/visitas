@@ -23,7 +23,7 @@ Route::get('/inicial', 'ValidarUsuarioController@index');
 
 // Rpara dministradores
 
-Route::group(['prefix'=>'admin'],function(){
+Route::group(['prefix'=>'admin','middleware'=>'auth'],function(){
 	
 	route::resource('users','UsersController');
 	
@@ -122,7 +122,7 @@ Route::group(['prefix'=>'admin'],function(){
 
 // * para operadores
 
-Route::group(['prefix'=>'ope'],function(){
+Route::group(['prefix'=>'ope','middleware'=>'auth'],function(){
 
 	route::get('visitas/autocomplete',[
 		'uses' => 'AutoCompleteController@autocomplete', 
@@ -149,7 +149,7 @@ Route::group(['prefix'=>'ope'],function(){
 	route::resource('visitas','VisitasController');
 
 });
-Route::group(['prefix'=>'rep'],function(){
+Route::group(['prefix'=>'rep','middleware'=>'auth'],function(){
 
 	route::get('reportes/getPDF',[
 		'uses' =>'PDFController@getPDF',

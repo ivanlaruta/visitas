@@ -79,8 +79,9 @@ class VisitantesController extends Controller
      */
     public function edit($id)
     {
+        $expe = Parametrica::where('nombre_tabla','EXPEDIDO')->orderBy('id','ASC')->pluck('descripcion','id');
         $us =Visitante::find($id);
-       return view('admin.visitantes.edit')->with('us',$us);
+       return view('admin.visitantes.edit')->with('us',$us)->with('expe',$expe);
     }
 
     /**

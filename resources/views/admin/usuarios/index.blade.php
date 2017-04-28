@@ -34,8 +34,10 @@
 									@endif
 								</td>
 								<td>
-									<a href="{{ route('users.edit',$usu -> usuario )}}" class="btn btn-warning">Modificar</a> 
-									<a href="{{ route('users.baja',$usu -> usuario )}}" onclick ="return confirm('¿Desea Dar de baja?')" class="btn btn-danger">Eliminar</a> 
+								<div class="row">
+									<a href="{{ route('users.edit',$usu -> usuario )}}" class="btn btn-warning" title="Modificar"><span class="fa fa-edit "></span></a> 
+									<a href="{{ route('users.baja',$usu -> usuario )}}" onclick ="return confirm('¿Desea Dar de baja?')" class="btn btn-danger" title="Eliminar"><span class="fa fa-trash-o"></span></a>  
+								</div>
 								</td>
 							</tr>
 						@endforeach

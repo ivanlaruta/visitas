@@ -12,7 +12,7 @@
 						<th>CI</th>
 						<th>Ex</th>
 						<th>Nombre</th>
-						<th>E-mail</th>
+						<th>Correo</th>
 						<th>Cargo</th>
 						<th>Ubicacion</th>
 						<th>Telefono</th>
@@ -30,8 +30,10 @@
 								<td>{{ $usu -> telefono }}</td>
 
 								<td>
-									<a href="{{ route('empleados.edit',$usu -> ci )}}" class="btn btn-warning">Modificar</a> 
-									<a href="{{ route('empleados.baja',$usu -> ci )}}" onclick ="return confirm('¿Desea Dar de baja?')" class="btn btn-danger">Eliminar</a> 
+								<div class="row">
+									<a href="{{ route('empleados.edit',$usu -> ci )}}" class="btn btn-warning" title="Modificar"><span class="fa fa-edit "></span></a> 
+									<a href="{{ route('empleados.baja',$usu -> ci )}}" onclick ="return confirm('¿Desea Dar de baja?')" class="btn btn-danger" title="Eliminar"><span class="fa fa-trash-o"></span></a>  
+								</div>
 								</td>
 							</tr>
 						@endforeach

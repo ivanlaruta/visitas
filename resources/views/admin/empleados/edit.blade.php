@@ -16,10 +16,9 @@
 		        			<div class="form-group">
 					{!! Form::text('ci',$us->ci,['class'=> 'form-control','placeholder'=>'ci','required'])!!}
 					</div>
-					
 					<div class="form-group">
 						<h6>Expedido</h6>
-						{!! Form::select('ex',['LP'=>'La Paz','OR'=>'Oruro','PT'=>'Potosi','CH'=>'Chuquisaca','CB'=>'Cochabamba','TJ'=>'Tarija','BN'=>'Beni','PA'=>'Pando','SC'=>'Santa Cruz'],$us->ex,['class'=>'form-control','placeholder'=>'seleccione una expedicion','required'])!!}
+						{!! Form::select('ex',$expe,$us->ex,['class'=>'form-control','placeholder'=>'Expedido','required'])!!}
 					</div>
 		      
 					<div class="form-group">
@@ -42,7 +41,7 @@
 					</div>
 
 					<div class="form-group">
-					{!! Form::label('email','E-mail')!!}
+					{!! Form::label('email','Correo')!!}
 					</div>
 					<div class="form-group">
 					{!! Form::email('email',$us->email,['class'=> 'form-control','placeholder'=>'ejemplo@toyosa.com'])!!}
@@ -50,8 +49,7 @@
 
 					<div class="form-group">
 					{!! Form::label('cargo','Cargo')!!}
-
-						{!! Form::select('id_cargo',$cargos,$us->id_cargo,['class'=>'form-control','placeholder'=>'seleccione un cargo','required'])!!}
+					{!! Form::select('id_cargo',$cargos,$us->id_cargo,['class'=>'form-control cargos','data-width'=>"100%",'placeholder'=>'seleccione un cargo','required'])!!}
 					</div>
 
 					<div class="form-group">
@@ -80,3 +78,16 @@
 @endsection
 
 
+@section('scripts')
+<script>
+
+
+$(document).ready(function() {
+  $('.cargos').select2({
+  	theme: "bootstrap"
+  });
+
+});
+	
+</script> 
+@endsection

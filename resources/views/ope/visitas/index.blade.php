@@ -92,12 +92,12 @@
 									@if($vis -> estado_visita === '3')
 										<div class="row">
 										
-										<a href="{{ route('visitas.restaurar',$vis -> id_visita )}}"  class="btn btn-info btn-sm" title="Terminar Visita"><span class="fa fa-mail-reply"></a>
+										<a href="{{ route('visitas.restaurar',$vis -> id_visita )}}"  class="btn btn-info btn-sm" title="Terminar Visita"><span class="fa fa-mail-reply"></span></a>
 										</div>
 									@else
 										<div class="row">
 										
-										<a href="{{ route('visitas.salida',$vis -> id_visita )}}" onclick ="return confirm('¿Desea Marcar la Salida de este visitante ?')" class="btn btn-success btn-sm" title="Marcar salida de visita"><span class="fa fa-mail-reply"></a>
+										<a href="{{ route('visitas.salida',$vis -> id_visita )}}" onclick ="return confirm('¿Desea Marcar la Salida de este visitante ?')" class="btn btn-success btn-sm" title="Marcar salida de visita"><span class="fa fa-mail-reply"></span></a>
 										
 										
 										<a href="{{ route('visitas.reportar',$vis -> id_visita )}}" onclick ="return confirm('La visita se marcara como reportada.¿Desea continuar?')" class="btn btn-danger btn-sm" title="Reportar tarjeta"><span class="glyphicon glyphicon-exclamation-sign"></span></a>

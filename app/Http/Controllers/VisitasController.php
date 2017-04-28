@@ -244,15 +244,17 @@ class VisitasController extends Controller
         $visita -> creado_por = Auth::user()->usuario;
         $visita -> modificado_por = Auth::user()->usuario;
  // dd($request->id_tarjeta);  
+        $vi = Visitante::find($request->ci);
+        $vi -> telefono = $request->telefono;
 
         $ta = Tarjeta::find( $request->id_tarjeta);
-        
         $ta -> estado_prestamo = '0';
         $ta -> modificado_por = Auth::user()->usuario;
 
+        $vi->save();
         $ta->save();
         $visita->save();
-            return redirect()->route('visitas.index')->with('mensaje',"Se marco el Ingreso correctamente  a hrs:".date("H:i:s", $time));
+        return redirect()->route('visitas.index')->with('mensaje',"Se marco el Ingreso correctamente  a hrs:".date("H:i:s", $time));
 
         
     }

@@ -43,7 +43,7 @@
 					</div>
 
 					<div class="form-group">
-					{!! Form::label('email','E-mail')!!}
+					{!! Form::label('email','Correo')!!}
 					</div>
 					<div class="form-group">
 					{!! Form::email('email',null,['class'=> 'form-control','placeholder'=>'ejemplo@toyosa.com'])!!}
@@ -51,10 +51,10 @@
 
 					<div class="form-group">
 					{!! Form::label('cargo','Cargo')!!}
-					{!! Form::select('id_cargo',$cargos,null,['class'=>'form-control','placeholder'=>'seleccione un cargo','required'])!!}
+					{!! Form::select('id_cargo',$cargos,null,['class'=>'form-control cargos','data-width'=>"100%",'placeholder'=>'seleccione un cargo','required'])!!}
 					</div>
 					
-					<div class="form-group">
+					<div class="form-group" >
 					{!! Form::label('email','Ubicacion')!!}
 						{!! Form::select('id_ubicacion',$ubica,null,['class'=>'form-control','placeholder'=>'seleccione una ubicacion','required'])!!}
 					</div>
@@ -81,3 +81,16 @@
 
 @endsection
 
+@section('scripts')
+<script>
+
+
+$(document).ready(function() {
+  $('.cargos').select2({
+  	theme: "bootstrap"
+  });
+
+});
+	
+</script> 
+@endsection
