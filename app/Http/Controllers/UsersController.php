@@ -106,10 +106,11 @@ class UsersController extends Controller
     {
         $us =User::find($id);
         // $us->usuario = $request->usuario;
+        $us->fill($request->all());
         $us->id_rol = $request->id_rol;
         $us->password = bcrypt($request->password);
         $us ->modificado_por = Auth::user()->usuario;
-        $us->fill($request->all());
+        
         $us -> save();
         return redirect()->route('users.index')->with('mensaje',"Usuario modificado exitosamente!");
        
