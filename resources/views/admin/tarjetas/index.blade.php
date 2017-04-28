@@ -41,8 +41,10 @@
 								@endif
 
 								<td>
-									<a href="{{ route('tarjetas.edit',$tar -> id_tarjeta )}}" class="btn btn-warning">Modificar</a> 
-									<a href="{{ route('tarjetas.baja',$tar -> id_tarjeta )}}" onclick ="return confirm('¿Desea dar de baja?')" class="btn btn-danger">Eliminar</a> 
+								<div class="row">
+									<a href="{{ route('tarjetas.edit',$tar -> id_tarjeta )}}" class="btn btn-warning" title="Modificar"><span class="fa fa-edit "></span></a>
+									<a href="{{ route('tarjetas.baja',$tar -> id_tarjeta )}}" onclick ="return confirm('¿Desea Dar de baja?')" class="btn btn-danger" title="Eliminar"><span class="fa fa-trash-o"></span></a>  
+								</div>
 								</td>
 
 							</tr>

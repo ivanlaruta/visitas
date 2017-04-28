@@ -19,8 +19,10 @@
 								<td>{{ $car -> descripcion }}</td>
 								<td>{{ $car -> area }}</td>
 								<td>
-									<a href="{{ route('cargos.edit',$car -> id_cargo )}}" class="btn btn-warning">Modificar</a> 
-									<a href="{{ route('cargos.baja',$car -> id_cargo )}}" onclick ="return confirm('¿Desea dar de baja?')" class="btn btn-danger">Eliminar</a> 
+								<div class="row">
+									<a href="{{ route('cargos.edit',$car -> id_cargo )}}" class="btn btn-warning" title="Modificar"><span class="fa fa-edit "></span></a> 
+									<a href="{{ route('cargos.baja',$car -> id_cargo )}}" o onclick ="return confirm('¿Desea Dar de baja?')" class="btn btn-danger" title="Eliminar"><span class="fa fa-trash-o"></span></a>  
+								</div>
 								</td>
 							</tr>
 						@endforeach
