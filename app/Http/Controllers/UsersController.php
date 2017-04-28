@@ -59,15 +59,10 @@ class UsersController extends Controller
 
         if(is_null(User::find($request->usuario)))
         {
-            if(is_null(Empleado::find($request->ci_empleado)))
-            {
+            
                 $us->save();
                 return redirect()->route('users.index')->with('mensaje',"Usuario creado exitosamente!");
-            }
-            else
-            {
-                return redirect()->route('users.create')->with('mensaje2',"Error!. Este empleado ya cuenta con un usuario");
-            }
+            
         }
         else
         {
