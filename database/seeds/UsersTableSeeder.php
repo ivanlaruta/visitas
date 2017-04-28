@@ -13,7 +13,7 @@ class UsersTableSeeder extends Seeder
         DB::table('users')->insert([
            
             'usuario' => 'operador',
-            'password' => bcrypt('visitasoperador'),
+            'password' => bcrypt('12345'),
             'ci_empleado' => '01',
             'estado' => '0',
             'id_rol'=> '0',
@@ -22,7 +22,7 @@ class UsersTableSeeder extends Seeder
          DB::table('users')->insert([
             
             'usuario' => 'administrador',
-            'password' => bcrypt('visitasadministrador'),
+            'password' => bcrypt('12345'),
             'ci_empleado' => '02',
             'estado' => '0',
             'id_rol'=> '1',
