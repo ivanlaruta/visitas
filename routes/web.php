@@ -151,6 +151,11 @@ Route::group(['prefix'=>'ope','middleware'=>'auth'],function(){
 });
 Route::group(['prefix'=>'rep','middleware'=>'auth'],function(){
 
+	route::get('reportes/repAdmin',[
+		'uses' =>'ReportesController@repAdmin',
+		'as'   =>	'reportes.repAdmin'
+	]);
+	
 	route::get('reportes/getPDF',[
 		'uses' =>'PDFController@getPDF',
 		'as'   =>	'reportes.getPDF'

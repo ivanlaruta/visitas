@@ -28,16 +28,14 @@
 					</div>
 
 					<div class="form-group">
-					<h6>Empleado:</h4>
-					<select class="form-control" name="ci_empleado">
+					<h6>Empleado Asignado:</h4>
+					<select class="form-control select2" data-width="100%" name="ci_empleado" id="empleados" required >
 						<option value="">Selecione un empleado (Opcional) </option>
 					    @foreach($empleados as $emp)
 					      <option value="{{$emp->ci}}">{{$emp->paterno}} {{$emp->nombre}}</option>
 					    @endforeach
 				  	</select>
 					</div>
-					
-					
 					
 				</div>
 				
@@ -51,3 +49,18 @@
 	
 @endsection
 
+
+
+@section('scripts')
+<script>
+
+$(document).ready(function() {
+  $('#empleados').select2({
+  	theme: "bootstrap"
+  });
+
+});
+
+	
+</script> 
+@endsection
