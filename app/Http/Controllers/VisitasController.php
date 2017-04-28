@@ -56,12 +56,12 @@ class VisitasController extends Controller
 
         $empleados = Empleado::orderBy('paterno','ASC')
                     ->select('*')
-                    ->where('id_cargo','<>','3' )
+                    
                     ->where('id_ubicacion', $ubicacion )
                     ->where('estado','1')
                     ->get();
 
-        if (Auth::user()->empleado->id_cargo == '3')
+        if (Auth::user()->empleado->cargo->descripcion == 'POLICIA')
         {
              $tarjetas = Tarjeta::
                     select('id_tarjeta','tipo_tarjeta')
@@ -107,7 +107,6 @@ class VisitasController extends Controller
         ;
     }
 
-
     public function edit($id)
     {
         $ubicacion = Auth::user()->empleado->id_ubicacion;
@@ -118,13 +117,13 @@ class VisitasController extends Controller
         $dato =Visitante::find($id);
 
         $empleados = Empleado::orderBy('paterno','ASC')
-                    ->select('ci', 'nombre','paterno')
-                    ->where('id_cargo','<>','3' )
+                    ->select('*')
+                    
                     ->where('id_ubicacion', $ubicacion )
                     ->where('estado','1')
                     ->get();
 
-        if (Auth::user()->empleado->id_cargo == '3')
+        if (Auth::user()->empleado->cargo->descripcion == 'POLICIA')
         {
              $tarjetas = Tarjeta::select('id_tarjeta','tipo_tarjeta')
                     ->where('estado','1')
@@ -380,11 +379,11 @@ class VisitasController extends Controller
     {   
         $vi =Visita::find($id);
         $ta =Tarjeta::find($id);
-       
+        $banco = Parametrica::where('nombre_tabla','BANCO')->orderBy('id','ASC')->pluck('descripcion','descripcion');
         return view('admin.visitas.baja')
             ->with('ta',$ta)
             ->with('vi',$vi)
-
+            ->with('banco',$banco)
         ;
     }
 
@@ -401,6 +400,7 @@ class VisitasController extends Controller
         $ta->estado = '0';
         $ta->boleta_deposito = $request->boleta_deposito;
         $ta->cuenta = $request->cuenta;
+        $ta->banco = $request->banco;
         $ta->monto = $request->monto;
         $ta->fecha_deposito = $request->fecha_deposito;
         $ta->ci_visitante = $request->ci_visitante;

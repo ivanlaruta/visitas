@@ -9,6 +9,7 @@
 					<thead>
 						
 						<th>Descripcion</th>
+						<th>Area</th>
 						<th>Accion</th>
 					</thead>
 					<tbody>
@@ -16,6 +17,7 @@
 							<tr>								
 								{{-- <td>{{ $car-> id_cargo }}</td> --}}
 								<td>{{ $car -> descripcion }}</td>
+								<td>{{ $car -> area }}</td>
 								<td>
 									<a href="{{ route('cargos.edit',$car -> id_cargo )}}" class="btn btn-warning">Modificar</a> 
 									<a href="{{ route('cargos.baja',$car -> id_cargo )}}" onclick ="return confirm('¿Desea dar de baja?')" class="btn btn-danger">Eliminar</a> 

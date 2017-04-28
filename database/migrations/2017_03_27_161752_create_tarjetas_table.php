@@ -27,13 +27,12 @@ class CreateTarjetasTable extends Migration
             // para perdida de tarjetas
             $table->string('boleta_deposito',20)->nullable();
             $table->string('cuenta',20)->nullable();
+            $table->string('banco',60)->nullable();
             $table->date('fecha_deposito')->nullable();
             $table->integer('monto')->nullable();
             $table->string('ci_visitante',100)->nullable()->unsigned();
 
             //*************************//
-
-             
            
             $table->string('creado_por')->nullable()->unsigned();
             $table->string('modificado_por')->nullable()->unsigned();

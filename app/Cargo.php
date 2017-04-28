@@ -9,7 +9,7 @@ class Cargo extends Model
     protected $table = "cargos";
    
     protected $primaryKey ='id_cargo';
-    protected $fillable =['descripcion','estado','creado_por','modificado_por'];
+    protected $fillable =['descripcion','area','estado','creado_por','modificado_por'];
 
     public function empleados()
     {

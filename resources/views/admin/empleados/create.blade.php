@@ -64,7 +64,7 @@
 					{!! Form::label('te','Telefono')!!}
 					</div>
 					<div class="form-group">
-					{!! Form::text('telefono',null,['class'=> 'form-control','placeholder'=>'77712345','required'])!!}
+					{!! Form::text('telefono',null,['class'=> 'form-control','placeholder'=>'77712345'])!!}
 					</div>
 
 				</div>

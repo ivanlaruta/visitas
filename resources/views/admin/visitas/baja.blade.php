@@ -23,7 +23,7 @@
 						{!! Form::label('ci_visitante','CI Visitante')!!}
 						{!! Form::text('ci_visitante',$vi->ci_visitante,['class'=> 'form-control', 'readonly'])!!}
 						</div>
-						<div class="col-md-1">
+						<div class="col-md-2">
 						{!! Form::label('ex','Ex')!!}
 						{!! Form::text('ex',$vi->visitante->ex,['class'=> 'form-control', 'readonly'])!!}
 						</div>			
@@ -33,7 +33,7 @@
 						{!! Form::text('te',$vi->visitante->telefono,['class'=> 'form-control', 'readonly'])!!}
 						</div>
 						<div class="form-group has-error">   
-						<div class="col-md-3">
+						<div class="col-md-2">
 						{!! Form::label('ta','Tarjeta Observada')!!}
 						{!! Form::text('id_tarjeta',$vi->id_tarjeta,['class'=> 'form-control', 'readonly'])!!}
 						</div>
@@ -41,22 +41,33 @@
 					</div>
 					<hr>
 					<div class="row">
-						<div class="col-md-6">
+						<div class="col-md-4">
 						{!! Form::label('Boleta','Boleta de deposito')!!}
 						{!! Form::text('boleta_deposito',null,['class'=> 'form-control','placeholder'=>'Boleta de deposito','required'])!!}
 						</div>
-						<div class="col-md-6">
+
+						<div class="col-md-4">
 						{!! Form::label('cuenta','Cuenta bancaria')!!}
 						{!! Form::text('cuenta',null,['class'=> 'form-control','placeholder'=>'Cuenta bancaria','required'])!!}	
 						</div>
+
+						<div class="col-md-4">
+						{!! Form::label('banco','Banco')!!}
+						{!! Form::select('banco',$banco,null,['class'=>'form-control','placeholder'=>'seleccione un banco','required'])!!}
+						</div>
+
 					</div>
 					<br>
 					<div class="row">
-						<div class="col-md-6">
+						<div class="col-md-4">
 						{!! Form::label('monto','Monto de deposito')!!}
 						{!! Form::text('monto',null,['class'=> 'form-control','placeholder'=>'monto de deposito','required'])!!}
 						</div>
-						<div class="col-md-6">
+						<div class="col-md-4">
+						{!! Form::label('mon','Moneda')!!}
+						{!! Form::text('moneda','Bolivianos',['class'=> 'form-control','readonly'])!!}
+						</div>
+						<div class="col-md-4">
 						
 						{!! Form::label('fecha','fecha de deposito')!!}
 		                    <div class="form-group date prueba">

@@ -16,7 +16,7 @@ class CreateCargosTable extends Migration
         Schema::create('cargos', function (Blueprint $table) {
             $table->increments('id_cargo');
             $table->string('descripcion',50);
-            
+            $table->string('area',50)->nullable();
             $table->enum('estado',['1','0'])->default('1');
             $table->string('creado_por')->nullable()->unsigned();
             $table->string('modificado_por')->nullable()->unsigned();

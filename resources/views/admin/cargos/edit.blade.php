@@ -12,6 +12,10 @@
 					{!! Form::text('descripcion',$ca->descripcion,['class'=> 'form-control','placeholder'=>'Descripcion','required'])!!}	
 				</div>
 				<div class="form-group">
+					{!! Form::label('Area','Area')!!}
+					{!! Form::select('area',$area,$ca->area,['class'=>'form-control','placeholder'=>'seleccione al area al que pertenece','required'])!!}
+				</div>
+				<div class="form-group">
 					{!! Form::submit('Modificar',['class'=>'btn btn-primary'])!!}
 				</div>
 				{!! Form::close()!!}

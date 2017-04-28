@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
 use App\Cargo;
+use App\Parametrica;
 use Illuminate\Support\Facades\Auth;
 class CargosController extends Controller
 {
@@ -26,7 +27,8 @@ class CargosController extends Controller
      */
     public function create()
     {
-        return view('admin.cargos.create');
+        $area = Parametrica::where('nombre_tabla','AREA')->orderBy('id','ASC')->pluck('descripcion','descripcion');
+        return view('admin.cargos.create')->with('area',$area);
     }
 
     /**
@@ -67,7 +69,11 @@ class CargosController extends Controller
     public function edit($id)
     {
        $ca =Cargo::find($id);
-       return view('admin.cargos.edit')->with('ca',$ca);
+       $area = Parametrica::where('nombre_tabla','AREA')->orderBy('id','ASC')->pluck('descripcion','descripcion');
+
+       return view('admin.cargos.edit')
+       ->with('area',$area)
+       ->with('ca',$ca);
     }
 
     /**
@@ -82,7 +88,6 @@ class CargosController extends Controller
         $ca =Cargo::find($id);
         $ca->fill($request->all());
         $ca -> descripcion = strtr(strtoupper($request->descripcion),"àèìòùáéíóúçñäëïöü","ÀÈÌÒÙÁÉÍÓÚÇÑÄËÏÖÜ");
-       
         $ca ->modificado_por = Auth::user()->usuario;
         $ca -> save();
         return redirect()->route('cargos.index')->with('mensaje',"cargo modificado exitosamente!");

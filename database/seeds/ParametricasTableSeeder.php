@@ -158,13 +158,201 @@ class ParametricasTableSeeder extends Seeder
             'creado_por'=> 'admin',
             'modificado_por'=>'admin',
         ]);
-           DB::table('parametricas')->insert([
+        DB::table('parametricas')->insert([
             'nombre_tabla' => 'CIUDAD',
             'id' => 'LP',
             'descripcion' => 'LA PAZ',
             'creado_por'=> 'admin',
             'modificado_por'=>'admin',
         ]);
+
+        // bancos
+
+        DB::table('parametricas')->insert([
+            'nombre_tabla' => 'BANCO',
+            'id' => 'BNB',
+            'descripcion' => 'BANCO NACIONAL DE BOLIVIA',
+            'creado_por'=> 'admin',
+            'modificado_por'=>'admin',
+        ]);
+        DB::table('parametricas')->insert([
+            'nombre_tabla' => 'BANCO',
+            'id' => 'FIE',
+            'descripcion' => 'BANCO FIE',
+            'creado_por'=> 'admin',
+            'modificado_por'=>'admin',
+        ]);
+        DB::table('parametricas')->insert([
+            'nombre_tabla' => 'BANCO',
+            'id' => 'BG',
+            'descripcion' => 'BANCO GANADERO',
+            'creado_por'=> 'admin',
+            'modificado_por'=>'admin',
+        ]);
+        DB::table('parametricas')->insert([
+            'nombre_tabla' => 'BANCO',
+            'id' => 'BU',
+            'descripcion' => 'BANCO UNION',
+            'creado_por'=> 'admin',
+            'modificado_por'=>'admin',
+        ]);
+        DB::table('parametricas')->insert([
+            'nombre_tabla' => 'BANCO',
+            'id' => 'BCP',
+            'descripcion' => 'BANCO DE CREDITO DEL PERU',
+            'creado_por'=> 'admin',
+            'modificado_por'=>'admin',
+        ]);
+        DB::table('parametricas')->insert([
+            'nombre_tabla' => 'BANCO',
+            'id' => 'SOL',
+            'descripcion' => 'BANCO SOL',
+            'creado_por'=> 'admin',
+            'modificado_por'=>'admin',
+        ]);
+        DB::table('parametricas')->insert([
+            'nombre_tabla' => 'BANCO',
+            'id' => 'BISA',
+            'descripcion' => 'BANCO BISA',
+            'creado_por'=> 'admin',
+            'modificado_por'=>'admin',
+        ]);
+        DB::table('parametricas')->insert([
+            'nombre_tabla' => 'BANCO',
+            'id' => 'BMSC',
+            'descripcion' => 'BANCO MERCANTIL SANTA CRUZ',
+            'creado_por'=> 'admin',
+            'modificado_por'=>'admin',
+        ]);
+
+        //==================================
+        //             Areas     
+        //==================================
+        
+
+        DB::table('parametricas')->insert([
+            'nombre_tabla' => 'AREA',
+            'id' => ' ',
+            'descripcion' => 'VENTAS',       
+            'creado_por'=> 'admin',
+            'modificado_por'=>'admin',
+       ]);
+
+        DB::table('parametricas')->insert([
+            'nombre_tabla' => 'AREA',
+            'id' => ' ',
+            'descripcion' => 'REPUESTOS',       
+            'creado_por'=> 'admin',
+            'modificado_por'=>'admin',
+       ]);
+
+        DB::table('parametricas')->insert([
+            'nombre_tabla' => 'AREA',
+            'id' => ' ',
+            'descripcion' => 'SEGURIDAD',       
+            'creado_por'=> 'admin',
+            'modificado_por'=>'admin',
+       ]);
+
+        DB::table('parametricas')->insert([
+            'nombre_tabla' => 'AREA',
+            'id' => ' ',
+            'descripcion' => 'RECPECION',       
+            'creado_por'=> 'admin',
+            'modificado_por'=>'admin',
+       ]);
+        DB::table('parametricas')->insert([
+            'nombre_tabla' => 'AREA',
+            'id' => ' ',
+            'descripcion' => 'LICITACIONES',       
+            'creado_por'=> 'admin',
+            'modificado_por'=>'admin',
+       ]);
+        DB::table('parametricas')->insert([
+            'nombre_tabla' => 'AREA',
+            'id' => ' ',
+            'descripcion' => 'GERENCIA REGIONAL',       
+            'creado_por'=> 'admin',
+            'modificado_por'=>'admin',
+       ]);
+        DB::table('parametricas')->insert([
+            'nombre_tabla' => 'AREA',
+            'id' => ' ',
+            'descripcion' => 'CONCORDIA',       
+            'creado_por'=> 'admin',
+            'modificado_por'=>'admin',
+       ]);
+        DB::table('parametricas')->insert([
+            'nombre_tabla' => 'AREA',
+            'id' => ' ',
+            'descripcion' => 'RRHH',       
+            'creado_por'=> 'admin',
+            'modificado_por'=>'admin',
+       ]);
+        DB::table('parametricas')->insert([
+            'nombre_tabla' => 'AREA',
+            'id' => ' ',
+            'descripcion' => 'IMPORTACIONES',       
+            'creado_por'=> 'admin',
+            'modificado_por'=>'admin',
+       ]);
+        DB::table('parametricas')->insert([
+            'nombre_tabla' => 'AREA',
+            'id' => ' ',
+            'descripcion' => 'MARKETING',       
+            'creado_por'=> 'admin',
+            'modificado_por'=>'admin',
+       ]);
+        DB::table('parametricas')->insert([
+            'nombre_tabla' => 'AREA',
+            'id' => ' ',
+            'descripcion' => 'SISTEMAS',       
+            'creado_por'=> 'admin',
+            'modificado_por'=>'admin',
+       ]);
+        DB::table('parametricas')->insert([
+            'nombre_tabla' => 'AREA',
+            'id' => ' ',
+            'descripcion' => 'FINANZAS',       
+            'creado_por'=> 'admin',
+            'modificado_por'=>'admin',
+       ]);
+        DB::table('parametricas')->insert([
+            'nombre_tabla' => 'AREA',
+            'id' => ' ',
+            'descripcion' => 'TRAMITES',       
+            'creado_por'=> 'admin',
+            'modificado_por'=>'admin',
+       ]);
+        DB::table('parametricas')->insert([
+            'nombre_tabla' => 'AREA',
+            'id' => ' ',
+            'descripcion' => 'REPUESTOS',       
+            'creado_por'=> 'admin',
+            'modificado_por'=>'admin',
+       ]);
+        DB::table('parametricas')->insert([
+            'nombre_tabla' => 'AREA',
+            'id' => ' ',
+            'descripcion' => 'CONTABILIDAD',       
+            'creado_por'=> 'admin',
+            'modificado_por'=>'admin',
+       ]);
+        DB::table('parametricas')->insert([
+            'nombre_tabla' => 'AREA',
+            'id' => ' ',
+            'descripcion' => 'ARQUITECTURA',       
+            'creado_por'=> 'admin',
+            'modificado_por'=>'admin',
+       ]);
+        DB::table('parametricas')->insert([
+            'nombre_tabla' => 'AREA',
+            'id' => ' ',
+            'descripcion' => 'GERENCIA',       
+            'creado_por'=> 'admin',
+            'modificado_por'=>'admin',
+       ]);
+
 
     }
 }

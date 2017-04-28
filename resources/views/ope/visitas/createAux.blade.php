@@ -111,7 +111,7 @@
 						<select class="form-control select2" data-width="100%" name="ci_empleado" id="empleados" required >
 							<option value="">Selecione un empleado</option>
 						    @foreach($empleados as $emp)
-						      <option value="{{$emp->ci}}">{{$emp->paterno}} {{$emp->nombre}}</option>
+						      <option value="{{$emp->ci}}">{{$emp->paterno}} {{$emp->nombre}}- {{$emp->cargo->descripcion}} </option>
 						    @endforeach
 					  	</select>
 					</div>

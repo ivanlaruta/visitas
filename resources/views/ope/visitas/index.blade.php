@@ -81,22 +81,27 @@
 								<td>{{ $vis -> observaciones }}</td>
 								<td>
 								@if($vis -> estado_visita === '2')
-									<span class="text-danger">Reportada!</span>
+									<div class="row">
+										
+										<a href="#" class="btn btn-success btn-sm" disabled="disabled" ><span class="fa fa-mail-reply"></a>
+										
+										
+										<a href="#" class="btn btn-danger btn-sm" disabled="disabled" ><span class="glyphicon glyphicon-exclamation-sign"></span></a>
+										</div>
 								@else
 									@if($vis -> estado_visita === '3')
 										<div class="row">
 										
-										<a href="{{ route('visitas.restaurar',$vis -> id_visita )}}"  class="btn btn-info btn-sm" title="">Devolver</a>
+										<a href="{{ route('visitas.restaurar',$vis -> id_visita )}}"  class="btn btn-info btn-sm" title="Terminar Visita"><span class="fa fa-mail-reply"></a>
 										</div>
 									@else
 										<div class="row">
-										<div class="col-md-6">
-										<a href="{{ route('visitas.salida',$vis -> id_visita )}}" onclick ="return confirm('¿Desea Marcar la Salida de este visitante ?')" class="btn btn-warning btn-sm" title="Marcar salida de visita">Salir</a>
+										
+										<a href="{{ route('visitas.salida',$vis -> id_visita )}}" onclick ="return confirm('¿Desea Marcar la Salida de este visitante ?')" class="btn btn-success btn-sm" title="Marcar salida de visita"><span class="fa fa-mail-reply"></a>
+										
+										
+										<a href="{{ route('visitas.reportar',$vis -> id_visita )}}" onclick ="return confirm('La visita se marcara como reportada.¿Desea continuar?')" class="btn btn-danger btn-sm" title="Reportar tarjeta"><span class="glyphicon glyphicon-exclamation-sign"></span></a>
 										</div>
-										<div class="col-md-6">
-										@if($vis -> fecha_entrada < $hoy)
-											<a href="{{ route('visitas.reportar',$vis -> id_visita )}}" onclick ="return confirm('La visita se marcara como reportada.¿Desea continuar?')" class="btn btn-danger btn-sm" title="Reportar tarjeta"> <span class="glyphicon glyphicon-exclamation-sign"></span></a>
-										@endif
 									@endif
 								@endif
 

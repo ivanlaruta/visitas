@@ -12,13 +12,15 @@
 
 				<div class="form-group">
 					{!! Form::label('ci_empleado','Empleado')!!}
-					<select class="form-control" name="ci_empleado">
+					
+					<select class="form-control select2" data-width="100%" name="ci_empleado" id="empleados" required >
 					<option value="">Selecione un empleado</option>
 					    @foreach($emp as $emps)
 					      <option value="{{$emps->ci}}">{{$emps->paterno}} {{$emps->nombre}}</option>
 					    @endforeach
 				  	</select>
 				</div>
+
 
 				{{-- <div class="form-group">
 					{!! Form::label('ci_empleado','Empleado')!!}
@@ -50,3 +52,17 @@
 
 @endsection
 
+
+@section('scripts')
+<script>
+
+$(document).ready(function() {
+  $('#empleados').select2({
+  	theme: "bootstrap"
+  });
+
+});
+
+	
+</script> 
+@endsection

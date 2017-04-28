@@ -26,7 +26,7 @@ class ValidarUsuarioController extends Controller
         
     	if (Auth::user()->id_rol== '1')
         {	
-    		 return redirect()->route('users.index');
+    		 return redirect()->route('empleados.index');
     	}
         
     }
