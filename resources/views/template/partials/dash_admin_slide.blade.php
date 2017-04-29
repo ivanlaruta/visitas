@@ -35,7 +35,7 @@
                         <a href="javascript:;" data-toggle="collapse" data-target="#demo2"><i class="fa fa-bar-chart-o"></i> Reportes <i class="fa fa-fw fa-caret-down"></i></a>
                         <ul id="demo2" class="collapse">
                             <li>
-                                <a href="#">Visitas diarias</a>
+                                <a href="{{ route('reportes.repAdmin')}}">Reportes</a>
                             </li>
                             <li>
                                 <a href="#">Visitas entre Fechas</a>

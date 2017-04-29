@@ -20,7 +20,44 @@ class ReportesController extends Controller
     
     public function repAdmin(Request $request)
     {
-        return view('reportesAdmin.index');
+        date_default_timezone_set('America/La_Paz');
+        $time = time();
+        $hoy=date("d-m-Y ", $time);
+
+        
+
+       if(is_null($request->id_ubicacion))
+        {
+            $dia = Visita::where('fecha_entrada', '=', $hoy)->count();
+            $regular= Visita::all()->where('estado_visita', '<', '2')->count();
+            $reportada= Visita::all()->where('estado_visita', '=', '2')->count();
+            $regularizada= Visita::all()->where('estado_visita', '>', '2')->count();
+            $todo= Visita::all()->count();
+            $request->id_ubicacion = '0';
+       
+        }
+        else
+        {
+            $ubicacion = $request->id_ubicacion;
+
+            $dia = Visita::where('fecha_entrada', '=', $hoy)->where('id_ubicacion', '=', $ubicacion)->count();
+            $regular= Visita::all()->where('estado_visita', '<', '2')->where('id_ubicacion', '=', $ubicacion)->count();
+            $reportada= Visita::all()->where('estado_visita', '=', '2')->where('id_ubicacion', '=', $ubicacion)->count();
+            $regularizada= Visita::all()->where('estado_visita', '>', '2')->where('id_ubicacion', '=', $ubicacion)->count();
+            $todo= Visita::all()->where('id_ubicacion', '=', $ubicacion)->count();
+        }
+        
+        $ubica =Ubicacion::orderBy('nombre','ASC')->pluck('nombre','id_ubicacion');
+
+        return view('reportesAdmin.index')
+        ->with('ubica',$ubica)
+        ->with('dia',$dia)
+        ->with('regular',$regular)
+        ->with('reportada',$reportada)
+        ->with('regularizada',$regularizada)
+        ->with('request',$request)
+        ->with('todo',$todo)
+        ;
     }
     public function visitasDiarias(Request $request)
     {
@@ -37,6 +74,24 @@ class ReportesController extends Controller
         ;
       
     }
+
+    public function visitasTodoAdmin($ubicacion)
+    {   
+        if($ubicacion>'0')
+        
+        {
+            $vi = Visita::all()->where('id_ubicacion', '=', $ubicacion);
+        }
+        else
+        {
+            $vi = Visita::all();
+        }
+        return view('reportesAdmin.visitas_todo')
+            ->with('vi',$vi)
+            
+        ;
+    } 
+
     public function visitasTodo(Request $request)
     {
         $ubicacion = Auth::user()->empleado->id_ubicacion;

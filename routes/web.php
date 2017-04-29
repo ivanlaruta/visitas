@@ -151,6 +151,11 @@ Route::group(['prefix'=>'ope','middleware'=>'auth'],function(){
 });
 Route::group(['prefix'=>'rep','middleware'=>'auth'],function(){
 
+	route::get('reportes/{id}/visitasTodoAdmin',[
+		'uses' => 'ReportesController@visitasTodoAdmin', 
+		'as'   =>	'visitas.visitasTodoAdmin'
+	]);
+
 	route::get('reportes/repAdmin',[
 		'uses' =>'ReportesController@repAdmin',
 		'as'   =>	'reportes.repAdmin'
