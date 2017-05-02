@@ -153,6 +153,21 @@ Route::group(['prefix'=>'rep','middleware'=>'auth'],function(){
 
 
 	//=========== administrador=======================
+
+	route::get('reportes/{id}/{id2}/AdminTopEmpleados',[
+		'uses' => 'ReportesController@AdminTopEmpleados', 
+		'as'   =>	'visitas.AdminTopEmpleados'
+	]);
+	route::get('reportes/{id}/{id2}/AdminTopMotivos',[
+		'uses' => 'ReportesController@AdminTopMotivos', 
+		'as'   =>	'visitas.AdminTopMotivos'
+	]);
+	route::get('reportes/{id}/{id2}/AdminTopVisitantes',[
+		'uses' => 'ReportesController@AdminTopVisitantes', 
+		'as'   =>	'visitas.AdminTopVisitantes'
+	]);
+
+
 	route::get('reportes/{id}/AdminVisitasRegulares',[
 		'uses' => 'ReportesController@AdminVisitasRegulares', 
 		'as'   =>	'visitas.AdminVisitasRegulares'

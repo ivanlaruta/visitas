@@ -38,11 +38,11 @@ class ReportesController extends Controller
             $todo= Visita::all()->count();
             $request->id_ubicacion = '0';
 
-            $emp_rank = DB::select( DB::raw("select count(v.*) as visitas,v.ci_empleado ,e.nombre , e.paterno from visitas v, empleados e where v.ci_empleado = e.ci  GROUP BY ci_empleado ,e.paterno ,e.nombre ORDER BY visitas desc LIMIT 5")) ;
+            $emp_rank = DB::select( DB::raw("select count(v.*) as visitas,v.ci_empleado ,e.nombre , e.paterno from visitas v, empleados e where v.ci_empleado = e.ci  GROUP BY ci_empleado ,e.paterno ,e.nombre ORDER BY visitas desc LIMIT 10")) ;
 
-            $mot_rank = DB::select( DB::raw("select count(v.*) as visitas,v.id_motivo ,m.descripcion from visitas v, motivos m where v.id_motivo = m.id_motivo GROUP BY v.id_motivo ,m.descripcion ORDER BY visitas desc LIMIT 5")) ;
+            $mot_rank = DB::select( DB::raw("select count(v.*) as visitas,v.id_motivo ,m.descripcion from visitas v, motivos m where v.id_motivo = m.id_motivo GROUP BY v.id_motivo ,m.descripcion ORDER BY visitas desc LIMIT 10")) ;
 
-            $vis_rank = DB::select( DB::raw("select count(v.*) as visitas,v.ci_visitante ,e.nombre , e.paterno from visitas v, visitantes e where v.ci_visitante = e.ci  GROUP BY ci_visitante ,e.paterno ,e.nombre ORDER BY visitas desc LIMIT 5")) ;
+            $vis_rank = DB::select( DB::raw("select count(v.*) as visitas,v.ci_visitante ,e.nombre , e.paterno from visitas v, visitantes e where v.ci_visitante = e.ci  GROUP BY ci_visitante ,e.paterno ,e.nombre ORDER BY visitas desc LIMIT 10")) ;
         }
         else
         {
@@ -54,11 +54,11 @@ class ReportesController extends Controller
             $regularizada= Visita::all()->where('estado_visita', '>', '2')->where('id_ubicacion', '=', $ubicacion)->count();
             $todo= Visita::all()->where('id_ubicacion', '=', $ubicacion)->count();
 
-            $emp_rank = DB::select( DB::raw("select count(v.*) as visitas,v.ci_empleado ,e.nombre , e.paterno from visitas v, empleados e where v.ci_empleado = e.ci and v.id_ubicacion = '".$request->id_ubicacion."' GROUP BY ci_empleado ,e.paterno ,e.nombre ORDER BY visitas desc LIMIT 5")) ;
+            $emp_rank = DB::select( DB::raw("select count(v.*) as visitas,v.ci_empleado ,e.nombre , e.paterno from visitas v, empleados e where v.ci_empleado = e.ci and v.id_ubicacion = '".$request->id_ubicacion."' GROUP BY ci_empleado ,e.paterno ,e.nombre ORDER BY visitas desc LIMIT 10")) ;
 
-            $mot_rank = DB::select( DB::raw("select count(v.*) as visitas,v.id_motivo ,m.descripcion from visitas v, motivos m where v.id_motivo = m.id_motivo and v.id_ubicacion = '".$request->id_ubicacion."' GROUP BY v.id_motivo ,m.descripcion ORDER BY visitas desc LIMIT 5")) ;
+            $mot_rank = DB::select( DB::raw("select count(v.*) as visitas,v.id_motivo ,m.descripcion from visitas v, motivos m where v.id_motivo = m.id_motivo and v.id_ubicacion = '".$request->id_ubicacion."' GROUP BY v.id_motivo ,m.descripcion ORDER BY visitas desc LIMIT 10")) ;
 
-            $vis_rank = DB::select( DB::raw("select count(v.*) as visitas,v.ci_visitante ,e.nombre , e.paterno from visitas v, visitantes e where v.ci_visitante = e.ci and v.id_ubicacion = '".$request->id_ubicacion."' GROUP BY ci_visitante ,e.paterno ,e.nombre ORDER BY visitas desc LIMIT 5")) ;
+            $vis_rank = DB::select( DB::raw("select count(v.*) as visitas,v.ci_visitante ,e.nombre , e.paterno from visitas v, visitantes e where v.ci_visitante = e.ci and v.id_ubicacion = '".$request->id_ubicacion."' GROUP BY ci_visitante ,e.paterno ,e.nombre ORDER BY visitas desc LIMIT 10")) ;
 
         }
         
@@ -140,6 +140,53 @@ class ReportesController extends Controller
         ;
     } 
 
+    public function AdminTopEmpleados($ubicacion,$ci)
+    {   
+        if($ubicacion>'0')
+        
+        {
+            $vi = Visita::all()->where('id_ubicacion', '=', $ubicacion)->where('ci_empleado', '=', $ci);
+        }
+        else
+        {
+            $vi = Visita::all()->where('ci_empleado', '=', $ci);
+        }
+        return view('reportesAdmin.visitas_todo')
+            ->with('vi',$vi) 
+        ;
+    } 
+
+    public function AdminTopMotivos($ubicacion,$id)
+    {   
+        if($ubicacion>'0')
+        
+        {
+            $vi = Visita::all()->where('id_ubicacion', '=', $ubicacion)->where('id_motivo', '=', $id);
+        }
+        else
+        {
+            $vi = Visita::all()->where('id_motivo', '=', $id);
+        }
+        return view('reportesAdmin.visitas_todo')
+            ->with('vi',$vi) 
+        ;
+    } 
+
+    public function AdminTopVisitantes($ubicacion,$ci)
+    {   
+        if($ubicacion>'0')
+        
+        {
+            $vi = Visita::all()->where('id_ubicacion', '=', $ubicacion)->where('ci_visitante', '=', $ci);
+        }
+        else
+        {
+            $vi = Visita::all()->where('ci_visitante', '=', $ci);
+        }
+        return view('reportesAdmin.visitas_todo')
+            ->with('vi',$vi) 
+        ;
+    } 
     //============================================================
 
     //==============================================

@@ -62,16 +62,12 @@
 								<td>{{ $vis -> observaciones }}</td>
 								<td>{{ $vis -> modificado_por }}</td>
 								<td>	
-									
-								
-
 								<div class="row">
 									
 										<a href="{{ route('visitas.rehabilitar',$vis -> id_visita )}}" onclick ="return confirm('¿Dese rehabilitar esta visita?')" class="btn btn-success btn-sm" title="Rehabilitar visita"><span class="glyphicon glyphicon-thumbs-up"></span></a>
 									
 										<a href="{{ route('visitas.baja',$vis -> id_visita )}}" class="btn btn-danger btn-sm" title="Marcar como perdida"> <span class="glyphicon glyphicon-thumbs-down"></span></a>
-									
-									
+
 								</div>
 								</td>
 							</tr>

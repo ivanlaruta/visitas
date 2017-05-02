@@ -60,22 +60,24 @@
 					<br>
 					<div class="row">
 						<div class="col-md-4">
-						{!! Form::label('monto','Monto de deposito')!!}
+						{!! Form::label('monto','Monto de deposito (Bolivianos)')!!}
 						{!! Form::text('monto',null,['class'=> 'form-control','placeholder'=>'monto de deposito','required'])!!}
 						</div>
-						<div class="col-md-4">
-						{!! Form::label('mon','Moneda')!!}
-						{!! Form::text('moneda','Bolivianos',['class'=> 'form-control','readonly'])!!}
-						</div>
+						
 						<div class="col-md-4">
 						
-						{!! Form::label('fecha','fecha de deposito')!!}
+							{!! Form::label('fecha','fecha de deposito')!!}
 		                    <div class="form-group date prueba">
 				                <div class='input-group'>
 				               		{!! Form::text('fecha_deposito',null,['class'=> 'form-control','placeholder'=>'DD-MM-YYYY','aria-describedby'=>'seacrch','required'])!!}
 				                    <span class="input-group-addon"><i class="glyphicon glyphicon-calendar"></i></span>
 				                </div>
 				            </div>
+						</div>
+
+						<div class="col-md-4">
+						{!! Form::label('obs','Observacion')!!}
+						{!! Form::text('observacion_perdida',null,['class'=> 'form-control','placeholder'=>'observacion'])!!}
 						</div>
 					</div>
 					<hr>

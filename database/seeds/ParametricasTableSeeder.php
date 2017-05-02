@@ -11,6 +11,7 @@ class ParametricasTableSeeder extends Seeder
      */
     public function run()
     {
+        //ROLES
          DB::table('parametricas')->insert([
             'nombre_tabla' => 'ROL',
             'id' => '1',
@@ -28,6 +29,9 @@ class ParametricasTableSeeder extends Seeder
             'creado_por'=> 'admin',
             'modificado_por'=>'admin',
         ]);
+
+         //ESTADOS
+
          DB::table('parametricas')->insert([
             'nombre_tabla' => 'ESTADO',
             'id' => '0',
@@ -44,6 +48,8 @@ class ParametricasTableSeeder extends Seeder
             'creado_por'=> 'admin',
             'modificado_por'=>'admin',
         ]);
+
+         // EXPEDIDOS
          DB::table('parametricas')->insert([
             'nombre_tabla' => 'EXPEDIDO',
             'id' => 'LP',
@@ -108,6 +114,7 @@ class ParametricasTableSeeder extends Seeder
             'modificado_por'=>'admin',
         ]);
 
+                 // TIPO DOCUMNETO
              DB::table('parametricas')->insert([
             'nombre_tabla' => 'TIPO_DOC',
             'id' => 'CI',
@@ -158,6 +165,9 @@ class ParametricasTableSeeder extends Seeder
             'creado_por'=> 'admin',
             'modificado_por'=>'admin',
         ]);
+
+        //ciudades
+
         DB::table('parametricas')->insert([
             'nombre_tabla' => 'CIUDAD',
             'id' => 'LP',
@@ -165,8 +175,37 @@ class ParametricasTableSeeder extends Seeder
             'creado_por'=> 'admin',
             'modificado_por'=>'admin',
         ]);
+        DB::table('parametricas')->insert([
+            'nombre_tabla' => 'CIUDAD',
+            'id' => 'CB',
+            'descripcion' => 'COCHABAMBA',
+            'creado_por'=> 'admin',
+            'modificado_por'=>'admin',
+        ]);
+        DB::table('parametricas')->insert([
+            'nombre_tabla' => 'CIUDAD',
+            'id' => 'OR',
+            'descripcion' => 'ORURO',
+            'creado_por'=> 'admin',
+            'modificado_por'=>'admin',
+        ]);
+        DB::table('parametricas')->insert([
+            'nombre_tabla' => 'CIUDAD',
+            'id' => 'PT',
+            'descripcion' => 'POTOSI',
+            'creado_por'=> 'admin',
+            'modificado_por'=>'admin',
+        ]);
+        DB::table('parametricas')->insert([
+            'nombre_tabla' => 'CIUDAD',
+            'id' => 'SCZ',
+            'descripcion' => 'SANTA CRUZ',
+            'creado_por'=> 'admin',
+            'modificado_por'=>'admin',
+        ]);
 
-        // bancos
+
+     // bancos
 
         DB::table('parametricas')->insert([
             'nombre_tabla' => 'BANCO',
@@ -228,106 +267,18 @@ class ParametricasTableSeeder extends Seeder
         //==================================
         //             Areas     
         //==================================
-        
 
         DB::table('parametricas')->insert([
             'nombre_tabla' => 'AREA',
             'id' => ' ',
-            'descripcion' => 'VENTAS',       
-            'creado_por'=> 'admin',
-            'modificado_por'=>'admin',
-       ]);
-
-        DB::table('parametricas')->insert([
-            'nombre_tabla' => 'AREA',
-            'id' => ' ',
-            'descripcion' => 'REPUESTOS',       
-            'creado_por'=> 'admin',
-            'modificado_por'=>'admin',
-       ]);
-
-        DB::table('parametricas')->insert([
-            'nombre_tabla' => 'AREA',
-            'id' => ' ',
-            'descripcion' => 'SEGURIDAD',       
-            'creado_por'=> 'admin',
-            'modificado_por'=>'admin',
-       ]);
-
-        DB::table('parametricas')->insert([
-            'nombre_tabla' => 'AREA',
-            'id' => ' ',
-            'descripcion' => 'RECPECION',       
+            'descripcion' => 'COMERCIAL',       
             'creado_por'=> 'admin',
             'modificado_por'=>'admin',
        ]);
         DB::table('parametricas')->insert([
             'nombre_tabla' => 'AREA',
             'id' => ' ',
-            'descripcion' => 'LICITACIONES',       
-            'creado_por'=> 'admin',
-            'modificado_por'=>'admin',
-       ]);
-        DB::table('parametricas')->insert([
-            'nombre_tabla' => 'AREA',
-            'id' => ' ',
-            'descripcion' => 'GERENCIA REGIONAL',       
-            'creado_por'=> 'admin',
-            'modificado_por'=>'admin',
-       ]);
-        DB::table('parametricas')->insert([
-            'nombre_tabla' => 'AREA',
-            'id' => ' ',
-            'descripcion' => 'CONCORDIA',       
-            'creado_por'=> 'admin',
-            'modificado_por'=>'admin',
-       ]);
-        DB::table('parametricas')->insert([
-            'nombre_tabla' => 'AREA',
-            'id' => ' ',
-            'descripcion' => 'RRHH',       
-            'creado_por'=> 'admin',
-            'modificado_por'=>'admin',
-       ]);
-        DB::table('parametricas')->insert([
-            'nombre_tabla' => 'AREA',
-            'id' => ' ',
-            'descripcion' => 'IMPORTACIONES',       
-            'creado_por'=> 'admin',
-            'modificado_por'=>'admin',
-       ]);
-        DB::table('parametricas')->insert([
-            'nombre_tabla' => 'AREA',
-            'id' => ' ',
-            'descripcion' => 'MARKETING',       
-            'creado_por'=> 'admin',
-            'modificado_por'=>'admin',
-       ]);
-        DB::table('parametricas')->insert([
-            'nombre_tabla' => 'AREA',
-            'id' => ' ',
-            'descripcion' => 'SISTEMAS',       
-            'creado_por'=> 'admin',
-            'modificado_por'=>'admin',
-       ]);
-        DB::table('parametricas')->insert([
-            'nombre_tabla' => 'AREA',
-            'id' => ' ',
-            'descripcion' => 'FINANZAS',       
-            'creado_por'=> 'admin',
-            'modificado_por'=>'admin',
-       ]);
-        DB::table('parametricas')->insert([
-            'nombre_tabla' => 'AREA',
-            'id' => ' ',
-            'descripcion' => 'TRAMITES',       
-            'creado_por'=> 'admin',
-            'modificado_por'=>'admin',
-       ]);
-        DB::table('parametricas')->insert([
-            'nombre_tabla' => 'AREA',
-            'id' => ' ',
-            'descripcion' => 'REPUESTOS',       
+            'descripcion' => 'LEGAL',       
             'creado_por'=> 'admin',
             'modificado_por'=>'admin',
        ]);
@@ -341,17 +292,110 @@ class ParametricasTableSeeder extends Seeder
         DB::table('parametricas')->insert([
             'nombre_tabla' => 'AREA',
             'id' => ' ',
-            'descripcion' => 'ARQUITECTURA',       
+            'descripcion' => 'CARTERA',       
             'creado_por'=> 'admin',
             'modificado_por'=>'admin',
        ]);
         DB::table('parametricas')->insert([
             'nombre_tabla' => 'AREA',
             'id' => ' ',
-            'descripcion' => 'GERENCIA',       
+            'descripcion' => 'SISTEMAS',       
             'creado_por'=> 'admin',
             'modificado_por'=>'admin',
        ]);
+        DB::table('parametricas')->insert([
+            'nombre_tabla' => 'AREA',
+            'id' => ' ',
+            'descripcion' => 'SERVICIOS',       
+            'creado_por'=> 'admin',
+            'modificado_por'=>'admin',
+       ]);
+        DB::table('parametricas')->insert([
+            'nombre_tabla' => 'AREA',
+            'id' => ' ',
+            'descripcion' => 'MARKETING',       
+            'creado_por'=> 'admin',
+            'modificado_por'=>'admin',
+       ]);
+        DB::table('parametricas')->insert([
+            'nombre_tabla' => 'AREA',
+            'id' => ' ',
+            'descripcion' => 'FINANZAS',       
+            'creado_por'=> 'admin',
+            'modificado_por'=>'admin',
+       ]);
+        DB::table('parametricas')->insert([
+            'nombre_tabla' => 'AREA',
+            'id' => ' ',
+            'descripcion' => 'AUDITORÍA',       
+            'creado_por'=> 'admin',
+            'modificado_por'=>'admin',
+       ]);
+        DB::table('parametricas')->insert([
+            'nombre_tabla' => 'AREA',
+            'id' => ' ',
+            'descripcion' => 'RECURSOS HUMANOS',       
+            'creado_por'=> 'admin',
+            'modificado_por'=>'admin',
+       ]);
+        DB::table('parametricas')->insert([
+            'nombre_tabla' => 'AREA',
+            'id' => ' ',
+            'descripcion' => 'PRESIDENCIA',       
+            'creado_por'=> 'admin',
+            'modificado_por'=>'admin',
+       ]);
+        DB::table('parametricas')->insert([
+            'nombre_tabla' => 'AREA',
+            'id' => ' ',
+            'descripcion' => 'VICEPRECIDENCIA',       
+            'creado_por'=> 'admin',
+            'modificado_por'=>'admin',
+       ]);
+        DB::table('parametricas')->insert([
+            'nombre_tabla' => 'AREA',
+            'id' => ' ',
+            'descripcion' => 'PROYECTOS ESPECIALES',       
+            'creado_por'=> 'admin',
+            'modificado_por'=>'admin',
+       ]);
+        DB::table('parametricas')->insert([
+            'nombre_tabla' => 'AREA',
+            'id' => ' ',
+            'descripcion' => 'IMPORTACIONES',       
+            'creado_por'=> 'admin',
+            'modificado_por'=>'admin',
+       ]);
+        DB::table('parametricas')->insert([
+            'nombre_tabla' => 'AREA',
+            'id' => ' ',
+            'descripcion' => 'ANALISIS COMERCIAL',       
+            'creado_por'=> 'admin',
+            'modificado_por'=>'admin',
+       ]);
+        DB::table('parametricas')->insert([
+            'nombre_tabla' => 'AREA',
+            'id' => ' ',
+            'descripcion' => 'RECINTO ADUANERO',       
+            'creado_por'=> 'admin',
+            'modificado_por'=>'admin',
+       ]);
+        DB::table('parametricas')->insert([
+            'nombre_tabla' => 'AREA',
+            'id' => ' ',
+            'descripcion' => 'GERENCIA GENERAL',       
+            'creado_por'=> 'admin',
+            'modificado_por'=>'admin',
+       ]);
+
+        DB::table('parametricas')->insert([
+            'nombre_tabla' => 'AREA',
+            'id' => ' ',
+            'descripcion' => 'POLICIA',       
+            'creado_por'=> 'admin',
+            'modificado_por'=>'admin',
+       ]);
+
 
 
     }

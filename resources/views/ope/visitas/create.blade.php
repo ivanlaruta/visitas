@@ -12,6 +12,7 @@
 				<div class="col-md-12">
 					{!! Form::open (['route' => 'visitas.create','method' => 'GET','class' => 'navbar-form pull-left'])!!}
 						<div class ="row">	
+							
 							{!! Form::text('ci', $recuperado -> ci ,['class'=> 'form-control','placeholder'=>'Ingrese CI para busqueda','aria-describedby'=>'seacrch'])!!}
 							{{-- <span class="input-group-addon" > --}}
 								<button type="submit"  class="btn btn-info" aria-label="Left Align">

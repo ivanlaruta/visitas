@@ -11,19 +11,78 @@ class UbicacionesTableSeeder extends Seeder
      */
     public function run()
     {
+       //  DB::table('ubicaciones')->insert([
+
+       //      'id_ubicacion' => '131C',
+       //      'nombre' => 'OFICINA CENTRAL',
+       //      'ciudad' => 'LA PAZ',
+       //      'creado_por'=> 'admin',
+       //      'modificado_por'=>'admin',
+       // ]);
+       //  DB::table('ubicaciones')->insert([
+
+       //      'id_ubicacion' => '137',
+       //      'nombre' => 'OFICINA CALACOTO',
+       //      'ciudad' => 'LA PAZ',
+       //      'creado_por'=> 'admin',
+       //      'modificado_por'=>'admin',
+       // ]);
+       //  DB::table('ubicaciones')->insert([
+
+       //      'id_ubicacion' => '135',
+       //      'nombre' => 'CURVA DE HOLGUIN',
+       //      'ciudad' => 'LA PAZ',
+       //      'creado_por'=> 'admin',
+       //      'modificado_por'=>'admin',
+       // ]);
+       //  DB::table('ubicaciones')->insert([
+
+       //      'id_ubicacion' => '134',
+       //      'nombre' => 'PLANTA EL ALTO SHOW ROOM',
+       //      'ciudad' => 'EL ALTO',
+       //      'creado_por'=> 'admin',
+       //      'modificado_por'=>'admin',
+       // ]);
+
+       //  DB::table('ubicaciones')->insert([
+
+       //      'id_ubicacion' => '118',
+       //      'nombre' => 'ANEXO INLASA',
+       //      'ciudad' => 'LA PAZ',
+       //      'creado_por'=> 'admin',
+       //      'modificado_por'=>'admin',
+       // ]);
+
+
         DB::table('ubicaciones')->insert([
 
-            'id_ubicacion' => '131C',
-            'nombre' => 'OFICINA CENTRAL',
-            'ciudad' => 'LA PAZ',
+            'id_ubicacion' => '200',
+            'nombre' => 'COCHABAMBA',
+            'ciudad' => ' COCHABAMBA',
+            'creado_por'=> 'admin',
+            'modificado_por'=>'admin',
+       ]);
+        DB::table('ubicaciones')->insert([
+
+            'id_ubicacion' => '201',
+            'nombre' => 'QUILLACOLLO',
+            'ciudad' => 'COCHABAMBA',
+            'creado_por'=> 'admin',
+            'modificado_por'=>'admin',
+       ]);
+        DB::table('ubicaciones')->insert([
+
+            'id_ubicacion' => '202',
+            'nombre' => 'KM7',
+            'ciudad' => 'COCHABAMBA',
             'creado_por'=> 'admin',
             'modificado_por'=>'admin',
        ]);
         DB::table('ubicaciones')->insert([
 
             'id_ubicacion' => '137',
-            'nombre' => 'OFICINA CALACOTO',
-            'ciudad' => 'LA PAZ',
+            'nombre' => 'CALACOTO',
+            'ciudad' => '   LA PAZ',
             'creado_por'=> 'admin',
             'modificado_por'=>'admin',
        ]);
@@ -31,29 +90,106 @@ class UbicacionesTableSeeder extends Seeder
 
             'id_ubicacion' => '135',
             'nombre' => 'CURVA DE HOLGUIN',
-            'ciudad' => 'LA PAZ',
+            'ciudad' => '   LA PAZ',
+            'creado_por'=> 'admin',
+            'modificado_por'=>'admin',
+       ]);
+        DB::table('ubicaciones')->insert([
+
+            'id_ubicacion' => '100',
+            'nombre' => 'EJECUTIVO SR',
+            'ciudad' => '   LA PAZ',
             'creado_por'=> 'admin',
             'modificado_por'=>'admin',
        ]);
         DB::table('ubicaciones')->insert([
 
             'id_ubicacion' => '134',
-            'nombre' => 'PLANTA EL ALTO SHOW ROOM',
-            'ciudad' => 'EL ALTO',
-            'creado_por'=> 'admin',
-            'modificado_por'=>'admin',
-       ]);
-
-        DB::table('ubicaciones')->insert([
-
-            'id_ubicacion' => '118',
-            'nombre' => 'ANEXO INLASA',
+            'nombre' => 'EL ALTO',
             'ciudad' => 'LA PAZ',
             'creado_por'=> 'admin',
             'modificado_por'=>'admin',
        ]);
+        DB::table('ubicaciones')->insert([
 
+            'id_ubicacion' => '131C',
+            'nombre' => 'LA PAZ OFICNA CENTRAL',
+            'ciudad' => ' LA PAZ',
+            'creado_por'=> 'admin',
+            'modificado_por'=>'admin',
+       ]);
+        DB::table('ubicaciones')->insert([
 
+            'id_ubicacion' => '118',
+            'nombre' => 'MIRAFLORES',
+            'ciudad' => ' LA PAZ',
+            'creado_por'=> 'admin',
+            'modificado_por'=>'admin',
+       ]);
+        DB::table('ubicaciones')->insert([
+
+            'id_ubicacion' => '101',
+            'nombre' => 'SANTA CRUZ',
+            'ciudad' => ' LA PAZ',
+            'creado_por'=> 'admin',
+            'modificado_por'=>'admin',
+       ]);
+        DB::table('ubicaciones')->insert([
+
+            'id_ubicacion' => '300',
+            'nombre' => 'ORURO ',
+            'ciudad' => 'ORURO',
+            'creado_por'=> 'admin',
+            'modificado_por'=>'admin',
+       ]);
+        DB::table('ubicaciones')->insert([
+
+            'id_ubicacion' => '301',
+            'nombre' => 'POTOSI',
+            'ciudad' => ' POTOSI',
+            'creado_por'=> 'admin',
+            'modificado_por'=>'admin',
+       ]);
+        DB::table('ubicaciones')->insert([
+
+            'id_ubicacion' => '302',
+            'nombre' => 'MONTERO',
+            'ciudad' => 'SCZ',
+            'creado_por'=> 'admin',
+            'modificado_por'=>'admin',
+       ]);
+        DB::table('ubicaciones')->insert([
+
+            'id_ubicacion' => '303',
+            'nombre' => 'EQUIPETROL ',
+            'ciudad' => 'SCZ',
+            'creado_por'=> 'admin',
+            'modificado_por'=>'admin',
+       ]);
+        DB::table('ubicaciones')->insert([
+
+            'id_ubicacion' => '304',
+            'nombre' => '3PF',
+            'ciudad' => 'SCZ',
+            'creado_por'=> 'admin',
+            'modificado_por'=>'admin',
+       ]);
+        DB::table('ubicaciones')->insert([
+
+            'id_ubicacion' => '305',
+            'nombre' => 'SCZ',
+            'ciudad' => 'SCZ',
+            'creado_por'=> 'admin',
+            'modificado_por'=>'admin',
+       ]);
+        DB::table('ubicaciones')->insert([
+
+            'id_ubicacion' => '306',
+            'nombre' => 'VOLVO',
+            'ciudad' => 'SCZ',
+            'creado_por'=> 'admin',
+            'modificado_por'=>'admin',
+       ]);
 
 
 

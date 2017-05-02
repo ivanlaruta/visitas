@@ -31,7 +31,7 @@ class CreateTarjetasTable extends Migration
             $table->date('fecha_deposito')->nullable();
             $table->integer('monto')->nullable();
             $table->string('ci_visitante',100)->nullable()->unsigned();
-
+            $table->string('observacion_perdida')->nullable();
             //*************************//
            
             $table->string('creado_por')->nullable()->unsigned();

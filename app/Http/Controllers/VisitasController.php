@@ -406,6 +406,7 @@ class VisitasController extends Controller
         $ta->monto = $request->monto;
         $ta->fecha_deposito = $request->fecha_deposito;
         $ta->ci_visitante = $request->ci_visitante;
+        $ta->observacion_perdida = $request->observacion_perdida;
         $ta -> modificado_por = Auth::user()->usuario;
 
         $ta->save();
