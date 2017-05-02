@@ -14,7 +14,7 @@
                         {!! Form::open(['route' => 'reportes.repAdmin','method' => 'GET'])!!}
                         
                             <div class="col-lg-10">
-                            {!! Form::select('id_ubicacion',$ubica,$request->id_ubicacion,['class'=>'form-control','placeholder'=>'Todas las ubicaciones'])!!}
+                            {!! Form::select('id_ubicacion',$ubica,$request->id_ubicacion,['class'=>'form-control','placeholder'=>' TODAS LAS UBICACIONES'])!!}
                              </div> 
                             <div class="col-lg-2">
                             {!! Form::submit('Buscar',['class'=>'btn btn-primary'])!!}
@@ -42,7 +42,7 @@
                                     </div>
                                 </div>
                             </div>
-                            <a href="#">
+                            <a href="{{ route('visitas.AdminVisitasRegulares',$request -> id_ubicacion )}}">
                                 <div class="panel-footer">
                                     <span class="pull-left">Ver detalle</span>
                                     <span class="pull-right"><i class="fa fa-arrow-circle-right"></i></span>
@@ -65,7 +65,7 @@
                                     </div>
                                 </div>
                             </div>
-                            <a href="#">
+                            <a href="{{ route('visitas.AdminVisitasReportadas',$request -> id_ubicacion )}}">
                                 <div class="panel-footer">
                                     <span class="pull-left">Ver detalle</span>
                                     <span class="pull-right"><i class="fa fa-arrow-circle-right"></i></span>
@@ -87,7 +87,7 @@
                                     </div>
                                 </div>
                             </div>
-                            <a href="#">
+                            <a href="{{ route('visitas.AdminVisitasRegularizadas',$request -> id_ubicacion )}}">
                                 <div class="panel-footer">
                                     <span class="pull-left">Ver detalle</span>
                                     <span class="pull-right"><i class="fa fa-arrow-circle-right"></i></span>
@@ -120,8 +120,7 @@
                     </div>
                 </div>
                 
-                
-                <div class="row">
+               {{--  <div class="row">
                     <div class="col-lg-12">
                         <div class="panel panel-default">
                             <div class="panel-heading">
@@ -132,140 +131,67 @@
                             </div>
                         </div>
                     </div>
-                </div>
+                </div> --}}
                 <!-- /.row -->
 
                 <div class="row">
-                    <div class="col-lg-4">
+                <hr>
+                  <div class="col-lg-4">
+
                         <div class="panel panel-default">
                             <div class="panel-heading">
-                                <h3 class="panel-title"><i class="fa fa-long-arrow-right fa-fw"></i> Donut Chart</h3>
-                            </div>
-                            <div class="panel-body">
-                                <div id="morris-donut-chart"></div>
-                                <div class="text-right">
-                                    <a href="#">Ver detalle <i class="fa fa-arrow-circle-right"></i></a>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                    <div class="col-lg-4">
-                        <div class="panel panel-default">
-                            <div class="panel-heading">
-                                <h3 class="panel-title"><i class="fa fa-clock-o fa-fw"></i> Tasks Panel</h3>
+                                <h3 class="panel-title"><i class="fa fa-clock-o fa-fw"></i> Empleados mas visitados</h3>
                             </div>
                             <div class="panel-body">
                                 <div class="list-group">
-                                    <a href="#" class="list-group-item">
-                                        <span class="badge">just now</span>
-                                        <i class="fa fa-fw fa-calendar"></i> Calendar updated
-                                    </a>
-                                    <a href="#" class="list-group-item">
-                                        <span class="badge">4 minutes ago</span>
-                                        <i class="fa fa-fw fa-comment"></i> Commented on a post
-                                    </a>
-                                    <a href="#" class="list-group-item">
-                                        <span class="badge">23 minutes ago</span>
-                                        <i class="fa fa-fw fa-truck"></i> Order 392 shipped
-                                    </a>
-                                    <a href="#" class="list-group-item">
-                                        <span class="badge">46 minutes ago</span>
-                                        <i class="fa fa-fw fa-money"></i> Invoice 653 has been paid
-                                    </a>
-                                    <a href="#" class="list-group-item">
-                                        <span class="badge">1 hour ago</span>
-                                        <i class="fa fa-fw fa-user"></i> A new user has been added
-                                    </a>
-                                    <a href="#" class="list-group-item">
-                                        <span class="badge">2 hours ago</span>
-                                        <i class="fa fa-fw fa-check"></i> Completed task: "pick up dry cleaning"
-                                    </a>
-                                    <a href="#" class="list-group-item">
-                                        <span class="badge">yesterday</span>
-                                        <i class="fa fa-fw fa-globe"></i> Saved the world
-                                    </a>
-                                    <a href="#" class="list-group-item">
-                                        <span class="badge">two days ago</span>
-                                        <i class="fa fa-fw fa-check"></i> Completed task: "fix error on sales page"
-                                    </a>
+                                    @foreach($emp_rank as $emp)
+                                        <a class="list-group-item">
+                                        <span class="badge">{{ $emp-> visitas }}</span>
+                                        {{ $emp-> nombre }} {{ $emp-> paterno }}
+                                        </a>
+                                    @endforeach
+                                    
                                 </div>
-                                <div class="text-right">
-                                    <a href="#">View All Activity <i class="fa fa-arrow-circle-right"></i></a>
+                               {{--  <div class="text-right">
+                                    <a href="#">Ver detalle <i class="fa fa-arrow-circle-right"></i></a>
+                                </div> --}}
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="col-lg-4">
+                        <div class="panel panel-default">
+                            <div class="panel-heading">
+                                <h3 class="panel-title"><i class="fa fa-clock-o fa-fw"></i> Motivos mas Frecuentes</h3>
+                            </div>
+                            <div class="panel-body">
+                                <div class="list-group">
+                                    @foreach($mot_rank as $mot)
+                                        <a class="list-group-item">
+                                        <span class="badge">{{ $mot-> visitas }}</span>
+                                        {{ $mot-> descripcion }}
+                                        </a>
+                                    @endforeach                                
                                 </div>
+                                
                             </div>
                         </div>
                     </div>
                     <div class="col-lg-4">
                         <div class="panel panel-default">
                             <div class="panel-heading">
-                                <h3 class="panel-title"><i class="fa fa-money fa-fw"></i> Transactions Panel</h3>
+                                <h3 class="panel-title"><i class="fa fa-money fa-fw"></i> Visitantes mas frecuentes</h3>
                             </div>
                             <div class="panel-body">
-                                <div class="table-responsive">
-                                    <table class="table table-bordered table-hover table-striped">
-                                        <thead>
-                                            <tr>
-                                                <th>Order #</th>
-                                                <th>Order Date</th>
-                                                <th>Order Time</th>
-                                                <th>Amount (USD)</th>
-                                            </tr>
-                                        </thead>
-                                        <tbody>
-                                            <tr>
-                                                <td>3326</td>
-                                                <td>10/21/2013</td>
-                                                <td>3:29 PM</td>
-                                                <td>$321.33</td>
-                                            </tr>
-                                            <tr>
-                                                <td>3325</td>
-                                                <td>10/21/2013</td>
-                                                <td>3:20 PM</td>
-                                                <td>$234.34</td>
-                                            </tr>
-                                            <tr>
-                                                <td>3324</td>
-                                                <td>10/21/2013</td>
-                                                <td>3:03 PM</td>
-                                                <td>$724.17</td>
-                                            </tr>
-                                            <tr>
-                                                <td>3323</td>
-                                                <td>10/21/2013</td>
-                                                <td>3:00 PM</td>
-                                                <td>$23.71</td>
-                                            </tr>
-                                            <tr>
-                                                <td>3322</td>
-                                                <td>10/21/2013</td>
-                                                <td>2:49 PM</td>
-                                                <td>$8345.23</td>
-                                            </tr>
-                                            <tr>
-                                                <td>3321</td>
-                                                <td>10/21/2013</td>
-                                                <td>2:23 PM</td>
-                                                <td>$245.12</td>
-                                            </tr>
-                                            <tr>
-                                                <td>3320</td>
-                                                <td>10/21/2013</td>
-                                                <td>2:15 PM</td>
-                                                <td>$5663.54</td>
-                                            </tr>
-                                            <tr>
-                                                <td>3319</td>
-                                                <td>10/21/2013</td>
-                                                <td>2:13 PM</td>
-                                                <td>$943.45</td>
-                                            </tr>
-                                        </tbody>
-                                    </table>
+                                <div class="list-group">
+                                    @foreach($vis_rank as $vis)
+                                        <a class="list-group-item">
+                                        <span class="badge">{{ $vis-> visitas }}</span>
+                                        {{ $vis-> nombre }} {{ $vis-> paterno }}
+                                        </a>
+                                    @endforeach                              
                                 </div>
-                                <div class="text-right">
-                                    <a href="#">View All Transactions <i class="fa fa-arrow-circle-right"></i></a>
-                                </div>
+                               
                             </div>
                         </div>
                     </div>

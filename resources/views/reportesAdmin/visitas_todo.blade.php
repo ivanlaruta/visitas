@@ -98,6 +98,19 @@
 @section('scripts')
 <script>
 
+
+	$(document).ready(function() {
+        // alert('1');
+        $('#todo').DataTable({
+            
+            responsive: true
+
+        });
+    });
+
+	
+
+
 	$(document).ready(function(e) {
         
         $('.miboton').click(function(e) {
@@ -109,14 +122,7 @@
         });
     });
 
-    $(document).ready(function() {
-        // alert('1');
-        $('#todo').DataTable({
-            
-            responsive: true
-
-        });
-    });
+    
 
 
     function printData()

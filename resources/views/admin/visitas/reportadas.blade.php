@@ -64,14 +64,14 @@
 								<td>	
 									
 								
+
 								<div class="row">
-									<div class="col-md-6">
+									
 										<a href="{{ route('visitas.rehabilitar',$vis -> id_visita )}}" onclick ="return confirm('¿Dese rehabilitar esta visita?')" class="btn btn-success btn-sm" title="Rehabilitar visita"><span class="glyphicon glyphicon-thumbs-up"></span></a>
-									</div>
-									<div class="col-md-6">
+									
 										<a href="{{ route('visitas.baja',$vis -> id_visita )}}" class="btn btn-danger btn-sm" title="Marcar como perdida"> <span class="glyphicon glyphicon-thumbs-down"></span></a>
 									
-									</div>
+									
 								</div>
 								</td>
 							</tr>

@@ -1,6 +1,12 @@
  <!-- Sidebar Menu Items - These collapse to the responsive navigation menu on small screens -->
             <div class="collapse navbar-collapse navbar-ex1-collapse">
                 <ul class="nav navbar-nav side-nav">
+                    <li>
+                        <a href="{{ route('reportes.repAdmin')}}"><i class="fa fa-bar-chart-o"></i> Reportes</a>
+                    </li>
+                     <li>
+                        <a href="{{ route('visitas.reportadas')}}"><i class="glyphicon glyphicon-exclamation-sign"></i> Regularizacion de visitas</a>
+                    </li>
                     <li >
                         <a href="{{ route('users.index')}}"><i class="fa fa-user"></i> Usuarios</a>
                      </li>
@@ -10,9 +16,7 @@
                     <li>
                         <a href="{{ route('visitantes.index')}}"><i class="fa fa-sign-out"></i> Visitantes</a>
                     </li>
-                     <li>
-                        <a href="{{ route('visitas.reportadas')}}"><i class="glyphicon glyphicon-exclamation-sign"></i> Regularizacion de visitas</a>
-                    </li>
+                    
                     <li>
                         <a href="javascript:;" data-toggle="collapse" data-target="#demo"><i class="fa fa-keyboard-o"></i> Administracion <i class="fa fa-fw fa-caret-down"></i></a>
                         <ul id="demo" class="collapse in">
@@ -28,32 +32,13 @@
                             <li>
                                 <a href="{{ route('motivos.index')}}">Motivos</a>
                             </li>
-                        </ul>
-                    </li>
-
-                     <li>
-                        <a href="javascript:;" data-toggle="collapse" data-target="#demo2"><i class="fa fa-bar-chart-o"></i> Reportes <i class="fa fa-fw fa-caret-down"></i></a>
-                        <ul id="demo2" class="collapse">
                             <li>
-                                <a href="{{ route('reportes.repAdmin')}}">Reportes</a>
-                            </li>
-                            <li>
-                                <a href="#">Visitas entre Fechas</a>
-                            </li>
-                            <li>
-                                <a href="#">Usuarios mas visitados</a>
-                            </li>
-                            <li>
-                                <a href="#">Motivos mas frecuentes</a>
+                                <a href="{{ route('parametricas.index')}}">Parametrizacion</a>
                             </li>
                         </ul>
                     </li>
 
-                    <li>
-                        <a href="{{ route('parametricas.index')}}"><i class="fa fa-fw fa-file"></i> Parametrizacion</a>
-                    </li>
-
-                    <li>
+                    {{-- <li>
                         <a href="javascript:;" data-toggle="collapse" data-target="#bajas"><i class="fa fa-bar-chart-o"></i> Bajas <i class="fa fa-fw fa-caret-down"></i></a>
                         <ul id="bajas" class="collapse">
                             <li>
@@ -81,7 +66,7 @@
                                 <a href="#">Parametricas</a>
                             </li>
                         </ul>
-                    </li>
+                    </li> --}}
                     
                 </ul>
             </div>

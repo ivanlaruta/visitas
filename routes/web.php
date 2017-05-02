@@ -151,6 +151,21 @@ Route::group(['prefix'=>'ope','middleware'=>'auth'],function(){
 });
 Route::group(['prefix'=>'rep','middleware'=>'auth'],function(){
 
+
+	//=========== administrador=======================
+	route::get('reportes/{id}/AdminVisitasRegulares',[
+		'uses' => 'ReportesController@AdminVisitasRegulares', 
+		'as'   =>	'visitas.AdminVisitasRegulares'
+	]);
+	route::get('reportes/{id}/AdminVisitasReportadas',[
+		'uses' => 'ReportesController@AdminVisitasReportadas', 
+		'as'   =>	'visitas.AdminVisitasReportadas'
+	]);
+	route::get('reportes/{id}/AdminVisitasRegularizadas',[
+		'uses' => 'ReportesController@AdminVisitasRegularizadas', 
+		'as'   =>	'visitas.AdminVisitasRegularizadas'
+	]);
+	
 	route::get('reportes/{id}/visitasTodoAdmin',[
 		'uses' => 'ReportesController@visitasTodoAdmin', 
 		'as'   =>	'visitas.visitasTodoAdmin'
@@ -161,6 +176,8 @@ Route::group(['prefix'=>'rep','middleware'=>'auth'],function(){
 		'as'   =>	'reportes.repAdmin'
 	]);
 	
+	//============= PDF ===========================
+
 	route::get('reportes/getPDF',[
 		'uses' =>'PDFController@getPDF',
 		'as'   =>	'reportes.getPDF'
@@ -170,6 +187,8 @@ Route::group(['prefix'=>'rep','middleware'=>'auth'],function(){
 		'uses' =>'PDFController@visitasFechas',
 		'as'   =>	'reportes.visitasFechas'
 	]);
+
+	//============= operadores ===========================
 
 	route::get('reportes/visitasDiarias',[
 		'uses' => 'ReportesController@visitasDiarias', 
