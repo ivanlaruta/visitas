@@ -154,7 +154,7 @@ class VisitasController extends Controller
             $empleados = DB::table('empleados as e')
                     ->select('e.*','c.*')
                     ->join('cargos as c','e.id_cargo','=','c.id_cargo')
-                    ->whereNotIn('c.area', ['VICEPRECIDENCIA', 'PRESIDENCIA'])
+                    ->whereNotIn('c.area', ['VICEPRECIDENCIA', 'PRESIDENCIA','POLICIA'])
                     ->where('e.id_ubicacion', $ubicacion )
                     ->where('e.estado','1')
                     ->get();
