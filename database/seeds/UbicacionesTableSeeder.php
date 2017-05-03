@@ -82,7 +82,7 @@ class UbicacionesTableSeeder extends Seeder
 
             'id_ubicacion' => '137',
             'nombre' => 'CALACOTO',
-            'ciudad' => '   LA PAZ',
+            'ciudad' => 'LA PAZ',
             'creado_por'=> 'admin',
             'modificado_por'=>'admin',
        ]);
@@ -90,7 +90,7 @@ class UbicacionesTableSeeder extends Seeder
 
             'id_ubicacion' => '135',
             'nombre' => 'CURVA DE HOLGUIN',
-            'ciudad' => '   LA PAZ',
+            'ciudad' => 'LA PAZ',
             'creado_por'=> 'admin',
             'modificado_por'=>'admin',
        ]);
@@ -98,7 +98,7 @@ class UbicacionesTableSeeder extends Seeder
 
             'id_ubicacion' => '100',
             'nombre' => 'EJECUTIVO SR',
-            'ciudad' => '   LA PAZ',
+            'ciudad' => 'LA PAZ',
             'creado_por'=> 'admin',
             'modificado_por'=>'admin',
        ]);
@@ -113,8 +113,8 @@ class UbicacionesTableSeeder extends Seeder
         DB::table('ubicaciones')->insert([
 
             'id_ubicacion' => '131C',
-            'nombre' => 'LA PAZ OFICNA CENTRAL',
-            'ciudad' => ' LA PAZ',
+            'nombre' => 'LA PAZ OFICINA CENTRAL',
+            'ciudad' => 'LA PAZ',
             'creado_por'=> 'admin',
             'modificado_por'=>'admin',
        ]);
@@ -122,7 +122,7 @@ class UbicacionesTableSeeder extends Seeder
 
             'id_ubicacion' => '118',
             'nombre' => 'MIRAFLORES',
-            'ciudad' => ' LA PAZ',
+            'ciudad' => 'LA PAZ',
             'creado_por'=> 'admin',
             'modificado_por'=>'admin',
        ]);
@@ -130,7 +130,7 @@ class UbicacionesTableSeeder extends Seeder
 
             'id_ubicacion' => '101',
             'nombre' => 'SANTA CRUZ',
-            'ciudad' => ' LA PAZ',
+            'ciudad' => 'LA PAZ',
             'creado_por'=> 'admin',
             'modificado_por'=>'admin',
        ]);
@@ -146,7 +146,7 @@ class UbicacionesTableSeeder extends Seeder
 
             'id_ubicacion' => '301',
             'nombre' => 'POTOSI',
-            'ciudad' => ' POTOSI',
+            'ciudad' => 'POTOSI',
             'creado_por'=> 'admin',
             'modificado_por'=>'admin',
        ]);
@@ -154,7 +154,7 @@ class UbicacionesTableSeeder extends Seeder
 
             'id_ubicacion' => '302',
             'nombre' => 'MONTERO',
-            'ciudad' => 'SCZ',
+            'ciudad' => 'SANTA CRUZ',
             'creado_por'=> 'admin',
             'modificado_por'=>'admin',
        ]);
@@ -162,7 +162,7 @@ class UbicacionesTableSeeder extends Seeder
 
             'id_ubicacion' => '303',
             'nombre' => 'EQUIPETROL ',
-            'ciudad' => 'SCZ',
+            'ciudad' => 'SANTA CRUZ',
             'creado_por'=> 'admin',
             'modificado_por'=>'admin',
        ]);
@@ -170,7 +170,7 @@ class UbicacionesTableSeeder extends Seeder
 
             'id_ubicacion' => '304',
             'nombre' => '3PF',
-            'ciudad' => 'SCZ',
+            'ciudad' => 'SANTA CRUZ',
             'creado_por'=> 'admin',
             'modificado_por'=>'admin',
        ]);
@@ -178,7 +178,7 @@ class UbicacionesTableSeeder extends Seeder
 
             'id_ubicacion' => '305',
             'nombre' => 'SCZ',
-            'ciudad' => 'SCZ',
+            'ciudad' => 'SANTA CRUZ',
             'creado_por'=> 'admin',
             'modificado_por'=>'admin',
        ]);
@@ -186,7 +186,7 @@ class UbicacionesTableSeeder extends Seeder
 
             'id_ubicacion' => '306',
             'nombre' => 'VOLVO',
-            'ciudad' => 'SCZ',
+            'ciudad' => 'SANTA CRUZ',
             'creado_por'=> 'admin',
             'modificado_por'=>'admin',
        ]);

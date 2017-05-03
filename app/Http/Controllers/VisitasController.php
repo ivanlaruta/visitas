@@ -54,25 +54,35 @@ class VisitasController extends Controller
         $tipoDoc = Parametrica::where('nombre_tabla','TIPO_DOC')->orderBy('id','ASC')->pluck('descripcion','id');
         // $empleados = Empleado::all(['ci', 'nombre','paterno']);
 
-        $empleados = Empleado::orderBy('paterno','ASC')
-                    ->select('*')
+        // $empleados = Empleado::orderBy('paterno','ASC')
+        //             ->select('*')
                     
-                    ->where('id_ubicacion', $ubicacion )
-                    ->where('estado','1')
-                    ->get();
+        //             ->where('id_ubicacion', $ubicacion )
+        //             ->where('estado','1')
+        //             ->get();
+       
 
         if (Auth::user()->empleado->cargo->descripcion == 'POLICIA')
         {
-             $tarjetas = Tarjeta::
+            $tarjetas = Tarjeta::
                     select('id_tarjeta','tipo_tarjeta')
                     ->where('estado','1')
                     ->where('id_ubicacion', $ubicacion)                    
                     ->whereNull('ci_empleado')
                     ->where('estado_prestamo','=','1') 
                     ->whereIn('tipo_tarjeta', ['VISITA', 'PERSONAL AUTORIZADO', 'SIN NOMBRE', 'PASANTE'])
-
                     ->orderBy('id_tarjeta','ASC')
                     ->get();
+
+            $empleados = DB::table('empleados as e')
+                    ->select('e.*','c.*')
+                    ->join('cargos as c','e.id_cargo','=','c.id_cargo')
+                    ->whereNotIn('c.area', ['VICEPRECIDENCIA', 'PRESIDENCIA'])
+                    ->where('e.id_ubicacion', $ubicacion )
+                    ->where('e.estado','1')
+                    ->get();
+
+           
         }
         else
         {
@@ -83,12 +93,19 @@ class VisitasController extends Controller
                     ->whereNull('ci_empleado')
                     ->where('estado_prestamo','=','1')    
                     ->whereIn ('tipo_tarjeta',['VICEPRESIDENCIA','PRESIDENCIA'])
-
-
                     ->orderBy('id_tarjeta','ASC')
                     ->get();
 
+
+        $empleados = DB::table('empleados as e')
+                    ->select('e.*','c.*')
+                    ->join('cargos as c','e.id_cargo','=','c.id_cargo')
+                    ->whereIn('c.area', ['VICEPRECIDENCIA', 'PRESIDENCIA'])
+                    ->where('e.id_ubicacion', $ubicacion )
+                    ->where('e.estado','1')
+                    ->get();
         }
+
         $motivos = Motivo::orderBy('id_motivo','ASC')->pluck('descripcion','id_motivo');
         // $empleados = Empleado::all()->pluck('nombre','ci');
         
@@ -116,12 +133,12 @@ class VisitasController extends Controller
         $motivos = Motivo::orderBy('id_motivo','ASC')->pluck('descripcion','id_motivo');
         $dato =Visitante::find($id);
 
-        $empleados = Empleado::orderBy('paterno','ASC')
-                    ->select('*')
+        // $empleados = Empleado::orderBy('paterno','ASC')
+        //             ->select('*')
                     
-                    ->where('id_ubicacion', $ubicacion )
-                    ->where('estado','1')
-                    ->get();
+        //             ->where('id_ubicacion', $ubicacion )
+        //             ->where('estado','1')
+        //             ->get();
 
         if (Auth::user()->empleado->cargo->descripcion == 'POLICIA')
         {
@@ -134,6 +151,13 @@ class VisitasController extends Controller
 
                     ->orderBy('id_tarjeta','ASC')
                     ->get();
+            $empleados = DB::table('empleados as e')
+                    ->select('e.*','c.*')
+                    ->join('cargos as c','e.id_cargo','=','c.id_cargo')
+                    ->whereNotIn('c.area', ['VICEPRECIDENCIA', 'PRESIDENCIA'])
+                    ->where('e.id_ubicacion', $ubicacion )
+                    ->where('e.estado','1')
+                    ->get();
         }
         else
         {
@@ -145,6 +169,14 @@ class VisitasController extends Controller
                     ->whereIn ('tipo_tarjeta',['VICEPRESIDENCIA','PRESIDENCIA'])
 
                     ->orderBy('id_tarjeta','ASC')
+                    ->get();
+
+                    $empleados = DB::table('empleados as e')
+                    ->select('e.*','c.*')
+                    ->join('cargos as c','e.id_cargo','=','c.id_cargo')
+                    ->whereIn('c.area', ['VICEPRECIDENCIA', 'PRESIDENCIA'])
+                    ->where('e.id_ubicacion', $ubicacion )
+                    ->where('e.estado','1')
                     ->get();
 
         }

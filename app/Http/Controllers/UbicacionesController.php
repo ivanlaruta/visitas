@@ -76,7 +76,7 @@ class UbicacionesController extends Controller
      */
     public function edit($id)
     {
-        $ciudad = Parametrica::where('nombre_tabla','CIUDAD')->orderBy('id','ASC')->pluck('descripcion','descripcion');
+       $ciudad = Parametrica::where('nombre_tabla','CIUDAD')->orderBy('id','ASC')->pluck('descripcion','descripcion');
        $ub =Ubicacion::find($id);
        return view('admin.ubicaciones.edit')->with('ub',$ub)->with('ciudad',$ciudad);
     }

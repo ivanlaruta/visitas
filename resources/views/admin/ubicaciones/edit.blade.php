@@ -23,7 +23,7 @@
 					</div>
 
 					{!! Form::label('dir','Direccion')!!}
-					{!! Form::text('direccion',$ub->direccion,['class'=> 'form-control','placeholder'=>'Ingrese direccion','required'])!!}
+					{!! Form::text('direccion',$ub->direccion,['class'=> 'form-control','placeholder'=>'Ingrese direccion'])!!}
 				</div>
 				<div class="form-group">
 					{!! Form::submit('Modificar',['class'=>'btn btn-primary'])!!}

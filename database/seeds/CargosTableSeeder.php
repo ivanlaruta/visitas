@@ -15,7 +15,8 @@ class CargosTableSeeder extends Seeder
     	DB::table('cargos')->delete();
 
        DB::table('cargos')->insert([
-             'descripcion' => 'PRUEBA',       
+             'descripcion' => 'ADMIN',
+             'estado'=> 0,      
              'creado_por'=> 'admin',
              'modificado_por'=>'admin',
        ]);
