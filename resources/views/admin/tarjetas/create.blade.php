@@ -24,6 +24,7 @@
 					
 					<div class="form-group">
 					<h6>Ubicacion:</h4>
+					
 						{!! Form::select('id_ubicacion',$ubica,null,['class'=>'form-control','placeholder'=>'seleccione una ubicacion','required'])!!}
 					</div>
 

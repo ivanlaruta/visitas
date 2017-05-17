@@ -80,7 +80,7 @@
 							@if($vis -> estado_visita == 4)
 								<td><span class="text-danger">Finalizada con tarjeta extraviada</span></td>
 							@else
-								<td><span class="text-success">Finalizada</span></td>
+								<td><span class="text-danger">Finalizada</span></td>
 							@endif
 						@endif		
 					@endif
