@@ -95,6 +95,12 @@ class UsersController extends Controller
        return view('admin.usuarios.edit')->with('us',$us);
     }
 
+    public function edit_pass($id)
+    {
+       $us =User::find($id);
+       return view('ope.usuarios.edit')->with('us',$us);
+    }
+
     /**
      * Update the specified resource in storage.
      *
@@ -113,8 +119,31 @@ class UsersController extends Controller
         
         $us -> save();
         return redirect()->route('users.index')->with('mensaje',"Usuario modificado exitosamente!");
-       
     }
+
+    public function update_pass(Request $request, $id)
+    {
+        $us =User::find($id);
+
+        $ant = bcrypt($request->password_ant);
+       
+            if($request->password1==$request->password2)
+            {
+                $us->password = bcrypt($request->password1);
+                $us ->modificado_por = Auth::user()->usuario;
+                $us -> save();
+                return redirect()->route('visitas.create')
+                ->with('mensaje',"Usuario modificado exitosamente!")
+                ;
+            }
+            else
+            {
+                return redirect()->route('users.edit_pass',['id'=>$id])->with('mensaje2',"Las nuevas contraseñas NO coinciden!");
+            }
+
+
+    }
+
 
     /**
      * Remove the specified resource from storage.

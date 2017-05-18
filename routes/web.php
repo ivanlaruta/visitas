@@ -124,6 +124,16 @@ Route::group(['prefix'=>'admin','middleware'=>'auth'],function(){
 
 Route::group(['prefix'=>'ope','middleware'=>'auth'],function(){
 
+	route::get('users/{id}/edit_pass',[
+		'uses' => 'UsersController@edit_pass', 
+		'as'   =>	'users.edit_pass'
+	]);
+
+	route::get('users/{id}/update_pass',[
+		'uses' => 'UsersController@update_pass', 
+		'as'   =>	'users.update_pass'
+	]);
+
 	route::get('visitas/autocomplete',[
 		'uses' => 'AutoCompleteController@autocomplete', 
 		'as'   =>	'visitas.autocomplete'

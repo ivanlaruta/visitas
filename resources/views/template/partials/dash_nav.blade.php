@@ -27,6 +27,11 @@
                     <ul class="dropdown-menu">
                     
                         <li>
+                                        <a href="{{ route('users.edit_pass',Auth::user()->usuario )}}"><i class="fa fa-fw fa-gear"></i>
+                                            contraseña
+                                        </a>
+    
+
                                         <a href="{{ route('logout') }}"
                                             onclick="event.preventDefault();
                                                      document.getElementById('logout-form').submit();"><i class="fa fa-fw fa-power-off"></i>
