@@ -2,7 +2,7 @@
 
 use Illuminate\Database\Seeder;
 
-class PoliciasSeeder extends Seeder
+class PoliUsuarioTableSeeder extends Seeder
 {
     /**
      * Run the database seeds.
@@ -137,9 +137,5 @@ class PoliciasSeeder extends Seeder
             'estado' => '1',
             'id_rol'=> '0',
         ]);
-        
     }
 }
-
-
-        
