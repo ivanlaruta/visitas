@@ -14,8 +14,8 @@ class CreateVisitantesTable extends Migration
     public function up()
     {
         Schema::create('visitantes', function (Blueprint $table) {
-            $table->string('ci',15);
-            $table->string('ex',2);
+            $table->string('ci',30);
+            $table->string('ex',3);
             $table->string('nombre',30);
             $table->string('paterno',30);
             $table->string('materno',30)->nullable();

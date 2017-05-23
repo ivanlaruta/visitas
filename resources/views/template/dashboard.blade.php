@@ -114,6 +114,28 @@
     <script src="{{ asset('libs/sbadmin/vendor/datatables-plugins/dataTables.bootstrap.js')}}"></script>
     <script src="{{ asset('libs/sbadmin/vendor/datatables-responsive/dataTables.responsive.js')}}"></script> 
     
+
+
+     <!-- Datatables -->
+    <script src="{{asset('bower_components/gentelella/vendors/datatables.net/js/jquery.dataTables.min.js')}}"></script>
+    <script src="{{asset('bower_components/gentelella/vendors/datatables.net-bs/js/dataTables.bootstrap.min.js')}}"></script>
+    <script src="{{asset('bower_components/gentelella/vendors/datatables.net-buttons/js/dataTables.buttons.min.js')}}"></script>
+    <script src="{{asset('bower_components/gentelella/vendors/datatables.net-buttons-bs/js/buttons.bootstrap.min.js')}}"></script>
+    <script src="{{asset('bower_components/gentelella/vendors/datatables.net-buttons/js/buttons.flash.min.js')}}"></script>
+    <script src="{{asset('bower_components/gentelella/vendors/datatables.net-buttons/js/buttons.html5.min.js')}}"></script>
+    <script src="{{asset('bower_components/gentelella/vendors/datatables.net-buttons/js/buttons.print.min.js')}}"></script>
+    <script src="{{asset('bower_components/gentelella/vendors/datatables.net-fixedheader/js/dataTables.fixedHeader.min.js')}}"></script>
+    <script src="{{asset('bower_components/gentelella/vendors/datatables.net-keytable/js/dataTables.keyTable.min.js')}}"></script>
+    <script src="{{asset('bower_components/gentelella/vendors/datatables.net-responsive/js/dataTables.responsive.min.js')}}"></script>
+    <script src="{{asset('bower_components/gentelella/vendors/datatables.net-responsive-bs/js/responsive.bootstrap.js')}}"></script>
+    <script src="{{asset('bower_components/gentelella/vendors/datatables.net-scroller/js/dataTables.scroller.min.js')}}"></script>
+    <script src="{{asset('bower_components/gentelella/vendors/jszip/dist/jszip.min.js')}}"></script>
+    <script src="{{asset('bower_components/gentelella/vendors/pdfmake/build/pdfmake.min.js')}}"></script>
+    <script src="{{asset('bower_components/gentelella/vendors/pdfmake/build/vfs_fonts.js')}}"></script>
+    
+
+
+    
  
     <!-- Morris Charts JavaScript -->
     <script src="{{ asset('libs/sbadmin/js/plugins/morris/raphael.min.js')}}"></script>
@@ -122,7 +144,14 @@
    
 
     <!-- Page-Level Demo Scripts - Tables - Use for reference -->
+  <!-- jQuery Smart Wizard -->
+    <script src="{{asset('bower_components/gentelella/vendors/jQuery-Smart-Wizard/js/jquery.smartWizard.js')}}"></script>
+    
+    
 
+    <!-- Custom Theme Scripts -->
+{{--     <script src="{{asset('bower_components/gentelella/build/js/custom.min.js')}}"></script> --}}   
+    <script src="{{asset('js/custom.js')}}"></script>
   @yield('scripts')
     
    

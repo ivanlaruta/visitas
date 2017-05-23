@@ -18,7 +18,7 @@ class CreateTarjetasTable extends Migration
             $table->string('tipo_tarjeta',30)->nullable();
             $table->string('psw',15)->nullable();
             $table->string('id_ubicacion',10)->nullable()->unsigned();
-            $table->string('ci_empleado',15)->nullable()->unsigned();
+            $table->string('ci_empleado',30)->nullable()->unsigned();
             $table->string('observacion')->nullable();
 
             $table->enum('estado',['0','1'])->default('1');

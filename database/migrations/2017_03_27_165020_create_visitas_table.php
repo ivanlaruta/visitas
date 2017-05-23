@@ -15,14 +15,14 @@ class CreateVisitasTable extends Migration
     {
         Schema::create('visitas', function (Blueprint $table) {
             $table->increments('id_visita');
-            $table->string('ci_visitante',15)->unsigned();
+            $table->string('ci_visitante',30)->unsigned();
             $table->string('tipo_doc',10);
             $table->date('fecha_entrada');
             $table->time('hora_entrada');
             $table->date('fecha_salida')->nullable();
             $table->time('hora_salida')->nullable();
             $table->integer('id_motivo');
-            $table->string('ci_empleado',15)->unsigned();
+            $table->string('ci_empleado',30)->unsigned();
             $table->string('id_tarjeta',15)->unsigned();
             $table->string('id_ubicacion',10)->nullable()->unsigned();
             $table->string('observaciones')->nullable();

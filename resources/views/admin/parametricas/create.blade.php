@@ -11,7 +11,7 @@
 
 				<div class="form-group">
 						<h6>Parametrica</h6>
-						{!! Form::select('nombre_tabla',['BANCO'=>'BANCO','AREA'=>'AREA','EXPEDIDO'=>'EXPEDIDO','TIPO_DOC'=>'TIPO DE DOCUMENTO','CIUDAD'=>'CIUDAD','TIPO_TAR'=>'TIPO DE TARJETA'],null,['class'=>'form-control','placeholder'=>'seleccione categoria','required'])!!}
+						{!! Form::select('nombre_tabla',['BANCO'=>'BANCO','AREA'=>'AREA','EXPEDIDO'=>'EXPEDIDO','TIPO_DOC'=>'TIPO DE DOCUMENTO','CIUDAD'=>'CIUDAD','TIPO_TAR'=>'TIPO DE TARJETA','EMP'=>'EMPRESA'],null,['class'=>'form-control','placeholder'=>'seleccione categoria','required'])!!}
 					</div>
 
 				<div class="form-group">

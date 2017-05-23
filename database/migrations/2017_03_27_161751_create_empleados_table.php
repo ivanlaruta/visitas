@@ -14,8 +14,8 @@ class CreateEmpleadosTable extends Migration
     public function up()
     {
         Schema::create('empleados', function (Blueprint $table) {
-            $table->string('ci',15);
-            $table->string('ex',2)->nullable();
+            $table->string('ci',30);
+            $table->string('ex',3)->nullable();
             $table->string('nombre',30);
             $table->string('paterno',30);
             $table->string('materno',30)->nullable();
@@ -23,6 +23,7 @@ class CreateEmpleadosTable extends Migration
             $table->integer('id_cargo')->nullable()->unsigned();
             $table->string('id_ubicacion',10)->unsigned();
             $table->string('telefono',15)->nullable();
+            $table->string('empresa',50)->nullable();
             
             $table->enum('estado',['1','0'])->default('1');
             $table->string('creado_por')->nullable()->unsigned();

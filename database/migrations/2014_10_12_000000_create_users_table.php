@@ -17,7 +17,7 @@ class CreateUsersTable extends Migration
 
             $table->string('usuario');
             $table->string('password');
-            $table->string('ci_empleado',15)->nullable()->unsigned();//ci_empleado
+            $table->string('ci_empleado',30)->nullable()->unsigned();//ci_empleado
             $table->enum('estado',['1','0','2'])->default('1');
             $table->string('id_rol',1)->unsigned();
 
