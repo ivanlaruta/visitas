@@ -30,7 +30,7 @@
 
 					<div class="form-group">
 					<h6>Empleado Asignado:</h4>
-					<select class="form-control select2" data-width="100%" name="ci_empleado" id="empleados" required >
+					<select class="form-control select2" data-width="100%" name="ci_empleado" id="empleados" >
 						<option value="">Selecione un empleado (Opcional) </option>
 					    @foreach($empleados as $emp)
 					      <option value="{{$emp->ci}}">{{$emp->paterno}} {{$emp->nombre}}</option>

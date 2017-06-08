@@ -46,7 +46,7 @@
 						{{-- <th>Tipo tarjeta</th> --}}
 						{{-- <th>Ubicacion</th> --}}
 						<th>Observacion</th>
-						<th>Accion</th>
+						<th>Acciones</th>
 					<tbody>
 						<?php $hoy=date("Y-m-d"); ?>
 						@foreach($vi as $vis)
@@ -81,7 +81,7 @@
 								<td>{{ $vis -> observaciones }}</td>
 								<td>
 								@if($vis -> estado_visita === '2')
-									<div class="row">
+									<div class="btn-group">
 										
 										<a href="#" class="btn btn-success btn-sm" disabled="disabled" ><span class="fa fa-mail-reply"></a>
 										
@@ -90,12 +90,12 @@
 										</div>
 								@else
 									@if($vis -> estado_visita === '3')
-										<div class="row">
+										<div class="btn-group">
 										
 										<a href="{{ route('visitas.restaurar',$vis -> id_visita )}}"  class="btn btn-info btn-sm" title="Terminar Visita"><span class="fa fa-mail-reply"></span></a>
 										</div>
 									@else
-										<div class="row">
+										<div class="btn-group">
 										
 										<a href="{{ route('visitas.salida',$vis -> id_visita )}}" onclick ="return confirm('¿Desea Marcar la Salida de este visitante ?')" class="btn btn-success btn-sm" title="Marcar salida de visita"><span class="fa fa-mail-reply"></span></a>
 										
@@ -124,7 +124,31 @@
     $(document).ready(function() {
         
         $('#todo').DataTable({
-            
+             "language": {
+              "sProcessing":     "Procesando...",
+              "sLengthMenu":     "Mostrar _MENU_ registros",
+              "sZeroRecords":    "No se encontraron resultados",
+              "sEmptyTable":     "Ningún dato disponible en esta tabla",
+              "sInfo":           "Mostrando registros del _START_ al _END_ de un total de _TOTAL_ registros",
+              "sInfoEmpty":      "Mostrando registros del 0 al 0 de un total de 0 registros",
+              "sInfoFiltered":   "(filtrado de un total de _MAX_ registros)",
+              "sInfoPostFix":    "",
+              "sSearch":         "Buscar:",
+              "sUrl":            "",
+              "sInfoThousands":  ",",
+              "sLoadingRecords": "Cargando...",
+              "oPaginate": {
+                  "sFirst":    "Primero",
+                  "sLast":     "Último",
+                  "sNext":     "Siguiente",
+                  "sPrevious": "Anterior"
+              },
+              "oAria": {
+                  "sSortAscending":  ": Activar para ordenar la columna de manera ascendente",
+                  "sSortDescending": ": Activar para ordenar la columna de manera descendente"
+              }
+
+        },
             responsive: true
 
         });

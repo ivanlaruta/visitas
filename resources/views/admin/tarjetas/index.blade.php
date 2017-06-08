@@ -19,14 +19,14 @@
   			<div class="col-md-12 ">
 				<a href="{{ route('tarjetas.create')}}" class="btn btn-success">Registrar nueva tarjeta</a><hr>
 				 <div class="table-responsive">
-				<table width="100%" class="table table-striped table-bordered mitabla" id="algo">
+				<table width="100%" class="table table-striped  mitabla" id="algo">
 
 					<thead>
 						<th>ID</th>
 						<th>Tipo tarjeta</th>
-						<th>Contraseña</th>
+						{{-- <th>Contraseña</th> --}}
 						<th>Ubicacion</th>
-						<th>Empleado asignado</th>
+						{{-- <th>Empleado asignado</th> --}}
 						<th></th>
 					</thead>
 					<tbody>
@@ -34,34 +34,33 @@
 							<tr>								
 								<td>{{ $tar-> id_tarjeta }}</td>
 								<td>{{ $tar -> tipo_tarjeta }}</td>
-								@if(is_null($tar -> ci_empleado))
+								{{-- @if(is_null($tar -> ci_empleado))
 									<td> --- </td>
 								@else
 									<td>{{ $tar -> psw }}</td>
-								@endif
-
+								@endif --}}
+								<td>
 								@if(is_null($tar -> id_ubicacion))
-									<td> --- </td>
+									 --- 
 								@else
-									<td>{{ $tar -> ubicacion -> nombre }}</td>
+									{{ $tar -> ubicacion -> nombre }}
 								@endif
 
-
-								@if(is_null($tar -> ci_empleado))
+								</td>
+								{{-- @if(is_null($tar -> ci_empleado))
 									<td>No asignado</td>
 								@else
 									<td>{{ $tar -> empleado -> nombre}} {{ $tar -> empleado -> paterno}}</td>
-								@endif
+								@endif --}}
 
 								<td>
-								<div class="row">
-									<div class="col-md-6">
+								
+									<div class="btn-group">
 									<a href="{{ route('tarjetas.edit',$tar -> id_tarjeta )}}" class="btn btn-warning" title="Modificar"><span class="fa fa-edit "></span></a>
-									</div>
-									<div class="col-md-6">
+									
 									<a href="{{ route('tarjetas.baja',$tar -> id_tarjeta )}}" onclick ="return confirm('¿Desea Dar de baja?')" class="btn btn-danger" title="Eliminar"><span class="fa fa-trash-o"></span></a>
 									</div>
-								</div>
+								
 								</td>
 
 							</tr>
